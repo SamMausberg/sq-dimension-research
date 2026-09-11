@@ -16,3 +16,26 @@ of permission to reuse protected material.
 
 This is an all-rights-reserved notice, not an open-source license. For permission,
 contact Samuel Mausberg through https://github.com/SamMausberg.
+
+Nothing in this notice limits rights granted under GitHub's Terms of Service
+for material published on GitHub.
+
+Third-party source excerpt
+--------------------------
+history/turn06/logs/current/fks_content_extraction.log contains an automated
+text extraction from pages 2-4 of:
+
+Vitaly Feldman, Pritish Kamath and Nathan Srebro (2026), "Invited Open Problem:
+Is the Power of Deep Learning over Linear Models Inherently Distribution
+Dependent?" Proceedings of Thirty Ninth Conference on Learning Theory,
+PMLR 336:7117-7122. Copyright 2026 the authors.
+Original publication: https://proceedings.mlr.press/v336/feldman26a.html
+
+This third-party text retains its Creative Commons Attribution 4.0
+International license under PMLR's publication agreement:
+https://creativecommons.org/licenses/by/4.0/
+https://proceedings.mlr.press/pmlr-license-agreement.html
+
+The extraction adds font markers and changes layout; it can contain extraction
+errors. It is not an authoritative edition and does not imply author endorsement.
+The all-rights-reserved notice above does not restrict this third-party text.

@@ -10,12 +10,12 @@
 \node[diagram box,text width=3.2cm] (joint) at (0,0) {Large joint-distribution\\certificate};
 \node[diagram box,text width=3.2cm,fill=oiOrange!15] (hard) at (5,0) {SQ-hard};
 \node[diagram box,text width=3.0cm] (gram) at (10,0) {Large ordinary-Gram\\certificate};
-\draw[solid implication,<->] (rect)--node[above]{\cref{thm:communication}}(comm);
+\draw[solid implication,<->] (rect)--node[above=2pt,align=center,font=\tiny]{Theorem\\\ref{thm:communication}}(comm);
 \draw[solid implication] (rect)--node[left,font=\tiny,align=right]{\cref{thm:energy}\\product weights}(plain);
 \draw[solid implication] (rect.south east)--node[above,sloped]{\cref{thm:main}}(easy.north west);
 \draw[solid implication] (comm)--node[right]{\cref{thm:communication}}(easy);
-\draw[solid implication] (joint)--node[above]{\cref{thm:barrier}}(hard);
-\draw[solid implication] (gram)--node[above]{\cref{thm:barrier}}(hard);
+\draw[solid implication] (joint)--node[above=2pt,align=center,font=\tiny]{Theorem\\\ref{thm:barrier}}(hard);
+\draw[solid implication] (gram)--node[above=2pt,align=center,font=\tiny]{Theorem\\\ref{thm:barrier}}(hard);
 \draw[solid implication] (gram)--node[right,align=left]{\cref{thm:energy}}(smallrect);
 \draw[coexist] (rect.north) to[bend left=30] node[above]{incidence flips: \cref{thm:construction}} (rank.north);
 \draw[coexist] (easy)--node[above=7pt,font=\tiny,align=center]{cube halfspaces\\\cref{thm:halfspaces}}(smallrect);

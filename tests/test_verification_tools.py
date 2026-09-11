@@ -146,6 +146,65 @@ class SourceAuditTests(unittest.TestCase):
             self.assertEqual(json.loads(report.read_text(encoding="utf-8"))["status"], "FAILED")
 
 
+class PackageTests(unittest.TestCase):
+    def test_render_failure_cannot_leave_package_pass_or_advertise_final_files(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paper = root / "paper"
+            paper.mkdir()
+            for name in ("paper.tex", "paper.bbl", "paper.pdf", "references.bib"):
+                (paper / name).write_text("placeholder", encoding="utf-8")
+            output = root / "output"
+            output.mkdir()
+            report_path = output / "clean_package.json"
+            report_path.write_text('{"status":"PASS"}', encoding="utf-8")
+            script = f"""
+import json
+import subprocess
+import sys
+from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
+from tools import package_submission
+
+root = Path({str(root)!r})
+output = root / "output"
+
+def compile_success(command, **kwargs):
+    running = json.loads((output / "clean_package.json").read_text())
+    assert running["status"] == "RUNNING"
+    report = Path(command[command.index("--report") + 1])
+    report.write_text(json.dumps(dict(status="PASS", pages=1)))
+    return subprocess.CompletedProcess(command, 0)
+
+fake_fitz = SimpleNamespace(open=lambda path: [None] if Path(path) == root / "paper/paper.pdf" else [])
+with (
+    patch.object(package_submission, "ROOT", root),
+    patch.object(sys, "argv", ["package_submission.py", "--output", str(output)]),
+    patch.object(subprocess, "run", side_effect=compile_success),
+    patch.dict(sys.modules, {{"fitz": fake_fitz}}),
+):
+    package_submission.main()
+"""
+            process = subprocess.run(
+                [sys.executable, "-X", "utf8", "-c", script],
+                cwd=Path(__file__).resolve().parents[1],
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+            )
+            self.assertNotEqual(process.returncode, 0)
+            self.assertIn("page count differs", process.stderr)
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(report["status"], "FAILED")
+            self.assertTrue(report["render_comparison_requested"])
+            self.assertNotIn("PASS:", process.stdout)
+            self.assertFalse((output / "paper.pdf").exists())
+            self.assertFalse((output / "paper.tex").exists())
+            compilation = json.loads((output / "package_compilation.json").read_text())
+            self.assertEqual(compilation["status"], "PASS")
+
+
 @unittest.skipUnless(shutil.which("git"), "Manifest membership requires Git.")
 class ManifestTests(unittest.TestCase):
     def test_inventory_ignores_dependencies_and_detects_untracked_additions(self):

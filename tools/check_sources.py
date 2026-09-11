@@ -269,7 +269,7 @@ def main():
     parser.add_argument(
         "--output",
         type=Path,
-        default=ROOT / "audits/current",
+        default=ROOT / "work/paper/sources",
         help="Directory for source audit reports and extracts.",
     )
     args = parser.parse_args()

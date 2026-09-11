@@ -13,6 +13,15 @@
 \usepackage{xr}
 \usepackage[hidelinks]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
+% Uncaptioned proof ledgers have separate counters and hyperlink destinations.
+\newcounter{auditlongtable}
+\makeatletter
+\newenvironment{auditlongtable}{%
+  \let\c@table\c@auditlongtable
+  \renewcommand{\theHtable}{audit.\arabic{auditlongtable}}%
+  \longtable
+}{\endlongtable}
+\makeatother
 \hypersetup{pdftitle={Distribution-independent SQ learning does not imply low dimension complexity},pdfauthor={Samuel Mausberg},pdfsubject={A negative answer to Open Question 2 of Feldman, Kamath and Srebro},pdfkeywords={statistical queries, sign-rank, dimension complexity, learning theory}}
 \declaretheorem[name=Theorem]{theorem}
 \declaretheorem[name=Lemma,sibling=theorem]{lemma}

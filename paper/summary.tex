@@ -2,11 +2,11 @@
 \section*{Summary of results}
 \begin{center}\small
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\linewidth}{@{}X p{.20\linewidth}p{.14\linewidth}@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}X >{\raggedright\arraybackslash}p{.20\linewidth}>{\raggedright\arraybackslash}p{.14\linewidth}@{}}\toprule
 Statement & Status & Reference\\\midrule
 $\rect(H)\ge1/\rho$ gives $O(\rho(\log K+\log(1/\epsilon)))$ queries and tolerance $\Omega(\epsilon/(\rho\log(1/\epsilon)))$. & Unconditional & \cref{thm:main}\\
-Incidence flips have dimension $\Omega(N/\log M)$ and constant inverse rectangle ratio. & Unconditional & \cref{thm:construction}\\
-Exact and averaged probabilistic dimension remain $\Omega(N/\log^2M)$ and $\Omega_\eta(N/\log M)$. & Unconditional & \cref{thm:prob,lem:exact-prob}\\
+Typical incidence flips have dimension $\Omega(N/\log M)$ and constant inverse rectangle ratio. & Unconditional & \cref{thm:construction}\\
+For typical flips, exact and averaged probabilistic dimension remain $\Omega(N/\log^2M)$ and $\Omega_\eta(N/\log M)$. & Unconditional & \cref{thm:prob,lem:exact-prob}\\
 All three proposed SQ-to-dimension implications fail. & Unconditional & \cref{cor:negative-answer}\\
 Typical flips require $\Theta_\epsilon(n)$ queries; the leading proper lower bound is $[n-O_\epsilon(1)]/\log_2\lceil1/\tau\rceil$. & Unconditional & \cref{thm:query-lower}\\
 Caps give deterministic table-polynomial implementations; Proper RECTIFY returns a member. & Unconditional & \cref{thm:caps,thm:proper}\\

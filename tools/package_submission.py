@@ -28,17 +28,7 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "dist")
-    parser.add_argument(
-        "--skip-render-compare",
-        action="store_true",
-        help="Skip optional PyMuPDF pixel comparison; compilation is still checked.",
-    )
-    args = parser.parse_args()
-    out = args.output.resolve()
-    out.mkdir(parents=True, exist_ok=True)
+def build_package(args: argparse.Namespace, out: Path) -> dict:
     paper = ROOT / "paper"
     for required in ("paper.tex", "paper.bbl", "paper.pdf", "references.bib"):
         if not (paper / required).is_file():
@@ -57,7 +47,7 @@ def main() -> None:
     with tarfile.open(archive, "w:gz") as tar:
         for path in selected:
             tar.add(path, arcname=str(path.relative_to(paper)), recursive=False)
-    report_path = out / "clean_package.json"
+    compilation_report = out / "package_compilation.json"
     with tempfile.TemporaryDirectory(prefix="sq-dc-arxiv-") as temporary:
         clean = Path(temporary)
         with tarfile.open(archive, "r:gz") as tar:
@@ -69,11 +59,11 @@ def main() -> None:
                 "--directory",
                 str(clean),
                 "--report",
-                str(report_path),
+                str(compilation_report),
             ],
             check=True,
         )
-        report = json.loads(report_path.read_text(encoding="utf-8"))
+        report = json.loads(compilation_report.read_text(encoding="utf-8"))
         report.update(
             archive_sha256=sha256(archive),
             source_files=len(selected),
@@ -102,13 +92,41 @@ def main() -> None:
             report["all_page_texts_match"] = True
             report["all_page_pixels_match_72dpi"] = True
             report["page_comparisons"] = matches
-        report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
+        report["render_comparison"] = "skipped" if args.skip_render_compare else "passed"
     shutil.copy2(paper / "paper.pdf", out / "paper.pdf")
     shutil.copy2(paper / "paper.tex", out / "paper.tex")
     for path in (ROOT / "submission").iterdir():
         if path.is_file():
             shutil.copy2(path, out / path.name)
-    print(f"PASS: {archive}; {len(selected)} sources; {report['pages']} pages.")
+    return report
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=ROOT / "dist")
+    parser.add_argument(
+        "--skip-render-compare",
+        action="store_true",
+        help="Skip optional PyMuPDF pixel comparison; compilation is still checked.",
+    )
+    args = parser.parse_args()
+    out = args.output.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    report_path = out / "clean_package.json"
+    report = dict(status="RUNNING", render_comparison_requested=not args.skip_render_compare)
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
+    try:
+        report.update(build_package(args, out))
+    except BaseException as error:
+        report.update(status="FAILED", error=f"{type(error).__name__}: {error}")
+        report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
+        raise
+    report["status"] = "PASS"
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
+    print(
+        f"PASS: {out / 'arxiv_submission.tar.gz'}; "
+        f"{report['source_files']} sources; {report['pages']} pages."
+    )
 
 
 if __name__ == "__main__":

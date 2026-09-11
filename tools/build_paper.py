@@ -19,7 +19,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--directory", type=Path, default=ROOT / "paper")
     ap.add_argument("--bibtex", action="store_true")
-    ap.add_argument("--report", type=Path, default=ROOT / "audits/current/build.json")
+    ap.add_argument("--report", type=Path, default=ROOT / "work/paper/build.json")
     a = ap.parse_args()
     directory = a.directory.resolve()
     logdir = a.report.parent / "logs"

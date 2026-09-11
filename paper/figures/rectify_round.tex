@@ -7,13 +7,13 @@
  \draw[oiBlue,thick] (.9,.65) rectangle (2.15,1.6);
  \node at (1.52,1.12) {$S\times T$};
  \node[above] at (1.7,2.8) {Current $U\times V$};
- \draw[decorate,decoration={brace,mirror}] (-.12,.65)--(-.12,1.6);
- \node[left] at (-.2,1.1) {$S$};
+ \draw[decorate,decoration={brace}] (-.12,.65)--(-.12,1.6);
+ \node[left] at (-.28,1.125) {$S$};
  \draw[decorate,decoration={brace,mirror}] (.9,-.15)--(2.15,-.15);
  \node[below] at (1.52,-.3) {$T$};
 \end{scope}
-\draw[->,thick] (3.65,1.9)--node[above,sloped,font=\scriptsize]{small mismatch}(5.0,2.7);
-\draw[->,thick] (3.65,.8)--node[below,sloped,font=\scriptsize]{witnessed mismatch}(5.0,-.05);
+\draw[->,thick] (3.65,1.9)--node[above=2pt,sloped,align=center,font=\scriptsize]{small\\mismatch}(5.0,2.7);
+\draw[->,thick] (3.65,.8)--node[below=2pt,sloped,align=center,font=\scriptsize]{witnessed\\mismatch}(5.0,-.05);
 \begin{scope}[shift={(5.4,2.0)},xscale=.85,yscale=.65]
  \fill[black!9] (0,.65) rectangle (3.4,1.6);\draw (0,0) rectangle (3.4,2.8);
  \draw[dashed,oiBlue] (0,.65)--(3.4,.65) (0,1.6)--(3.4,1.6);

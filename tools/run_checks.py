@@ -151,7 +151,7 @@ def main() -> None:
     parser.add_argument(
         "--output",
         type=Path,
-        default=ROOT / "audits/current/reproduced",
+        default=ROOT / "work/checks",
         help="New or empty directory for this run; prior results are preserved.",
     )
     parser.add_argument(

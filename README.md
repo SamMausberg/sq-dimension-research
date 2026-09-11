@@ -1,103 +1,94 @@
 # SQ learning and dimension complexity
 
-**Samuel Mausberg** · Private research repository · Manuscript revision 8
+**Samuel Mausberg**
 
-*Distribution-independent SQ learning does not imply low dimension complexity*
+*Distribution-independent SQ learning does not imply low dimension complexity.*
+Manuscript, reproducible experiments, and supporting Lean proofs.
 
-The manuscript studies distribution-independent statistical-query learning,
-sign-rank, probabilistic dimension, and gradient-learning comparisons. This
-repository collects the paper, reproducible experiments, supporting Lean lemmas,
-and the preserved development record.
+**[Read the paper](paper/paper.pdf)** · **[Cite it](CITATION.cff)** ·
+**[Automated checks](https://github.com/SamMausberg/sq-dimension-research/actions)**
 
-**[Read the paper](paper/paper.pdf)** · **[Verification](VERIFICATION.md)** ·
-**[Citation and title audit](audits/citation-titles-2026-09-11/README.md)** ·
-**[Reproduce the results](docs/REPRODUCIBILITY.md)** · **[Repository guide](docs/REPOSITORY_GUIDE.md)**
+## Contents
 
-## Repository map
-
-| Directory | Purpose |
+| Path | Contents |
 | --- | --- |
-| [`paper/`](paper/) | Current manuscript, proofs, TikZ figures, and bibliography. `paper.tex` is the only entry point. |
-| [`experiments/`](experiments/) | Active Python experiments and retained reference results. |
-| [`formalization/`](formalization/) | Selected supporting Lean lemmas, pinned dependencies, coverage notes, and axiom audit. |
-| [`tools/`](tools/) | Build, source checks, reproduction, integrity manifests, and submission packaging. |
-| [`tests/`](tests/) | Regression tests for the verification tools. |
-| [`audits/citation-titles-2026-09-11/`](audits/citation-titles-2026-09-11/) | Latest exact-title, citation, and regenerated-PDF audit. |
-| [`audits/setup-2026-09-11/`](audits/setup-2026-09-11/) | Fresh repository-setup verification evidence. |
-| [`audits/current/`](audits/current/) | Manuscript revision 8 ledgers, proof dependencies, and original build/check evidence. |
-| [`history/`](history/) | Seven preserved earlier snapshots; old numbering and superseded claims are retained as history. |
-| [`submission/`](submission/) | Draft metadata, disclosure, summary, and pre-submission checklist. |
-| [`docs/`](docs/) | Reproducibility, topic navigation, repository organization, and file checksums. |
+| [`paper/`](paper/) | Current LaTeX source, bibliography, TikZ figures, and PDF. Build `paper.tex`. |
+| [`experiments/`](experiments/) | Python experiments and retained reference data. |
+| [`formalization/`](formalization/) | Lean definitions, nine supporting lemmas, and an axiom verifier. |
+| [`tools/`](tools/), [`tests/`](tests/) | Build, reproduction, packaging, integrity, and regression checks. |
+| [`audits/`](audits/), [`docs/`](docs/) | Verification records, provenance, and integrity hashes; `audits/current/` is the original revision 8 snapshot. |
+| [`history/`](history/) | Superseded source snapshots and archived development notes. |
+| [`submission/`](submission/) | Draft publication metadata and disclosure; nothing has been submitted. |
 
-## Verification scope
+## Verification
 
-The current manuscript contains **40 numbered statements** and retains all 39
-prior labels. The Lean project covers **nine supporting lemmas**, not the entire
-paper. The cap construction, PRF reduction, and full query lower bound are not
-fully formalized. [Coverage](formalization/COVERAGE.md) and the
-[verification reports](VERIFICATION.md) explain exactly what
-was checked and what remains open.
+- [x] Manuscript builds; citation and reference checks pass.
+- [x] All 36 cited papers checked against primary titles and records.
+- [x] Twelve tool regression tests and six experiment suites pass.
+- [x] Nine Lean lemmas compile; all 30 local compiler theorem declarations pass
+  the axiom audit without proof holes or custom axioms.
 
-Finite experiments distinguish integer/rational checks from floating-point
-parameter checks. A successful build, source audit, or numerical run does not
-establish every mathematical claim or constitute independent peer review.
-HMAC-SHA256 is an experimental keyed hash; its runs are not a PRF security proof.
+Lean covers supporting lemmas, **not the complete paper**. Tests and AI reviews
+are not independent mathematical peer review. HMAC experiments are not a PRF
+security proof.
 
-## Quick start
+Detailed [citation evidence](audits/citation-titles-2026-09-11/titles.json),
+[Lean results](audits/setup-2026-09-11/lean/verification.json), and
+[release checks](audits/public-release-2026-09-11/verification.json) record the scope.
 
-Use Python 3.13 in a virtual environment. From the repository root:
+## Reproduce
+
+Use Python 3.13. Create and activate a virtual environment, then run from the
+repository root:
 
 ```sh
-python -m venv .venv
-# Linux/macOS: source .venv/bin/activate
-# Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt
-python -m pip check
-python -m ruff check .
-python -m ruff format --check .
 python -m unittest discover -s tests -v
-cffconvert --validate
+python -X utf8 tools/run_checks.py --output work/run-1 --caps
 python tools/make_manifest.py --check
-python -X utf8 tools/run_checks.py --output work/checks-1
 ```
 
-Use a new output directory for each run. Add `--caps` for the slower cap sweep.
-For the paper, install TeX Live and run:
+Use a new output directory each time and keep Python assertions enabled.
+Check formatting with `python -m ruff check .` and
+`python -m ruff format --check .`.
+
+For the PDF, install TeX Live (`texlive-latex-extra`, `texlive-science`,
+`texlive-pictures`, `texlive-fonts-recommended`, and `lmodern` on Debian/Ubuntu):
 
 ```sh
-python -X utf8 tools/build_paper.py --bibtex --report work/paper/build.json
-python -X utf8 tools/check_sources.py --output work/paper/sources
+python -X utf8 tools/build_paper.py --bibtex
+python -X utf8 tools/check_sources.py
 ```
 
-With elan installed, verify the pinned Lean project:
+For Lean, install [elan](https://github.com/leanprover/elan), then:
 
 ```sh
 cd formalization
 lake exe cache get Mathlib.Analysis.SpecialFunctions.Sqrt Mathlib.MeasureTheory.Integral.Bochner.Basic Mathlib.Tactic.Linarith Mathlib.Tactic.Ring Mathlib.Analysis.SpecialFunctions.Log.Basic
 python verify.py --output ../work/lean-verification.json
+cd ..
 ```
 
-The [reproducibility guide](docs/REPRODUCIBILITY.md) includes platform details,
-TeX dependencies, formatting, packaging, and the interpretation of each check.
-GitHub Actions runs Python checks on Linux and Windows, the Lean build and axiom
-audit, and manuscript compilation/source checks.
+Dependencies are pinned; do not run `lake update` unless changing them.
+Generated dependencies and rerun outputs are ignored.
+`python tools/package_submission.py --output dist` builds a local source package.
 
-## Citation and rights
+## Authorship, rights, and history
 
-Cite the manuscript using [CITATION.cff](CITATION.cff) and identify the commit used.
-The manuscript has no assigned DOI or arXiv identifier. Original contributions
-are **all rights reserved** under [LICENSE](LICENSE). The repository is private;
-public redistribution or licensing requires a separate author decision.
+GPT-6 Astra (OpenAI) assisted with derivations,
+drafting, source checks, code, figures, and simulated reviews. The paper discloses
+this assistance and attributes imported results. Samuel Mausberg is responsible
+for the claims, citations, and presentation.
 
-The bibliography, acknowledgments, and [third-party notices](THIRD_PARTY_NOTICES.md)
-preserve attribution to prior work. See [rights and access](LICENSE_STATUS.md)
-for the distinction between citation, copyright, and mathematical ideas.
+Original contributions are **all rights reserved** under [LICENSE](LICENSE).
+Public access does not grant an open-source license;
+[GitHub's viewing and forking rights](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
+still apply. Dependencies and the identified PMLR source excerpt retain their
+own licenses. No DOI or arXiv identifier has been assigned.
 
-## Provenance
-
-The supplied Git bundle was imported with its three original commits and
-`release-expert-review` tag intact. Later setup commits record repository cleanup
-and validation. The snapshots in `history/` retain their original Git bytes;
-[the ancillary manifest](docs/ANCILLARY_MANIFEST.json) records the indexed files.
-Submission materials remain drafts; see the
-[author checklist](submission/PRE_SUBMISSION_CHECKLIST.md).
+Historical snapshots contain superseded claims and failed or uncompiled attempts.
+Prior notes and previews are preserved in
+[supporting-documents.tar.gz](history/supporting-documents.tar.gz), with original
+paths and bytes. The legacy `release-expert-review` tag does not indicate external
+peer review. The release audit lists preexisting archive omissions; current build
+inputs are checked separately.

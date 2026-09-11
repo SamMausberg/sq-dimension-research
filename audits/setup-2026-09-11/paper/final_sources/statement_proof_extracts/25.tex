@@ -1,0 +1,27 @@
+% appendices/comparisons.tex:28-43
+\begin{lemma}[Finite energy and threshold counting]\label{thm:energy}
+Let $P_0$ be a probability distribution on a finite set $Z$, and let $r_1,\ldots,r_K\in L^2(P_0)$. Set
+\[
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad \Lambda=\|\Gamma\|_\op.
+\]
+For every $a:Z\to\R$,
+\begin{equation}\label{eq:energy}
+ \sum_{j=1}^K\bigl(\E_{P_0}r_j a\bigr)^2
+ \leq\Lambda\E_{P_0}a^2.
+\end{equation}
+In particular, if $|a|\leq1$ and $\tau>0$, then
+\begin{equation}\label{eq:count}
+ \bigl|\{j:|\E_{P_0}r_j a|>\tau\}\bigr|\tau^2\leq\Lambda.
+\end{equation}
+More generally, for any finite list of real numbers $c_i$, $\tau\geq0$, and $\sum_i c_i^2\leq\Lambda$, one has $|\{i:\tau<|c_i|\}|\tau^2\leq\Lambda$.
+\end{lemma}
+
+% appendices/certificate_proofs.tex:13-20
+\begin{proof}[Proof of \cref{thm:energy}]
+Let $T:\R^K\to L^2(P_0)$ send $b$ to $\sum_jb_jr_j$. Then $T^*T=\Gamma$. For every unit vector $b$,
+\[
+ |\langle b,T^*a\rangle|=|\langle Tb,a\rangle|
+ \leq\|Tb\|_2\|a\|_2\leq\sqrt\Lambda\|a\|_2.
+\]
+Taking the supremum over $b$ and squaring proves \eqref{eq:energy}. Each selected summand in \eqref{eq:count} is greater than $\tau^2$; discarding nonnegative unselected summands proves the result. The same argument, with weak inequalities, proves the final statement even when $\tau=0$.
+\end{proof}

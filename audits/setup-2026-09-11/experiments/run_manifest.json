@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "run_id": "20451a09387e45e2a2565637add478bf",
+  "started_at": "2026-09-11T13:19:24.509439+00:00",
+  "caps": true,
+  "python": "3.13.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dependencies": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "mpmath": "1.3.0",
+    "threadpoolctl": "3.6.0"
+  },
+  "assertions_enabled": true,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\experiments\\current\\check_late_results.py",
+        "--output",
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\research-checks-validated\\late_results.json"
+      ],
+      "log": "late_results.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "checks/recompute_constants.py"
+      ],
+      "log": "constants.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "experiments/algebra_and_stress.py"
+      ],
+      "log": "algebra_and_stress.py.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "experiments/affine_checks.py"
+      ],
+      "log": "affine_checks.py.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "experiments/seeded_fast.py",
+        "--N",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "16",
+        "32"
+      ],
+      "log": "seeded_fast.log",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\outputs\\sq-dimension-research\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "experiments/run_keyed_caps.py"
+      ],
+      "log": "keyed_caps.log",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Finite exact and numerical checks; not a full proof or a Lean build.",
+  "finished_at": "2026-09-11T13:20:29.680289+00:00"
+}

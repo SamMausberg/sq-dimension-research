@@ -1,87 +1,102 @@
 # SQ learning and dimension complexity
 
-Samuel Mausberg
+**Samuel Mausberg** · Private research repository · Manuscript revision 8
 
-The current manuscript studies distribution-independent statistical-query learning, sign-rank, probabilistic dimension, and the stated gradient-learning comparisons. `paper/paper.pdf` is the current reading copy. `paper/paper.tex` is the sole TeX entry point.
+*Distribution-independent SQ learning does not imply low dimension complexity*
 
-## Start here
+The manuscript studies distribution-independent statistical-query learning,
+sign-rank, probabilistic dimension, and gradient-learning comparisons. This
+repository collects the paper, reproducible experiments, supporting Lean lemmas,
+and the preserved development record.
 
-| Path | Contents |
-|---|---|
-| `paper/` | Current paper, all deferred proofs, native TikZ figures, bibliography source and generated BBL. |
-| `audits/current/` | The nine adversarial ledgers, new output-count proof checks, statement/proof extracts, dependency graph, numbering map, source notes, build logs and fresh outputs. |
-| `experiments/` | CPU learners and oracle simulators; preserved raw records and the current finite-check script. |
-| `formalization/` | The recovered Lean drafts and pinned project configuration. **Uncompiled; not formal verification of this paper.** |
-| `history/turn01` through `history/turn07` | Earlier supplied project snapshots, including proofs, failed approaches, SGD experiments, scripts, logs and data. These use old numbering and may contain superseded claims. |
-| `submission/` | arXiv metadata, abstract, cover email, disclosure, plain-language summary and author checklist. |
-| `tools/` | Build, reproduction, source-consistency and packaging commands. |
-| `docs/` | Archive provenance and topic index. |
+**[Read the paper](paper/paper.pdf)** · **[Verification](VERIFICATION.md)** ·
+**[Citation audit](audits/setup-2026-09-11/citations/README.md)** ·
+**[Reproduce the results](docs/REPRODUCIBILITY.md)** · **[Repository guide](docs/REPOSITORY_GUIDE.md)**
 
-This repository covers this SQ/dimension project and its retained OQ1 comparisons. It does not contain unrelated projects from other conversations. Historical data are separated from the current manuscript; their presence is not an endorsement of superseded claims.
+## Repository map
 
-## Import the Git bundle
+| Directory | Purpose |
+| --- | --- |
+| [`paper/`](paper/) | Current manuscript, proofs, TikZ figures, and bibliography. `paper.tex` is the only entry point. |
+| [`experiments/`](experiments/) | Active Python experiments and retained reference results. |
+| [`formalization/`](formalization/) | Selected supporting Lean lemmas, pinned dependencies, coverage notes, and axiom audit. |
+| [`tools/`](tools/) | Build, source checks, reproduction, integrity manifests, and submission packaging. |
+| [`tests/`](tests/) | Regression tests for the verification tools. |
+| [`audits/setup-2026-09-11/`](audits/setup-2026-09-11/) | Fresh repository-setup verification evidence. |
+| [`audits/current/`](audits/current/) | Manuscript revision 8 ledgers, proof dependencies, and original build/check evidence. |
+| [`history/`](history/) | Seven preserved earlier snapshots; old numbering and superseded claims are retained as history. |
+| [`submission/`](submission/) | Draft metadata, disclosure, summary, and pre-submission checklist. |
+| [`docs/`](docs/) | Reproducibility, topic navigation, repository organization, and file checksums. |
 
-```sh
-git clone sq-dimension-research.bundle sq-dimension-research
-cd sq-dimension-research
-```
+## Verification scope
 
-The bundle is a self-contained local Git repository. No GitHub repository has been created or pushed. The assembled Git history records this release; the source snapshots under `history/` preserve the earlier work without fabricating original commit dates.
+The current manuscript contains **40 numbered statements** and retains all 39
+prior labels. The Lean project covers **nine supporting lemmas**, not the entire
+paper. The cap construction, PRF reduction, and full query lower bound are not
+fully formalized. [Coverage](formalization/COVERAGE.md) and the
+[latest validation report](audits/setup-2026-09-11/README.md) explain exactly what
+was checked and what remains open.
 
-## Build the paper
+Finite experiments distinguish integer/rational checks from floating-point
+parameter checks. A successful build, source audit, or numerical run does not
+establish every mathematical claim or constitute independent peer review.
+HMAC-SHA256 is an experimental keyed hash; its runs are not a PRF security proof.
 
-Use stock TeX Live with the packages listed in `paper/preamble.tex` and Python 3.13 for the scripts.
+## Quick start
 
-```sh
-python tools/build_paper.py
-```
-
-This runs three `pdflatex` passes with shell escape disabled and uses the supplied `paper.bbl`. To regenerate the bibliography as well:
-
-```sh
-python tools/build_paper.py --bibtex
-python tools/check_sources.py
-```
-
-Manual equivalent:
-
-```sh
-cd paper
-pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error paper.tex
-bibtex paper
-pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error paper.tex
-pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error paper.tex
-```
-
-## Reproduce the checks
+Use Python 3.13 in a virtual environment. From the repository root:
 
 ```sh
 python -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements.txt
-python tools/run_checks.py --output /tmp/sq-dc-checks
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+python -m pip check
+python -m ruff check .
+python -m ruff format --check .
+python -m unittest discover -s tests -v
+cffconvert --validate
+python tools/make_manifest.py --check
+python -X utf8 tools/run_checks.py --output work/checks-1
 ```
 
-The command uses fresh temporary directories and preserves the historical raw data. It runs the 77-row ledger's finite regressions, the earlier parameter checks, unseen-label and star tests, affine certificates, and the 304-run keyed median sweep. To repeat the slower cap sweep as well:
+Use a new output directory for each run. Add `--caps` for the slower cap sweep.
+For the paper, install TeX Live and run:
 
 ```sh
-python tools/run_checks.py --output /tmp/sq-dc-checks-with-caps --caps
+python -X utf8 tools/build_paper.py --bibtex --report work/paper/build.json
+python -X utf8 tools/check_sources.py --output work/paper/sources
 ```
 
-Recorded arithmetic identities and oracle answers are checked with integers or `fractions.Fraction`. Floating-point logarithmic/convex-program checks are marked separately. CPU wall times depend on the machine. No new SGD experiment is part of the current release; previous SGD work is preserved under `history/`.
+With elan installed, verify the pinned Lean project:
 
-## Read the verification status
+```sh
+cd formalization
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Sqrt Mathlib.MeasureTheory.Integral.Bochner.Basic Mathlib.Tactic.Linarith Mathlib.Tactic.Ring Mathlib.Analysis.SpecialFunctions.Log.Basic
+python verify.py --output ../work/lean-verification.json
+```
 
-The current paper retains all 39 earlier numbered statements and adds one query-order theorem. The requested leading `n - O(1)` lower-bound numerator is proved for proper outputs. For unrestricted outputs the proof gives `n/3 - O(1)` and the same optimal asymptotic order; a single predictor can fit an entire parallel class, so the distinct-output argument does not apply.
+The [reproducibility guide](docs/REPRODUCIBILITY.md) includes platform details,
+TeX dependencies, formatting, packaging, and the interpretation of each check.
+GitHub Actions runs Python checks on Linux and Windows, the Lean build and axiom
+audit, and manuscript compilation/source checks.
 
-`audits/current/VERIFICATION.md` distinguishes proofs, conditional results, source-formulation checks, fresh computation, and open checks. A successful source check or PDF build is not a proof-assistant certificate or independent peer review. The PRF assumption is mathematical; HMAC-SHA256 is only the experimental keyed hash. Its historical input format is documented in the experiment and differs from the newly explicit bit encoding used to state the abstract PRF reduction. Both retain their ambient coordinates on restriction.
+## Citation and rights
 
-The Lean files are included because they are part of the project record. Read `formalization/STATUS.md` before using them. They cover finite definitions and selected old lemmas, not all theorems, and have no successful compiler or axiom audit in this environment.
+Cite the manuscript using [CITATION.cff](CITATION.cff) and identify the commit used.
+The manuscript has no assigned DOI or arXiv identifier. Original contributions
+are **all rights reserved** under [LICENSE](LICENSE). The repository is private;
+public redistribution or licensing requires a separate author decision.
 
-## Ancillary index
+The bibliography, acknowledgments, and [third-party notices](THIRD_PARTY_NOTICES.md)
+preserve attribution to prior work. See [rights and access](LICENSE_STATUS.md)
+for the distinction between citation, copyright, and mathematical ideas.
 
-`docs/ANCILLARY_MANIFEST.md` gives the reproduction commands and file-group counts. The adjacent JSON records each indexed ancillary file's SHA-256. `docs/TOPIC_INDEX.md` maps the SQ, sign-rank, PRF and OQ1 material across the current text and retained history.
+## Provenance
 
-## Rights and release
-
-No publication or software license has been selected on the author's behalf. See `LICENSE_STATUS.md` and the pre-submission checklist. Third-party font files and complete downloaded third-party papers are excluded; ordinary embedded fonts in PDFs remain. No email or arXiv upload has been sent.
+The supplied Git bundle was imported with its three original commits and
+`release-expert-review` tag intact. Later setup commits record repository cleanup
+and validation. The snapshots in `history/` retain their original Git bytes;
+[the ancillary manifest](docs/ANCILLARY_MANIFEST.json) records the indexed files.
+Submission materials remain drafts; see the
+[author checklist](submission/PRE_SUBMISSION_CHECKLIST.md).

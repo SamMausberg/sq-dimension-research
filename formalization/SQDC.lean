@@ -1,8 +1,11 @@
-import Mathlib
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
 
 /-!
-UNCOMPILED SOURCE DRAFT. This environment has no Lean/Lake installation.
-No theorem in this file is being reported as compiler-verified.
+Supporting definitions and elementary lemmas. See STATUS.md for the build and
+axiom-audit record, and COVERAGE.md for the exact scope of the formalization.
 Mathematical counterparts: Lemma 1's finite counting consequence, Theorem 2's
 algebraic consequence, and the elementary ReLU identity used in Proposition 8.
 The spectral and adaptive-coupling proofs of Theorems 1--2 are NOT formalized.
@@ -83,7 +86,7 @@ def EmbedsAt (H : Finset (Hyp X)) (d : ℕ) : Prop :=
       ∀ x, 0 < labelValue (h x) * (∑ i, w i * φ x i)
 
 /-- Finite X admits the coordinate embedding, so the defining set is nonempty
-mathematically. That existence proof is not yet formalized in this draft. -/
+mathematically. That existence proof is not formalized in this module. -/
 def dc (H : Finset (Hyp X)) : ℕ := sInf {d | EmbedsAt H d}
 
 def marginalPart (q : SQQuery X) (x : X) : ℝ :=
@@ -92,6 +95,8 @@ def marginalPart (q : SQQuery X) (x : X) : ℝ :=
 def labelPart (q : SQQuery X) (x : X) : ℝ :=
   (q.value x true - q.value x false) / 2
 
+-- Preserve the original theorem's inherited finite-domain parameter.
+set_option linter.unusedSectionVars false in
 theorem query_decomposition (q : SQQuery X) (x : X) (y : Bool) :
     q.value x y = marginalPart q x + labelValue y * labelPart q x := by
   cases y <;> simp [marginalPart, labelPart, labelValue] <;> ring
@@ -142,9 +147,5 @@ theorem relu_odd_part (z : ℝ) : max z 0 - max (-z) 0 = z := by
   · have hzn : z ≤ 0 := le_of_not_ge hz
     have hn : 0 ≤ -z := neg_nonneg.mpr hzn
     simp [max_eq_right hzn, max_eq_left hn]
-
-#print axioms finite_energy_count
-#print axioms barrier_algebra
-#print axioms relu_odd_part
 
 end SQDC

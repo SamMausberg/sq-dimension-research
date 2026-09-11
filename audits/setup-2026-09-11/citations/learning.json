@@ -1,0 +1,149 @@
+{
+  "audit_date": "2026-09-11",
+  "scope": "Independent live primary-source verification of eight bibliography records and their usages in the current paper/ LaTeX tree. Historical manuscripts were not substituted for current-paper usage.",
+  "summary": "All eight assigned works exist. No fabricated citation, wrong-work link, or gross attribution mismatch was found in this group. Missing publication fields can be completed for DV04, KM25, and ABBBN21. This is a bibliographic and citation-context audit, not an independent proof verification of all cited results.",
+  "entries": [
+    {
+      "key": "DV04",
+      "status": "verified_metadata; original publisher full text not inspected; SQ attribution corroborated by BF13 extended Appendix A",
+      "title": "A simple polynomial-time rescaling algorithm for solving linear programs",
+      "authors": ["John Dunagan", "Santosh Vempala"],
+      "year": 2004,
+      "venue": "Proceedings of the thirty-sixth annual ACM symposium on Theory of computing",
+      "pages": "315--320",
+      "doi": "10.1145/1007352.1007404",
+      "evidence": [
+        {"url": "https://api.crossref.org/works/10.1145/1007352.1007404", "kind": "ACM-deposited DOI registry metadata", "checked": "Retrieved live via PowerShell; publisher ACM, member 320, primary resource dl.acm.org, exact title/authors/pages and publication date 2004-06-13. Raw response saved as DV04-crossref.json."},
+        {"url": "https://acm-stoc.org/stoc2004/accepted.html", "kind": "official conference accepted-paper list", "checked": "Title and both authors match."},
+        {"url": "https://faculty.cc.gatech.edu/~vempala/papers/papers.html", "kind": "author publication list", "checked": "Lists same paper at STOC 2004 and links original author manuscript as perceptron.ps."},
+        {"url": "https://arxiv.org/pdf/1307.3102v4", "kind": "authors' extended primary paper", "checked": "Appendix A explicitly discusses DV04 SQ implementation, logarithmic inverse-margin dependence, and Theorem A.2. It also explicitly notes DV04 did not itself state the SQ version."}
+      ],
+      "usage": "paper/appendices/related_work.tex cites DV04 together with BF13 for general-SQ halfspace learning with rescaling and marginal information. The joint attribution is supported by BF13 Appendix A.",
+      "correction": "Add doi={10.1145/1007352.1007404} and url={https://doi.org/10.1145/1007352.1007404}; optionally use full proceedings name.",
+      "limits": "ACM HTML/PDF endpoints returned access errors; do not claim the original ACM paper's full text was verified. Author PostScript was reached but not parsed. Bibliographic DOI metadata is verified from ACM's deposit, independently of secondary search results."
+    },
+    {
+      "key": "BF13",
+      "status": "verified_metadata_and_relevant_extended_version_passage",
+      "title": "Statistical Active Learning Algorithms",
+      "authors": ["Maria-Florina Balcan", "Vitaly Feldman"],
+      "year": 2013,
+      "venue": "Advances in Neural Information Processing Systems",
+      "volume": "26",
+      "evidence": [
+        {"url": "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html", "kind": "official proceedings", "checked": "Title, authors and proceedings volume/year match."},
+        {"url": "https://proceedings.neurips.cc/paper_files/paper/2013/file/84117275be999ff55a987b9381e01f96-Bibtex.bib", "kind": "official BibTeX", "checked": "Retrieved live and saved as BF13-neurips.bib. Official pages field is empty."},
+        {"url": "https://arxiv.org/abs/1307.3102v4", "kind": "versioned author preprint", "checked": "v4 revised 2014-11-05; extended title is Statistical Active Learning Algorithms for Noise Tolerance and Differential Privacy. Abstract record says extended abstract appeared in NIPS 2013."},
+        {"url": "https://arxiv.org/pdf/1307.3102v4", "kind": "versioned full text", "checked": "Appendix A (PDF pages 28-29, zero-based 27-28), especially Theorem A.2, supports rescaling/SQ dependence discussed in current related-work text."}
+      ],
+      "usage": "Current related-work use is correctly paired with DV04. Existing bibliography note correctly distinguishes the extended arXiv v4 Appendix A from the NeurIPS proceedings version.",
+      "correction": "None required. Do not add secondary-only pages 1295--1303 while claiming they were verified in native NeurIPS metadata.",
+      "limits": "Only relevant Appendix A material was substantively checked, not the full paper's proof correctness. Native NeurIPS metadata has an extra F in the first author's display name; the manuscript's standard name matches the author preprint and paper PDF."
+    },
+    {
+      "key": "GSS13",
+      "status": "verified_metadata_and_relevant_lemma",
+      "title": "Efficient Active Learning of Halfspaces: An Aggressive Approach",
+      "authors": ["Alon Gonen", "Sivan Sabato", "Shai Shalev-Shwartz"],
+      "year": 2013,
+      "venue": "Journal of Machine Learning Research",
+      "volume": "14",
+      "number": "79",
+      "pages": "2583--2615",
+      "evidence": [
+        {"url": "https://jmlr.org/papers/v14/gonen13a.html", "kind": "official journal record", "checked": "Exact title, authors, year, volume and pages match; journal identifies article 79."},
+        {"url": "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf", "kind": "official full text", "checked": "Lemma 10 on printed page 2591 gives a finite-grid minimum-margin lower bound; Appendix D contains its proof. This supports dependence on grid spacing/coordinate accuracy cited by the manuscript."}
+      ],
+      "usage": "paper/appendices/related_work.tex attributes finite-grid margin bounds and coordinate bit complexity to GSS13. This is supported by Lemma 10.",
+      "correction": "Optional metadata completion: number={79}; retain current correct PDF URL or use journal landing page.",
+      "limits": "Checked lemma statement and associated proof text for citation relevance; not a full independent correctness audit."
+    },
+    {
+      "key": "FGV21",
+      "status": "verified_metadata_and_general_relevance",
+      "title": "Statistical Query Algorithms for Mean Vector Estimation and Stochastic Convex Optimization",
+      "authors": ["Vitaly Feldman", "Cristobal Guzman", "Santosh Vempala"],
+      "year": 2021,
+      "venue": "Mathematics of Operations Research",
+      "volume": "46",
+      "number": "3",
+      "pages": "912--945",
+      "doi": "10.1287/moor.2020.1111",
+      "evidence": [
+        {"url": "https://pubsonline.informs.org/doi/10.1287/moor.2020.1111", "kind": "publisher record", "checked": "Publisher Cite as section confirms exact authors/title/46(3):912-945 (2021). Abstract discusses first-order iterative methods implemented via SQ and mean-vector estimation."}
+      ],
+      "usage": "paper/appendices/sgd_models.tex cites this as supporting context after its own direct gradient-coordinate SQ simulation and model distinction. The source is relevant; no exact external theorem number is claimed.",
+      "correction": "None required; existing accented names and journal DOI are correct.",
+      "limits": "Publisher metadata and abstract inspected; full journal proof text was not independently audited."
+    },
+    {
+      "key": "KM25",
+      "status": "verified_metadata_and_topic; later-correction_statement_requires_FKS26_evidence",
+      "title": "The Power of Random Features and the Limits of Distribution-Free Gradient Descent",
+      "authors": ["Ari Karchmer", "Eran Malach"],
+      "year": 2025,
+      "venue": "Proceedings of the 42nd International Conference on Machine Learning",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "267",
+      "pages": "29078--29097",
+      "evidence": [
+        {"url": "https://proceedings.mlr.press/v267/karchmer25a.html", "kind": "official proceedings and native BibTeX", "checked": "Title, both authors, ICML 2025, volume 267 and pages 29078-29097 verified. Abstract explicitly treats random features, bSGD, average probabilistic dimension complexity and SQ dimension."}
+      ],
+      "usage": "paper/appendices/related_work.tex accurately identifies the study topic. Its sentence saying claimed upper bounds do not hold is explicitly attributed to FKS26 Section 3 and a 2026 personal communication; that statement cannot be verified from the unchanged KM25 proceedings abstract itself.",
+      "correction": "Add pages={29078--29097}; optionally expand proceedings title. Do not silently replace current published-version citation with arXiv v1 based on historical manuscript content.",
+      "limits": "FKS26 source and personal-communication attribution are outside this assigned group. No new proof audit or judgment of the validity of KM25's claimed theorems was made."
+    },
+    {
+      "key": "MKAS21",
+      "status": "verified_metadata_and_general_relevance",
+      "title": "Quantifying the Benefit of Using Differentiable Learning over Tangent Kernels",
+      "authors": ["Eran Malach", "Pritish Kamath", "Emmanuel Abbe", "Nathan Srebro"],
+      "year": 2021,
+      "venue": "Proceedings of the 38th International Conference on Machine Learning",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "139",
+      "pages": "7379--7389",
+      "evidence": [
+        {"url": "https://proceedings.mlr.press/v139/malach21a.html", "kind": "official proceedings and native BibTeX", "checked": "Exact title/authors/year/volume/pages match. Abstract explicitly distinguishes results under conditions on differentiable learning/tangent kernels from what happens without those conditions."}
+      ],
+      "usage": "Current related-work paragraph describes a comparison under specified model conditions. It does not transfer a stronger conclusion to the manuscript's SGD setting; this is faithful at the stated level.",
+      "correction": "None required; optional full proceedings title expansion.",
+      "limits": "Metadata and abstract relevance checked; no exact theorem number cited and no independent proof verification."
+    },
+    {
+      "key": "ABBBN21",
+      "status": "verified_metadata_and_general_relevance",
+      "title": "The staircase property: How hierarchical structure can guide deep learning",
+      "authors": ["Emmanuel Abbe", "Enric Boix-Adsera", "Matthew Brennan", "Guy Bresler", "Dheeraj Nagaraj"],
+      "year": 2021,
+      "venue": "Advances in Neural Information Processing Systems",
+      "volume": "34",
+      "pages": "26989--27002",
+      "evidence": [
+        {"url": "https://proceedings.neurips.cc/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html", "kind": "official proceedings", "checked": "Title, five authors, proceedings volume/year and abstract topic verified."},
+        {"url": "https://proceedings.neurips.cc/paper_files/paper/2021/file/e2db7186375992e729165726762cb4c1-Bibtex.bib", "kind": "official native BibTeX", "checked": "Retrieved live and saved as ABBBN21-neurips.bib; confirms pages 26989--27002, volume 34, year 2021 and publisher Curran Associates, Inc."},
+        {"url": "https://arxiv.org/abs/2108.10573", "kind": "author preprint", "checked": "Same title/authors, v1 2021-08-24 and v2 2021-11-24; accepted NeurIPS 2021. Abstract specifies layerwise stochastic coordinate descent on regular architectures and initializations."}
+      ],
+      "usage": "Current related-work text refers to hierarchical structures learnable by particular regular-network dynamics under distributional assumptions. This respects the primary source's model restrictions and does not misstate the result as arbitrary standard SGD.",
+      "correction": "Add volume={34}, pages={26989--27002}; prefer official proceedings URL and retain arXiv in an optional preprint note. Native proceedings lists Matthew S Brennan; original PDF lists Matthew Brennan, so current author name is not a fabrication.",
+      "limits": "Only metadata, abstract and first-page description checked, not the full proof."
+    },
+    {
+      "key": "ABM22",
+      "status": "verified_metadata_and_general_relevance",
+      "title": "The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks",
+      "authors": ["Emmanuel Abbe", "Enric Boix-Adsera", "Theodor Misiakiewicz"],
+      "year": 2022,
+      "venue": "Proceedings of Thirty Fifth Conference on Learning Theory",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "178",
+      "pages": "4782--4887",
+      "evidence": [
+        {"url": "https://proceedings.mlr.press/v178/abbe22a.html", "kind": "official proceedings and native BibTeX", "checked": "Title/authors/year/volume/pages match. Abstract describes depth-2 mean-field SGD, binary inputs depending on a latent low-dimensional coordinate subspace, and the merged-staircase characterization within this setting."}
+      ],
+      "usage": "Current related-work paragraph explicitly qualifies its staircase discussion by the particular dynamics and distributional assumptions, consistent with the source.",
+      "correction": "None required. Current conventional hyphen/accent surname formatting is acceptable despite the PMLR database's 'Adsera, Enric Boix' indexing.",
+      "limits": "Metadata and abstract relevance checked; no independent verification of all the paper's proofs."
+    }
+  ]
+}

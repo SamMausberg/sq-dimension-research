@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "lean_version": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "mathlib_revision": "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9",
+  "targets": [
+    "SQDC",
+    "Turn2"
+  ],
+  "warnings_as_errors": true,
+  "theorem_count": 9,
+  "compiler_theorem_declarations_audited": 30,
+  "axioms": {
+    "SQDC.query_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.finite_energy_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.barrier_algebra": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.relu_odd_part": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.Turn2.L1_peeling_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.Turn2.L1_peeling_budget": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.Turn2.L2_elimination_potential": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.Turn2.L4_two_grid_lines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SQDC.Turn2.L3_preserves_positive_rectangle": []
+  },
+  "source_sha256": {
+    "SQDC.lean": "bd83851f6547ce2bb2f45aa8ea4000972c966409c804ba701e32da7ef958d7ed",
+    "Turn2.lean": "488792892b0186f5301b973669e6a1d06c6edaedd3112019833450057194e18d",
+    "AxiomAudit.lean": "302bf45aa1f5ad310149d07f70429bc0fe7d775010f97ea37950af194d385424",
+    "lakefile.toml": "5b61e2a6271c54feebe13cfb225359ce8d60b27180d9c49e09c348dfe9174e2f",
+    "lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88",
+    "lake-manifest.json": "04a78a02fcc5dd0ca5ae9ee87cfebe6602ae139fa9d9ec525a9e6fa6045d5ab0",
+    "verify.py": "860d5c3e0bbbe2faf85c0058aefc13eebbbf6b989633b48b1ea6b23166eace3d"
+  },
+  "scope": "9 supporting lemmas; not a formal verification of the full paper.",
+  "delivered_source_hashes_match": true,
+  "validation_environment": "Native WSL Ubuntu scratch; exact delivered source hashes matched"
+}

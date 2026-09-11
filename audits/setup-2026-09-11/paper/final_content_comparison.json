@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "presentation_changes": [
+    "Construction-proof label moved before figure input to repair hyperlink.",
+    "Appendix E sole figure uses [H] to remain below its heading.",
+    "Short inequality uses an mbox wrapper to prevent a split across lines or pages."
+  ],
+  "git_baseline": "c7fbd8c96c72a6b20ec75518f1a99531a155237c",
+  "original_pages": 64,
+  "final_pages": 64,
+  "original_bibliography_pages": [
+    14,
+    16
+  ],
+  "final_bibliography_pages": [
+    14,
+    16
+  ],
+  "body_pages_equal_after_removing_footer_numbers": false,
+  "entire_body_text_equal_after_removing_bibliography_and_footer_numbers": false,
+  "mathematical_and_prose_source_content_unchanged": true,
+  "comparison_scope": "All manuscript TeX compared to Git baseline after allowing only the three listed presentation changes and whitespace normalization. PDF body text comparisons exclude bibliography pages and footer page numbers; different text flow or figure placement is recorded rather than treated as a mathematical edit.",
+  "source_changes": {
+    "paper/appendices/family_proof.tex": "--- original/paper/appendices/family_proof.tex\n+++ final/paper/appendices/family_proof.tex\n@@ -1,6 +1,5 @@\n-\\section{The grid construction and counting bound}\\label{app:family-proof}\n+\\section{The grid construction and counting bound}\\label{app:family-proof}\\label{proof:construction}\n \\input{figures/template_flip}\n-\\label{proof:construction}\n \\begin{proof}[Proof of \\cref{thm:construction}]\n \n Define\n@@ -8,7 +7,7 @@\n  u_p=(x^2,xy,y^2,x,y,1),\\quad\n  v_\\ell=(a^2,-2a,1,2ab,-2b,b^2-1/2).\n \\]\n-Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves $\\sr(F)\\le6$. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\\in[K]$ and use $(1,t,\\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\\prod_{a\\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\\dc(H_A)\\le2N+1$ for every member.\n+Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves \\mbox{$\\sr(F)\\le6$}. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\\in[K]$ and use $(1,t,\\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\\prod_{a\\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\\dc(H_A)\\le2N+1$ for every member.\n \n For fixed $a,x$, exactly $2N^2-ax$ values of $b\\in[2N^2]$ give an incidence with $y\\in[2N^2]$. Summing proves \\eqref{eq:I}. The lower bound uses $(N+1)/2\\le N$. If two distinct affine lines share points $(x,y)$ and $(x',y')$, subtraction gives $(a-c)(x-x')=0$. If $a=c$, their shared point forces equal intercepts, a contradiction. Otherwise $x=x'$ and then $y=y'$. Hence $F$, and therefore $A$, has no all-negative $2\\times2$. Shattering three columns would require one row negative on all three and a distinct row negative on two of them, which creates such a submatrix. Therefore $\\operatorname{VC}(A)\\le2$.\n \n",
+    "paper/figures/rectify_round.tex": "--- original/paper/figures/rectify_round.tex\n+++ final/paper/figures/rectify_round.tex\n@@ -1,4 +1,4 @@\n-\\begin{figure}[t]\n+\\begin{figure}[H]\n \\centering\n \\begin{tikzpicture}[x=1cm,y=1cm,font=\\small]\n \\begin{scope}\n"
+  },
+  "construction_proof_label": "\\newlabel{proof:construction}{{F}{25}{The grid construction and counting bound}{appendix.F}{}}",
+  "underfull_hbox_notices": 19,
+  "other_warnings": [],
+  "pdf_sha256": "58e6f2b90fff4933d200940999d11fb4631993afc28b60b1865bef574f163a97",
+  "bbl_sha256": "39ab70bec70b24a5bedae47de6efccaccbac555cb48e125d5722db10b37c5bdf",
+  "body_page_streams_equal_after_font_resource_name_normalization": false,
+  "body_page_streams_remaining_difference_pages": [
+    25,
+    26
+  ]
+}

@@ -1,0 +1,56 @@
+% sections/04_family.tex:47-59
+\begin{theorem}[Optimal query order for random incidence flips]\label{thm:query-lower}
+Put $\chi=1-h_2(3/8)>0$. Suppose $N\ge25$ and $\chi N\ge6\log_2N$. With probability at least $1-2^{-2N^3}-N^3e^{-N/32}$ over independent fair flips, the following holds simultaneously for all $0<\epsilon<1/4$ and $0<\tau<1$. Every randomized depth-$m$ SQ learner with expected error at most $\epsilon$ on every target-line instance $(D_\ell,h_\ell)$, $\ell\in[N]\times[N^2]$, obeys
+\[
+ m\ge\frac{\log_2N+\log_2\!\bigl(\chi(1-8\epsilon/3)/8\bigr)}
+ {\log_2\lceil1/\tau\rceil}.
+\]
+Here $D_\ell$ is uniform on the line's $N$ template points, and the guarantee must hold against every valid oracle. If the learner is proper, then
+\[
+ m\ge\frac{\log_2(2M)-1+\log_2(1-3\epsilon)}
+ {\log_2\lceil1/\tau\rceil}.
+\]
+For every fixed $\epsilon$, there is a fixed tolerance $\tau_\epsilon>0$ at which both proper and unrestricted query complexity are $\Theta_\epsilon(n)$ for matrices in this event. The $O_\epsilon(n^2)$ succinct learner is within a factor $n$ in query order.
+\end{theorem}
+
+% appendices/query_lower_bound.tex:2-41
+\begin{proof}[Proof of \cref{thm:query-lower}]
+Let $Q=2N^3$ be the number of points and let $\mathcal L_0=[N]\times[N^2]$. These $L=N^3$ lines each have exactly $N$ template points in the domain. All their incidence bits are independent, including bits assigned by different rows at a shared point.
+
+Put $\eta_0=3/8$ and $\chi=1-h_2(\eta_0)>0$. Fix any Boolean function $g$ on the $Q$ points. For each $\ell\in\mathcal L_0$, the number of errors of $g$ against its random row on the $N$ template points is $\operatorname{Bin}(N,1/2)$. The entropy estimate used in \cref{thm:prob} gives
+\[
+ \Pr[L_{D_\ell,h_\ell}(g)\le\eta_0]
+ \le 2^{-\chi N}.
+\]
+For this fixed $g$, the events for distinct rows are independent. Let $s=\lceil8N^2/\chi\rceil$. If $s>L$, the assertion that no $g$ fits $s$ rows is automatic. Otherwise, a union bound over the $2^Q$ functions and the $s$-subsets of rows gives
+\begin{align*}
+ \Pr[\exists g:\#\{\ell:L_{D_\ell,h_\ell}(g)\le\eta_0\}\ge s]
+ &\le 2^Q\binom Ls2^{-\chi Ns}\\
+ &\le 2^{Q+s\log_2L-\chi Ns}
+ \le2^{Q-\chi Ns/2}
+ \le2^{-Q}.
+\end{align*}
+The third inequality uses $\chi N\ge6\log_2N=2\log_2L$ and the fourth uses $s\ge8N^2/\chi$. On the complementary event every output is good for at most $s-1<8N^2/\chi$ of the target-line instances. This event is simultaneous over all outputs, including outputs chosen with full knowledge of $A$.
+
+For the proper bound, require in addition that every row of $\mathcal L_0$ has at least $3N/8$ negative incidences. The probability that this fails is at most $L e^{-N/32}$ by the bounded-differences estimate in \cref{app:concentration}. If $g$ is a different row of the full class, the two template lines share at most one point. Thus
+\[
+ L_{D_\ell,h_\ell}(g)\ge3/8-1/N>1/3
+ \qquad(N\ge25).
+\]
+No proper output is $1/3$-good for more than one of these $L$ targets. Duplicate hypotheses cannot cause an exception: a selected target has more than one negative point, whereas two distinct template rows cannot share two negative points.
+
+Fix a matrix on both events. Let $B_\tau=\lceil1/\tau\rceil\ge2$, and partition $[-1,1]$ into $B_\tau$ equal intervals, each represented by its midpoint. Answer every query by the midpoint for its true expectation. The error is at most $1/B_\tau\le\tau$. This is a fixed valid oracle for each instance, independent of the learner's private seed. For each fixed seed, the depth-$m$ response tree has at most $B_\tau^m$ leaves, after padding early stops. Query functions can depend on the seed; their number adds no branching once the seed is fixed.
+
+For unrestricted outputs, at most $B_\tau^m(s-1)$ of the $L$ instances have loss at most $\eta_0$ for that seed. Averaging this bound over the seed is legitimate because the matrix event holds for every possible output. On the other hand, the expected-error guarantee on each instance and Markov's inequality imply
+\[
+ \Pr_\omega[L_{D_\ell,h_\ell}(A^O_\omega)\le\eta_0]
+ \ge1-\epsilon/\eta_0=1-8\epsilon/3.
+\]
+Averaging over targets and comparing yields
+\[
+ B_\tau^m\ge
+ \frac{(1-8\epsilon/3)L}{s-1}
+ >\frac{\chi(1-8\epsilon/3)N}{8}.
+\]
+For proper outputs, repeat the argument with threshold $1/3$ and one good target per leaf to get $B_\tau^m\ge(1-3\epsilon)N^3$. Taking base-two logarithms proves both bounds. The union of the two exceptional matrix events has probability at most $2^{-2N^3}+N^3e^{-N/32}$. These events can also be intersected with any fixed-accuracy dimension event in \cref{thm:construction,thm:prob}.
+\end{proof}

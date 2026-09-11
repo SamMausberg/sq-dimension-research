@@ -1,0 +1,19 @@
+% sections/06_explicit.tex:39-45
+\begin{proposition}[Unconditional polynomial advice]\label{prop:advice}
+Fix $c\ge1$ and $0<\epsilon<1/4$. For all sufficiently large $n=3b+1$, there is a family of incidence-flip classes on $2^n$ points indexed by advice strings of length $O_c(n^{4c})$. Every entry is evaluable in $\operatorname{poly}_c(n)$ time. For all but a $2^{-\Omega_c(n^{4c})}$ fraction of advice strings,
+\[
+ \dc(H)\ge\frac{n^c}{30\log_2 n}.
+\]
+Every advice string admits a proper deterministic learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $O_{c,\epsilon}(\log n)$ queries at tolerance $\Omega_\epsilon(1)$.
+\end{proposition}
+
+% appendices/explicit_proofs.tex:57-65
+\begin{proof}[Proof of \cref{prop:advice}]
+
+Take $k=\lceil cn^c\rceil$ and store the $I_k$ independent incidence bits of the scale-$k$ subgrid. Set every other template incidence positive. The proof of \cref{thm:prf}, with independent bits in place of the PRF, gives the lower bound and exceptional probability from \cref{lem:subgrid}. Entry evaluation checks subgrid membership and, only there, reads the relevant advice bit.
+
+Collapse all points outside the subgrid into one positive point. The effective domain has $2k^3+1$ points and the effective class at most $2k^3+1$ rows; every row outside the subgrid is all-positive. A strict template representation in dimension seven is obtained from the original six coordinates by adjoining a coordinate that is zero on old points, one on the added point, and one on all row vectors. The added point vector has its other coordinates zero. An all-positive row already occurs in the subgrid, so the collapsed rows require no additional row sign pattern. Adding it preserves the no-negative-$2\times2$ property.
+
+Apply the deterministic cap and proper constructions to this polynomial-size effective table. Every effective SQ is simulated by composing its query with the known collapsing map, so its expectation under an arbitrary original marginal is exactly the expectation under the pushforward marginal. The proper output extends by $+1$ outside the subgrid and belongs to the original class. The query count is $O_\epsilon(\log k)=O_{c,\epsilon}(\log n)$, and the table computation is polynomial in $n$ for fixed $c$.
+
+\end{proof}

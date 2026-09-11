@@ -1,0 +1,15 @@
+% sections/07_gradient.tex:3-9
+\begin{corollary}[Engineered differentiable learning with high dimension]\label{cor:engineered}
+Assume the PRF hypothesis of \cref{thm:prf}. Fix $c\ge1$ and $0<\epsilon<1/4$. For every sufficiently large admissible encoding length $n$ and every key $s$, the class $H_{A_s}$, encoded on $\{0,1\}^n$, has an engineered neural network and initialization of the form specified in \cref{app:engineered}, each describable and evaluable in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $\operatorname{poly}_{c,\epsilon}(n)$ parameters. After $O(n^2)$ full-batch updates using $\operatorname{poly}_{c,\epsilon}(n)$ examples and the finite-precision gradient rule \eqref{eq:engineered-gradient}, thresholding the final output at $1/2$ has expected classification error at most $\epsilon$ for every marginal and every target in $H_{A_s}$. For all but a negligible fraction of keys,
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2 n}.
+\]
+The model and initialization may depend on $s$, but are fixed before the marginal and target.
+\end{corollary}
+
+% appendices/engineered_simulation.tex:28-32
+\begin{proof}[Proof of \cref{cor:engineered}]
+Use the deterministic improper order-median learner of \cref{thm:fast} at accuracy $\epsilon/8$. It works for every key with $k=O(n^2)$ queries, tolerance $\Omega(\epsilon)$, and polynomial running time including query evaluation. Recode its labels and predictions from $\{-1,+1\}$ to $\{0,1\}$. Its square loss is half its classification loss, hence at most $\epsilon/16$ against every valid response sequence. A dyadic tolerance $\tau_0$ within a factor two of the advertised one preserves this guarantee and the asymptotic bounds.
+
+Give the deterministic source learner one ignored random bit and apply \eqref{eq:engineered-parameters} with $r=1$ and $\delta=\epsilon/16$. Its initialization map may ignore this bit as well. The sample size and model size are polynomial in $n$ for fixed $c,\epsilon$, and the expected final square loss is at most $\epsilon/8$. A thresholding mistake implies $|f(x)-y|\ge1/2$ and therefore square loss at least $1/8$. The expected classification loss is at most $\epsilon$. The PRF sign-rank conclusion is \cref{thm:prf}; it is independent of the simulation. The deterministic source learner satisfies the simulation's supremum-over-responses premise without exchanging a supremum and an expectation.
+\end{proof}

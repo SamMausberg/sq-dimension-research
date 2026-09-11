@@ -1,6 +1,5 @@
-\section{The grid construction and counting bound}\label{app:family-proof}
+\section{The grid construction and counting bound}\label{app:family-proof}\label{proof:construction}
 \input{figures/template_flip}
-\label{proof:construction}
 \begin{proof}[Proof of \cref{thm:construction}]
 
 Define
@@ -8,7 +7,7 @@ Define
  u_p=(x^2,xy,y^2,x,y,1),\quad
  v_\ell=(a^2,-2a,1,2ab,-2b,b^2-1/2).
 \]
-Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves $\sr(F)\le6$. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\in[K]$ and use $(1,t,\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\prod_{a\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\dc(H_A)\le2N+1$ for every member.
+Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves \mbox{$\sr(F)\le6$}. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\in[K]$ and use $(1,t,\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\prod_{a\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\dc(H_A)\le2N+1$ for every member.
 
 For fixed $a,x$, exactly $2N^2-ax$ values of $b\in[2N^2]$ give an incidence with $y\in[2N^2]$. Summing proves \eqref{eq:I}. The lower bound uses $(N+1)/2\le N$. If two distinct affine lines share points $(x,y)$ and $(x',y')$, subtraction gives $(a-c)(x-x')=0$. If $a=c$, their shared point forces equal intercepts, a contradiction. Otherwise $x=x'$ and then $y=y'$. Hence $F$, and therefore $A$, has no all-negative $2\times2$. Shattering three columns would require one row negative on all three and a distinct row negative on two of them, which creates such a submatrix. Therefore $\operatorname{VC}(A)\le2$.
 

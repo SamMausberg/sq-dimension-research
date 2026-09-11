@@ -1,0 +1,22 @@
+{
+  "seed": 2026091108,
+  "status": "PASS",
+  "counts": {
+    "exact_endpoint_assertions": 162,
+    "exhaustive_median_paths": 4080,
+    "exact_prefix_suffix_identities": 1000,
+    "exact_star_sampling_checks": 1000,
+    "exact_ambient_encoding_checks": 3487,
+    "exact_D_range_checks": 258,
+    "floating_warren_exponent_checks": 80,
+    "floating_PRF_parameter_checks": 36,
+    "parallel_class_counterexamples": 7,
+    "exact_response_grid_checks": 5000,
+    "floating_packing_exponent_checks": 4,
+    "exact_halfspace_color_checks": 17476,
+    "floating_hinge_parameter_checks": 18,
+    "exact_unseen_label_checks": 720
+  },
+  "elapsed_seconds": 0.7163888000068255,
+  "interpretation": "Finite exact checks plus explicitly identified floating parameter checks; not a proof assistant or a full PRF security experiment."
+}

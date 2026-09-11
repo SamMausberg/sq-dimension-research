@@ -1,0 +1,138 @@
+{
+  "Warren68": {
+    "number": {
+      "before": null,
+      "after": "1"
+    },
+    "doi": {
+      "before": null,
+      "after": "10.1090/S0002-9947-1968-0226281-1"
+    },
+    "url": {
+      "before": null,
+      "after": "https://doi.org/10.1090/S0002-9947-1968-0226281-1"
+    }
+  },
+  "AMY16": {
+    "note": {
+      "before": "Full version: arXiv:1503.07648",
+      "after": "Full version: arXiv:1503.07648v2; theorem numbering refers to that version"
+    },
+    "url": {
+      "before": "https://arxiv.org/abs/1503.07648",
+      "after": "https://arxiv.org/abs/1503.07648v2"
+    }
+  },
+  "AKMSS21": {
+    "url": {
+      "before": "https://arxiv.org/abs/2108.04190",
+      "after": "https://arxiv.org/abs/2108.04190v2"
+    }
+  },
+  "HHM23": {
+    "doi": {
+      "before": null,
+      "after": "10.1145/3564246.3585210"
+    }
+  },
+  "GHIS25": {
+    "url": {
+      "before": "https://arxiv.org/abs/2506.12022",
+      "after": "https://arxiv.org/abs/2506.12022v2"
+    }
+  },
+  "FHV26": {
+    "url": {
+      "before": "https://arxiv.org/abs/2604.01510",
+      "after": "https://arxiv.org/abs/2604.01510v2"
+    }
+  },
+  "Renegar92": {
+    "pages": {
+      "before": "255--352",
+      "after": "255--299, 301--327, 329--352"
+    },
+    "note": {
+      "before": null,
+      "after": "Three-part series. Part I: \\url{https://doi.org/10.1016/S0747-7171(10)80003-3}; Part II: \\url{https://doi.org/10.1016/S0747-7171(10)80004-5}; Part III: \\url{https://doi.org/10.1016/S0747-7171(10)80005-7}"
+    }
+  },
+  "BHKR26": {
+    "url": {
+      "before": "https://arxiv.org/abs/2605.01038",
+      "after": "https://arxiv.org/abs/2605.01038v2"
+    }
+  },
+  "BHHLT26": {
+    "url": {
+      "before": "https://arxiv.org/abs/2606.18236",
+      "after": "https://arxiv.org/abs/2606.18236v1"
+    }
+  },
+  "CMW25": {
+    "note": {
+      "before": "STOC 2025; preprint arXiv:2411.10784",
+      "after": "Preprint: arXiv:2411.10784v1"
+    },
+    "url": {
+      "before": "https://arxiv.org/abs/2411.10784",
+      "after": "https://doi.org/10.1145/3717823.3718213"
+    },
+    "booktitle": {
+      "before": null,
+      "after": "Proceedings of the 57th Annual ACM Symposium on Theory of Computing"
+    },
+    "pages": {
+      "before": null,
+      "after": "2043--2054"
+    },
+    "doi": {
+      "before": null,
+      "after": "10.1145/3717823.3718213"
+    }
+  },
+  "Feldman08": {
+    "doi": {
+      "before": null,
+      "after": "10.1145/1374376.1374465"
+    },
+    "url": {
+      "before": null,
+      "after": "https://doi.org/10.1145/1374376.1374465"
+    }
+  },
+  "DV04": {
+    "doi": {
+      "before": null,
+      "after": "10.1145/1007352.1007404"
+    },
+    "url": {
+      "before": null,
+      "after": "https://doi.org/10.1145/1007352.1007404"
+    }
+  },
+  "KM25": {
+    "pages": {
+      "before": null,
+      "after": "29078--29097"
+    }
+  },
+  "ABBBN21": {
+    "url": {
+      "before": "https://arxiv.org/abs/2108.10573",
+      "after": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html"
+    },
+    "volume": {
+      "before": null,
+      "after": "34"
+    },
+    "pages": {
+      "before": null,
+      "after": "26989--27002"
+    },
+    "note": {
+      "before": null,
+      "after": "Preprint: arXiv:2108.10573"
+    }
+  }
+}

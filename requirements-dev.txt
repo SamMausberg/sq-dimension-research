@@ -1,3 +1,5 @@
 -r requirements.txt
 PyMuPDF==1.26.7
-Pillow>=11.0
+Pillow==11.3.0
+ruff==0.15.10
+cffconvert==2.0.0

@@ -12,8 +12,10 @@ Emmanuel Abbe, Enric Boix-Adser{\`a}, Matthew Brennan, Guy Bresler, and Dheeraj
 \newblock The staircase property: how hierarchical structure can guide deep
   learning.
 \newblock In \emph{Advances in Neural Information Processing Systems},
-  2021{\natexlab{a}}.
-\newblock URL \url{https://arxiv.org/abs/2108.10573}.
+  volume~34, pages 26989--27002, 2021{\natexlab{a}}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html}.
+\newblock Preprint: arXiv:2108.10573.
 
 \bibitem[Abbe et~al.(2021{\natexlab{b}})Abbe, Kamath, Malach, Sandon, and
   Srebro]{AKMSS21}
@@ -22,7 +24,7 @@ Emmanuel Abbe, Pritish Kamath, Eran Malach, Colin Sandon, and Nathan Srebro.
   learning.
 \newblock In \emph{Advances in Neural Information Processing Systems},
   volume~34, pages 24340--24351, 2021{\natexlab{b}}.
-\newblock URL \url{https://arxiv.org/abs/2108.04190}.
+\newblock URL \url{https://arxiv.org/abs/2108.04190v2}.
 \newblock Full version: arXiv:2108.04190v2.
 
 \bibitem[Abbe et~al.(2022)Abbe, Boix-Adser{\`a}, and Misiakiewicz]{ABM22}
@@ -51,8 +53,9 @@ Noga Alon, Shay Moran, and Amir Yehudayoff.
 \newblock Sign rank versus {VC} dimension.
 \newblock In \emph{Conference on Learning Theory}, volume~49 of
   \emph{Proceedings of Machine Learning Research}, pages 47--80, 2016.
-\newblock URL \url{https://arxiv.org/abs/1503.07648}.
-\newblock Full version: arXiv:1503.07648.
+\newblock URL \url{https://arxiv.org/abs/1503.07648v2}.
+\newblock Full version: arXiv:1503.07648v2; theorem numbering refers to that
+  version.
 
 \bibitem[Balcan and Feldman(2013)]{BF13}
 Maria-Florina Balcan and Vitaly Feldman.
@@ -75,7 +78,7 @@ Shai Ben-David, Nadav Eiron, and Hans~Ulrich Simon.
 Riju Bindua, Hamed Hatami, Hasti Karimi, and Robert Robere.
 \newblock Lower bounds for approximate sign rank.
 \newblock arXiv:2605.01038v2, 2026.
-\newblock URL \url{https://arxiv.org/abs/2605.01038}.
+\newblock URL \url{https://arxiv.org/abs/2605.01038v2}.
 
 \bibitem[Blondal et~al.(2026)Blondal, Hatami, Hatami, Lalov, and
   Tretiak]{BHHLT26}
@@ -83,14 +86,17 @@ Ari Blondal, Hamed Hatami, Pooya Hatami, Chavdar Lalov, and Sivan Tretiak.
 \newblock Sign-rank, index, and list replicability: connections and
   separations.
 \newblock arXiv:2606.18236v1, 2026.
-\newblock URL \url{https://arxiv.org/abs/2606.18236}.
+\newblock URL \url{https://arxiv.org/abs/2606.18236v1}.
 
 \bibitem[Chornomaz et~al.(2025)Chornomaz, Moran, and Waknine]{CMW25}
 Bogdan Chornomaz, Shay Moran, and Tom Waknine.
 \newblock On reductions and representations of learning problems in euclidean
-  spaces, 2025.
-\newblock URL \url{https://arxiv.org/abs/2411.10784}.
-\newblock STOC 2025; preprint arXiv:2411.10784.
+  spaces.
+\newblock In \emph{Proceedings of the 57th Annual ACM Symposium on Theory of
+  Computing}, pages 2043--2054, 2025.
+\newblock \doi{10.1145/3717823.3718213}.
+\newblock URL \url{https://doi.org/10.1145/3717823.3718213}.
+\newblock Preprint: arXiv:2411.10784v1.
 
 \bibitem[Diakonikolas et~al.(2022)Diakonikolas, Tzamos, and Kane]{DKT22}
 Ilias Diakonikolas, Christos Tzamos, and Daniel~M. Kane.
@@ -105,12 +111,16 @@ John Dunagan and Santosh Vempala.
   programs.
 \newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
   pages 315--320, 2004.
+\newblock \doi{10.1145/1007352.1007404}.
+\newblock URL \url{https://doi.org/10.1145/1007352.1007404}.
 
 \bibitem[Feldman(2008)]{Feldman08}
 Vitaly Feldman.
 \newblock Evolvability from learning algorithms.
 \newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
   pages 619--628, 2008.
+\newblock \doi{10.1145/1374376.1374465}.
+\newblock URL \url{https://doi.org/10.1145/1374376.1374465}.
 
 \bibitem[Feldman(2011)]{Feldman11}
 Vitaly Feldman.
@@ -158,7 +168,7 @@ J{\"u}rgen Forster.
 Florian Frick, Kaave Hosseini, and Aliaksei Vasileuski.
 \newblock A {$\mathbb Z_2$}-topological framework for sign-rank lower bounds.
 \newblock arXiv:2604.01510v2, 2026.
-\newblock URL \url{https://arxiv.org/abs/2604.01510}.
+\newblock URL \url{https://arxiv.org/abs/2604.01510v2}.
 
 \bibitem[Goldreich et~al.(1986)Goldreich, Goldwasser, and Micali]{GGM86}
 Oded Goldreich, Shafi Goldwasser, and Silvio Micali.
@@ -179,7 +189,7 @@ Alon Gonen, Sivan Sabato, and Shai Shalev-Shwartz.
 Mika G{\"o}{\"o}s, Nathaniel Harms, Valentin Imbach, and Dmitry Sokolov.
 \newblock Sign-rank of {$k$}-hamming distance is constant.
 \newblock arXiv:2506.12022v2, 2025.
-\newblock URL \url{https://arxiv.org/abs/2506.12022}.
+\newblock URL \url{https://arxiv.org/abs/2506.12022v2}.
 
 \bibitem[H{\aa}stad et~al.(1999)H{\aa}stad, Impagliazzo, Levin, and
   Luby]{HILL99}
@@ -201,6 +211,7 @@ Hamed Hatami, Kaave Hosseini, and Xiang Meng.
 \newblock A {Borsuk--Ulam} lower bound for sign-rank and its applications.
 \newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
   pages 463--471, 2023.
+\newblock \doi{10.1145/3564246.3585210}.
 \newblock URL \url{https://eccc.weizmann.ac.il/report/2022/130/}.
 \newblock Preprint: ECCC TR22-130.
 
@@ -217,7 +228,7 @@ Ari Karchmer and Eran Malach.
 \newblock The power of random features and the limits of distribution-free
   gradient descent.
 \newblock In \emph{International Conference on Machine Learning}, volume 267 of
-  \emph{Proceedings of Machine Learning Research}, 2025.
+  \emph{Proceedings of Machine Learning Research}, pages 29078--29097, 2025.
 \newblock URL \url{https://proceedings.mlr.press/v267/karchmer25a.html}.
 
 \bibitem[Kearns(1998)]{Kearns98}
@@ -247,7 +258,11 @@ James Renegar.
 \newblock On the computational complexity and geometry of the first-order
   theory of the reals. {I--III}.
 \newblock \emph{Journal of Symbolic Computation}, 13\penalty0 (3):\penalty0
-  255--352, 1992.
+  255--299, 301--327, 329--352, 1992.
+\newblock Three-part series. Part I:
+  \url{https://doi.org/10.1016/S0747-7171(10)80003-3}; Part II:
+  \url{https://doi.org/10.1016/S0747-7171(10)80004-5}; Part III:
+  \url{https://doi.org/10.1016/S0747-7171(10)80005-7}.
 
 \bibitem[Vorobjov(2021)]{Vorobjov21}
 Nicolai Vorobjov.
@@ -259,7 +274,9 @@ Nicolai Vorobjov.
 Hugh~E. Warren.
 \newblock Lower bounds for approximation by nonlinear manifolds.
 \newblock \emph{Transactions of the American Mathematical Society},
-  133:\penalty0 167--178, 1968.
+  133\penalty0 (1):\penalty0 167--178, 1968.
+\newblock \doi{10.1090/S0002-9947-1968-0226281-1}.
+\newblock URL \url{https://doi.org/10.1090/S0002-9947-1968-0226281-1}.
 
 \bibitem[Zhang et~al.(2026)Zhang, Tang, Yin, Chen, Qian, and Zou]{VALG26}
 Dechen Zhang, Xuan Tang, Xinxiang Yin, Xingwu Chen, Jian Qian, and Difan Zou.

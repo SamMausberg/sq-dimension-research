@@ -1,0 +1,43 @@
+{
+  "active_tex_files": 44,
+  "missing_inputs": [],
+  "label_count": 162,
+  "duplicate_labels": {},
+  "reference_occurrences": 309,
+  "unresolved_static_references": [],
+  "environment_balance_issues": [],
+  "environment_counts": {
+    "document": 1,
+    "abstract": 1,
+    "center": 6,
+    "tabularx": 4,
+    "quote": 1,
+    "equation": 35,
+    "itemize": 1,
+    "table": 3,
+    "tabular": 4,
+    "theorem": 18,
+    "lemma": 10,
+    "align": 2,
+    "proof": 39,
+    "algorithm": 4,
+    "corollary": 4,
+    "proposition": 8,
+    "longtable": 10,
+    "figure": 5,
+    "tikzpicture": 5,
+    "scope": 8,
+    "align*": 2,
+    "cases": 3
+  },
+  "trailing_whitespace_lines": [
+    "appendices/family_proof.tex:24",
+    "appendices/family_proof.tex:62",
+    "appendices/resources.tex:15"
+  ],
+  "old_pdf_pages": 64,
+  "fresh_pdf_pages": 64,
+  "page_text_mismatches": [],
+  "page_content_stream_mismatches": [],
+  "page_size_mismatches": []
+}

@@ -1,0 +1,22 @@
+Title:           Distribution-independent SQ learning does not imply low dimension complexity
+Subject:         A negative answer to Open Question 2 of Feldman, Kamath and Srebro
+Keywords:        statistical queries, sign-rank, dimension complexity, learning theory
+Author:          Samuel Mausberg
+Creator:         LaTeX with hyperref
+Producer:        pdfTeX-1.40.25
+CreationDate:    Fri Sep 11 06:19:52 2026 PDT
+ModDate:         Fri Sep 11 06:19:52 2026 PDT
+Custom Metadata: yes
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           64
+Encrypted:       no
+Page size:       612 x 792 pts (letter)
+Page rot:        0
+File size:       907164 bytes
+Optimized:       no
+PDF version:     1.5

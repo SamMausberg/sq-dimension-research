@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "comparison": "Theorem signatures and proof bodies versus imported bundle HEAD, ignoring whitespace only",
+  "source_commit": "c7fbd8c96c72a6b20ec75518f1a99531a155237c",
+  "sources": {
+    "SQDC.lean": {
+      "theorem_names": [
+        "query_decomposition",
+        "finite_energy_count",
+        "barrier_algebra",
+        "relu_odd_part"
+      ],
+      "statements_unchanged": true,
+      "proof_bodies_unchanged": true,
+      "canonical_statement_sha256": {
+        "query_decomposition": "d5384c00992c99067e8e8de38da5ab0d8594f4d1b4752c281041cbd223fea23d",
+        "finite_energy_count": "2e5948db20fc5a6199b2ad4d91ab496b95bc26619d7e57bb49c40070c9f578de",
+        "barrier_algebra": "9801f9237abc2f4d63ead4a68699a4fb318571f27b8124cea7d38cee9f80b58c",
+        "relu_odd_part": "42d4dd2585f5fad5e3c67157d6f0f8e5dcc6bcd181296c76c9f08beeae549a89"
+      },
+      "canonical_theorem_and_proof_sha256": {
+        "query_decomposition": "a25395b92e758d9f3a8d4f18630559cf989bd201b9369f8f3b1a291169b8b084",
+        "finite_energy_count": "a109a803e402b25e097ffe2defab7c2bbf2d87b9a0a9e52b93035a59b4412003",
+        "barrier_algebra": "e8f09926c6b6ab643e4ba039486ff0125b6a80eea0ba15e4451b906a99f14446",
+        "relu_odd_part": "cedd81651e3c38b2ab3d85df274f85b2ba7f3858436b8b44c8139fcab423898a"
+      }
+    },
+    "Turn2.lean": {
+      "theorem_names": [
+        "L1_peeling_error",
+        "L1_peeling_budget",
+        "L2_elimination_potential",
+        "L3_preserves_positive_rectangle",
+        "L4_two_grid_lines"
+      ],
+      "statements_unchanged": true,
+      "proof_bodies_unchanged": true,
+      "canonical_statement_sha256": {
+        "L1_peeling_error": "138d699346a3ea76b363d4308c913fc41db6997fbb5601dd5b0a72399fd0b721",
+        "L1_peeling_budget": "118a4c2806b23349f481c5ee1344b1375e958c27930e90b2ef0dc2a43c2e1096",
+        "L2_elimination_potential": "9521ac197b04441557d7cd8c9aab4245883c4869c05a276835b73360b861e0d2",
+        "L3_preserves_positive_rectangle": "135b2cf5411340a653e4b5b5aad1bb63100f0557212a55fc6c01cc99dc4b57a2",
+        "L4_two_grid_lines": "9b90da23a7d6eda6a266ab4c425b63ef8a81e63a5bfcd2643913a2ebd62bab39"
+      },
+      "canonical_theorem_and_proof_sha256": {
+        "L1_peeling_error": "9fe2c1108489876319693a4f1a965bdc68cfb7fd7236827d7ff665b9625efe19",
+        "L1_peeling_budget": "9bc259599063e5f791e31da589cd28ffb5f80c0851487a92a446c7ce0c5632c2",
+        "L2_elimination_potential": "b3ea4e9ee19e158e95077b9cb7ef1f873228eb8a29502b66c053cb808d4fed3c",
+        "L3_preserves_positive_rectangle": "b56c7de8789143dce5ad5b48fb6c0c9d4908de08bb2e4c0b906c1a550a7ab000",
+        "L4_two_grid_lines": "d6f9456217e4958f7822b8599a55aff1fd8e71d7c1a039e8102dc34b4083c277"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+% sections/03_rectangle.tex:17-24
+\begin{lemma}[A marginal-free rectangle mixture]\label{lem:mixture}
+Assume $H$ is finite, $0<r\le\rect(H)$, and fix nonempty $U\subseteq X$, nonempty $V\subseteq H$, and a distribution $\nu$ on $V$. There is a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R\subseteq U\times V$ such that
+\begin{equation}\label{eq:coverage}
+ \forall x\in U,\qquad
+ \E_{R\sim\lambda}\bigl[\1_{S_R}(x)\nu(T_R)\bigr]\ge r.
+\end{equation}
+This distribution can be computed from $(H,U,V,\nu)$ without a query about $D$.
+\end{lemma}
+
+% sections/03_rectangle.tex:26-28
+\begin{proof}[Proof of \cref{lem:mixture}]
+For each rectangle $R$, let $z_R(x)=\mathbf1_{S_R}(x)\nu(T_R)$. The rectangle hypothesis gives $\max_R\langle\mu,z_R\rangle\ge r$ for every $\mu\in\Delta(U)$. The finite separation lemma, \cref{lem:finite-minimax}, gives a convex combination with every coordinate at least $r$. This is the required law. Rational inputs admit a rational feasible point.
+\end{proof}

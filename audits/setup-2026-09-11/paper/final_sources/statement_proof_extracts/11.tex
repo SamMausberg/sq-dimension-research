@@ -1,0 +1,22 @@
+% sections/05_learners.tex:52-65
+\begin{lemma}[Noisy integer medians]\label{lem:median}
+Suppose $\zeta\ge0$, $\beta>0$, $|\widehat\beta-\beta|\le\zeta$, and $\beta\ge512\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\mu^-\{f\le t\}$ and threshold $\widehat\beta/2$ returns $v\in[L,H]$ with
+\[
+ \mu^-\{f\le v\}\ge\beta/2-3\zeta/2,
+ \qquad
+ \mu^-\{f<v\}<\beta/2+3\zeta/2.
+\]
+If the answer $\widehat m$ to $m=\mu^-\{f=v\}$ is at most $\widehat\beta/8$, then
+\begin{equation}\label{eq:balancedmedian}
+ \beta/2-3\zeta/2\le\mu^-\{f\le v\}
+ <5\beta/8+21\zeta/8.
+\end{equation}
+Otherwise $m>\beta/9$.
+\end{lemma}
+
+% appendices/median_proofs.tex:22-26
+\begin{proof}[Proof of \cref{lem:median}]
+Start with the bracket $[L-1,H]$, regarding the lower endpoint as a negative comparison and the upper as a positive comparison. The corresponding true masses are zero and $\beta$, so both satisfy the claimed endpoint inequalities. At an interior query, an answer at least $\widehat\beta/2$ implies true mass at least $\beta/2-3\zeta/2$; an answer below it implies true mass below $\beta/2+3\zeta/2$. Preserve the respective endpoint inequalities during binary search. They remain valid even if different valid answers do not form a monotone sequence. At termination the endpoints are $v-1,v$, proving the first two assertions.
+
+In the light-atom case, $m\le\widehat\beta/8+\zeta\le\beta/8+9\zeta/8$. Add this to the upper bound on $\mu^-\{f<v\}$ to obtain \eqref{eq:balancedmedian}. In the other case $m>\widehat\beta/8-\zeta\ge\beta/8-9\zeta/8>\beta/9$, since $\beta\ge512\zeta$.
+\end{proof}

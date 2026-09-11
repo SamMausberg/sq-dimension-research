@@ -1,0 +1,52 @@
+% appendices/comparisons.tex:190-197
+\begin{theorem}[Small rectangle ratio does not prevent SQ learning]\label{thm:halfspaces}
+For odd $n$, let
+\[
+ X_n=\{-1,+1\}^n,\qquad
+ H_n=\{x\mapsto\sign\langle w,x\rangle:w\in\{-1,+1\}^n\}.
+\]
+Then $\dc(H_n)\le n$ and $\rect(H_n)\le e^{-n/4}$. For every $0<\epsilon<1/4$, one deterministic distribution-independent SQ learner satisfies \eqref{eq:guarantee} with $m=O(n^3/\epsilon^2)$ and $\tau=\epsilon/(8n)$.
+\end{theorem}
+
+% appendices/certificate_proofs.tex:223-263
+\begin{proof}[Proof of \cref{thm:halfspaces}]
+All integer inner products are odd and nonzero, so the identity embedding proves the dimension claim. Distinct parameter vectors give distinct rows: conditioning on all but coordinate $i$ shows
+\[
+ \E_x[x_i\sign\langle w,x\rangle]
+ =w_i\Pr[Z_1+\cdots+Z_{n-1}=0],
+\]
+where the $Z_j$ are independent fair signs and the probability is positive. The conditional difference of the two signs is two exactly when that even sum is zero, and is zero otherwise. Thus uniform parameters are also a uniform prior on the distinct hypotheses. We first bound every rectangle under this uniform product measure. A negative rectangle gives two subsets of the cube with all cross Hamming distances at least $t=(n+1)/2$. For a positive rectangle, negate one of its sides to get the same separation condition. Negation preserves cardinality.
+
+Let $A,B$ be nonempty subsets separated in this way. For uniform $Z$ on the cube, set $f(Z)=\operatorname{dist}_{\rm Ham}(Z,A)$ and $s=\E f$. Changing one coordinate changes $f$ by at most one. The elementary bounded-differences calculation proved in Appendix~\ref{app:concentration} gives
+\[
+ \Pr[f-s\le-a]\le e^{-2a^2/n},\qquad
+ \Pr[f-s\ge a]\le e^{-2a^2/n}\quad(a\ge0).
+\]
+Writing $\alpha=|A|/2^n$, $\beta=|B|/2^n$, if $0\le s\le t$ then
+\[
+ \alpha\beta\le\exp\{-2(s^2+(t-s)^2)/n\}
+ \le e^{-t^2/n}\le e^{-n/4}.
+\]
+If $s\ge t$, already $\alpha\le e^{-2t^2/n}$ and $\beta\le1$. Empty rectangles have zero mass. Taking the maximum under this one product measure proves the rectangle upper bound.
+
+For learning, set $z=x/\sqrt n$, $\gamma=1/n$, and optimize
+\[
+ F(v)=\E_D(\gamma-y\langle v,z\rangle)_+
+ \quad\text{over }\|v\|\le1.
+\]
+The target $v^*=w^*/\sqrt n$ has $F(v^*)=0$. At a current $v$, a valid subgradient is
+\[
+ g(v)=\E[-yz\,\1_{\{y\langle v,z\rangle<\gamma\}}],\qquad\|g(v)\|\le1.
+\]
+Query each coordinate using the bounded function
+$q_i(x,y)=-yx_i\1_{\{y\langle v,x/\sqrt n\rangle<\gamma\}}$ and divide its answer by $\sqrt n$. The resulting vector is $g(v)+e$ with $\|e\|\le\tau$, regardless of the coordinatewise answer choices.
+
+Start $v_0=0$, take $T=\lceil100/(\epsilon^2\gamma^2)\rceil$, step $a=T^{-1/2}$, and update by projection of $v_t-a(g_t+e_t)$ onto the unit ball. For any point $v^*$ in that ball, projection cannot increase distance to $v^*$. Expanding the squared distance and using convexity yields
+\[
+ \frac1T\sum_{t<T}F(v_t)
+ \le\frac1{2aT}+\frac a2(1+\tau)^2+2\tau
+ \le\frac{5}{2\sqrt T}+2\tau
+ \le\epsilon\gamma/2.
+\]
+Here $\|v_t-v^*\|\le2$, $\tau=\epsilon\gamma/8<1$, and $\sqrt T\ge10/(\epsilon\gamma)$. Jensen's inequality gives the same hinge bound for $\bar v=T^{-1}\sum_t v_t$. Every classification mistake of $\sign\langle\bar v,z\rangle$ incurs hinge loss at least $\gamma$, including a zero score when the true label is negative. Thus its error is at most $\epsilon/2$. There are $nT$ scalar queries. This proves a deterministic, adversarial-oracle guarantee stronger than the stated expected-error requirement.
+\end{proof}

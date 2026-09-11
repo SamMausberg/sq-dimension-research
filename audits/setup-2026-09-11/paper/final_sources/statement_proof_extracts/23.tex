@@ -1,0 +1,11 @@
+% appendices/foundations.tex:33-35
+\begin{lemma}[Tie conventions and strict realization]\label{lem:ties}
+For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. If all zero scores are counted as errors, replacing their predictions by $+1$ cannot increase loss, for any marginal and target.
+\end{lemma}
+
+% appendices/oracle_bounds.tex:36-40
+\begin{proof}[Proof of \cref{lem:ties} and the zero-incidence convention]
+There are exactly $N(N+1)/2$ empty template rows: row $(a,b)$ has no incidence precisely when $b>2N^2-a$. They are all-positive rows of every flip. Their weights $k_h/I$ in Theorem~\ref{thm:prob} are zero; no uniform distribution on an empty set is formed. For nonempty rows these weights sum to one. For a fixed embedding, loss minimization ranges over finitely many attained sign patterns, so the infimum is a minimum. The weighted incidence mistake count is an integer divided by $I$; some embedding has value at most its expectation bound. The same embedding is used for every row, with row-specific weights, exactly as required by the definition.
+
+The working convention is $\sign(0)=+1$. A positive row-specific bias in one common added coordinate turns zero scores positive without changing any negative score. Thus the strict rank in the counting argument is $d+1$, and the event is $\dc^\eta<s_\eta$, not $\dc^\eta\le s_\eta$. If the sign convention is $\sign(0)=-1$, use a negative bias. If zero predictions are counted as errors, replacing them by $+1$ can only reduce the number of mistakes, so the same lower bound still follows. Exact probabilistic dimension uses a full-support marginal; zero loss means that every point is correct. These observations make the conclusions insensitive to either fixed tie rule, without weakening the universal quantifiers over $D$ and $h$.
+\end{proof}

@@ -1,0 +1,106 @@
+{
+  "Warren68": {
+    "source": "https://api.crossref.org/works/10.1090/s0002-9947-1968-0226281-1",
+    "title": [
+      "Lower bounds for approximation by nonlinear manifolds"
+    ],
+    "author": [
+      {
+        "given": "Hugh E.",
+        "family": "Warren",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "doi": "10.1090/s0002-9947-1968-0226281-1",
+    "publisher": "American Mathematical Society (AMS)",
+    "volume": "133",
+    "issue": "1",
+    "pages": "167-178",
+    "published": {
+      "date-parts": [
+        [
+          1968
+        ]
+      ]
+    },
+    "scope": "Publisher-deposited bibliographic metadata, fetched live 2026-09-11. Does not establish original full-text access."
+  },
+  "HHM23": {
+    "source": "https://api.crossref.org/works/10.1145/3564246.3585210",
+    "title": [
+      "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications"
+    ],
+    "author": [
+      {
+        "given": "Hamed",
+        "family": "Hatami",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "McGill University, Canada"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kaave",
+        "family": "Hosseini",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Rochester, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiang",
+        "family": "Meng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "McGill University, Canada"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "doi": "10.1145/3564246.3585210",
+    "publisher": "ACM",
+    "volume": null,
+    "issue": null,
+    "pages": "463-471",
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          6,
+          2
+        ]
+      ]
+    },
+    "scope": "Publisher-deposited bibliographic metadata, fetched live 2026-09-11. Does not establish original full-text access."
+  }
+}

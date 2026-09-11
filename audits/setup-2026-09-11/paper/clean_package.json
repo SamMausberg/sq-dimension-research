@@ -1,0 +1,346 @@
+{
+  "errors": 0,
+  "undefined_references": 0,
+  "undefined_citations": 0,
+  "overfull_boxes": 0,
+  "duplicate_anchors": 0,
+  "pages": 64,
+  "main_pages": 13,
+  "shell_escape": false,
+  "command": [
+    "pdflatex",
+    "-no-shell-escape",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "paper.tex"
+  ],
+  "status": "PASS",
+  "archive_sha256": "d3a64f91b8631b0e9799c4319855f926ae3e2b3a2f21e4e13fca98a2176860bb",
+  "source_files": 47,
+  "entry_point": "paper.tex",
+  "clean_extraction": true,
+  "all_page_texts_match": true,
+  "all_page_pixels_match_72dpi": true,
+  "page_comparisons": [
+    {
+      "page": 1,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 2,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 3,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 4,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 5,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 6,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 7,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 8,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 9,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 10,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 11,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 12,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 13,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 14,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 15,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 16,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 17,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 18,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 19,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 20,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 21,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 22,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 23,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 24,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 25,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 26,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 27,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 28,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 29,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 30,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 31,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 32,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 33,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 34,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 35,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 36,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 37,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 38,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 39,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 40,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 41,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 42,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 43,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 44,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 45,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 46,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 47,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 48,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 49,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 50,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 51,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 52,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 53,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 54,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 55,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 56,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 57,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 58,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 59,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 60,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 61,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 62,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 63,
+      "text_match": true,
+      "pixel_match": true
+    },
+    {
+      "page": 64,
+      "text_match": true,
+      "pixel_match": true
+    }
+  ]
+}

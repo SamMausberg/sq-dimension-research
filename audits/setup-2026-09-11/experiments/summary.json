@@ -1,0 +1,25 @@
+{
+  "fast": {
+    "runs": 304,
+    "termination_reasons": {
+      "star_candidate": 106,
+      "small_negative": 56,
+      "star_identified": 112,
+      "slope_identified": 24,
+      "constant_residual": 6
+    },
+    "maximum_error": "26/1069",
+    "all_errors_at_most_one_tenth": true
+  },
+  "keyed_caps": {
+    "runs": 56,
+    "termination_reasons": {
+      "rectangle_candidate": 31,
+      "identified_row": 4,
+      "residual": 15,
+      "small_tail_candidate": 6
+    },
+    "maximum_error": "4278523253/500000000000",
+    "all_errors_at_most_one_tenth": true
+  }
+}

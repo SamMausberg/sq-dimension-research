@@ -1,9 +1,21 @@
 cff-version: 1.2.0
-message: "Please cite the manuscript; an arXiv identifier has not yet been assigned."
+message: "Please cite this manuscript and identify the repository commit used. No arXiv identifier or DOI has been assigned."
 title: "Distribution-independent SQ learning does not imply low dimension complexity"
-type: article
+type: software
 authors:
   - family-names: Mausberg
     given-names: Samuel
 version: "revision-8"
 date-released: "2026-09-11"
+repository-code: "https://github.com/SamMausberg/sq-dimension-research"
+url: "https://github.com/SamMausberg/sq-dimension-research"
+license-url: "https://github.com/SamMausberg/sq-dimension-research/blob/main/LICENSE"
+preferred-citation:
+  type: unpublished
+  title: "Distribution-independent SQ learning does not imply low dimension complexity"
+  authors:
+    - family-names: Mausberg
+      given-names: Samuel
+  year: 2026
+  notes: "Unpublished manuscript, revision 8. Identify the repository commit used."
+  url: "https://github.com/SamMausberg/sq-dimension-research"

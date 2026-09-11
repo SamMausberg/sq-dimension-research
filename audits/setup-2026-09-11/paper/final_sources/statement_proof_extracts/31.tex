@@ -1,0 +1,26 @@
+% appendices/comparisons.tex:175-181
+\begin{theorem}[Global projective-plane rectangle ratio]\label{thm:pgglobal}
+For the point--line incidence class of $\operatorname{PG}(2,q)$, over any prime-power order $q\ge2$ for which the plane is defined,
+\[
+ \frac1{8(q+1)}\le\rect(H_q)\le\frac{q}{(q+1)^2}.
+\]
+Thus the infimum over \emph{all} product distributions is $\Theta(1/q)$, not merely the maximum rectangle under the uniform product measure.
+\end{theorem}
+
+% appendices/certificate_proofs.tex:205-220
+\begin{proof}[Proof of \cref{thm:pgglobal}]
+We prove the lower bound for any bipartite incidence graph whose degrees on both sides are at most $\Delta\ge1$. Fix arbitrary product weights $\mu\times\nu$ and let $p$ be their total incidence mass. If $p\ge1/2$, some point has incident row mass at least $1/2$. At most $\Delta$ rows meet it, so one row has prior mass at least $1/(2\Delta)$. One of that row's two color classes has point mass at least $1/2$. This gives a monochromatic rectangle of mass at least $1/(4\Delta)$.
+
+If $p<1/2$, select each point independently with probability $t=1/(2\Delta)$, obtaining $S$, and let $T$ be all rows with no neighbor in $S$. The rectangle $S\times T$ is nonincident. For a nonincident pair $(x,h)$,
+\[
+ \Pr[x\in S,h\in T]=t(1-t)^{\deg h}
+ \ge t(1-\Delta t)=1/(4\Delta).
+\]
+The inequality $(1-t)^j\ge1-jt$ follows by induction. Averaging the rectangle mass gives at least $(1-p)/(4\Delta)>1/(8\Delta)$. Hence some rectangle has that mass. Taking $\Delta=q+1$ proves the universal lower bound.
+
+For the upper bound choose uniform weights. Let $K=q^2+q+1$, $k=q+1$, and let $P$ be the incidence matrix. The identities $P^\top P=qI+\1\1^\top$ and $P\1=k\1$ give
+\[
+ C=P-(k/K)\1\1^\top,\qquad \|C\|_{\rm op}=\sqrt q.
+\]
+A nonincident rectangle of sizes $a,b$ satisfies $(k/K)ab\le\sqrt q\sqrt{ab}$, so $ab/K^2\le q/k^2$. An incident rectangle has a singleton side and area at most $k$. Its mass is at most $1/K\le q/k^2$, since $qK-k^2=q^3-q-1>0$. This establishes the claimed upper bound on the infimum.
+\end{proof}

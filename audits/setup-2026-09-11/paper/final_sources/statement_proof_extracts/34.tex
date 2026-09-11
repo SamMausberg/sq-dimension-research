@@ -1,0 +1,19 @@
+% appendices/comparisons.tex:236-248
+\begin{corollary}[Published approximate rank as an SQ sufficient condition]\label{cor:approxrect}
+Fix $0<\eta<1/2$ and $0<\epsilon<1/4$. Suppose a total sign matrix has approximate sign-rank at most $d$ in the deterministic-embedding sense of \citet{BHKR26}. Put $\bar d=\max\{2,d\}$ and
+\[
+ \rho_\eta=\bar d^{C_\eta(\bar d+\bar d^2)},
+\]
+where $C_\eta$ is a sufficiently large constant valid in their rectangle theorem. Then
+\[
+ \rect(H)\ge\rho_\eta^{-1},\quad
+ m=O\bigl(\rho_\eta(\log K+\log(1/\epsilon))\bigr),\quad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho_\eta\log(1/\epsilon)}\right)
+\]
+for one distribution-independent learner. Equivalently $\rho_\eta=\bar d^{O_\eta(\bar d^2)}$. The implicit constant depends only on $\eta$.
+\end{corollary}
+
+% appendices/certificate_proofs.tex:271-273
+\begin{proof}[Proof of \cref{cor:approxrect}]
+The published theorem gives a uniform-product rectangle of the displayed product fraction. For rational row and column distributions, duplicate each row and column according to integer denominator multiplicities. Approximate sign-rank does not increase: duplicate columns use the same embedding, and every distribution on copies pushes forward to a distribution on original columns; duplicate rows require no new representation. Apply the rectangle theorem to this duplicated total matrix. Projecting a monochromatic rectangle to the original indices retains its sign and can only increase its product-weighted mass. Finally approximate arbitrary weights by rational weights. The maximum over the finitely many rectangle product masses is continuous, so the lower bound persists. Apply Theorem~\ref{thm:main} with $\rho=\rho_\eta$.
+\end{proof}

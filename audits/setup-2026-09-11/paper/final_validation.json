@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "date": "2026-09-11",
+  "build": {
+    "pages": 64,
+    "main_pages": 13,
+    "errors": 0,
+    "undefined_references": 0,
+    "undefined_citations": 0,
+    "overfull_boxes": 0,
+    "duplicate_anchors": 0,
+    "shell_escape": false
+  },
+  "bibliography": {
+    "regenerated_with_bibtex": true,
+    "resolved_entries": 34,
+    "pages": [
+      14,
+      15,
+      16
+    ],
+    "visual_check": "Entries 1-34 intact; line breaks and cross-page continuation readable; no clipping, overlap or missing glyphs observed."
+  },
+  "source_checks": {
+    "numbered_statements": 40,
+    "bound_proofs": 40,
+    "dependency_nodes": 51,
+    "acyclic": true,
+    "mathematical_and_prose_content_unchanged": true,
+    "allowed_presentation_edits": [
+      "Construction-proof label moved before figure input to repair hyperlink.",
+      "Appendix E sole figure uses [H] to remain below its heading.",
+      "Short inequality uses an mbox wrapper to prevent a split across lines or pages."
+    ]
+  },
+  "visual_checks": {
+    "rendered_pages": 64,
+    "dpi": 100,
+    "changed_body_pages": [
+      25,
+      26
+    ],
+    "unchanged_body_page_drawing_streams": 59,
+    "comparison_normalization": "PDF font resource identifiers mapped to their BaseFont names.",
+    "reviewed_final_pages": [
+      14,
+      15,
+      16,
+      25,
+      26
+    ],
+    "result": "Appendix E heading precedes its figure on page 25; construction proof hyperlink targets appendix.F on page 25; signrank(F) <= 6 remains unbroken on page 26. No clipping, overlaps, stranded Appendix E heading or split inequality observed."
+  },
+  "remaining_diagnostics": {
+    "underfull_hbox_notices": 19,
+    "assessment": "Spacing notices in narrow table columns and bibliography lines; no overfull boxes or other LaTeX warnings."
+  },
+  "pdf_sha256": "58e6f2b90fff4933d200940999d11fb4631993afc28b60b1865bef574f163a97",
+  "bbl_sha256": "39ab70bec70b24a5bedae47de6efccaccbac555cb48e125d5722db10b37c5bdf",
+  "scope": "Build, bibliography resolution, source preservation and layout validation. This does not independently establish the validity of mathematical claims or completeness of Lean formalization."
+}

@@ -8,6 +8,9 @@ paper/*.blg
 paper/*.toc
 paper/*.synctex.gz
 formalization/.lake/
-formalization/lake-manifest.json
 dist/
 .DS_Store
+.ruff_cache/
+.pytest_cache/
+work/
+audits/current/reproduced/

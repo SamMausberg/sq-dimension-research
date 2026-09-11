@@ -1,0 +1,17 @@
+% appendices/sgd_models.tex:25-31
+\begin{proposition}[A bias-free ReLU representation]\label{thm:network}
+Pad the grid domain to a cube of dimension $n=\lceil\log_2(2N^3)\rceil$, giving every padding point label $+1$. Every member is represented exactly by a bias-free ReLU network with widths $(n,2n,N+1,1)$ and at most
+\[
+ S=2n^2+2n(N+1)+(N+1)
+\]
+weights. Its common dimension complexity is at most $2N+1$. This proposition is an upper bound, not a claim that $S$ parameters are necessary.
+\end{proposition}
+
+% appendices/network_proofs.tex:4-10
+\begin{proof}[Proof of \cref{thm:network}]
+The first hidden layer computes $\sigma(x_i),\sigma(-x_i)$ for every coordinate. These give $x_i$ by subtraction and the constant $c=\sigma(x_1)+\sigma(-x_1)=1$ on the cube. For every negative point $p$, a second-layer unit computes
+\[
+ \sigma\left(\sum_i p_ix_i-(n-1)c\right).
+\]
+At $x=p$ its value is one; at every other cube point the sum is at most $n-2$ and the unit is zero. Pass $c$ through one additional unit and output $c$ minus twice the sum of the negative-point units. Pad unused units by zero weights. There are at most $N$ negative points, and counting all fully connected weights gives the claimed $S$. The moment-curve proof in Theorem~\ref{thm:construction} still applies to the padded domain. Padding preserves every dimension lower bound by restriction; it preserves a rectangle lower bound up to a factor two, because either padding carries at least half the point mass or the original domain does.
+\end{proof}

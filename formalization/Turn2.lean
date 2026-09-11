@@ -1,8 +1,8 @@
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import SQDC
 
 /-!
-UNVERIFIED SOURCE. `lake --version` returned command-not-found in this runtime.
-Pinned Mathlib: 2631d1cc8c2ace6c6a900425d6e5d2b5963966e9.
+Supporting finite lemmas. See STATUS.md for the build and axiom-audit record.
 The statements below are the manuscript's finite lemmas L1--L4.
 They are not a formalization of the entire rectangle learner or counting theorem.
 -/
@@ -28,6 +28,8 @@ def residualMass {t : ℕ} (D : SQDC.FinDist X)
     (owner : X → Option (Fin t)) : ℝ :=
   ∑ x, if owner x = none then D.mass x else 0
 
+-- Preserve the original theorem's inherited decidable-equality parameter.
+set_option linter.unusedSectionVars false in
 theorem L1_peeling_error {t : ℕ} (D : SQDC.FinDist X) (h : X → Bool)
     (owner : X → Option (Fin t)) (color : Fin t → Bool)
     (fallback : X → Bool) :
@@ -106,7 +108,7 @@ theorem L3_preserves_positive_rectangle {I J : Type*}
 
 -- L4: two distinct integer affine lines have at most one common point.
 theorem L4_two_grid_lines (a b c d x y x' y' : ℤ)
-    (hdistinct : (a,b) ≠ (c,d))
+    (hdistinct : (a, b) ≠ (c, d))
     (h1 : y = a * x + b) (h2 : y = c * x + d)
     (h3 : y' = a * x' + b) (h4 : y' = c * x' + d) :
     x = x' ∧ y = y' := by
@@ -125,9 +127,4 @@ theorem L4_two_grid_lines (a b c d x y x' y' : ℤ)
   · exact hxx
   · rw [h1, h3, hxx]
 
-#print axioms L1_peeling_error
-#print axioms L1_peeling_budget
-#print axioms L2_elimination_potential
-#print axioms L3_preserves_positive_rectangle
-#print axioms L4_two_grid_lines
 end SQDC.Turn2

@@ -1,0 +1,19 @@
+Lake version 5.0.0-src+6a10ac8 (Lean version 4.34.0-rc2)
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 2594 file(s)
+Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)
+Build completed successfully (2613 jobs).
+'SQDC.query_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.finite_energy_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.barrier_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.relu_odd_part' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.Turn2.L1_peeling_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.Turn2.L1_peeling_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.Turn2.L2_elimination_potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SQDC.Turn2.L3_preserves_positive_rectangle' does not depend on any axioms
+'SQDC.Turn2.L4_two_grid_lines' depends on axioms: [propext, Classical.choice, Quot.sound]
+AUDITED_DECLARATIONS=30
+Verified 9 theorems; all axioms are in the trusted allowlist.
+Delivered source hashes match the verified source.

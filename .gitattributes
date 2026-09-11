@@ -1,0 +1,10 @@
+# New/current text uses LF. Historical blobs retain their archived bytes.
+* text=auto eol=lf
+history/** -text
+audits/current/** -text
+audits/prior/** -text
+experiments/results/** -text
+*.pdf binary
+*.png binary
+*.npz binary
+*.gz binary

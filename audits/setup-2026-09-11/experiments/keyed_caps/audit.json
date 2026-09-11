@@ -1,0 +1,17 @@
+{
+  "key_hex": "8959fe4a6b404807275400d0a95800e62d0b119c2f8e0061d0ff5d241b229c78",
+  "key_derivation": "SHA256(ASCII sq-dc-turn4-main-key-20260910)",
+  "seed": 202609104,
+  "rho": 1048576,
+  "epsilon": "1/10",
+  "inner_epsilon": "1/40",
+  "tau": "1/23226329280",
+  "runs": 56,
+  "query_checks": 28262,
+  "catalogs": 499,
+  "rectangles": 231151,
+  "pointwise_checks": 228684,
+  "elapsed_seconds": 57.57253850001143,
+  "oracle": "greedy public-history tolerance endpoints",
+  "cryptographic_claim": "None for HMAC-SHA256; this is a reproducible keyed-hash instantiation, not a security experiment."
+}

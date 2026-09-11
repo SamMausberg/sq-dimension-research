@@ -1,0 +1,357 @@
+{
+  "audit_date": "2026-09-11",
+  "scope": "Independent live primary-source bibliography and gross attribution audit of nine assigned citation keys in paper/references.bib. No repository file edited. Mathematical proofs not independently re-proved.",
+  "summary": {
+    "keys": 9,
+    "nonexistent_works_found": 0,
+    "substantive_attribution_mismatches_found": 0,
+    "metadata_discrepancies": [
+      "MC12 landing-page author order differs from actual PDF author order; existing bibliography matches the cited arXiv landing page.",
+      "Renegar92 is a shorthand three-part series citation; all three actual records independently located and verified, with publication gaps excluded from individual page ranges."
+    ]
+  },
+  "entries": [
+    {
+      "key": "GHIS25",
+      "status": "verified",
+      "metadata": {
+        "title": "Sign-Rank of k-Hamming Distance is Constant",
+        "authors": [
+          "Mika Göös",
+          "Nathaniel Harms",
+          "Valentin Imbach",
+          "Dmitry Sokolov"
+        ],
+        "year": 2025,
+        "version": "arXiv:2506.12022v2",
+        "version_date": "2025-09-15",
+        "doi": "10.48550/arXiv.2506.12022"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2506.12022v2",
+          "kind": "arXiv primary record",
+          "supports": "Title, complete author order, year, version and abstract"
+        }
+      ],
+      "usage": "paper/appendices/related_work.tex:21 refers to total Hamming-distance upper bounds. Abstract proves sign-rank 2^{O(k)} independent of n, consistent with that description.",
+      "corrections": [],
+      "optional_improvements": [
+        "Pin bibliography URL to https://arxiv.org/abs/2506.12022v2 to match explicitly cited v2."
+      ],
+      "limits": "The manuscript's statement that this does not provide the sought particular flip-family selection is an interpretive comparison, not a quoted theorem."
+    },
+    {
+      "key": "FHV26",
+      "status": "verified",
+      "metadata": {
+        "title": "A Z_2-Topological Framework for Sign-rank Lower Bounds",
+        "authors": [
+          "Florian Frick",
+          "Kaave Hosseini",
+          "Aliaksei Vasileuski"
+        ],
+        "year": 2026,
+        "version": "arXiv:2604.01510v2",
+        "version_date": "2026-04-10",
+        "doi": "10.48550/arXiv.2604.01510"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2604.01510v2",
+          "kind": "arXiv primary record",
+          "supports": "Title, authors, year, v2 and abstract"
+        }
+      ],
+      "usage": "paper/appendices/related_work.tex:21 calls this topological sign-rank lower bounds. Abstract directly confirms a Z_2 equivariant topology framework and a Gap Hamming Distance application.",
+      "corrections": [],
+      "optional_improvements": [
+        "Pin URL to the stated v2."
+      ],
+      "limits": "No particular FHV theorem number is invoked in manuscript."
+    },
+    {
+      "key": "DKT22",
+      "status": "verified",
+      "metadata": {
+        "title": "A Strongly Polynomial Algorithm for Approximate Forster Transforms and its Application to Halfspace Learning",
+        "authors": [
+          "Ilias Diakonikolas",
+          "Christos Tzamos",
+          "Daniel M. Kane"
+        ],
+        "year": 2022,
+        "version": "arXiv:2212.03008v1",
+        "version_date": "2022-12-06",
+        "doi": "10.48550/arXiv.2212.03008"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2212.03008",
+          "kind": "arXiv primary record",
+          "supports": "Existing metadata, including author order"
+        },
+        {
+          "url": "https://arxiv.org/html/2212.03008v1",
+          "kind": "Primary full text",
+          "supports": "Title-page author order explicitly randomized; Theorem 1.5 gives approximate Forster algorithm"
+        }
+      ],
+      "usage": "paper/appendices/isotropy_program.tex:2 and related_work.tex:12 identify stronger prior approximate Forster computation. Theorem 1.5 is a randomized strongly polynomial algorithm (polynomial dependence in 1/epsilon); this is compatible with manuscript's broad background description.",
+      "corrections": [],
+      "optional_improvements": [],
+      "limits": "Do not alphabetically reorder authors: the full text explicitly says author names are randomized, and Diakonikolas/Tzamos/Kane is correct for the cited preprint."
+    },
+    {
+      "key": "MC12",
+      "status": "verified_with_source_order_discrepancy",
+      "metadata": {
+        "title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+        "arxiv_authors": [
+          "Assia Mahboubi",
+          "Cyril Cohen"
+        ],
+        "publisher_landing_authors": [
+          "Assia Mahboubi",
+          "Cyril Cohen"
+        ],
+        "publisher_pdf_authors": [
+          "Cyril Cohen",
+          "Assia Mahboubi"
+        ],
+        "year": 2012,
+        "version": "arXiv:1201.3731v2",
+        "version_date": "2012-02-15",
+        "journal": "Logical Methods in Computer Science",
+        "volume": "8",
+        "issue_article": "1:02",
+        "pages": "1–40",
+        "publication_date": "2012-02-16",
+        "doi": "10.2168/LMCS-8(1:2)2012"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/1201.3731",
+          "kind": "arXiv primary record",
+          "supports": "Existing title, Mahboubi/Cohen order, year; links LMCS record"
+        },
+        {
+          "url": "https://lmcs.episciences.org/844",
+          "kind": "Publisher landing page",
+          "supports": "Same Mahboubi/Cohen order, LMCS volume/issue, DOI and publication date"
+        },
+        {
+          "url": "https://lmcs.episciences.org/844/pdf",
+          "kind": "Publisher full PDF",
+          "supports": "Page 1 explicitly gives Cyril Cohen then Assia Mahboubi; Vol. 8 (1:02), pp. 1–40, date and DOI. Page 2 explains complete constructive quantifier elimination and decidability."
+        }
+      ],
+      "usage": "paper/appendices/resource_proofs.tex:13 cites a constructive treatment of real-closed-field decidability. Full PDF pp. 1–2 explicitly supports that description; it does not claim an efficient singly exponential procedure for this citation.",
+      "corrections": [],
+      "optional_improvements": [
+        "Existing @misc entry matches the source it cites, so preserving its author order is defensible; do not classify it as hallucination or a demonstrably wrong arXiv citation.",
+        "If deliberately upgrading to published @article metadata, use actual publisher PDF's Cohen/Mahboubi order and LMCS 8(1:02), 1–40 (2012), and document the metadata discrepancy. No need to change citation key MC12 or mathematical text."
+      ],
+      "limits": "Author-order discrepancy exists within primary sources themselves. My preliminary message recommending obligatory reorder was too strong; this is an optional published-record normalization."
+    },
+    {
+      "key": "GGM86",
+      "status": "verified",
+      "metadata": {
+        "title": "How to construct random functions",
+        "authors": [
+          "Oded Goldreich",
+          "Shafi Goldwasser",
+          "Silvio Micali"
+        ],
+        "journal": "Journal of the ACM",
+        "volume": "33",
+        "issue": "4",
+        "pages": "792–807",
+        "year": 1986,
+        "doi": "10.1145/6490.6503"
+      },
+      "evidence": [
+        {
+          "url": "https://doi.org/10.1145/6490.6503",
+          "kind": "Publisher primary record surfaced by live web search",
+          "supports": "Complete author order, title, journal, volume/issue, pages, year and DOI"
+        },
+        {
+          "url": "https://www.wisdom.weizmann.ac.il/~oded/annot/node13.html",
+          "kind": "Author's publication page",
+          "supports": "Author list, JACM 33(4), October 1986, 792–807; explains PRFs from PRGs"
+        }
+      ],
+      "usage": "paper/sections/06_explicit.tex:3 cites GGM and HILL only as background and explicitly assumes the quantitative subexponential PRF security hypothesis directly. This avoids incorrectly claiming GGM/HILL themselves establish the exact quantitative assumption.",
+      "corrections": [],
+      "optional_improvements": [],
+      "limits": "Direct web open of ACM DOI failed, but indexed ACM primary page returned full matching metadata. Author original page independently corroborated it."
+    },
+    {
+      "key": "HILL99",
+      "status": "verified",
+      "metadata": {
+        "title": "A Pseudorandom Generator from any One-way Function",
+        "authors": [
+          "Johan Håstad",
+          "Russell Impagliazzo",
+          "Leonid A. Levin",
+          "Michael Luby"
+        ],
+        "journal": "SIAM Journal on Computing",
+        "volume": "28",
+        "issue": "4",
+        "pages": "1364–1396",
+        "year": 1999,
+        "doi": "10.1137/S0097539793244708"
+      },
+      "evidence": [
+        {
+          "url": "https://epubs.siam.org/doi/10.1137/S0097539793244708",
+          "kind": "Publisher primary record",
+          "supports": "Title, complete authors, volume 28 issue 4 January 1999, pages 1364–1396, DOI; abstract PRG from OWF"
+        }
+      ],
+      "usage": "paper/sections/06_explicit.tex:3 background for OWF/PRG/PRF construction, with quantitative hypothesis separately assumed. Attribution is compatible.",
+      "corrections": [],
+      "optional_improvements": [],
+      "limits": "Publisher also gives online date 28 July 2006, but original issue year 1999 is correct and must not be replaced by online archive date."
+    },
+    {
+      "key": "Renegar92",
+      "status": "verified_series_shorthand",
+      "metadata": {
+        "authors": [
+          "James Renegar"
+        ],
+        "journal": "Journal of Symbolic Computation",
+        "volume": "13",
+        "issue": "3",
+        "year": 1992,
+        "date": "March 1992",
+        "parts": [
+          {
+            "part": "I",
+            "title": "On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals",
+            "pages": "255–299",
+            "doi": "10.1016/S0747-7171(10)80003-3",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800033"
+          },
+          {
+            "part": "II",
+            "title": "On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination",
+            "pages": "301–327",
+            "doi": "10.1016/S0747-7171(10)80004-5",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800045"
+          },
+          {
+            "part": "III",
+            "title": "On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination",
+            "pages": "329–352",
+            "doi": "10.1016/S0747-7171(10)80005-7",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800057"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800033",
+          "kind": "Publisher primary page indexed in live web search",
+          "supports": "Part I complete metadata"
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800045",
+          "kind": "Publisher primary page indexed in live web search",
+          "supports": "Part II complete metadata"
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800057",
+          "kind": "Publisher primary page indexed in live web search",
+          "supports": "Part III complete metadata"
+        },
+        {
+          "url": "https://arxiv.org/html/2112.00456",
+          "kind": "Primary author lecture text",
+          "supports": "Sections 2.1, 2.3, 5.1, 5.12 describe singly exponential consistency bound and attribute algorithm to Renegar."
+        }
+      ],
+      "usage": "paper/appendices/explicit_proofs.tex:19 cites the existential-real consistency bound through Vorobjov21 and attributes it to Renegar. Vorobjov states exactly the required asymptotic form, and Part I's actual subject is existential decision. No gross misattribution found.",
+      "corrections": [],
+      "optional_improvements": [
+        "Current I–III title with 255–352 is recognizable series shorthand but not a literal single article record.",
+        "Bibliography-only option preserving Renegar92 and .tex unchanged: retain the combined series entry, change pages to 255--299, 301--327, 329--352 and add a note with three DOI links/part labels.",
+        "Alternative: point Renegar92 specifically to verified Part I, whose existential decision subject matches this use, with full title, 255--299 and DOI 10.1016/S0747-7171(10)80003-3. This narrows the bibliography reference, not mathematics.",
+        "If choosing three separate BibTeX records, new citation keys and manuscript citation-only edits are necessary; this is optional and not needed for existence verification."
+      ],
+      "limits": "Publisher direct-open requests returned internal errors, while targeted live search surfaced each publisher's full title/author/issue/page/DOI record. Secondary databases sometimes include blank pages 300 or 328; use the publisher ranges above."
+    },
+    {
+      "key": "Vorobjov21",
+      "status": "verified",
+      "metadata": {
+        "title": "Lecture notes on complexity of quantifier elimination over the reals",
+        "authors": [
+          "Nicolai Vorobjov"
+        ],
+        "year": 2021,
+        "version": "arXiv:2112.00456v1",
+        "date": "2021-12-01",
+        "doi": "10.48550/arXiv.2112.00456"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2112.00456",
+          "kind": "arXiv primary record",
+          "supports": "Title, author, year, v1; notes originate in mid-1990s but uploaded 2021"
+        },
+        {
+          "url": "https://arxiv.org/html/2112.00456",
+          "kind": "Primary full text",
+          "supports": "Sections 2.1 and 5.12 explicitly give (kd)^{O(n)} M^{O(1)} for the Turing model; Sections 2.3 and 5.1 attribute approach to Renegar"
+        }
+      ],
+      "usage": "paper/appendices/explicit_proofs.tex:19 uses (sd)^{O(v)} L^{O(1)} for s polynomials, degree d, v variables, coefficient bit length L. This is the same bound with renamed variables.",
+      "corrections": [],
+      "optional_improvements": [
+        "May add Sections 2.1 and 5.12 to citation locator without changing mathematical content."
+      ],
+      "limits": "The notes openly omit or sketch some details; this audit verifies the attribution and displayed bound, not a full independent proof of the cited algorithm or manuscript substitution."
+    },
+    {
+      "key": "BHKR26",
+      "status": "verified",
+      "metadata": {
+        "title": "Lower Bounds for Approximate Sign Rank",
+        "authors": [
+          "Riju Bindua",
+          "Hamed Hatami",
+          "Hasti Karimi",
+          "Robert Robere"
+        ],
+        "year": 2026,
+        "version": "arXiv:2605.01038v2",
+        "version_date": "2026-05-25",
+        "doi": "10.48550/arXiv.2605.01038"
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2605.01038v2",
+          "kind": "arXiv primary record",
+          "supports": "Title/authors/year/version"
+        },
+        {
+          "url": "https://arxiv.org/html/2605.01038v2",
+          "kind": "Primary full text",
+          "supports": "Definition 1.1 deterministic embedding then row and marginal then separating vector; Theorem 1.3 row/column fractions d^{-C_epsilon d} and d^{-C_epsilon d^2}, C_epsilon=O(log(1/(1-2epsilon))), 0<epsilon<1/2, partial matrices homogeneous on non-star entries"
+        }
+      ],
+      "usage": "paper/appendices/related_work.tex:18 reproduces Theorem 1.3's parameter regime, fractions, quantifiers and partial-matrix caveat correctly. paper/appendices/comparisons.tex:237ff applies it to total matrices and multiplies inverse fractions, with d-bar >=2 and sufficiently enlarged constant. No gross attribution/version/theorem mismatch found.",
+      "corrections": [],
+      "optional_improvements": [
+        "Pin URL to explicitly cited v2."
+      ],
+      "limits": "Did not independently re-prove the manuscript's subsequent SQ reduction. Bibliographic status is a preprint; word 'published' in surrounding prose may be understood as publicly available, not peer reviewed."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{"N": 2, "runs": 16, "max_error": 0.001, "max_queries": 8, "max_wall_seconds": 0.00017629997455514967, "max_nonoracle_seconds": 6.159997428767383e-05, "all_light_successes": 0}
+{"N": 3, "runs": 36, "max_error": 0.001, "max_queries": 11, "max_wall_seconds": 0.00026989998877979815, "max_nonoracle_seconds": 0.00011340001947246492, "all_light_successes": 0}
+{"N": 4, "runs": 36, "max_error": 0.014314928425357873, "max_queries": 12, "max_wall_seconds": 0.00027119999867863953, "max_nonoracle_seconds": 9.690006845630705e-05, "all_light_successes": 0}
+{"N": 5, "runs": 36, "max_error": 0.02432179607109448, "max_queries": 14, "max_wall_seconds": 0.0003766999871004373, "max_nonoracle_seconds": 0.00014239994925446808, "all_light_successes": 0}
+{"N": 6, "runs": 36, "max_error": 0.001, "max_queries": 28, "max_wall_seconds": 0.0003667999990284443, "max_nonoracle_seconds": 0.00013109997962601483, "all_light_successes": 2}
+{"N": 7, "runs": 36, "max_error": 0.001, "max_queries": 15, "max_wall_seconds": 0.00024140000459738076, "max_nonoracle_seconds": 8.089994662441313e-05, "all_light_successes": 0}
+{"N": 8, "runs": 36, "max_error": 0.001, "max_queries": 16, "max_wall_seconds": 0.0003271999885328114, "max_nonoracle_seconds": 0.00014719992759637535, "all_light_successes": 0}
+{"N": 16, "runs": 36, "max_error": 0.001, "max_queries": 52, "max_wall_seconds": 0.0009679000067990273, "max_nonoracle_seconds": 0.0004905998939648271, "all_light_successes": 12}
+{"N": 32, "runs": 36, "max_error": 0.001, "max_queries": 89, "max_wall_seconds": 0.0015450000064447522, "max_nonoracle_seconds": 0.00033169984817504883, "all_light_successes": 16}

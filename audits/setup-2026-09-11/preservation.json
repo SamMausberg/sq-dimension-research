@@ -1,0 +1,3025 @@
+{
+  "baseline_commit": "c7fbd8c96c72a6b20ec75518f1a99531a155237c",
+  "history": [
+    {
+      "path": "history/turn01/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/SHA256SUMS.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/check_auxiliary.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/check_bounds.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/families.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/adaptive_checks.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/auxiliary_summary.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/checks_summary.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/plane_bounds.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/sgd_distributions.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/sgd_raw.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/results/sgd_summary.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/experiments/sgd_cpu.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/lean/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/lean/SQDC.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/lean/lakefile.toml",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/lean/lean-toolchain",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/check_auxiliary.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/check_bounds.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/latex_final_pass1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/latex_final_pass2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/latex_final_pass3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/lean_build.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/pdf_render.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/pdflatex_complete.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/run_cpu.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/logs/sgd_cpu.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/paper/main.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/paper/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/paper/references.bib",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/requirements.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/run_cpu.sh",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn01/verification.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/BUILD_STATUS.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/MANIFEST.sha256",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/rectangle_sq.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/certificates_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/certificates_N3.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/certificates_N4.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/certificates_N5.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/exact_signranks_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/family_N2.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/family_N3.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/family_N4.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/family_N5.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/metadata.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/summary.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/results/verification.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/experiments/verify_results.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/lean/SQDC.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/lean/Turn2.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/lean/lakefile.toml",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/lean/lean-toolchain",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/experiments.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/latex_final3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/latex_final4.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/lean_build_attempt.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/render.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/logs/verification.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/paper/figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/paper/main.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/paper/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/paper/results_table.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/paper/retained.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/requirements.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn02/sources/audit.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/CLAIMS_STATUS.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/SHA256SUMS",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/audit.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/cap_sq.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/finite_checks.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/high_precision.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/rectangle_witnesses.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N2.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N3.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N4.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N5.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N6.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N7.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_catalogs_N8.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N3.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N4.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N5.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N6.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N7.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/cap_certificates_N8.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N2.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N3.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N4.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N5.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N6.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N7.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/family_N8.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/finite_checks.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/metadata.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/rectangle_witnesses.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/experiments/results/summary.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/lean/SQDC.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/lean/Turn2.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/lean/lakefile.toml",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/lean/lean-toolchain",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/audit.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/cap_runs.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/cap_smoke.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/finite_checks.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/initial_float_solver_diagnostic.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/lean_check.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pdflatex_final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pdflatex_first.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pdflatex_penultimate.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pdflatex_second.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pdflatex_third.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/pre_referee_policy_diagnostic.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/logs/rectangle_witnesses.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/assemble.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/caps.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/concentration.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/convex.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/intro.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/landscape.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/landscape_figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/main.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/old_lean_section.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/proper.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/referee.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/resources.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/retained.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/turn2_baseline/figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/turn2_baseline/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/turn2_baseline/retained.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/paper/verification.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn03/requirements.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/MANIFEST.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/affine_checks.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/algebra_and_stress.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/cap_sq.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/high_precision.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/make_figure.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/checks/affine.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/checks/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/checks/large_star.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/checks/subgrid_counts.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/checks/unseen_exact.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/fast/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/fast/metadata.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/fast/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/fast/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N2.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N3.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N4.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N5.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N6.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N7.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_catalogs_N8.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N3.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N4.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N5.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N6.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N7.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/cap_certificates_N8.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N2.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N3.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N4.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N5.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N6.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N7.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/family_N8.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/results/keyed_caps/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/run_keyed_caps.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/experiments/seeded_fast.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/lean/SQDC.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/lean/Turn2.lean",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/lean/lakefile.toml",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/lean/lean-toolchain",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/affine.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/algebra.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/environment.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/fast.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/figure.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/keyed_caps.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_camera1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_camera2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_final1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_final2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_flat1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_flat2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass4.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass5.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass6.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass7.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass8.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/latex_pass9.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/logs/lean_status.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/affine.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/caps.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/communication.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/concentration.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/convex.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/fast.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/geometry.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/intro.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/landscape.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/landscape_figure.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/main.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/manuscript.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/novelty.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/objections.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/old_lean_section.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/open.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/prf.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/proper.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/referee.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/resources.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/retained.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/secrets.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/paper/verification.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/requirements.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/statement_index.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn04/statement_index.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/CHANGES.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/MANIFEST.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/VERIFICATION.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/abstract.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/cap_proper_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/certificate_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/concentration.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/experiments.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/explicit_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/family_proof.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/geometric_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/isotropy_program.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/median_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/network_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/oracle_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/resource_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/appendices/statistical_dimension.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/build.sh",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/bibliography_inventory.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/build_report.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/constants.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/number_mapping.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/package_release.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/recompute_constants.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/render_figures.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/statement_inventory.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/validate_build.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/checks/visual_review.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/cap_geometry.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/example_table.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/family_parameters.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/implication_map.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/order_median.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/rectify_round.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/figures/template_flip.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/bibliography.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/bibtex-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/bibtex.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build-final-1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build-final-2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build-pass1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build-pass2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build10.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build11.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build4.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build5.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build6.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build7.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build8.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/build9.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/chktex-raw.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/chktex-reviewed.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/constants.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/figure_cap_geometry.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/figure_implication_map.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/figure_order_median.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/figure_rectify_round.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/figure_template_flip.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/final-validation.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/rechecked-affine.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/rechecked-algebra.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/release-build.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/logs/render-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/paper.bbl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/paper.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/paper.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/preamble.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/references.bib",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/cap_geometry.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/implication_map.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/order_median.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_01.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_02.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_03.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_06.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_10.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_16.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_21.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/page_30.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/pages_01_12.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/pages_13_24.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/pages_25_36.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/pages_37_48.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/pages_49_59.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/rectify_round.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/renders/template_flip.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/01_introduction.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/02_preliminaries.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/03_rectangle.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/04_family.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/05_learners.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/06_explicit.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/07_characterizations.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/08_sgd.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/09_related.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/sections/10_discussion.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/affine_checks.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/algebra_and_stress.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/cap_sq.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/high_precision.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/make_figure.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/checks/affine.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/checks/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/checks/large_star.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/checks/subgrid_counts.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/checks/unseen_exact.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/fast/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/fast/metadata.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/fast/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/fast/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N2.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N3.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N4.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N5.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N6.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N7.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_catalogs_N8.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N3.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N4.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N5.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N6.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N7.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/cap_certificates_N8.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N2.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N3.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N4.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N5.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N6.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N7.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/family_N8.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/results/keyed_caps/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/run_keyed_caps.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn05/supplement/experiments/seeded_fast.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/AI_USE_STATEMENT.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/ARXIV_ABSTRACT.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/ARXIV_METADATA.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/CHANGES.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/COVER_EMAIL.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/MANIFEST.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/PRE_SUBMISSION_CHECKLIST.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/README.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/REFEREE.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/SOURCE_CHECKS.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/VERIFICATION.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/abstract.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/acknowledgments.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/cap_proper_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/certificate_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/concentration.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/experiments.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/explicit_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/family_proof.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/geometric_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/isotropy_program.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/median_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/network_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/oracle_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/resource_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/appendices/statistical_dimension.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/build.sh",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/REFEREE_PRE_EDIT.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/archive_test.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/arxiv_clean_build.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/baseline_statements.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/bibliography_inventory.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/build_report.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/affine.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/constants.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/large_star.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/subgrid_counts.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/clean_run/unseen_exact.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/constant_occurrences.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/constants.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/environment.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/final_bibliography_search.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/final_source_edits.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/lint_review.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/number_mapping.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/oq2_quote_check.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/oq2_typeset_quote.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/package_release.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/pre_edit_manifest.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/proof_dependencies.dot",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/proof_dependencies.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/recompute_constants.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/referee_pointer_audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/referee_process.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/referee_responses.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/render_figures.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/revision_edits.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/source_consistency.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/spellcheck_hunspell.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/spellcheck_raw.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/spellcheck_review.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_changes.diff",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_inventory.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/10_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/10_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/10_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/2_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/2_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/2_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/3_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/3_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/3_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/4_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/4_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/4_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/4_4.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/5_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/5_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/5_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/5_4.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/6_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/6_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/6_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/6_4.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/6_5.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_10.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_11.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_4.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_5.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_6.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_7.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_8.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/7_9.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/8_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/8_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/8_3.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/I_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/L_1.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/statement_proof_extracts/L_2.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/validate_build.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/checks/visual_review.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/cap_geometry.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/example_table.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/family_parameters.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/implication_map.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/order_median.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/rectify_round.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/figures/template_flip.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/chktex-raw.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/chktex-reviewed.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/affine_clean.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/algebra_clean.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/archive-extract-build-1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/archive-extract-build-2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/archive-extract-build-3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/arxiv-clean-final-tex.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/arxiv-clean-pass1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/arxiv-clean-pass2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/arxiv-clean-pass3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/bibtex-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/bibtex.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build10.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build11.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build12.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build4.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build5.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build6.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build7.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build8.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build9.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/build_validation.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/chktex-raw-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/chktex_reviewed.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/constants_clean.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/direct_ip_fetch.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/figure_cap_geometry.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/figure_implication_map.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/figure_order_median.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/figure_rectify_round.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/figure_template_flip.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/fks_content_extraction.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/lean_attempt.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/render.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/source_consistency_final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/spellcheck_raw.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/current/structural_checks.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/bibliography.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/bibtex-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/bibtex.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build-final-1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build-final-2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build-pass1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build-pass2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build1.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build10.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build11.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build2.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build3.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build4.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build5.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build6.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build7.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build8.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/build9.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/chktex-raw.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/chktex-reviewed.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/constants.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/figure_cap_geometry.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/figure_implication_map.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/figure_order_median.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/figure_rectify_round.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/figure_template_flip.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/final-validation.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/rechecked-affine.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/rechecked-algebra.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/release-build.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/logs/prior_recorded/render-final.log",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/paper.bbl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/paper.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/paper.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/preamble.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/references.bib",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/cap_geometry.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/implication_map.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/order_median.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_01.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_02.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_03.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_06.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_10.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_16.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_21.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/page_30.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/pages_01_12.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/pages_13_24.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/pages_25_36.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/pages_37_48.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/pages_49_59.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/rectify_round.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/renders/template_flip.png",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/01_introduction.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/02_preliminaries.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/03_rectangle.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/04_family.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/05_learners.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/06_explicit.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/07_characterizations.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/08_sgd.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/09_related.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/sections/10_discussion.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/affine_checks.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/algebra_and_stress.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/cap_sq.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/high_precision.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/make_figure.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/checks/affine.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/checks/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/checks/large_star.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/checks/subgrid_counts.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/checks/unseen_exact.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/fast/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/fast/metadata.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/fast/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/fast/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/audit.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N2.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N3.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N4.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N5.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N6.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N7.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_catalogs_N8.jsonl.gz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N2.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N3.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N4.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N5.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N6.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N7.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/cap_certificates_N8.json",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N2.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N3.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N4.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N5.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N6.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N7.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/family_N8.npz",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/runs.jsonl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/results/keyed_caps/summary.csv",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/run_keyed_caps.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn06/supplement/experiments/seeded_fast.py",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/PRE_SUBMISSION_CHECKLIST.md",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper.pdf",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/README.txt",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/abstract.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/acknowledgments.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/cap_proper_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/certificate_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/concentration.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/experiments.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/explicit_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/family_proof.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/geometric_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/isotropy_program.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/median_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/network_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/oracle_bounds.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/resource_proofs.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/appendices/statistical_dimension.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/cap_geometry.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/example_table.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/family_parameters.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/implication_map.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/order_median.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/rectify_round.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/figures/template_flip.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/main.bbl",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/main.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/preamble.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/references.bib",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/01_introduction.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/02_preliminaries.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/03_rectangle.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/04_family.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/05_learners.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/06_explicit.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/07_characterizations.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/08_sgd.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/09_related.tex",
+      "identical_bytes": true
+    },
+    {
+      "path": "history/turn07/paper/sections/10_discussion.tex",
+      "identical_bytes": true
+    }
+  ],
+  "mathematical_tex": [
+    {
+      "path": "paper/abstract.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/acknowledgments.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/cap_procedure.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/cap_proper_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/certificate_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/comparisons.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/concentration.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/engineered_simulation.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/experiments.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/explicit_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/family_proof.tex",
+      "identical_text_ignoring_line_endings": false,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": [
+        "Relocate construction-proof hyperlink label.",
+        "Prevent line/page break inside the unchanged short inequality."
+      ]
+    },
+    {
+      "path": "paper/appendices/foundations.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/geometric_bounds.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/isotropy_program.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/median_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/network_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/new_result_audit.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/oracle_bounds.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/query_lower_bound.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/rectangle_proof.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/rectify_geometry.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/related_work.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/resource_proofs.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/resources.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/sgd_models.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/appendices/statistical_dimension.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/cap_geometry.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/example_table.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/family_parameters.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/implication_map.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/order_median.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/figures/rectify_round.tex",
+      "identical_text_ignoring_line_endings": false,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": [
+        "Keep appendix figure below its heading."
+      ]
+    },
+    {
+      "path": "paper/figures/template_flip.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/paper.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/preamble.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/01_introduction.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/02_preliminaries.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/03_rectangle.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/04_family.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/05_learners.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/06_explicit.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/07_gradient.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/sections/08_open.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    },
+    {
+      "path": "paper/summary.tex",
+      "identical_text_ignoring_line_endings": true,
+      "mathematics_and_prose_unchanged": true,
+      "permitted_presentation_changes": []
+    }
+  ],
+  "research_python": [
+    {
+      "path": "experiments/affine_checks.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/algebra_and_stress.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/cap_sq.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/current/check_late_results.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/high_precision.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/make_figure.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/run_keyed_caps.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "experiments/seeded_fast.py",
+      "same_ast_ignoring_import_order": true
+    },
+    {
+      "path": "tools/build_ledgers.py",
+      "same_ast_ignoring_import_order": true
+    }
+  ],
+  "status": "PASS",
+  "lean_verified_source_hashes_match": true,
+  "scope": "Exact original-source comparisons with only three enumerated presentation changes allowed. Bibliography and verification-tool updates are separately recorded."
+}

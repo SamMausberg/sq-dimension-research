@@ -1,6 +1,7 @@
 name = "sq_dc_turn2"
 version = "0.1.0"
 defaultTargets = ["Turn2"]
+moreLeanArgs = ["-DwarningAsError=true"]
 
 [[require]]
 name = "mathlib"

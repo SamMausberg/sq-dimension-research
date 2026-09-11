@@ -1,0 +1,19 @@
+% appendices/geometric_bounds.tex:23-29
+\begin{proposition}[Uniform-product rectangles in a projective plane]\label{prop:pg-rect}
+For the point--line incidence sign matrix of $\operatorname{PG}(2,q)$, let $K=q^2+q+1$ and $k=q+1$. Under uniform distributions on both sides, the largest monochromatic-rectangle mass lies between
+\[
+ \frac1{8(q+1)}\quad\text{and}\quad\frac{q}{(q+1)^2}.
+\]
+It is therefore $\Theta(1/q)$.
+\end{proposition}
+
+% appendices/geometric_bounds.tex:31-39
+\begin{proof}
+Let $P$ be the incidence matrix. As proved in Theorem~\ref{thm:plane}, $P\1=k\1$ and $P^TP=qI+\1\1^T$. Thus $C=P-(k/K)\1\1^T$ has operator norm $\sqrt q$. A nonincident rectangle with side sizes $a,b$ satisfies
+\[
+ \frac{k}{K}ab=|\1_S^TC\1_T|\le\sqrt q\sqrt{ab},
+\]
+so its mass is at most $q/k^2$. An all-incident rectangle has a singleton side and size at most $k$. Its mass $k/K^2$ is also at most $q/k^2$: use $K\ge qk$ and $q^3\ge k$ for $q\ge2$ to obtain $qK^2\ge q^3k^2\ge k^3$.
+
+For the lower bound, choose $s=\lfloor K/(2k)\rfloor$ lines. Their union has at most $sk\le K/2$ points, leaving at least $K/2$ points incident with none of them. The resulting rectangle has mass at least $s/(2K)$. Since $K/(2k)\ge1$, $s\ge K/(4k)$, proving the lower bound.
+\end{proof}

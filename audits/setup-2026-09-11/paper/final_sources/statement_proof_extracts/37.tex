@@ -1,0 +1,36 @@
+% appendices/resources.tex:12-24
+\begin{proposition}[The classical certificate barrier]\label{thm:classicalbarrier}
+For the orientation in which rows are hypotheses, let
+\[
+ m_{\rm avg}(A)=\inf_{\mu\in\Delta(X)}\ 
+ \sup_{\substack{\text{strict unit-vector}\text{representations of }A}}
+ \min_h\E_{x\sim\mu}|\langle v_h,u_x\rangle|.
+\]
+Then
+\[
+ \sqrt{\operatorname{VC}(H)}\le m_{\rm avg}(A)^{-1}\le\rect(A)^{-1}.
+\]
+In particular, if $\rect(A)^{-1}\le\operatorname{poly}(n)$, these three classical lower-bound parameters cannot certify superpolynomial sign-rank. The bound concerns the three displayed certificates; actual sign-rank can be larger.
+\end{proposition}
+
+% appendices/resource_proofs.tex:18-37
+\begin{proof}[Proof of \cref{thm:classicalbarrier}]
+Fix a point prior $\mu$. Apply the finite separation argument of \cref{lem:finite-minimax} to the transposed matrix, obtaining a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R$ with
+\[
+ \forall h,\quad\E_R[\1_{T_R}(h)\mu(S_R)]\ge r,
+ \qquad r=\rect(A).
+\]
+In the Euclidean space indexed by rectangles, put
+\[
+ a_h(R)=c_R\sqrt{\lambda_R}\1_{T_R}(h),\qquad
+ b_x(R)=\sqrt{\lambda_R}\1_{S_R}(x).
+\]
+Their norms are at most one, and their inner product is $A_{hx}$ times the probability that $R$ covers $(h,x)$. These products may be zero, so this alone is not a strict representation. Add an orthogonal strict unit-vector representation scaled by $\sqrt\delta$, and scale the displayed vectors by $\sqrt{1-\delta}$. Every resulting product is strict with the required sign, and its average absolute value in each row is at least $(1-\delta)r$. Pad row norms and point norms separately in orthogonal private coordinates to make them one without changing any cross inner products. Letting $\delta\downarrow0$ proves $m_{\rm avg}(A)\ge r$.
+
+For the VC bound, suppose $v$ points are shattered and use their uniform point prior. In any strict unit-vector representation, select one row $h_\sigma$ for each sign pattern $\sigma\in\{-1,+1\}^v$. If the minimum row-average margin is $a$, then
+\[
+ va\le\sum_{i=1}^v\sigma_i\langle v_{h_\sigma},u_i\rangle
+ \le\left\|\sum_{i=1}^v\sigma_i u_i\right\|.
+\]
+Averaging the square of the last norm over independent fair signs gives $v$, because cross terms cancel. Some sign pattern has norm at most $\sqrt v$, so $a\le1/\sqrt v$. Take the supremum over representations and the infimum over priors. For $v=0$ the inequality is immediate. This proves the chain, including the strict-sign correction.
+\end{proof}

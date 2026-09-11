@@ -1,0 +1,449 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array,tikz,longtable,enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\hypersetup{pdftitle={Distribution-independent SQ learning does not imply low dimension complexity},pdfauthor={Research working draft}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{auxlemma}{Auxiliary lemma}
+\newtheorem*{openproblem}{Open problem}
+\newtheorem{leanlemma}{Lemma}
+\renewcommand{\theleanlemma}{L\arabic{leanlemma}}
+\DeclareMathOperator{\dc}{dc}
+\DeclareMathOperator{\sr}{signrank}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\RSD}{RSD}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\op}{\mathrm{op}}
+\title{Distribution-independent SQ learning does not imply low dimension complexity}
+\author{Research working draft}
+\date{September 10, 2026\\Third research draft}
+\newtheorem*{parameterlemma}{Lemma 9.1 (Exact parameters)}
+\setlist[itemize]{topsep=3pt,itemsep=2pt}
+\begin{document}
+\maketitle
+\begin{abstract}
+If every product distribution on a finite truth table has a monochromatic rectangle of mass at least $1/\rho$, one distribution-independent SQ learner uses $O(\rho(\log|H|+\log(1/\epsilon)))$ queries of tolerance $\Omega(\epsilon/(\rho\log(1/\epsilon)))$ to achieve expected error at most $\epsilon$ against every valid adaptive oracle. This rectangle theorem has two consequences. First, the random monotone incidence flips of Hatami et al., on $2M$ points, are SQ-learnable with $O(\log M)$ queries at fixed accuracy while their dimension is $\Omega(M^{1/3}/\log M)$, their exact probabilistic dimension is $\Omega(M^{1/3}/\log^2M)$, and their averaged probabilistic dimension is $\Omega_\eta(M^{1/3}/\log M)$ for every fixed $\eta<1/2$. Second, a cap implementation for fixed-dimensional templates is polynomial-time in the supplied table, admits a deterministic version, and yields a proper learner with $O(\log M+1/\epsilon+\log(1/\epsilon))$ queries. We prove that the rectangle condition is sufficient but not necessary, quantify marginal adaptation, and refute a source-description-length repair when computation is free. The high-dimension selection is not efficiently explicit. The specified Gaussian-initialized plain-SGD question remains open. Exact oracle and finite-coverage CPU audits were executed; the pinned Lean sources remain uncompiled.
+\end{abstract}
+\input{intro.tex}
+\section{Definitions and quantifiers}
+Let $X$ be nonempty and finite, and let the nonempty indexed class $H=\{h_1,\ldots,h_K\}\subseteq\{-1,+1\}^X$ be finite. Duplicate rows cause no difficulty. Set $n=\log_2|X|$. For a distribution $D$ on $X$ and Boolean predictor $g$, define
+\[
+ L_{D,h}(g)=\sum_xD(x)\1_{g(x)\ne h(x)},\qquad
+ \E_D[hg]=1-2L_{D,h}(g).
+\]
+A query is any $q:X\times\{-1,+1\}\to[-1,1]$. At tolerance $\tau>0$, a valid oracle returns any number within $\tau$ of $\E_D q(x,h(x))$. Its choices may depend on the query history. A randomized learner must satisfy
+\begin{equation}\label{eq:guarantee}
+ \forall D\ \forall h\in H\ \forall\text{ valid oracle policies }O,
+ \qquad \E_\omega L_{D,h}(A^O_\omega)\le\epsilon.
+\end{equation}
+The private seed is sampled independently of the instance. A deterministic algorithm is a real-response decision tree; a randomized algorithm is a distribution over such trees. Query count is a worst-case bound. Computation and randomness length are not charged. All random variables used here are measurable; our learner has finitely many discrete states and uses only threshold comparisons of answers.
+
+The dimension $\dc(H)$ is the least $d\ge0$ admitting $\phi:X\to\R^d$ such that every $h$ has a vector $w_h$ with
+\begin{equation}\label{eq:strict}
+ h(x)\langle w_h,\phi(x)\rangle>0\quad(x\in X).
+\end{equation}
+It equals the sign-rank of the truth table, since a rank factorization is exactly such a representation. It is finite by $\phi(x)=e_x$.
+
+For the probabilistic variants we use $\sign(0)=+1$, without changing the strict definition above. Appendix~\ref{app:referee} verifies that both lower bounds also hold under the opposite tie rule or when zeros are counted as errors. The quantity $\dc_{1/2}(H)$ is the least $d$ for which one distribution over embeddings satisfies
+\[
+ \forall D,h,\quad \Pr_\phi[\exists w:L_{D,h}(\sign\langle w,\phi\rangle)=0]\ge1/2.
+\]
+The quantity $\dc^\eta(H)$ instead requires
+\[
+ \forall D,h,\quad \E_\phi\inf_w L_{D,h}(\sign\langle w,\phi\rangle)\le\eta.
+\]
+The embedding law is independent of both $D$ and $h$ in each definition.
+
+A monochromatic rectangle is $S\times T\subseteq X\times H$ with $h(x)=c$ for all $x\in S,h\in T$, for some $c\in\{-1,+1\}$. Define
+\[
+ \rect(H)=\inf_{\mu\in\Delta(X),\nu\in\Delta(H)}
+       \max_{S\times T\text{ monochromatic}}\mu(S)\nu(T).
+\]
+All rectangles and simplices are finite-dimensional. Restricting to any nonempty submatrix cannot decrease $\rect$, by extending its two distributions by zero. In particular, a known rational $r=1/\rho\le\rect(H)$ remains valid throughout the algorithm.
+
+\section{The rectangle learner}
+The earlier barrier and transcript results retain numbers 1--5 in Appendix~\ref{sec:retained}. The main new results start at 9.
+\setcounter{theorem}{8}
+\begin{theorem}[Distribution-independent rectangle learner]\label{thm:main}
+Suppose $\rho\ge1$ and $\rect(H)\ge1/\rho$. For every $0<\epsilon<1/4$, one randomized algorithm satisfies \eqref{eq:guarantee} with
+\[
+ m=O\!\left(\rho(\log K+\log(1/\epsilon))\right),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho\log(1/\epsilon)}\right).
+\]
+Query count is a worst-case bound. The learner is explicit from the truth table and a valid lower bound on $\rect(H)$; the general implementation may solve exponential-size linear programs.
+\end{theorem}
+\begin{parameterlemma}
+The theorem holds with
+\begin{align}
+ r&=1/\rho,&P&=1+\lceil4\rho\ln(8/\epsilon)\rceil,&\tau&=\epsilon/(24P),\label{eq:params1}\\
+ B&=\ln K+\ln(8/\epsilon)+1,&R&=\lceil8\rho(B+\ln(2/\epsilon))\rceil,&m&=3R+1.\label{eq:params2}
+\end{align}
+\end{parameterlemma}
+
+\begin{lemma}[A marginal-free rectangle mixture]\label{lem:mixture}
+Fix nonempty $U\subseteq X$, nonempty $V\subseteq H$, and a distribution $\nu$ on $V$. There is a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R\subseteq U\times V$ such that
+\begin{equation}\label{eq:coverage}
+ \forall x\in U,\qquad
+ \E_{R\sim\lambda}\bigl[\1_{S_R}(x)\nu(T_R)\bigr]\ge r.
+\end{equation}
+This distribution can be computed from $(H,U,V,\nu)$ without a query about $D$.
+\end{lemma}
+\begin{proof}
+This minimax device is also used in \citet[Theorem~3.1]{HHPTZ22}; we include the proof and the rational feasibility detail. For each rectangle let $z_R\in\R^U$ have coordinates $z_R(x)=\1_{S_R}(x)\nu(T_R)$. The rectangle assumption gives
+\[
+ \forall\mu\in\Delta(U),\quad \max_R\langle\mu,z_R\rangle\ge r.
+\]
+Let $C$ be the convex hull of the finitely many $z_R$ and let $Q=r\1+\R_{\ge0}^U$. Suppose $C\cap Q=\varnothing$. The distance between compact $C$ and closed $Q$ has a positive attained minimum: a minimizing sequence has bounded $Q$-components and convergent subsequences. Let $(c,z)$ attain it and put $v=z-c\ne0$. Differentiating squared distance along segments to any $c'\in C,z'\in Q$ gives
+\[
+ \langle v,c'-c\rangle\le0,\qquad\langle v,z'-z\rangle\ge0.
+\]
+Taking $z'=z+te_x$ gives $v_x\ge0$. Hence
+\[
+ \max_{c'\in C}\langle v,c'\rangle
+ \le\langle v,c\rangle<\langle v,z\rangle
+ =\min_{z'\in Q}\langle v,z'\rangle=r\sum_xv_x.
+\]
+Normalize $v$ to a distribution to contradict the assumption. A point in $C\cap Q$ supplies $\lambda$. Enumerating all rectangles and solving these finite linear inequalities computes it. For rational $\nu,r$, the feasible polytope has rational coefficients and admits a rational feasible point: Gaussian elimination on a minimal face yields such a point. Thus no oracle about $D$ enters this computation.
+\end{proof}
+
+\begin{center}\fbox{\begin{minipage}{.94\linewidth}
+\textbf{RECTIFY: rectangle peeling and elimination.}\par\smallskip
+Initialize $U=X$, $V=H$, and an empty partial predictor. At every state let $\nu$ be uniform on $V$. Use the constants in \eqref{eq:params1}--\eqref{eq:params2}. Repeat the following for at most $R$ rounds.
+\begin{enumerate}
+\item If $U=\varnothing$, stop. Query $\1_U(x)$ and call its answer $\widehat u$. If $\widehat u\le\epsilon/4$, stop and fill $U$ with $+1$.
+\item Compute the distribution in Lemma~\ref{lem:mixture}. Draw a monochromatic rectangle $S\times T$ of color $c$. Query $\1_S(x)$, with answer $\widehat s$. If $\widehat s<(r/2)\widehat u$, reject this proposal and go to the next round.
+\item Query $\1_S(x)\1_{y\ne c}$, with answer $\widehat w$. If $\widehat w\le2\tau$, label $S$ by $c$ and replace $U$ by $U\setminus S$. Otherwise replace $V$ by $V\setminus T$.
+\item At the round limit, stop and fill any remaining points with $+1$.
+\end{enumerate}
+\end{minipage}}\end{center}
+
+Every accepted peel removes a subset of the current $U$, so peeled sets are disjoint. An elimination does not change $U$. This general implementation requires no candidate test, conditional-label oracle, isotropic transform, or subspace restriction. Section~\ref{sec:caps} supplies the separate cap implementation.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Fix $D,h^*$ and any valid oracle policy. First,
+\begin{equation}\label{eq:tau-small}
+ \tau\le\epsilon/8,\qquad \tau\le r\epsilon/64.
+\end{equation}
+Indeed $P\ge4\rho\ln(8/\epsilon)>4\rho\ln32$, and $24\cdot4\ln32>64$. At a nonstopping round, write
+\[
+ u=D(U)>\epsilon/4-\tau\ge\epsilon/8,
+ \quad a=D(S)/u,\quad b=\nu(T),\quad w=D(S\cap\{h^*\ne c\}).
+\]
+Thus $\tau/u\le r/8$. If the proposal is accepted, validity implies
+\[
+ D(S)\ge(r/2)u-(1+r/2)\tau\ge(5r/16)u\ge(r/4)u.
+\]
+Conversely, every rectangle with $a\ge3r/4$ is accepted, since
+\[
+ \widehat s-(r/2)\widehat u
+ \ge(r/4)u-(1+r/2)\tau\ge(r/16)u>0.
+\]
+These inequalities hold at the extreme valid oracle answers, not only for exact answers.
+
+If $h^*\in T$, monochromaticity gives $w=0$, hence $\widehat w\le\tau<2\tau$. Therefore the algorithm never eliminates the target. In particular, $V$ remains nonempty. On an elimination, its normalized target weight increases by a factor $1/(1-b)$. Because $-\ln(1-b)\ge b$ for $0\le b<1$, summing gives
+\begin{equation}\label{eq:elim-budget}
+ \sum_{\text{eliminations}} b\le\ln K.
+\end{equation}
+For completeness, $\ln t\le t-1$ for $t>0$ follows by minimizing $t-1-\ln t$, whose derivative is $1-1/t$. Taking $t=1-b$ proves the displayed inequality. The target weight starts at $1/K$ and never exceeds one.
+
+Each peel multiplies $u$ by at most $1-r/4$. Immediately before every peel, $u\ge\epsilon/8$. Before the $j$th peel,
+\[
+ \epsilon/8\le(1-r/4)^{j-1}\le e^{-(j-1)r/4}.
+\]
+Hence there are at most $P$ peels. Their combined wrong-color mass is at most $3P\tau=\epsilon/8$, since a peeling answer implies $w\le3\tau$. At a normal stop the residual mass is at most $\epsilon/4+\tau$, or zero. The error at such a stop is at most $\epsilon/2$.
+
+It remains to bound the probability of reaching the round limit. Define a round's progress by $G=a$ for a peel, $G=b$ for an elimination, and $G=0$ for a rejected proposal. Conditional on the pre-proposal history, $0\le G\le1$. For every accepted rectangle, either action has $G\ge ab$. All rectangles with $a\ge3r/4$ are accepted. Averaging \eqref{eq:coverage} under $D$ restricted to $U$ gives $\E[ab]\ge r$. Consequently,
+\begin{equation}\label{eq:drift}
+ \E[G\mid\text{history}]
+ \ge \E[ab]-\E[ab\1_{a<3r/4}]
+ \ge r-(3r/4)\E b\ge r/4.
+\end{equation}
+This uses no favorable distributional assumption and holds for either oracle-induced action on every accepted rectangle.
+
+On any trajectory of nonstopping rounds, the sum of all peeling $a$ values except the last is at most the logarithm of the reciprocal residual mass immediately before the last peel. Indeed $a\le-\ln(1-a)$ and the residual ratios telescope. This sum is at most $\ln(8/\epsilon)$; the last $a$ is at most one. If there are no peels the sum is zero. Together with \eqref{eq:elim-budget}, this proves
+\begin{equation}\label{eq:total-budget}
+ \sum G\le B.
+\end{equation}
+There is no logarithm of zero: a peel with $a=1$ must be the last peel.
+
+After any normal termination, extend the sequence by setting $G=1$. Let $p=r/4$. For $0\le g\le1$, convexity places $e^{-g}$ below the chord between its endpoint values:
+\[
+ e^{-g}\le1-(1-e^{-1})g.
+\]
+Since $1-e^{-1}>1/2$, conditional expectation and \eqref{eq:drift} imply
+\[
+ \E[e^{-G}\mid\text{history}]\le e^{-p/2}.
+\]
+Induction gives $\E e^{-\sum_{t=1}^RG_t}\le e^{-pR/2}$. On the event of no normal termination by the budget, \eqref{eq:total-budget} holds. Markov's inequality therefore gives
+\[
+ \Pr[\text{budget termination}]
+ \le e^{B-pR/2}\le\epsilon/2.
+\]
+A point that becomes empty after the final peel already has the normal-stop error bound; counting it as budget termination only weakens this estimate. Finally, error is always at most one, so expected error is at most $\epsilon/2+\epsilon/2=\epsilon$. There are at most three queries per round and at most one extra stopping check. The big-$O$ and $\Omega$ bounds follow directly from the ceilings and $\rho\ge1$, $\epsilon<1/4$.
+\end{proof}
+
+\paragraph{Domain-size consequence of Theorem~\ref{thm:main}.}
+The dependence on $\log K$ can always be bounded in terms of the domain and $\rho$. If $H$ shatters $v\ge1$ points, put the uniform marginal on those points and the uniform prior on one representative of each of their $2^v$ label patterns. A nonempty monochromatic rectangle using $s$ of the points has mass at most $s/(v2^s)\le1/(2v)$, because $s\le2^{s-1}$ for every positive integer $s$ (by induction). Therefore
+\[
+ \operatorname{VC}(H)\le\rho/2.
+\]
+After removing duplicate rows, the finite counting inequality $K\le\sum_{i=0}^v\binom{|X|}{i}$ follows by induction on $|X|$: split restrictions on the last point into their union $A$ and intersection $B$. Their sizes sum to $K$, the VC dimension of $A$ is at most $v$, and that of $B$ is at most $v-1$, since shattering a set in $B$ also permits either label on the last point. Pascal's identity completes the induction, with the empty domain as base case. For $v=0$, all rows are identical and $K=1$. For $1\le v\le Q=|X|$, setting $t=v/Q\le1$ gives
+\[
+ t^v\sum_{i=0}^v\binom Qi\le(1+t)^Q\le e^v,
+ \qquad \ln K\le v\ln(eQ/v)\le(\rho/2)\ln(eQ).
+\]
+Consequently the same learner, with no statistical-dimension conversion, has
+\[
+ \boxed{m=O\bigl(\rho^2\ln(e|X|)+\rho\ln(1/\epsilon)\bigr),
+ \qquad \tau=\Omega\bigl(\epsilon/(\rho\ln(1/\epsilon))\bigr).}
+\]
+For bounded $\rho$, this is logarithmic in the domain size at fixed accuracy. The argument is a proved consequence, not a conjectured converse characterizing SQ complexity.
+
+\section{The incidence-flip family}
+Let $N\ge2$, $M=N^3$, and $K=2M$. Points are $p=(x,y)\in[N]\times[2N^2]$. Rows are affine lines $\ell=(a,b)\in[N]\times[2N^2]$. Put $F_{\ell p}=-1$ exactly when $y=ax+b$. A monotone flip matrix $A$ changes any subset of these $-1$ entries to $+1$ and leaves all other entries unchanged. In the random family the choices are independent fair bits. Denote the row class by $H_A$.
+
+\input{figure.tex}
+
+\begin{theorem}[Construction and ordinary dimension]\label{thm:construction}
+Every monotone flip $A$ satisfies $\operatorname{VC}(A)\le2$ and $\rect(A)\ge2^{-15}$. The template has $\sr(F)\le6$ and exactly
+\begin{equation}\label{eq:I}
+ I=2N^4-\left(\frac{N(N+1)}2\right)^2\ge N^4
+\end{equation}
+independent flip positions. Set $B_0=\log_2(4eK)$ and $s_0=\lfloor I/(4KB_0)\rfloor$. A random $A$ satisfies
+\[
+ \Pr[\dc(H_A)\le s_0]\le2^{-I/2}.
+\]
+Every member also satisfies $\dc(H_A)\le2N+1$. In particular most matrices have $\dc(H_A)=\Omega(N/\log M)$. All members have the learner of Theorem~\ref{thm:main} with $\rho=2^{15}$. Independently of the sharp rectangle input, the self-contained cap proof in Appendix~\ref{app:oldgeometry} supplies $\rho=2^{18}$ and the same asymptotic learning bound.
+\end{theorem}
+\begin{proof}
+Define
+\[
+ u_p=(x^2,xy,y^2,x,y,1),\quad
+ v_\ell=(a^2,-2a,1,2ab,-2b,b^2-1/2).
+\]
+Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves $\sr(F)\le6$. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\in[K]$ and use $(1,t,\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\prod_{a\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\dc(H_A)\le2N+1$ for every member.
+
+For fixed $a,x$, exactly $2N^2-ax$ values of $b\in[2N^2]$ give an incidence with $y\in[2N^2]$. Summing proves \eqref{eq:I}. The lower bound uses $(N+1)/2\le N$. If two distinct affine lines share points $(x,y)$ and $(x',y')$, subtraction gives $(a-c)(x-x')=0$. If $a=c$, their shared point forces equal intercepts, a contradiction. Otherwise $x=x'$ and then $y=y'$. Hence $F$, and therefore $A$, has no all-negative $2\times2$. Shattering three columns would require one row negative on all three and a distinct row negative on two of them, which creates such a submatrix. Therefore $\operatorname{VC}(A)\le2$.
+
+The homogeneous-rectangle theorem of \citet[Theorem 1.3]{APP05}, in the formulation checked in \citet[Theorem 1.9]{HHPTZ22}, states that an $a\times b$ sign matrix of sign-rank at most $d$ contains a monochromatic rectangle with each side at least the corresponding side length divided by $2^{d+1}$. For rational product weights, repeat rows and columns according to common-denominator multiplicities. Projecting the resulting rectangle back to the original matrix preserves its signs and can only increase its weighted masses. For arbitrary weights, approximate by rationals; the maximum over finitely many rectangle masses is continuous. It follows that
+\begin{equation}\label{eq:sharp-rect}
+ \rect(F)\ge2^{-2d-2}.
+\end{equation}
+Fix a product distribution and such a rectangle of $F$. If its color is positive, it survives every monotone flip. If its color is negative, one side is a singleton, by the absence of a negative $2\times2$. Partition the other side according to its sign in $A$; one part retains at least half its mass. Thus
+\begin{equation}\label{eq:structural}
+ \sr(F)\le d,\quad F\text{ has no negative }2\times2
+ \quad\Longrightarrow\quad \rect(A)\ge2^{-(2d+3)}.
+\end{equation}
+For $d=6$ this is $2^{-15}$. This reduction establishes exactly which extra structural hypothesis is needed.
+
+For the counting bound, the theorem of \citet{Warren68} says that $s\ge v$ real polynomials of degree at most $k$ in $v$ variables have at most $(4eks/v)^v$ strict sign patterns; see \citet[Theorem 21 and Lemma 22]{AMY16}. A rank-at-most-$d$ $K\times K$ matrix factors as a $K\times d$ matrix times a $d\times K$ matrix. Its $K^2$ entries are degree-two polynomials in $2Kd$ variables. Therefore, for $1\le d\le K/2$,
+\begin{equation}\label{eq:warren}
+ \#\{B\in\{-1,+1\}^{K\times K}:\sr(B)\le d\}
+ \le(4eK/d)^{2Kd}\le2^{2KdB_0}.
+\end{equation}
+The random family has exactly $2^I$ equiprobable matrices. Taking $d=s_0$ bounds the probability by $2^{2Ks_0B_0-I}\le2^{-I/2}$. The range $s_0\le K/2$ follows from $I\le K^2$ and $B_0>1$; when $s_0=0$ the event is empty. Finally $I\ge N^4$ and $K=2N^3$ give the asymptotic lower bound. Apply Theorem~\ref{thm:main} for the learner.
+\end{proof}
+
+The restriction in \eqref{eq:structural} cannot be omitted. Every sign matrix is a monotone flip of the all-negative, rank-one matrix. More quantitatively, let $W$ be a $k\times k$ Walsh matrix, $k$ a power of two. Its orthogonality gives $\|W\|_\op=\sqrt k$. A monochromatic rectangle of side sizes $a,b$ satisfies
+\[
+ ab=|\1_S^TW\1_T|\le\sqrt{k}\sqrt{ab},
+\]
+so its uniform product mass is at most $1/k$. For $k>32$, this contradicts the asserted unrestricted bound $2^{-(2\cdot1+3)}$.
+
+\section{Probabilistic dimension under the actual definitions}
+\begin{theorem}[Approximate counting and exact probabilistic dimension]\label{thm:prob}
+Fix $0\le\eta<1/2$ and write
+\[
+ h_2(\eta)=-\eta\log_2\eta-(1-\eta)\log_2(1-\eta),\quad
+ c_\eta=1-h_2(\eta)>0,
+ \quad s_\eta=\left\lfloor\frac{c_\eta I}{4KB_0}\right\rfloor,
+\]
+with $0\log 0=0$. For the random incidence-flip matrix,
+\begin{equation}\label{eq:approx-prob}
+ \Pr[\dc^\eta(H_A)<s_\eta]\le2^{-c_\eta I/2}.
+\end{equation}
+For every finite class, independently of this construction,
+\begin{equation}\label{eq:exact-prob}
+ \dc(H)\le(\lceil\log_2 K\rceil+1)\dc_{1/2}(H)+1.
+\end{equation}
+Consequently most $A$ have $\dc_{1/2}(H_A)=\Omega(N/\log^2M)$ and $\dc^\eta(H_A)=\Omega_\eta(N/\log M)$.
+\end{theorem}
+\begin{proof}
+Let $J_\ell$ be the set of template incidences in row $\ell$, with $k_\ell=|J_\ell|$. For each nonempty $J_\ell$, take $D_\ell$ uniform on it. If a law on $d$-dimensional embeddings witnesses $\dc^\eta(H_A)\le d$, then
+\[
+ \E_\phi\sum_{\ell:k_\ell>0}\frac{k_\ell}{I}
+       \min_w L_{D_\ell,h_\ell}(\sign\langle w,\phi\rangle)\le\eta.
+\]
+For a fixed embedding, only finitely many Boolean predictions are possible, so each infimum is attained as a minimum of finitely many loss values. There exists one embedding with the displayed weighted sum at most $\eta$. Otherwise its positive excess over $\eta$ would have strictly positive expectation. Choose one minimizing weight vector for each row. Their prediction matrix makes at most $\eta I$ mistakes on the incidence positions.
+
+With $\sign(0)=+1$, this prediction matrix has strict sign-rank at most $d+1$, not necessarily at most $d$. Add the constant feature one. In each row add a strictly positive bias smaller than the absolute value of every negative score in that row, if there are negative scores. This retains all signs and turns every zero into a positive score. Finiteness makes the bias choice possible. Rows with no incidence may use any weight vector.
+
+For any fixed sign matrix $B$, the number of possible incidence flip patterns within $\eta I$ mistakes is at most
+\[
+ \sum_{j=0}^{\lfloor\eta I\rfloor}\binom Ij\le2^{h_2(\eta)I}.
+\]
+For $0<\eta<1/2$, this follows from
+\[
+ 1\ge\sum_{j\le\eta I}\binom Ij\eta^j(1-\eta)^{I-j}
+ \ge2^{-h_2(\eta)I}\sum_{j\le\eta I}\binom Ij;
+\]
+the second inequality uses $j\le\eta I$ and $\eta/(1-\eta)<1$. For $\eta=0$ the sum is one. Combining with \eqref{eq:warren}, the probability that any rank-at-most-$s_\eta$ sign matrix makes at most $\eta I$ incidence errors is at most
+\[
+ 2^{2Ks_\eta B_0+h_2(\eta)I-I}\le2^{-c_\eta I/2}.
+\]
+An embedding of dimension below $s_\eta$ would produce just such a strict sign matrix after adding the constant coordinate. If $s_\eta=0$, the event in question is empty. This proves \eqref{eq:approx-prob}.
+
+For \eqref{eq:exact-prob}, choose a full-support distribution on $X$. Zero loss under this distribution means correct labels at every point. Draw $t=\lceil\log_2K\rceil+1$ independent embeddings from a law witnessing $\dc_{1/2}(H)=d$. Each fixed target fails in all $t$ embeddings with probability at most $2^{-t}$. A union bound gives probability at most $K2^{-t}<1$ that some target fails everywhere. Hence one collection works for all targets. Concatenate its $t$ embeddings; each row selects a successful block. Adding one constant coordinate as above makes the representation strict. This proves \eqref{eq:exact-prob}. Combine with Theorem~\ref{thm:construction}. If simultaneous bounds are desired, intersect its event with \eqref{eq:approx-prob}; failure probability is at most $2^{-I/2}+2^{-c_\eta I/2}$.
+\end{proof}
+
+For fixed $\epsilon>0$, $\rho=2^{15}$ gives $m=O(\log M)=O(n)$ and $1/\tau=O_\epsilon(1)$, whereas the displayed dimensions are exponential in $n$, up to logarithmic factors. Thus forms (a), (b), and (c) fail for $\dc$ and $\dc_{1/2}$. For any proposed fixed constant $C>0$ in $\dc^{C\epsilon}$, fix $\epsilon<\min\{1/4,1/(2C)\}$ and apply Theorem~\ref{thm:prob} at $\eta=C\epsilon$. This refutes the same three polynomial forms for that variant. The assertion $m/\tau^2=O(\log n)$ is not used and is not implied: the proved bound is $O_\epsilon(n)$.
+
+\section{A direct check through randomized statistical dimension}
+We give the proposed dimension route separately. It is not needed for Theorem~\ref{thm:main}.
+For the search task $\mathcal Z_\eta$, an instance is a realizable labeled distribution $P_{D,h}$; an allowed solution is a predictor $g$ with loss at most $\eta$. Fix any reference distribution $P_0$ on $Z=X\times\{-1,+1\}$, not necessarily realizable or fair-labeled. For a law $\mathcal P$ on predictors, put
+\[
+ \mathcal B(\mathcal P)=\{j:\Pr_{g\sim\mathcal P}[g\text{ is }\eta\text{-good for }j]<1/4\}.
+\]
+A query distribution covers this bad set at level $1/d$ when every $j$ in it is distinguished from $P_0$ by more than $\kappa$ with probability at least $1/d$. Taking the best $\mathcal P$ and query law, and the worst $P_0$, is the covering formulation of Feldman's $\RSD_{\kappa_1}(\mathcal Z_\eta,\kappa,1/4)$.
+
+\begin{theorem}[Rectangle bound for randomized statistical dimension]\label{thm:rsd}
+Let $L=\lceil\rho\ln(4/\eta)\rceil$ and $\kappa=\eta/(4L)$, where $0<\eta<1/4$. Then
+\[
+ \RSD_{\kappa_1}(\mathcal Z_\eta,\kappa,1/4)\le4L.
+\]
+This statement allows arbitrary target-dependent marginals and any reference $P_0$.
+\end{theorem}
+\begin{proof}
+Fix a finitely supported prior $\pi$ on instances. It induces a prior $\nu$ on hypotheses. Let $\mathcal Q$ be the finite query family $q_{S,c}(x,y)=\1_S(x)\1_{y\ne c}$. Set
+\[
+ \beta=\max_{q\in\mathcal Q}\Pr_{j\sim\pi}[|P_jq-P_0q|>\kappa].
+\]
+Peel $L$ rectangles using the prior-averaged example marginal restricted to the current unpeeled set $U$, and the unchanged hypothesis prior $\nu$. Empty residual mass permits immediate completion. The rectangle condition gives both
+\[
+ \nu(T)\ge r,\qquad \E_jD_j(S)\ge r\E_jD_j(U).
+\]
+Suppose first $\beta<r$. On every instance with target in $T$, the mismatch query has expectation zero. Therefore $P_0q\le\kappa$: otherwise a prior mass at least $r$ would be distinguished. Apart from a prior mass at most $\beta$, we then have $P_jq\le2\kappa$.
+
+After $L$ peels, the expected residual mass is at most $(1-r)^L\le\eta/4$. Markov's inequality shows that at least half the prior puts residual mass at most $\eta/2$. Outside a union of exceptional sets of total mass at most $L\beta$, each of the $L$ wrong-color masses is at most $2\kappa$. The predictor assembled from the rectangle colors and an arbitrary residual label consequently has loss at most $2L\kappa+\eta/2=\eta$ for prior mass at least $1/2-L\beta$. If $\beta\ge r$, then $L\beta\ge L/\rho\ge\ln(4/\eta)>1/2$, so the following inequality remains true trivially:
+\begin{equation}\label{eq:additive-game}
+ \max_g\Pr_\pi[g\text{ good}]+L\max_{q\in\mathcal Q}\Pr_\pi[q\text{ distinguishes}]\ge1/2.
+\end{equation}
+Apply the finite separation argument of Lemma~\ref{lem:mixture} to the action pairs $(g,q)$, whose payoff on instance $j$ is
+\[
+ \1_{g\text{ good for }j}+L\1_{q\text{ distinguishes }j}.
+\]
+It gives laws $\mathcal P,\mathcal Q'$ satisfying
+\[
+ \Pr_{g\sim\mathcal P}[g\text{ good for }j]
+ +L\Pr_{q\sim\mathcal Q'}[q\text{ distinguishes }j]\ge1/2
+ \quad\text{for every }j.
+\]
+On $\mathcal B(\mathcal P)$, the second probability is greater than $1/(4L)$. This proves the required coverage.
+
+The continuum of possible marginals creates no compactness gap in this minimax step. Both the predictor set and $\mathcal Q$ are finite. An instance is relevant only through the finite vector of Boolean good-solution and distinguishing-query indicators. There are finitely many such types. Choose one representative of each realized type and apply the finite argument to them. Its inequalities then hold for all original instances. No discretization in total variation and no factor polynomial in $|X|$ is introduced.
+\end{proof}
+
+\paragraph{What the 2017 characterization actually says.}
+In \citet[Theorem 4.8]{Feldman17}, the randomized upper bound, in the notation used here, is
+\begin{equation}\label{eq:feldman}
+ \operatorname{RQC}(\mathcal Z,\operatorname{STAT}(\kappa/3),\alpha-\delta)
+ =O\left(d\,\frac{R_{\rm KL}(\mathcal D)}{\kappa^2}
+       \log\frac{R_{\rm KL}(\mathcal D)}{\kappa\delta}\right),
+ \quad d=\RSD_{\kappa_1}(\mathcal Z,\kappa,\alpha).
+\end{equation}
+The displayed asymptotic expression uses the usual positive-radius conventions; a ceiling and a maximum with one handle degenerate values. Here $R_{\rm KL}(\mathcal D)=\inf_Q\sup_{P\in\mathcal D}\mathrm{KL}(P\|Q)$. Taking uniform $Q$ on $Z$ proves $R_{\rm KL}\le\ln|Z|$: expand $\mathrm{KL}(P\|Q)=\ln|Z|+\sum_zP(z)\ln P(z)$ and use $\ln P(z)\le0$. Thus the relevant domain term is $\ln(2|X|)$, not $|X|$ or the logarithm of a discretized instance count. The deterministic theorem has a different set-cover logarithm; it must not be substituted here.
+
+For clarity, the mechanism behind \eqref{eq:feldman} does not depend on a hidden finite-instance enumeration. Maintain a reference $Q$ starting uniform on $Z$. A query separated from the true $P$ by $\kappa$ supplies a bounded direction with a signed expectation gap of order $\kappa$. For $f\in[-1,1]$ and update $Q'(z)\propto Q(z)e^{\lambda f(z)}$, direct expansion gives
+\[
+ \mathrm{KL}(P\|Q')-\mathrm{KL}(P\|Q)
+ =-\lambda\E_Pf+\log\E_Qe^{\lambda f}
+ \le-\lambda(\E_Pf-\E_Qf)+\lambda^2/2.
+\]
+The final inequality follows by twice differentiating $\log\E_Qe^{\lambda f}$: its second derivative is a variance of a variable in $[-1,1]$, at most one. Choosing $\lambda$ proportional to $\kappa$ decreases KL by $\Omega(\kappa^2)$. There are therefore $O(\ln|Z|/\kappa^2)$ updates. At each reference, sampling $O(d\ln(T/\delta))$ covering queries prevents an undetected bad instance over $T$ updates, by $(1-1/d)^s\le e^{-s/d}$ and a union bound. This proves the parameter dependence and extends the argument to all realizable marginals here.
+
+At fairness $1/4$ and constant $\delta<1/4$, this yields constant success probability. Fresh repetitions and a single loss query to verify each candidate amplify success with $O(\ln(1/\delta'))$ repetitions and loss slack $O(\kappa)$. This reasoning remains valid for history-dependent oracles by conditioning on earlier runs. The verifiable-search Theorem 4.11 in \citet{Feldman17} is stated using a different statistical dimension over references admitting no good solution; its dimension must not be identified automatically with the fairness-$1/4$ quantity above. In either route verification does not erase the $R_{\rm KL}/\kappa^2$ term of that generic simulation. The direct learner of Theorem~\ref{thm:main} gives the sharper bound without it.
+
+\input{caps.tex}
+\input{proper.tex}
+\input{landscape.tex}
+\input{resources.tex}
+\section{Open problems and limits}
+The statistical-query implications to $\dc$, $\dc_{1/2}$ and $\dc^{C\epsilon}$ are refuted. The proper--improper issue for this family is settled on the proper-learning side. Neither result settles learning by the particular online Gaussian-initialized bias-free ReLU dynamics.
+
+An efficiently computable, total, high-sign-rank matrix with polynomial inverse rectangle ratio remains the explicit-construction problem investigated here. The exhaustive generator in Theorem~\ref{thm:description} is not a solution under that computational meaning of explicitness. A parameter measuring rectangle-type product-distribution structure may still characterize distribution-independent SQ complexity, but $\rect^{-1}$ alone cannot: cube halfspaces and parities both have exponentially small rectangles, while only the latter have the corresponding SQ obstruction. Such a characterization would need an additional feature or an optimized representation of the task.
+
+The joint dependence on query count and tolerance in Theorem~9 remains unoptimized. The projective-plane example proves a linear lower bound on $m/\tau^2$, not a matching lower bound for the theorem's full parameter tradeoff. Finite-bit computation or expanded-circuit size, rather than source-program length alone, is necessary for a meaningful resource-aware repair. No general polynomial-dimension theorem under those stronger charges is proved. Finally, the Lean sources have not been compiled in this environment; they are not a verified formalization of the new main results.
+
+\appendix
+\input{referee.tex}
+\input{convex.tex}
+\input{concentration.tex}
+\input{verification.tex}
+\input{old_lean_section.tex}
+\section{Retained independent geometric bounds}\label{app:oldgeometry}
+\setcounter{theorem}{13}
+\begin{proposition}[Independent constant rectangle bound]\label{prop:cap-bound}
+Let $c_d$ be the normalized surface measure of the preceding cap on $S^{d-1}$, $d\ge2$. Every matrix $F$ of sign-rank at most $d$ satisfies $\rect(F)\ge c_d/(4d)$. If $F$ has no negative $2\times2$, every monotone flip $A$ satisfies $\rect(A)\ge c_d/(8d)$. In particular, for $d=6$ this is greater than $2^{-18}$.
+\end{proposition}
+\begin{proof}
+First take a uniform prior on $k>d$ row copies. Perturb their representing vectors, if necessary, so every $d$ are independent while preserving the finitely many strict signs. The full minimization argument in retained Theorem~\ref{thm:forster} produces an invertible transform whose normalized row vectors are isotropic. Apply the inverse transpose to the point vectors and normalize; all signs persist.
+
+For each uniform random direction $u$, the two sets $T_+(u)=\{v:\langle u,v\rangle>\alpha\}$ and $T_-(u)=\{v:\langle u,v\rangle<-\alpha\}$ have combined prior mass at least $1/(2d)$. The rectangles $C_u\times T_+(u)$ and $C_u\times T_-(u)$ have constant signs. For any fixed point marginal $\mu$, rotational invariance gives $\E_u\mu(C_u)=c_d$, because each unit point lies in a random cap with probability $c_d$. Therefore the expected sum of their product masses is at least $c_d/(2d)$, and some single rectangle has mass at least $c_d/(4d)$.
+
+For a rational row prior, duplicate rows with common-denominator multiplicities, repeating all copies further to ensure $k>d$. The transformed representation may differ across identical copies, but every pairwise sign still equals the original matrix entry. Projecting a rectangle to original rows only increases its prior mass. Approximation by rational priors and continuity of the finite maximum prove the assertion for all priors. A negative rectangle has a singleton side under the additional assumption on $F$, so the same half-mass argument as in \eqref{eq:structural} proves the second assertion.
+
+For the numerical estimate at $d=6$, project the cap onto its last five coordinates. Its image is the five-dimensional ball of radius $\alpha=1/\sqrt{12}$, and the surface-area Jacobian is at least one. The volume of the unit five-ball is $8\pi^2/15$ and the area of $S^5$ is $\pi^3$, obtained by polar integration of the Gaussian integral. Thus
+\[
+ c_6\ge\frac8{15\pi\,12^{5/2}}>
+ \frac8{15\cdot4\cdot576}=\frac1{4320},
+ \qquad \frac{c_6}{48}>\frac1{207360}>2^{-18}.
+\]
+This independent constant, rather than the sharper imported one, is already sufficient for Theorems~\ref{thm:main}--\ref{thm:prob} to refute every polynomial dimension implication.
+\end{proof}
+\begin{proposition}[Uniform-product rectangles in a projective plane]\label{prop:pg-rect}
+For the point--line incidence sign matrix of $\operatorname{PG}(2,q)$, let $K=q^2+q+1$ and $k=q+1$. Under uniform distributions on both sides, the largest monochromatic-rectangle mass lies between
+\[
+ \frac1{8(q+1)}\quad\text{and}\quad\frac{q}{(q+1)^2}.
+\]
+It is therefore $\Theta(1/q)$.
+\end{proposition}
+\begin{proof}
+Let $P$ be the incidence matrix. As proved in retained Theorem~\ref{thm:plane}, $P\1=k\1$ and $P^TP=qI+\1\1^T$. Thus $C=P-(k/K)\1\1^T$ has operator norm $\sqrt q$. A nonincident rectangle with side sizes $a,b$ satisfies
+\[
+ \frac{k}{K}ab=|\1_S^TC\1_T|\le\sqrt q\sqrt{ab},
+\]
+so its mass is at most $q/k^2$. An all-incident rectangle has a singleton side and size at most $k$. Its mass $k/K^2$ is also at most $q/k^2$: use $K\ge qk$ and $q^3\ge k$ for $q\ge2$ to obtain $qK^2\ge q^3k^2\ge k^3$.
+
+For the lower bound, choose $s=\lfloor K/(2k)\rfloor$ lines. Their union has at most $sk\le K/2$ points, leaving at least $K/2$ points incident with none of them. The resulting rectangle has mass at least $s/(2K)$. Since $K/(2k)\ge1$, $s\ge K/(4k)$, proving the lower bound.
+\end{proof}
+\section{Retained barrier, plane, and transcript results}\label{sec:retained}
+\setcounter{theorem}{0}
+\input{retained.tex}
+\begin{thebibliography}{16}
+\bibitem[Feldman et al.(2026)]{FKS26} Vitaly Feldman, Pritish Kamath, and Nathan Srebro. Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent? \emph{COLT}, PMLR 336:7117--7122, 2026. \url{https://proceedings.mlr.press/v336/feldman26a.html}.
+\bibitem[Hatami et al.(2022)]{HHPTZ22} Hamed Hatami, Pooya Hatami, William Pires, Ran Tao, and Rosie Zhao. Lower bound methods for sign-rank and their limitations. ECCC TR22-079, Sections 1--3 and Problem 4.1, 2022. \url{https://eccc.weizmann.ac.il/report/2022/079/}.
+\bibitem[Alon et al.(2005)]{APP05} Noga Alon, J\'anos Pach, Rom Pinchasi, Rado\v{s} Radoi\v{c}i\'c, and Micha Sharir. Crossing patterns of semi-algebraic sets. \emph{Journal of Combinatorial Theory, Series A}, 111(2):310--326, 2005. Theorem 1.3.
+\bibitem[Warren(1968)]{Warren68} Hugh E. Warren. Lower bounds for approximation by nonlinear manifolds. \emph{Transactions of the American Mathematical Society}, 133:167--178, 1968.
+\bibitem[Alon et al.(2016)]{AMY16} Noga Alon, Shay Moran, and Amir Yehudayoff. Sign rank versus VC dimension. \emph{COLT}, PMLR 49:47--80, 2016. Full version arXiv:1503.07648, Theorem 21 and Lemma 22. \url{https://arxiv.org/abs/1503.07648}.
+\bibitem[Feldman(2017)]{Feldman17} Vitaly Feldman. A general characterization of the statistical query complexity. \emph{COLT}, PMLR 65:785--830, 2017. Definitions 4.6 and Theorems 4.8, 4.11. \url{https://proceedings.mlr.press/v65/feldman17c.html}.
+\bibitem[Forster(2002)]{Forster02} J\"urgen Forster. A linear lower bound on the unbounded error probabilistic communication complexity. \emph{Journal of Computer and System Sciences}, 65(4):612--625, 2002.
+\bibitem[Abbe et al.(2021)]{AKMSS21} Emmanuel Abbe, Pritish Kamath, Eran Malach, Colin Sandon, and Nathan Srebro. On the power of differentiable learning versus PAC and SQ learning. \emph{NeurIPS} 34:24340--24351, 2021. \url{https://arxiv.org/abs/2108.04190}.
+\bibitem[Hatami et al.(2023)]{HHM23} Hamed Hatami, Kaave Hosseini, and Xiang Meng. A Borsuk--Ulam lower bound for sign-rank and its applications. \emph{STOC}, 463--471, 2023. ECCC TR22-130. \url{https://eccc.weizmann.ac.il/report/2022/130/}.
+\bibitem[G\"o\"os et al.(2025)]{GHIS25} Mika G\"o\"os, Nathaniel Harms, Valentin Imbach, and Dmitry Sokolov. Sign-rank of $k$-Hamming distance is constant. arXiv:2506.12022v2, 2025. \url{https://arxiv.org/abs/2506.12022}.
+\bibitem[Frick et al.(2026)]{FHV26} Florian Frick, Kaave Hosseini, and Aliaksei Vasileuski. A $\mathbb Z_2$-topological framework for sign-rank lower bounds. arXiv:2604.01510v2, 2026. \url{https://arxiv.org/abs/2604.01510}.
+
+\bibitem[Diakonikolas et al.(2022)]{DKT22} Ilias Diakonikolas, Christos Tzamos, and Daniel M. Kane. A Strongly Polynomial Algorithm for Approximate Forster Transforms and its Application to Halfspace Learning. arXiv:2212.03008, 2022. \url{https://arxiv.org/abs/2212.03008}.
+\bibitem[Mahboubi and Cohen(2012)]{MC12} Assia Mahboubi and Cyril Cohen. Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination. arXiv:1201.3731, 2012. \url{https://arxiv.org/abs/1201.3731}.
+\end{thebibliography}
+\end{document}

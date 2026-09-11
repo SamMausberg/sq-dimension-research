@@ -1,0 +1,66 @@
+\section{Comparison with randomized statistical dimension}\label{sec:rsd}
+The rectangle theorem also bounds Feldman's randomized statistical dimension. The main learner does not use this characterization.
+For the search task $\mathcal Z_\eta$, an instance is a realizable labeled distribution $P_{D,h}$; an allowed solution is a predictor $g$ with loss at most $\eta$. Fix any reference distribution $P_0$ on $Z=X\times\{-1,+1\}$, not necessarily realizable or fair-labeled. For a law $\mathcal P$ on predictors, put
+\[
+ \mathcal B(\mathcal P)=\{j:\Pr_{g\sim\mathcal P}[g\text{ is }\eta\text{-good for }j]<1/4\}.
+\]
+A query distribution covers this bad set at level $1/d$ when every $j$ in it is distinguished from $P_0$ by more than $\kappa$ with probability at least $1/d$. Taking the best $\mathcal P$ and query law, and the worst $P_0$, is the covering formulation of Feldman's $\RSD_{\kappa_1}(\mathcal Z_\eta,\kappa,1/4)$.
+
+
+\begin{theorem}[Rectangle bound for randomized statistical dimension]\label{thm:rsd}
+Suppose $H$ is finite and nonempty, $\rho\ge1$, and $\rect(H)\ge1/\rho$. Let $L=\lceil\rho\ln(4/\eta)\rceil$ and $\kappa=\eta/(4L)$, where $0<\eta<1/4$. Then
+\[
+ \RSD_{\kappa_1}(\mathcal Z_\eta,\kappa,1/4)\le4L.
+\]
+This statement allows arbitrary target-dependent marginals and any reference $P_0$.
+\end{theorem}
+
+\begin{proof}
+Fix a finitely supported prior $\pi$ on instances. It induces a prior $\nu$ on hypotheses. Let $\mathcal Q$ be the finite query family $q_{S,c}(x,y)=\1_S(x)\1_{y\ne c}$. Set
+\[
+ \beta=\max_{q\in\mathcal Q}\Pr_{j\sim\pi}[|P_jq-P_0q|>\kappa].
+\]
+Peel $L$ rectangles using the prior-averaged example marginal restricted to the current unpeeled set $U$, and the unchanged hypothesis prior $\nu$. Empty residual mass permits immediate completion. The rectangle condition gives both
+\[
+ \nu(T)\ge r,\qquad \E_jD_j(S)\ge r\E_jD_j(U).
+\]
+Suppose first $\beta<r$. On every instance with target in $T$, the mismatch query has expectation zero. Therefore $P_0q\le\kappa$: otherwise a prior mass at least $r$ would be distinguished. Apart from a prior mass at most $\beta$, we then have $P_jq\le2\kappa$.
+
+After $L$ peels, the expected residual mass is at most $(1-r)^L\le\eta/4$. Markov's inequality shows that at least half the prior puts residual mass at most $\eta/2$. Outside a union of exceptional sets of total mass at most $L\beta$, each of the $L$ wrong-color masses is at most $2\kappa$. The predictor assembled from the rectangle colors and an arbitrary residual label consequently has loss at most $2L\kappa+\eta/2=\eta$ for prior mass at least $1/2-L\beta$. If $\beta\ge r$, then $L\beta\ge L/\rho\ge\ln(4/\eta)>1/2$, so the following inequality remains true trivially:
+\begin{equation}\label{eq:additive-game}
+ \max_g\Pr_\pi[g\text{ good}]+L\max_{q\in\mathcal Q}\Pr_\pi[q\text{ distinguishes}]\ge1/2.
+\end{equation}
+Apply \cref{lem:finite-minimax} to the action pairs $(g,q)$, whose payoff on instance $j$ is
+\[
+ \1_{g\text{ good for }j}+L\1_{q\text{ distinguishes }j}.
+\]
+It gives laws $\mathcal P,\mathcal Q'$ satisfying
+\[
+ \Pr_{g\sim\mathcal P}[g\text{ good for }j]
+ +L\Pr_{q\sim\mathcal Q'}[q\text{ distinguishes }j]\ge1/2
+ \quad\text{for every }j.
+\]
+On $\mathcal B(\mathcal P)$, the second probability is greater than $1/(4L)$. This proves the required coverage.
+
+The continuum of possible marginals creates no compactness gap in this minimax step. Both the predictor set and $\mathcal Q$ are finite. An instance is relevant only through the finite vector of Boolean good-solution and distinguishing-query indicators. There are finitely many such types. Choose one representative of each realized type and apply the finite argument to them. Its inequalities then hold for all original instances. No discretization in total variation and no factor polynomial in $|X|$ is introduced.
+\end{proof}
+
+\paragraph{Comparison with Feldman\textquotesingle s characterization.}
+In \citet[Theorem 4.8]{Feldman17}, the randomized upper bound, in the notation used here, is
+\begin{equation}\label{eq:feldman}
+ \operatorname{RQC}(\mathcal Z,\operatorname{STAT}(\kappa/3),\alpha-\delta)
+ =O\left(d\,\frac{R_{\rm KL}(\mathcal D)}{\kappa^2}
+       \log\frac{R_{\rm KL}(\mathcal D)}{\kappa\delta}\right),
+ \quad d=\RSD_{\kappa_1}(\mathcal Z,\kappa,\alpha).
+\end{equation}
+The displayed asymptotic expression uses the usual positive-radius conventions; a ceiling and a maximum with one handle degenerate values. Here $R_{\rm KL}(\mathcal D)=\inf_Q\sup_{P\in\mathcal D}\mathrm{KL}(P\|Q)$. Taking uniform $Q$ on $Z$ proves $R_{\rm KL}\le\ln|Z|$: expand $\mathrm{KL}(P\|Q)=\ln|Z|+\sum_zP(z)\ln P(z)$ and use $\ln P(z)\le0$. Thus the relevant domain term is $\ln(2|X|)$, not $|X|$ or the logarithm of a discretized instance count. The deterministic theorem has a different set-cover logarithm; it must not be substituted here.
+
+For clarity, the mechanism behind \eqref{eq:feldman} does not depend on a hidden finite-instance enumeration. Maintain a reference $Q$ starting uniform on $Z$. A query separated from the true $P$ by $\kappa$ supplies a bounded direction with a signed expectation gap of order $\kappa$. For $f\in[-1,1]$ and update $Q'(z)\propto Q(z)e^{\lambda f(z)}$, direct expansion gives
+\[
+ \mathrm{KL}(P\|Q')-\mathrm{KL}(P\|Q)
+ =-\lambda\E_Pf+\log\E_Qe^{\lambda f}
+ \le-\lambda(\E_Pf-\E_Qf)+\lambda^2/2.
+\]
+The final inequality follows by twice differentiating $\log\E_Qe^{\lambda f}$: its second derivative is a variance of a variable in $[-1,1]$, at most one. Choosing $\lambda$ proportional to $\kappa$ decreases KL by $\Omega(\kappa^2)$. There are therefore $O(\ln|Z|/\kappa^2)$ updates. At each reference, sampling $O(d\ln(T/\delta))$ covering queries prevents an undetected bad instance over $T$ updates, by $(1-1/d)^s\le e^{-s/d}$ and a union bound. This proves the parameter dependence and extends the argument to all realizable marginals here.
+
+At fairness $1/4$ and constant $\delta<1/4$, this yields constant success probability. Fresh repetitions and a single loss query to verify each candidate amplify success with $O(\ln(1/\delta'))$ repetitions and loss slack $O(\kappa)$. This reasoning remains valid for history-dependent oracles by conditioning on earlier runs. The verifiable-search Theorem 4.11 in \citet{Feldman17} is stated using a different statistical dimension over references admitting no good solution; its dimension must not be identified automatically with the fairness-$1/4$ quantity above. In either route verification does not erase the $R_{\rm KL}/\kappa^2$ term of that generic simulation. The direct learner of Theorem~\ref{thm:main} gives the sharper bound without it.

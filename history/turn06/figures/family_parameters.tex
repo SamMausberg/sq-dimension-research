@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}p{.30\linewidth}X@{}}
+\toprule
+Resource & Incidence flips on $2M$ points, $M=N^3$\\\midrule
+VC dimension; rectangle ratio & $\mathrm{VC}\le2$; $\rect\ge2^{-15}$.\\
+Strict dimension, most flips & $\Omega(M^{1/3}/\log M)\le\dc\le2M^{1/3}+1$.\\
+Exact probabilistic dimension & $\dc_{1/2}=\Omega(M^{1/3}/\log^2M)$.\\
+Averaged dimension & $\dc^\eta=\Omega_\eta(M^{1/3}/\log M)$ for fixed $\eta<1/2$.\\
+Table-known learners & $m=O_\epsilon(\log M)$, $\tau=\Omega_\epsilon(1)$; proper and deterministic; table-polynomial time.\\
+Key-known median learner & $m=O_\epsilon(n^2)$, $\tau=\Omega_\epsilon(1)$; deterministic improper for every key; proper for regular stars.\\
+Conditional high dimension & $\dc\ge n^c/(30\log_2n)$ for almost every PRF key, each fixed $c$.\\
+Refuted conclusions & (L), (P), (Pn) for the three nondegenerate dimensions; every prescribed degree for the corresponding succinct families.\\
+\bottomrule
+\end{tabularx}
+\caption{The separating family's parameters. The probabilistic lower bounds concern each prescribed fixed $\eta<1/2$ and hold with exponentially small failure probability. A polynomial-time evaluator with a supplied key is distinguished from deterministic selection of a good key.}\label{tab:family}
+\end{table}

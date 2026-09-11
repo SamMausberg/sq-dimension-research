@@ -1,0 +1,72 @@
+% Canonical statement: sections/03_rectangle.tex:13-19
+\begin{lemma}[Exact parameters]\label{lem:params}
+For a finite nonempty $H$, $\rho\ge1$, $\rect(H)\ge1/\rho$, and $0<\epsilon<1/4$, \cref{thm:main} holds with
+\begin{align}
+ r&=1/\rho,&P&=1+\lceil4\rho\ln(8/\epsilon)\rceil,&\tau&=\epsilon/(24P),\label{eq:params1}\\
+ B&=\ln K+\ln(8/\epsilon)+1,&R&=\lceil8\rho(B+\ln(2/\epsilon))\rceil,&m&=3R+1.\label{eq:params2}
+\end{align}
+\end{lemma}
+
+% Proof binding: sections/03_rectangle.tex:63-124
+\begin{proof}[Proof of \cref{thm:main,lem:params}]
+Fix $D,h^*$ and any valid oracle policy. First,
+\begin{equation}\label{eq:tau-small}
+ \tau\le\epsilon/8,\qquad \tau\le r\epsilon/64.
+\end{equation}
+Indeed $P\ge4\rho\ln(8/\epsilon)>4\rho\ln32$, and $24\cdot4\ln32>64$. At a nonstopping round, write
+\[
+ u=D(U)>\epsilon/4-\tau\ge\epsilon/8,
+ \quad a=D(S)/u,\quad b=\nu(T),\quad w=D(S\cap\{h^*\ne c\}).
+\]
+Thus $\tau/u\le r/8$. If the proposal is accepted, validity implies
+\[
+ D(S)\ge(r/2)u-(1+r/2)\tau\ge(5r/16)u\ge(r/4)u.
+\]
+Conversely, every rectangle with $a\ge3r/4$ is accepted, since
+\[
+ \widehat s-(r/2)\widehat u
+ \ge(r/4)u-(1+r/2)\tau\ge(r/16)u>0.
+\]
+These inequalities hold at the extreme valid oracle answers, not only for exact answers.
+
+If $h^*\in T$, monochromaticity gives $w=0$, hence $\widehat w\le\tau<2\tau$. Therefore the algorithm never eliminates the target. In particular, $V$ remains nonempty. On an elimination, its normalized target weight increases by a factor $1/(1-b)$. Because $-\ln(1-b)\ge b$ for $0\le b<1$, summing gives
+\begin{equation}\label{eq:elim-budget}
+ \sum_{\text{eliminations}} b\le\ln K.
+\end{equation}
+For completeness, $\ln t\le t-1$ for $t>0$ follows by minimizing $t-1-\ln t$, whose derivative is $1-1/t$. Taking $t=1-b$ proves the displayed inequality. The target weight starts at $1/K$ and never exceeds one.
+
+Each peel multiplies $u$ by at most $1-r/4$. Immediately before every peel, $u\ge\epsilon/8$. Before the $j$th peel,
+\[
+ \epsilon/8\le(1-r/4)^{j-1}\le e^{-(j-1)r/4}.
+\]
+Hence there are at most $P$ peels. Their combined wrong-color mass is at most $3P\tau=\epsilon/8$, since a peeling answer implies $w\le3\tau$. At a normal stop the residual mass is at most $\epsilon/4+\tau$, or zero. The error at such a stop is at most $\epsilon/2$.
+
+It remains to bound the probability of reaching the round limit. Define a round's progress by $G=a$ for a peel, $G=b$ for an elimination, and $G=0$ for a rejected proposal. Condition on all public history through the current stopping answer $\widehat u$, but before the fresh rectangle draw. This includes every earlier query and response; conditional on that history the next rectangle has the prescribed mixture law. Always $0\le G\le1$. For every accepted rectangle, either action has $G\ge ab$. All rectangles with $a\ge3r/4$ are accepted. Averaging \eqref{eq:coverage} under $D$ restricted to $U$ gives $\E[ab]\ge r$. Consequently,
+\begin{equation}\label{eq:drift}
+ \E[G\mid\text{history}]
+ \ge \E[ab]-\E[ab\1_{a<3r/4}]
+ \ge r-(3r/4)\E b\ge r/4.
+\end{equation}
+This holds for either oracle-induced action on every accepted rectangle. The oracle policy was fixed at the start of the proof and may react to each query; no supremum over policies is moved inside an expectation.
+
+On any trajectory of nonstopping rounds, the sum of all peeling $a$ values except the last is at most the logarithm of the reciprocal residual mass immediately before the last peel. Indeed $a\le-\ln(1-a)$ and the residual ratios telescope. This sum is at most $\ln(8/\epsilon)$; the last $a$ is at most one. If there are no peels the sum is zero. Together with \eqref{eq:elim-budget}, this proves
+\begin{equation}\label{eq:total-budget}
+ \sum G\le B.
+\end{equation}
+There is no logarithm of zero: a peel with $a=1$ must be the last peel.
+
+After any normal termination, extend the sequence by setting $G=1$. Let $p=r/4$. For $0\le g\le1$, convexity places $e^{-g}$ below the chord between its endpoint values:
+\[
+ e^{-g}\le1-(1-e^{-1})g.
+\]
+Since $1-e^{-1}>1/2$, conditional expectation and \eqref{eq:drift} imply
+\[
+ \E[e^{-G}\mid\text{history}]\le e^{-p/2}.
+\]
+Induction gives $\E e^{-\sum_{t=1}^RG_t}\le e^{-pR/2}$. On the event of no normal termination by the budget, \eqref{eq:total-budget} holds. Markov's inequality therefore gives
+\[
+ \Pr[\text{budget termination}]
+ \le e^{B-pR/2}\le\epsilon/2.
+\]
+A point that becomes empty after the final peel already has the normal-stop error bound; counting it as budget termination only weakens this estimate. Finally, error is always at most one, so expected error is at most $\epsilon/2+\epsilon/2=\epsilon$. There are at most three queries per round and at most one extra stopping check. The big-$O$ and $\Omega$ bounds follow directly from the ceilings and $\rho\ge1$, $\epsilon<1/4$.
+\end{proof}

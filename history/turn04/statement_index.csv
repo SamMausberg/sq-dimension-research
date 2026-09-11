@@ -1,0 +1,33 @@
+number,label,page,title
+1,thm:main,4,Distribution-independent rectangle learner
+2,lem:params,4,Exact parameters
+3,lem:mixture,4,A marginal-free rectangle mixture
+4,thm:construction,7,Construction and ordinary dimension
+5,thm:prob,9,Approximate counting and exact probabilistic dimension
+6,thm:rsd,10,Rectangle bound for randomized statistical dimension
+7,thm:caps,12,Pointwise cap mixture and table-polynomial implementation
+8,thm:proper,14,Proper RECTIFY
+9,lem:subgrid,16,Small subgrid counting and decision cost
+10,thm:prf,17,Conditional almost-every-key explicit lower bounds
+11,lem:median,18,Noisy integer medians
+12,thm:fast,19,Succinct median learner
+13,lem:regularstars,21,Regular stars for almost every key
+14,cor:fastprf,21,"Conditional polynomial-time, seed-known separation"
+15,thm:communication,21,Communication as a sufficient condition
+16,thm:energy,22,Finite energy and threshold counting
+17,thm:barrier,23,Joint-distribution SQ barrier
+18,thm:forster,24,Spectral sign-rank bounds
+19,thm:plane,26,"An escaping plain-Gram family, but not an SQ separation"
+20,thm:tree,28,Marginal-branching and approximate probabilistic bounds
+21,prop:affine,29,Affine-line quantitative comparison
+22,thm:pgglobal,30,Global projective-plane rectangle ratio
+23,thm:halfspaces,31,Small rectangle ratio does not prevent SQ learning
+24,thm:adapt,32,"Marginal adaptation, with its query-budget qualification"
+25,cor:approxrect,35,Published approximate rank as an SQ sufficient condition
+26,thm:network,36,Representation does not give the required dynamics
+27,thm:description,37,Source-description length alone does not repair the implication
+28,thm:classicalbarrier,38,What the classical-method barrier actually bounds
+29,prop:unseen,39,Unseen independent labels
+30,prop:hiddenkey,39,Hidden-key computational hardness
+31,prop:cap-bound,49,Independent constant rectangle bound
+32,prop:pg-rect,49,Uniform-product rectangles in a projective plane

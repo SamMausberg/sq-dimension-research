@@ -1,0 +1,69 @@
+--- turn5:sections/02_preliminaries.tex
++++ turn6:sections/02_preliminaries.tex
+@@ -1,3 +1,3 @@
+ \begin{lemma}[Tie conventions and strict realization]\label{lem:ties}
+-For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. The probabilistic lower bounds in \cref{thm:prob,lem:exact-prob} remain valid under either tie rule or when all zero scores count as errors.
++For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. If all zero scores are counted as errors, replacing their predictions by $+1$ cannot increase loss, for any marginal and target.
+ \end{lemma}
+--- turn5:sections/06_explicit.tex
++++ turn6:sections/06_explicit.tex
+@@ -1,3 +1,3 @@
+ \begin{lemma}[Regular stars for almost every key]\label{lem:regularstars}
+-Fix $0<\epsilon<1/4$ and define star-regularity with the threshold $C_0=\max\{64\lceil n\rceil,\lceil128/\epsilon\rceil\}$ from \cref{thm:fast}. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\ref{thm:prf}, failure occurs for only a negligible fraction of keys.
++Use the star-regularity definition in \cref{sec:fast}: every template star with at least $64\lceil n\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\epsilon$; the algorithm tests it only for stars larger than $C_0=\max\{64\lceil n\rceil,\lceil128/\epsilon\rceil\}$. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\ref{thm:prf}, failure occurs for only a negligible fraction of keys.
+ \end{lemma}
+--- turn5:sections/07_characterizations.tex
++++ turn6:sections/07_characterizations.tex
+@@ -5,7 +5,7 @@
+  \qquad
+  \mathrm{AC}_{\times}(H)\le2\rect(H)^{-1}.
+ \]
+-In particular, if $\mathrm{AC}_{\times}(H)\le c$, one distribution-independent SQ learner uses
++In particular, for every $0<\epsilon<1/4$, if $\mathrm{AC}_{\times}(H)\le c$, one distribution-independent SQ learner satisfies \eqref{eq:guarantee} using
+ \[
+  m=O\bigl(4^c(\log|H|+\log(1/\epsilon))\bigr),\qquad
+  \tau=\Omega\!\left(\frac{\epsilon}{4^c\log(1/\epsilon)}\right).
+
+--- turn5:sections/07_characterizations.tex
++++ turn6:sections/07_characterizations.tex
+@@ -1,5 +1,5 @@
+ \begin{theorem}[Marginal-branching and approximate probabilistic bounds]\label{thm:tree}
+-Let $B=\lceil2/\tau\rceil+1$, with $0<\tau\leq1$. For a deterministic learner satisfying \eqref{eq:guarantee}, decompose each query as
++Let $H\subseteq\{-1,+1\}^X$ be finite and nonempty, $m\ge1$ an integer, $0<\tau\le1$, and $0<\epsilon<1/4$. Put $B=\lceil2/\tau\rceil+1$. Suppose a depth-at-most-$m$ deterministic $(m,\tau)$-SQ learner satisfies \eqref{eq:guarantee} for this $H$ and $\epsilon$. Decompose each query as
+ \[
+  q(x,y)=a(x)+yb(x),\quad
+  a(x)=\tfrac12(q(x,+1)+q(x,-1)),\quad
+@@ -10,7 +10,7 @@
+  \dc(\cH)\leq(m+1)B^u.
+ \end{equation}
+ In particular, a deterministic correlational-only learner has $\dc(\cH)\leq m+1$.
+-For an arbitrary randomized learner satisfying \eqref{eq:guarantee},
++For an arbitrary randomized $(m,\tau)$-SQ learner with worst-case query budget $m$ satisfying \eqref{eq:guarantee} under the same hypotheses,
+ \begin{equation}\label{eq:approx}
+  \dc^{\epsilon}(\cH)\leq B^m.
+ \end{equation}
+
+--- turn5:sections/07_characterizations.tex
++++ turn6:sections/07_characterizations.tex
+@@ -4,5 +4,5 @@
+  X_n=\{-1,+1\}^n,\qquad
+  H_n=\{x\mapsto\sign\langle w,x\rangle:w\in\{-1,+1\}^n\}.
+ \]
+-Then $\dc(H_n)\le n$, $\rect(H_n)\le e^{-n/4}$, and there is one distribution-independent SQ learner with $m=O(n^3/\epsilon^2)$ and $\tau=\epsilon/(8n)$.
++Then $\dc(H_n)\le n$ and $\rect(H_n)\le e^{-n/4}$. For every $0<\epsilon<1/4$, one deterministic distribution-independent SQ learner satisfies \eqref{eq:guarantee} with $m=O(n^3/\epsilon^2)$ and $\tau=\epsilon/(8n)$.
+ \end{theorem}
+--- turn5:sections/07_characterizations.tex
++++ turn6:sections/07_characterizations.tex
+@@ -1,10 +1,10 @@
+ \begin{theorem}[Marginal adaptation, under a small-query budget]\label{thm:adapt}
+-Any deterministic learner of a high-dimension flip class obeys
++Let $H_A$ be a flip class at scale $N$ with $M=N^3$, let $m\ge1$ be an integer, and let $0<\tau\le1$ and $0<\epsilon<1/4$. Every deterministic $(m,\tau)$-SQ learner with worst-case query budget $m$ satisfying \eqref{eq:guarantee} obeys
+ \[
+  u\ge\frac{\ln\dc(H_A)-\ln(m+1)}
+  {\ln(\lceil2/\tau\rceil+1)},
+ \]
+-where $u$ is the marginal-branching depth defined in Theorem~\ref{thm:tree}. In particular, for $m\le(\log M)^C$ and all sufficiently large $N$,
++where $u$ is the marginal-branching depth defined in Theorem~\ref{thm:tree}. In particular, if $\dc(H_A)\ge c_0N/\log M$ for an absolute $c_0>0$, then for any fixed $C>0$, $m\le(\log M)^C$ and all sufficiently large $N$,
+ \[
+  u=\Omega_C\!\left(\frac{\log N}{\log(2+1/\tau)}\right).
+ \]

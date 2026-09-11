@@ -1,0 +1,46 @@
+{
+  "author": "Samuel Mausberg",
+  "title": "Distribution-independent SQ learning does not imply low dimension complexity",
+  "pages": 59,
+  "main_text_last_page": 30,
+  "latex_errors": [],
+  "undefined_reference_or_citation_messages": [],
+  "overfull_boxes": [],
+  "duplicate_anchor_messages": [],
+  "figures": {
+    "fig:template": {
+      "number": "2",
+      "page": "9",
+      "referenced_in_source": true
+    },
+    "fig:rectify": {
+      "number": "1",
+      "page": "7",
+      "referenced_in_source": true
+    },
+    "fig:cap": {
+      "number": "3",
+      "page": "13",
+      "referenced_in_source": true
+    },
+    "fig:order": {
+      "number": "4",
+      "page": "15",
+      "referenced_in_source": true
+    },
+    "fig:landscape": {
+      "number": "5",
+      "page": "22",
+      "referenced_in_source": true
+    }
+  },
+  "pdf_sha256": "aea1854a562ba52f4c463cb43cd62ab740028d785cc8ac1597eda848c9e3a73e",
+  "all_page_contact_sheets_present": true,
+  "visual_review_matches_pdf": true,
+  "lint": {
+    "raw_log": "logs/chktex-raw.log",
+    "reviewed_log": "logs/chktex-reviewed.log",
+    "note": "Raw style diagnostics were reviewed. The installation lacks a global resource file. No zero-warning raw lint claim is made."
+  },
+  "proof_status_note": "Compilation and finite checks are not a machine-checked proof or external peer review."
+}

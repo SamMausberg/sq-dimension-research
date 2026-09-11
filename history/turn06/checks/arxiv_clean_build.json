@@ -1,0 +1,40 @@
+{
+  "entrypoint": "main.tex",
+  "command": [
+    "pdflatex",
+    "-no-shell-escape",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "main.tex"
+  ],
+  "passes": 3,
+  "fresh_directory": true,
+  "preexisting_aux_files": false,
+  "provided_bbl": true,
+  "pages": 59,
+  "main_text_last_page": 30,
+  "latex_errors": [],
+  "undefined_reference_or_citation_messages": [],
+  "overfull_boxes": [],
+  "duplicate_anchor_messages": [],
+  "all_page_text_identical_to_reviewed_pdf": true,
+  "all_page_renders_identical_to_reviewed_pdf": true,
+  "source_files": 37,
+  "compiled_pdf_sha256": "3ffbef1005a04665396b37553125ab7eb0fd0e0629f4e9a90376552c610ef1c2",
+  "metadata": {
+    "format": "PDF 1.7",
+    "title": "Distribution-independent SQ learning does not imply low dimension complexity",
+    "author": "Samuel Mausberg",
+    "subject": "A negative answer to Open Question 2 of Feldman, Kamath and Srebro",
+    "keywords": "statistical queries, sign-rank, dimension complexity, learning theory",
+    "creator": "LaTeX with hyperref",
+    "producer": "pdfTeX-1.40.26",
+    "creationDate": "D:20260911003955Z",
+    "modDate": "D:20260911003955Z",
+    "trapped": "",
+    "encryption": null
+  },
+  "no_shell_escape": true,
+  "no_absolute_inputs": true,
+  "verification_limit": "Clean build and rendering are not an external mathematical review."
+}

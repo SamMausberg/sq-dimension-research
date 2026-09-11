@@ -1,0 +1,273 @@
+\section{Spectral, communication and representation proofs}\label{app:proofs-E}
+
+\subsection[Proof of result communication]{Proof of \cref{thm:communication}}\label{proof:communication}
+\begin{proof}[Proof of \cref{thm:communication}]
+Fix a product distribution and a protocol of expected cost at most $c>0$. Markov's inequality gives probability at least $1/2$ to leaves of depth at most $2c$. There are at most $2^{\lfloor2c\rfloor}$ such leaves: their transcript words are prefix-free, and each can be extended to a distinct word of length $\lfloor2c\rfloor$. One of their rectangles has mass at least $2^{-\lfloor2c\rfloor-1}\ge2^{-2c-1}$. A zero-cost protocol has a monochromatic support rectangle of mass one, so the same claimed weaker bound holds. Taking the infimum over product distributions proves the first inequality. The finite domain permits a minimum expected-cost exact protocol: redundant repeated-state branches can be removed, bounding depth by a finite function of the domain sizes. Alternatively, use costs within arbitrarily small additive slack and pass to the limit.
+
+For the converse put $r=\rect(H)$. At any current rectangular cell, condition the original product distribution on that cell. Its positive-mass conditional law is still product, and the restricted matrix still has rectangle ratio at least $r$. Fix a monochromatic rectangle of conditional mass at least $r$. The parties exchange their two membership bits. If both are one, output its color. Otherwise continue in the indicated one of the three remaining rectangular cells. Every nonempty continuing cell is a proper subcell: a positive-mass rectangle has both sides nonempty, and either a row or point has been excluded. Thus this exact protocol terminates after finitely many stages on every positive-support pair. Zero-mass cells can be completed by any finite exact protocol, without expected cost.
+
+Conditional on reaching a stage with positive probability, its termination probability is at least $r$. By induction its survival probability after $t$ stages is at most $(1-r)^t$. Summing the tail probabilities, the expected number of stages is at most $1/r$, and each costs at most two bits. This proves the second inequality. This converse is the protocol of \citet[Proposition~3.14]{HHPTZ22}, included here with the conditioning and termination details. Substitute $\rho=2^{2c+1}$ into Theorem~\ref{thm:main} for the SQ bounds.
+\end{proof}
+
+\subsection[Proof of result energy]{Proof of \cref{thm:energy}}\label{proof:energy}
+\begin{proof}[Proof of \cref{thm:energy}]
+Let $T:\R^K\to L^2(P_0)$ send $b$ to $\sum_jb_jr_j$. Then $T^*T=\Gamma$. For every unit vector $b$,
+\[
+ |\langle b,T^*a\rangle|=|\langle Tb,a\rangle|
+ \leq\|Tb\|_2\|a\|_2\leq\sqrt\Lambda\|a\|_2.
+\]
+Taking the supremum over $b$ and squaring proves \eqref{eq:energy}. Each selected summand in \eqref{eq:count} is greater than $\tau^2$; discarding nonnegative unselected summands proves the result. The same argument, with weak inequalities, proves the final statement even when $\tau=0$.
+\end{proof}
+
+\subsection[Proof of result barrier]{Proof of \cref{thm:barrier}}\label{proof:barrier}
+\begin{proof}[Proof of \cref{thm:barrier}]
+First $\Lambda>0$. Indeed, with $a_j(x,y)=y h_j(x)$ we have $\|a_j\|_{L^2(P_0)}=1$ and
+$\langle r_j,a_j\rangle=\E_{P_j}a_j-\E_{P_0}a_j=1$. Thus $\|r_j\|_2\geq1$ and $\Lambda\geq\Gamma_{jj}\geq1$.
+
+For a fixed private seed, run the learner on the reference responses $\E_{P_0}q$. Write the resulting queries as $q_1,\ldots,q_m$ and the leaf output as $g_0$. This is a counterfactual tree path; the reference need not be realizable. For target $j$, choose the following memoryless oracle, which does not know the private seed:
+\[
+ O_j(q)=
+ \begin{cases}
+ \E_{P_0}q,&|\E_{P_j}q-\E_{P_0}q|\leq\tau,\\
+ \E_{P_j}q,&\text{otherwise}.
+ \end{cases}
+\]
+It is valid for $P_j$ on every query. If its run first departs from the reference transcript, that departure occurs at one of the reference queries with $|\langle r_j,q_t\rangle|>\tau$. Lemma~\ref{thm:energy} and a union bound give, for this fixed seed,
+\[
+ \frac1K\bigl|\{j:\text{the transcript departs from the reference}\}\bigr|
+ \leq\frac{m\Lambda}{K\tau^2}.
+\]
+For the reference leaf, define $c_j=\E_{P_j}[y g_0(x)]$. Since $\E_{P_0}[y g_0(x)]=0$, Lemma~\ref{thm:energy} gives
+\[
+ \frac1K\sum_j|c_j|\leq
+ \sqrt{\frac1K\sum_jc_j^2}\leq\sqrt{\Lambda/K}.
+\]
+Let $s_j$ be the correlation of the actual output under $O_j$. On a nondeparting transcript it equals $c_j$; on a departing transcript it is at most $1$. Therefore
+$s_j\leq|c_j|+\1_{\text{departure for }j}$.
+Average this inequality over $j$ and then over the private seed. The learner's guarantee gives an average correlation at least $1-2\epsilon$. This proves \eqref{eq:joint}. Notice that we did not choose a different oracle after seeing the seed.
+
+Finally write $M=m/\tau^2$. From \eqref{eq:joint}, $R/2\leq\sqrt R+M$. The square $(\sqrt R-2)^2\geq0$ gives $\sqrt R\leq R/4+1$. Combining yields \eqref{eq:Rbound}.
+\end{proof}
+
+\subsection[Proof of result forster]{Proof of \cref{thm:forster}}\label{proof:forster}
+\begin{proof}[Proof of \cref{thm:forster}]
+Let $d=\sr(M)$, with $M=\sign A$ in the first assertion. Choose a strict representation
+$M_{xj}=\sign\langle z_x,v_j\rangle$ in $\R^d$. If $d\geq K$, both conclusions are immediate: $\|A\|_\op\geq\sqrt N$ from any column, while $G_{jj}=1$ implies $\|G\|_\op\geq1$. We henceforth have $1\leq d<K$.
+
+Perturb the finitely many $v_j$ within sufficiently small open neighborhoods so that signs are unchanged and every $d$ of them are independent. Such a perturbation exists: for each $d$-subset the determinant is a nonzero polynomial in the vector coordinates, and a finite union of its zero sets has empty interior. To justify this elementary fact, a nonzero univariate polynomial has finitely many roots; induction on the number of variables, by viewing the polynomial as a polynomial in the last variable, shows that a multivariate polynomial cannot vanish on a nonempty open box. Apply this to the product of the finitely many determinant polynomials.
+
+We prove that there is an invertible $T$ such that the normalized vectors
+$u_j=Tv_j/\|Tv_j\|$ satisfy
+\begin{equation}\label{eq:isotropy}
+ \sum_{j=1}^K u_ju_j^\top=(K/d)I_d.
+\end{equation}
+For every $1\leq r\leq d$, there is a common $\delta>0$ such that at most $d-r$ of the $v_j$ have projection norm less than $\delta$ onto any $r$-dimensional subspace. In fact, any $d-r+1$ of the vectors are independent, so cannot all belong to the orthogonal complement of an $r$-dimensional subspace. Their maximum projection norm is therefore positive for every such subspace. Its minimum is positive by compactness of the space of orthogonal projection matrices of rank $r$; this space is closed and bounded. Take the minimum over finitely many subsets and $r$.
+
+For positive definite $Q$ with $\det Q=1$, minimize
+\[
+ F(Q)=\sum_{j=1}^K\log(v_j^\top Qv_j).
+\]
+Write the decreasing eigenvalues of $Q$ as $e^{s_1}\geq\cdots\geq e^{s_d}$, where $\sum_i s_i=0$. For each $r$, at least $K-d+r$ of the quadratic forms are at least $\delta^2e^{s_r}$. Order the $K$ log quadratic forms increasingly. For the first $d$ entries use respectively the bounds
+$\log\delta^2+s_d,\ldots,\log\delta^2+s_1$; each of the remaining $K-d$ entries is at least $\log\delta^2+s_1$. Thus
+\[
+ F(Q)\geq K\log\delta^2+(K-d)s_1.
+\]
+Since $K>d$, every sublevel set has bounded largest eigenvalue. The determinant condition then bounds the smallest eigenvalue away from zero. Sublevel sets are compact, so a minimizer $Q$ exists.
+For a symmetric traceless matrix $B$, the path
+$Q(t)=Q^{1/2}\exp(tB)Q^{1/2}$ retains determinant one. Its derivative at zero gives
+\[
+ 0=\sum_j\frac{v_j^\top Q^{1/2}BQ^{1/2}v_j}{v_j^\top Qv_j}
+   =\tr\left(B\sum_j u_ju_j^\top\right),
+ \qquad u_j=\frac{Q^{1/2}v_j}{\|Q^{1/2}v_j\|}.
+\]
+A symmetric matrix orthogonal to every traceless symmetric matrix is scalar: subtract its scalar trace part and take that difference as $B$. Taking traces gives \eqref{eq:isotropy}, with $T=Q^{1/2}$.
+
+Replace each row vector by the normalization of $T^{-\top}z_x$, denoted $e_x$, so $\|e_x\|=1$ and all signs are preserved. Let $U$ be the matrix with columns $u_j$. For every row of $A$,
+\[
+ \langle e_x,UA_{x,\cdot}^{\top}\rangle
+ =\sum_j |A_{xj}|\,|\langle e_x,u_j\rangle|
+ \geq\sum_j\langle e_x,u_j\rangle^2=K/d.
+\]
+Here $|\langle e_x,u_j\rangle|\leq1$ was used. Consequently,
+\[
+ NK^2/d^2\leq\|UA^\top\|_F^2
+ \leq\|A\|_\op^2\|U\|_F^2=K\|A\|_\op^2.
+\]
+This proves \eqref{eq:forster}. For $M$, use the same row inequality, square, and average under $\mu$:
+\[
+ K^2/d^2\leq\sum_x\mu(x)\|UM_{x,\cdot}^{\top}\|^2
+ =\tr(UGU^\top)\leq\|G\|_\op\tr(UU^\top)=K\|G\|_\op.
+\]
+The last inequality follows by diagonalizing the positive semidefinite $G$, whose eigenvalues lie between zero and its operator norm. This proves \eqref{eq:weighted}.
+\end{proof}
+
+\subsection[Proof of result plane]{Proof of \cref{thm:plane}}\label{proof:plane}
+\begin{proof}[Proof of \cref{thm:plane}]
+Points are one-dimensional subspaces of $\mathbb F_q^3$; lines are kernels of nonzero linear functionals, modulo nonzero scalar multiples. There are $(q^3-1)/(q-1)=N$ of each. A line contains $(q^2-1)/(q-1)=k$ points. Two distinct points span a unique two-dimensional subspace, hence lie on one common line. Two distinct kernels intersect in one one-dimensional subspace. These facts also show each point lies on $k$ lines.
+
+Let $P$ be the $N\times N$ incidence matrix. Then
+\[
+ P\1=k\1,\qquad P^\top P=qI+\1\1^\top.
+\]
+Define $A=(N/k)P-\1\1^\top$. Its positive entries equal $N/k-1=q^2/(q+1)\geq1$, and its negative entries equal $-1$. Direct multiplication gives
+\[
+ A\1=0,\qquad
+ A^\top A=(N/k)^2q\left(I-\frac{\1\1^\top}{N}\right).
+\]
+Indeed, the coefficient of $\1\1^\top$ before simplification is $N^2/k^2-N=-Nq/k^2$, since $k^2=N+q$. Thus $\|A\|_\op=(N/k)\sqrt q$, and Theorem~\ref{thm:forster} gives the lower bound in \eqref{eq:planedc}.
+
+For the upper bound, enumerate the points by distinct integers $1,\ldots,N$ and use the common embedding
+$\phi(t)=(1,t,\ldots,t^{2k})$. For a positive set $S$ of size $k$, the polynomial
+\[
+ p_S(t)=\tfrac12-\prod_{a\in S}(t-a)^2
+\]
+is positive on $S$ and negative on all other domain points: away from $S$ the product is a positive integer. Its coefficient vector is the required weight vector. Hence $\dc\leq2k+1$.
+
+Now prove \eqref{eq:planeplain}. Write $K=|J|$, and restrict $P$ to the selected columns. If $K<16$, the Gram matrix has diagonal entries one, so its norm is at least one and the result follows. Suppose $K\geq16$ and let $r_x$ be the number of selected lines containing point $x$.
+If $r_x<K/4$ for every $x$, take the unit vector $a=\1/\sqrt K$. At each point,
+\[
+ |\textstyle\sum_{j\in J}a_jh_j(x)|=|2r_x-K|/\sqrt K>\sqrt K/2.
+\]
+Its Gram Rayleigh quotient is at least $K/4$. Otherwise choose $x_0$ incident with $r\geq K/4$ selected lines and let $S$ be those $r$ lines. At $x_0$ all these labels are positive; at any other point at most one is positive, since two points have a unique common line. For the unit vector $a=\1_S/\sqrt r$,
+\[
+ |\textstyle\sum_j a_jh_j(x)|\geq(r-2)/\sqrt r\geq\sqrt r/2
+ \quad\text{for all }x,
+\]
+since $r\geq4$. Its Rayleigh quotient is at least $r/4\geq K/16$, for every $\mu$. This proves \eqref{eq:planeplain}, including marginals concentrated on a single point.
+
+The claimed learner queries $q_j(x,y)=y h_j(x)$ for every line and outputs a hypothesis with maximum answer. The true target has correlation one, hence receives answer at least $1-\tau$. A maximizing hypothesis has true correlation at least $1-2\tau$, and loss at most $\tau$, regardless of the marginal and the oracle. Thus it is one distribution-independent learner.
+
+We prove the fixed-$D$ claim before excluding a common efficient learner. Let $\delta=\epsilon/2$ and sample a length-$s$ sequence from the known $D$. For any pair of hypotheses at $D$-distance greater than $\delta$, the probability of identical labels on the sequence is at most $(1-\delta)^s\leq e^{-\delta s}$. A union bound over fewer than $N^2$ pairs is at most $N^2e^{-\delta s}\leq e^{-1}<1$. Consequently some sequence has the property that hypotheses with identical traces are within $D$-distance $\delta$. Hardwire one such sequence and one representative hypothesis per trace into the learner. On at most $s$ distinct sampled points there are at most $1+s+\binom{s}{2}$ traces: the empty trace, at most $s$ singleton traces, and at most one line through each pair of distinct sampled points. Every trace of size at least two is determined by one such pair. The representatives therefore form a $D$-cover of the claimed size. Query their label correlations and select the largest answer. A representative within $\delta$ of the true target has correlation at least $1-2\delta$. With tolerance $\tau=\epsilon/2$, the selected output has correlation at least $1-2\delta-2\tau$ and error at most $\delta+\tau=\epsilon$. The hardwired cover depends on $D$; this is not one learner serving all marginals.
+
+To rule out a much cheaper common learner, choose for target line $j$ the distribution
+\[
+ D_j(x)=\begin{cases}(2k)^{-1},&P_{xj}=1,\\[1mm]
+ (2(N-k))^{-1},&P_{xj}=0.
+ \end{cases}
+\]
+Take the reference $P_0$ to be uniform on $X_q\times\{-1,+1\}$. With $c=k/(N-k)$, its residual likelihood ratios satisfy
+\[
+ r_j(x,+1)=A_{xj},\qquad r_j(x,-1)=-cA_{xj}.
+\]
+For example the first formula is $2N D_j(x)-1=N/k-1$ on the line and $-1$ elsewhere; the second is $-1$ on the line and $N/(N-k)-1=c$ elsewhere. Consequently
+\begin{align*}
+ \Gamma&=\frac{1+c^2}{2N}A^\top A,\\
+ \Lambda&=\frac{qN}{2}\left(\frac1{(q+1)^2}+\frac1{q^4}\right),\\
+ R&=\frac{2}{q((q+1)^{-2}+q^{-4})}\geq\frac{(q+1)^2}{q}\geq q.
+\end{align*}
+The penultimate inequality uses $q^4\geq(q+1)^2$ for $q\geq2$, which follows from $q^2\geq q+1$. By Theorem~\ref{thm:barrier}, $R\leq4+4M$ for $M=m/\tau^2$. Therefore
+\[
+ \dc(\cH_q)\leq2q+3\leq2R+3\leq11+8M\leq19M,
+\]
+where the final inequality uses $M\geq1$.
+\end{proof}
+
+\subsection[Proof of result tree]{Proof of \cref{thm:tree}}\label{proof:tree}
+\begin{proof}[Proof of \cref{thm:tree}]
+The grid has spacing $2/(B-1)\leq\tau$, so nearest-grid rounding errs by at most $\tau/2$. The marginal tree has at most $B^u$ leaves: suppress unary nodes and use induction on the number of remaining branching nodes per path. It has at most $(m+1)B^u$ nodes, because every node has a descendant leaf and a depth between zero and $m$, and assigning each node one such pair is injective when the depth is fixed along a leaf's path.
+Collect the function $b$ at every internal node and the Boolean output at every leaf. These are the common features $f_1,\ldots,f_s$, where $s\leq(m+1)B^u$ and each feature has absolute value at most one.
+
+Fix $D,h$. Follow the tree by giving the exact constant response or rounding $\E_Da$ to the grid. If at some node $|\E_D hb|>\tau/2$, one of the signed features $b,-b$ has correlation greater than $\tau/2$. Otherwise every answer is a valid SQ response: the difference from the true expectation $\E_Da+\E_D hb$ is at most $\tau/2+\tau/2$. A valid policy realizing this finite transcript extends to all other histories by exact answers. The deterministic guarantee then gives leaf correlation at least $1-2\epsilon>1/2\geq\tau/2$. We have proved
+\begin{equation}\label{eq:minimaxpremise}
+ \forall D,\qquad \max_{i,\ s_i\in\{-1,+1\}}\E_D[h(x)s_if_i(x)]\geq\tau/2.
+\end{equation}
+Apply \cref{lem:finite-minimax} with instance set $X$ and actions the signed features $(i,s_i)$. Equation \eqref{eq:minimaxpremise} gives a convex combination whose coordinate at every $x$ is at least $\tau/2$. Its coefficients therefore define a common-feature linear representation with strict target product at every point. This proves \eqref{eq:tree}. For correlational-only queries $a=0$, hence $u=0$.
+
+For a randomized learner, fix a seed and instead retain all grid answers to each full query. There are at most $B^m$ leaves. Use all leaf outputs as coordinates of an embedding, padding when needed. This distribution over embeddings depends only on the learner's seed, not on $D,h$. For fixed $D,h$, the policy rounding each true expectation to the grid is valid. Its output is one of the leaf features. Selecting that coordinate as $w$ gives
+\[
+ \inf_w L_{D,h}(\sign\langle w,\phi_\omega\rangle)
+ \leq L_{D,h}(A_\omega^{O_{D,h}}).
+\]
+Averaging over the seed proves \eqref{eq:approx}. No seed is selected after observing $D$ or $h$.
+\end{proof}
+
+\subsection[Proof of result affine]{Proof of \cref{prop:affine}}\label{proof:affine}
+\begin{proof}[Proof of \cref{prop:affine}]
+Let $P$ have lines as rows and points as columns, with value one on incidences. Each row has $p$ ones. Two rows with different slopes intersect once; rows with the same slope and different intercepts are disjoint. Hence
+\[
+ PP^\top=pI+J-\operatorname{diag}(J_p,\ldots,J_p).
+\]
+Set $A=pP-J$. Direct multiplication using $PJ=pJ$ gives
+\[
+ AA^\top=p^2\bigl(pI-\operatorname{diag}(J_p,\ldots,J_p)\bigr),
+ \qquad \|A\|_{\rm op}^2=p^3.
+\]
+For target line $h$, use probability $1/(2p)$ on each point of the line and $1/(2p(p-1))$ on each other point; labels are positive exactly on the line. Against the uniform fair-label reference, the likelihood-ratio residuals are $r_h(x,+1)=A_{hx}$ and $r_h(x,-1)=-A_{hx}/(p-1)$. Therefore
+\[
+ \Lambda=\frac p2(1+(p-1)^{-2}),\qquad R=p^2/\Lambda.
+\]
+This proves the ratio and the expected-error consequence.
+
+For the success-probability statement use the fixed, valid reference-following oracle from the proof of Theorem~\ref{thm:barrier}. For each fixed learner seed, at most fraction $m/(R\tau^2)$ of targets depart from its reference path. Let $c_h$ be the correlation of the reference leaf with target $h$. The energy lemma gives $\sum_hc_h^2\le\Lambda$. Consequently at most fraction $1/(4\gamma^2R)$ of targets have $c_h\ge2\gamma$. The fraction of successful actual outputs is no larger than the sum of these two fractions. Average over the learner seed and use the assumed success probability on each target. This gives $\alpha\le m/(R\tau^2)+1/(4\gamma^2R)$ and the stated inequality. Substitution of $t$ yields $(2/3)p/t^2-1/4=\Omega(\sqrt p)$ in the cited weak regime. This comparison keeps both tolerance and success criteria explicit.
+\end{proof}
+
+\subsection[Proof of result pgglobal]{Proof of \cref{thm:pgglobal}}\label{proof:pgglobal}
+\begin{proof}[Proof of \cref{thm:pgglobal}]
+We prove the lower bound for any bipartite incidence graph whose degrees on both sides are at most $\Delta\ge1$. Fix arbitrary product weights $\mu\times\nu$ and let $p$ be their total incidence mass. If $p\ge1/2$, some point has incident row mass at least $1/2$. At most $\Delta$ rows meet it, so one row has prior mass at least $1/(2\Delta)$. One of that row's two color classes has point mass at least $1/2$. This gives a monochromatic rectangle of mass at least $1/(4\Delta)$.
+
+If $p<1/2$, select each point independently with probability $t=1/(2\Delta)$, obtaining $S$, and let $T$ be all rows with no neighbor in $S$. The rectangle $S\times T$ is nonincident. For a nonincident pair $(x,h)$,
+\[
+ \Pr[x\in S,h\in T]=t(1-t)^{\deg h}
+ \ge t(1-\Delta t)=1/(4\Delta).
+\]
+The inequality $(1-t)^j\ge1-jt$ follows by induction. Averaging the rectangle mass gives at least $(1-p)/(4\Delta)>1/(8\Delta)$. Hence some rectangle has that mass. Taking $\Delta=q+1$ proves the universal lower bound.
+
+For the upper bound choose uniform weights. Let $K=q^2+q+1$, $k=q+1$, and let $P$ be the incidence matrix. The identities $P^\top P=qI+\1\1^\top$ and $P\1=k\1$ give
+\[
+ C=P-(k/K)\1\1^\top,\qquad \|C\|_{\rm op}=\sqrt q.
+\]
+A nonincident rectangle of sizes $a,b$ satisfies $(k/K)ab\le\sqrt q\sqrt{ab}$, so $ab/K^2\le q/k^2$. An incident rectangle has a singleton side and area at most $k$. Its mass is at most $1/K\le q/k^2$, since $qK-k^2=q^3-q-1>0$. This establishes the claimed upper bound on the infimum.
+\end{proof}
+
+\subsection[Proof of result halfspaces]{Proof of \cref{thm:halfspaces}}\label{proof:halfspaces}
+\begin{proof}[Proof of \cref{thm:halfspaces}]
+All integer inner products are odd and nonzero, so the identity embedding proves the dimension claim. Distinct parameter vectors give distinct rows: conditioning on all but coordinate $i$ shows
+\[
+ \E_x[x_i\sign\langle w,x\rangle]
+ =w_i\Pr[Z_1+\cdots+Z_{n-1}=0],
+\]
+where the $Z_j$ are independent fair signs and the probability is positive. The conditional difference of the two signs is two exactly when that even sum is zero, and is zero otherwise. Thus uniform parameters are also a uniform prior on the distinct hypotheses. We first bound every rectangle under this uniform product measure. A negative rectangle gives two subsets of the cube with all cross Hamming distances at least $t=(n+1)/2$. For a positive rectangle, negate one of its sides to get the same separation condition. Negation preserves cardinality.
+
+Let $A,B$ be nonempty subsets separated in this way. For uniform $Z$ on the cube, set $f(Z)=\operatorname{dist}_{\rm Ham}(Z,A)$ and $s=\E f$. Changing one coordinate changes $f$ by at most one. The elementary bounded-differences calculation proved in Appendix~\ref{app:concentration} gives
+\[
+ \Pr[f-s\le-a]\le e^{-2a^2/n},\qquad
+ \Pr[f-s\ge a]\le e^{-2a^2/n}\quad(a\ge0).
+\]
+Writing $\alpha=|A|/2^n$, $\beta=|B|/2^n$, if $0\le s\le t$ then
+\[
+ \alpha\beta\le\exp\{-2(s^2+(t-s)^2)/n\}
+ \le e^{-t^2/n}\le e^{-n/4}.
+\]
+If $s\ge t$, already $\alpha\le e^{-2t^2/n}$ and $\beta\le1$. Empty rectangles have zero mass. Taking the maximum under this one product measure proves the rectangle upper bound.
+
+For learning, set $z=x/\sqrt n$, $\gamma=1/n$, and optimize
+\[
+ F(v)=\E_D(\gamma-y\langle v,z\rangle)_+
+ \quad\text{over }\|v\|\le1.
+\]
+The target $v^*=w^*/\sqrt n$ has $F(v^*)=0$. At a current $v$, a valid subgradient is
+\[
+ g(v)=\E[-yz\,\1_{\{y\langle v,z\rangle<\gamma\}}],\qquad\|g(v)\|\le1.
+\]
+Query each coordinate using the bounded function
+$q_i(x,y)=-yx_i\1_{\{y\langle v,x/\sqrt n\rangle<\gamma\}}$ and divide its answer by $\sqrt n$. The resulting vector is $g(v)+e$ with $\|e\|\le\tau$, regardless of the coordinatewise answer choices.
+
+Start $v_0=0$, take $T=\lceil100/(\epsilon^2\gamma^2)\rceil$, step $a=T^{-1/2}$, and update by projection of $v_t-a(g_t+e_t)$ onto the unit ball. For any point $v^*$ in that ball, projection cannot increase distance to $v^*$. Expanding the squared distance and using convexity yields
+\[
+ \frac1T\sum_{t<T}F(v_t)
+ \le\frac1{2aT}+\frac a2(1+\tau)^2+2\tau
+ \le\frac{5}{2\sqrt T}+2\tau
+ \le\epsilon\gamma/2.
+\]
+Here $\|v_t-v^*\|\le2$, $\tau=\epsilon\gamma/8<1$, and $\sqrt T\ge10/(\epsilon\gamma)$. Jensen's inequality gives the same hinge bound for $\bar v=T^{-1}\sum_t v_t$. Every classification mistake of $\sign\langle\bar v,z\rangle$ incurs hinge loss at least $\gamma$, including a zero score when the true label is negative. Thus its error is at most $\epsilon/2$. There are $nT$ scalar queries. This proves a deterministic, adversarial-oracle guarantee stronger than the stated expected-error requirement.
+\end{proof}
+
+\subsection[Proof of result adapt]{Proof of \cref{thm:adapt}}\label{proof:adapt}
+\begin{proof}[Proof of \cref{thm:adapt}]
+Take logarithms of Theorem~\ref{thm:tree}, $\dc(H_A)\le(m+1)(\lceil2/\tau\rceil+1)^u$. The high-dimension event gives $\ln\dc(H_A)\ge\ln N-\ln\log M+O(1)$. Under the stated query budget the numerator is at least $\tfrac12\ln N$ for large $N$. The upper bound is Theorem~\ref{thm:caps}. All constants depend only on the displayed fixed parameters.
+\end{proof}
+
+\subsection[Proof of result approxrect]{Proof of \cref{cor:approxrect}}\label{proof:approxrect}
+\begin{proof}[Proof of \cref{cor:approxrect}]
+The published theorem gives a uniform-product rectangle of the displayed product fraction. For rational row and column distributions, duplicate each row and column according to integer denominator multiplicities. Approximate sign-rank does not increase: duplicate columns use the same embedding, and every distribution on copies pushes forward to a distribution on original columns; duplicate rows require no new representation. Apply the rectangle theorem to this duplicated total matrix. Projecting a monochromatic rectangle to the original indices retains its sign and can only increase its product-weighted mass. Finally approximate arbitrary weights by rational weights. The maximum over the finitely many rectangle product masses is continuous, so the lower bound persists. Apply Theorem~\ref{thm:main} with $\rho=\rho_\eta$.
+\end{proof}

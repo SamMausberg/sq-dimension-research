@@ -1,0 +1,275 @@
+[
+  {
+    "label": "lem:finite-minimax",
+    "number": "2.1",
+    "kind": "lemma",
+    "title": "Finite minimax and pointwise coverage",
+    "file": "sections/02_preliminaries.tex"
+  },
+  {
+    "label": "lem:product-weights",
+    "number": "2.2",
+    "kind": "lemma",
+    "title": "From uniform rectangles to product weights",
+    "file": "sections/02_preliminaries.tex"
+  },
+  {
+    "label": "lem:ties",
+    "number": "2.3",
+    "kind": "lemma",
+    "title": "Tie conventions and strict realization",
+    "file": "sections/02_preliminaries.tex"
+  },
+  {
+    "label": "thm:main",
+    "number": "3.1",
+    "kind": "theorem",
+    "title": "Distribution-independent rectangle learner",
+    "file": "sections/03_rectangle.tex"
+  },
+  {
+    "label": "lem:params",
+    "number": "3.2",
+    "kind": "lemma",
+    "title": "Exact parameters",
+    "file": "sections/03_rectangle.tex"
+  },
+  {
+    "label": "lem:mixture",
+    "number": "3.3",
+    "kind": "lemma",
+    "title": "A marginal-free rectangle mixture",
+    "file": "sections/03_rectangle.tex"
+  },
+  {
+    "label": "thm:construction",
+    "number": "4.1",
+    "kind": "theorem",
+    "title": "Construction and ordinary dimension",
+    "file": "sections/04_family.tex"
+  },
+  {
+    "label": "thm:prob",
+    "number": "4.2",
+    "kind": "theorem",
+    "title": "Approximate counting and exact probabilistic dimension",
+    "file": "sections/04_family.tex"
+  },
+  {
+    "label": "lem:exact-prob",
+    "number": "4.3",
+    "kind": "lemma",
+    "title": "From exact probabilistic to strict dimension",
+    "file": "sections/04_family.tex"
+  },
+  {
+    "label": "cor:negative-answer",
+    "number": "4.4",
+    "kind": "corollary",
+    "title": "Negative answers to the dimension implications",
+    "file": "sections/04_family.tex"
+  },
+  {
+    "label": "thm:caps",
+    "number": "5.1",
+    "kind": "theorem",
+    "title": "Pointwise cap mixture and table-polynomial implementation",
+    "file": "sections/05_learners.tex"
+  },
+  {
+    "label": "thm:proper",
+    "number": "5.2",
+    "kind": "theorem",
+    "title": "Proper RECTIFY",
+    "file": "sections/05_learners.tex"
+  },
+  {
+    "label": "lem:median",
+    "number": "5.3",
+    "kind": "lemma",
+    "title": "Noisy integer medians",
+    "file": "sections/05_learners.tex"
+  },
+  {
+    "label": "thm:fast",
+    "number": "5.4",
+    "kind": "theorem",
+    "title": "Succinct median learner",
+    "file": "sections/05_learners.tex"
+  },
+  {
+    "label": "lem:subgrid",
+    "number": "6.1",
+    "kind": "lemma",
+    "title": "Small subgrid counting and decision cost",
+    "file": "sections/06_explicit.tex"
+  },
+  {
+    "label": "thm:prf",
+    "number": "6.2",
+    "kind": "theorem",
+    "title": "Conditional almost-every-key explicit lower bounds",
+    "file": "sections/06_explicit.tex"
+  },
+  {
+    "label": "prop:advice",
+    "number": "6.3",
+    "kind": "proposition",
+    "title": "Unconditional polynomial advice",
+    "file": "sections/06_explicit.tex"
+  },
+  {
+    "label": "lem:regularstars",
+    "number": "6.4",
+    "kind": "lemma",
+    "title": "Regular stars for almost every key",
+    "file": "sections/06_explicit.tex"
+  },
+  {
+    "label": "cor:fastprf",
+    "number": "6.5",
+    "kind": "corollary",
+    "title": "Conditional polynomial-time, seed-known separation",
+    "file": "sections/06_explicit.tex"
+  },
+  {
+    "label": "thm:communication",
+    "number": "7.1",
+    "kind": "theorem",
+    "title": "Communication as a sufficient condition",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:energy",
+    "number": "7.2",
+    "kind": "lemma",
+    "title": "Finite energy and threshold counting",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:barrier",
+    "number": "7.3",
+    "kind": "theorem",
+    "title": "Joint-distribution SQ barrier",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:forster",
+    "number": "7.4",
+    "kind": "theorem",
+    "title": "Spectral sign-rank bounds",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:plane",
+    "number": "7.5",
+    "kind": "theorem",
+    "title": "Projective-plane incidence classes",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:tree",
+    "number": "7.6",
+    "kind": "theorem",
+    "title": "Marginal-branching and approximate probabilistic bounds",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "prop:affine",
+    "number": "7.7",
+    "kind": "proposition",
+    "title": "Affine-line quantitative comparison",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:pgglobal",
+    "number": "7.8",
+    "kind": "theorem",
+    "title": "Global projective-plane rectangle ratio",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:halfspaces",
+    "number": "7.9",
+    "kind": "theorem",
+    "title": "Small rectangle ratio does not prevent SQ learning",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "thm:adapt",
+    "number": "7.10",
+    "kind": "theorem",
+    "title": "Marginal adaptation, under a small-query budget",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "cor:approxrect",
+    "number": "7.11",
+    "kind": "corollary",
+    "title": "Published approximate rank as an SQ sufficient condition",
+    "file": "sections/07_characterizations.tex"
+  },
+  {
+    "label": "cor:engineered",
+    "number": "8.1",
+    "kind": "corollary",
+    "title": "Engineered differentiable learning with high dimension",
+    "file": "sections/08_sgd.tex"
+  },
+  {
+    "label": "thm:network",
+    "number": "8.2",
+    "kind": "proposition",
+    "title": "A bias-free ReLU representation",
+    "file": "sections/08_sgd.tex"
+  },
+  {
+    "label": "prop:hiddenkey",
+    "number": "8.3",
+    "kind": "proposition",
+    "title": "Hidden-key computational hardness",
+    "file": "sections/08_sgd.tex"
+  },
+  {
+    "label": "thm:description",
+    "number": "10.1",
+    "kind": "theorem",
+    "title": "Source-description length alone does not repair the implication",
+    "file": "sections/10_discussion.tex"
+  },
+  {
+    "label": "thm:classicalbarrier",
+    "number": "10.2",
+    "kind": "proposition",
+    "title": "The classical certificate barrier",
+    "file": "sections/10_discussion.tex"
+  },
+  {
+    "label": "prop:unseen",
+    "number": "10.3",
+    "kind": "proposition",
+    "title": "Unseen independent labels",
+    "file": "sections/10_discussion.tex"
+  },
+  {
+    "label": "thm:rsd",
+    "number": "I.1",
+    "kind": "theorem",
+    "title": "Rectangle bound for randomized statistical dimension",
+    "file": "appendices/statistical_dimension.tex"
+  },
+  {
+    "label": "prop:cap-bound",
+    "number": "L.1",
+    "kind": "proposition",
+    "title": "Independent constant rectangle bound",
+    "file": "appendices/geometric_bounds.tex"
+  },
+  {
+    "label": "prop:pg-rect",
+    "number": "L.2",
+    "kind": "proposition",
+    "title": "Uniform-product rectangles in a projective plane",
+    "file": "appendices/geometric_bounds.tex"
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "acceptance_endpoint_cases": 80000,
+  "elimination_sequences": 2000,
+  "strictification_tests": 500,
+  "empty_rows": [
+    {
+      "N": 2,
+      "empty_template_rows": 3,
+      "incidences": 23
+    },
+    {
+      "N": 3,
+      "empty_template_rows": 6,
+      "incidences": 126
+    },
+    {
+      "N": 4,
+      "empty_template_rows": 10,
+      "incidences": 412
+    },
+    {
+      "N": 5,
+      "empty_template_rows": 15,
+      "incidences": 1025
+    },
+    {
+      "N": 6,
+      "empty_template_rows": 21,
+      "incidences": 2151
+    },
+    {
+      "N": 7,
+      "empty_template_rows": 28,
+      "incidences": 4018
+    },
+    {
+      "N": 8,
+      "empty_template_rows": 36,
+      "incidences": 6896
+    }
+  ],
+  "star_union_tests": 825,
+  "exhaustive_cube_dimensions": [
+    1,
+    3
+  ],
+  "arbitrary_product_PG_tests": 400,
+  "cap_fraction_d6": 0.0003509774353586882,
+  "all_assertions_passed": true
+}

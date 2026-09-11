@@ -1,0 +1,25 @@
+{
+  "all_assertions_passed": true,
+  "runs": 448,
+  "queries": 339922,
+  "endpoint_queries": 103989,
+  "catalogs": 1735,
+  "rectangles": 1106791,
+  "pointwise_constraints": 1096914,
+  "proper_outputs": 224,
+  "peels": 1432,
+  "eliminations": 2732,
+  "rejections": 163462,
+  "product_witnesses": 7,
+  "minimum_certified_pointwise_coverage": 0.00013950892857142856,
+  "required_coverage": 9.5367431640625e-07,
+  "max_numerical_covariance_residual": 2.0027665339011902e-05,
+  "termination_counts": {
+    "residual": 279,
+    "rectangle_candidate": 105,
+    "identified_row": 28,
+    "small_tail_candidate": 28,
+    "empty": 8
+  },
+  "note": "Exact finite-law and oracle audits do not assert that a floating transform is an exact real optimum; product global optimality is not asserted."
+}

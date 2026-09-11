@@ -1,0 +1,35 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=.82cm,y=.25cm,font=\small]
+\foreach \panel/\off/\a/\v in {0/0/1/3.5,1/8.5/3/-1.5}{
+ \begin{scope}[xshift=\off cm]
+  \begin{scope}
+   \clip (.5,.5) rectangle (5.5,11.7);
+   \fill[oiBlue!12] (.5,.5) rectangle (2.5,11.7);
+   \ifnum\panel=0
+    \fill[oiOrange!18] (.5,.5)--(5.5,.5)--(5.5,9)--(.5,4)--cycle;
+   \else
+    \fill[oiOrange!18] (.5,.5)--(5.5,.5)--(5.5,15)--(.5,0)--cycle;
+   \fi
+   \draw[step=1,black!15,line width=.2pt] (1,1) grid (5,11);
+   \draw[dashed,oiBlue,thick] (2.5,.5)--(2.5,11.7);
+   \draw[oiOrange,thick] (.5,{\a*.5+\v})--(5.5,{\a*5.5+\v});
+   \draw[black,thick] (.7,2.4)--(5.3,11.6);
+   \foreach \x in {1,...,5}{\fill (\x,{2*\x+1}) circle[x radius=.065cm,y radius=.065cm];}
+  \end{scope}
+  \draw[->] (.5,.5)--(5.7,.5) node[right] {$x$};
+  \draw[->] (.5,.5)--(.5,12.2) node[above] {$y$};
+  \node[oiBlue] at (1.6,11.4) {$P$};
+  \node[oiOrange] at (4,2.2) {$Q$};
+  \ifnum\panel=0
+    \node[above] at (3,13.8) {$a^*>a$: both prefixes};
+    \node[below,align=center,font=\scriptsize] at (3,-.7) {$f_a=(a^*-a)x+b^*$ increases;\\$P$ and $Q$ are nested on the target.};
+  \else
+    \node[above] at (3,13.8) {$a^*<a$: prefix and suffix};
+    \node[below,align=center,font=\scriptsize] at (3,-.7) {$f_a=(a^*-a)x+b^*$ decreases;\\the intersection is small after balancing.};
+  \fi
+ \end{scope}
+}
+\end{tikzpicture}
+\caption{The order test behind \cref{thm:fast}. The target is $y=2x+1$. The blue region is an $x$-prefix; orange denotes $y-ax\le v$. On the target, the orange region becomes a prefix when the trial slope is too small and a suffix when it is too large. The proof uses noisy median mass bounds to separate these cases by a constant fraction of the negative mass.}\label{fig:order}
+\end{figure}

@@ -1,0 +1,8 @@
+{
+  "endpoint_algebra_checks": 280,
+  "unseen_cases": 12,
+  "subgrids": 5,
+  "large_star_runs": 20,
+  "large_star_negative_count": 1968,
+  "all_passed": true
+}

@@ -1,0 +1,586 @@
+{
+  "engine": "Hunspell 1.7 C API",
+  "dictionary": "en_US",
+  "tex_filter": "detex -n -l -s",
+  "files": 32,
+  "tokens_checked": 20219,
+  "flagged_types": 113,
+  "flags": {
+    "thm": 80,
+    "lem": 25,
+    "PRF": 20,
+    "subgrid": 14,
+    "halfspaces": 13,
+    "minimax": 9,
+    "prf": 9,
+    "evaluable": 9,
+    "nondegenerate": 8,
+    "infimum": 8,
+    "supremum": 8,
+    "classicalbarrier": 6,
+    "hiddenkey": 6,
+    "pgglobal": 6,
+    "pointwise": 5,
+    "fastprf": 5,
+    "forster": 5,
+    "approxrect": 5,
+    "polynomially": 5,
+    "pseudorandom": 4,
+    "params": 4,
+    "regularstars": 4,
+    "Feldman's": 4,
+    "nonincident": 4,
+    "balancedmedian": 4,
+    "Pn": 3,
+    "preprocessing": 3,
+    "nonstopping": 3,
+    "superpolynomial": 3,
+    "coordinatewise": 3,
+    "ReLU": 3,
+    "distinguisher": 3,
+    "halfspace": 3,
+    "py": 3,
+    "subexponential": 2,
+    "leftmargin": 2,
+    "itemsep": 2,
+    "submatrix": 2,
+    "Pointwise": 2,
+    "monochromaticity": 2,
+    "OQ": 2,
+    "nonconstant": 2,
+    "nonvertical": 2,
+    "polylogarithmic": 2,
+    "thresholding": 2,
+    "Feldman": 2,
+    "unnormalized": 2,
+    "Sublevel": 2,
+    "semidefinite": 2,
+    "planeplain": 2,
+    "injective": 2,
+    "subgradient": 2,
+    "indistinguishability": 2,
+    "Binet": 2,
+    "barthe": 2,
+    "Cholesky": 2,
+    "ChatGPT": 1,
+    "OpenAI": 1,
+    "Mausberg": 1,
+    "FKS": 1,
+    "rsd": 1,
+    "Roadmap": 1,
+    "Unsubscripted": 1,
+    "nonanticipating": 1,
+    "representability": 1,
+    "flippable": 1,
+    "th": 1,
+    "elim": 1,
+    "asymptotics": 1,
+    "injectively": 1,
+    "quasipolynomial": 1,
+    "derandomize": 1,
+    "iid": 1,
+    "labelings": 1,
+    "BHKR": 1,
+    "nonstar": 1,
+    "BHHLT": 1,
+    "MKAS": 1,
+    "tradeoff": 1,
+    "Vandermonde": 1,
+    "contragrediently": 1,
+    "Gaussians": 1,
+    "disjointness": 1,
+    "nonfailure": 1,
+    "propercomplexity": 1,
+    "subcell": 1,
+    "summands": 1,
+    "memoryless": 1,
+    "nondeparting": 1,
+    "Rbound": 1,
+    "univariate": 1,
+    "sublevel": 1,
+    "functionals": 1,
+    "planedc": 1,
+    "Hardwire": 1,
+    "minimaxpremise": 1,
+    "Doob": 1,
+    "fe": 1,
+    "HMAC": 1,
+    "SQDC": 1,
+    "endian": 1,
+    "CSV": 1,
+    "Subgrid": 1,
+    "pushforward": 1,
+    "nonincidences": 1,
+    "polytope": 1,
+    "Exponentials": 1,
+    "encodings": 1,
+    "unqueried": 1,
+    "Pathwise": 1,
+    "discretization": 1,
+    "discretized": 1,
+    "feldman": 1
+  },
+  "locations": {
+    "nondegenerate": [
+      "abstract.tex",
+      "sections/01_introduction.tex",
+      "sections/02_preliminaries.tex",
+      "sections/04_family.tex",
+      "sections/09_related.tex",
+      "sections/10_discussion.tex",
+      "figures/family_parameters.tex"
+    ],
+    "subexponential": [
+      "abstract.tex",
+      "appendices/experiments.tex"
+    ],
+    "pseudorandom": [
+      "abstract.tex",
+      "sections/06_explicit.tex"
+    ],
+    "halfspaces": [
+      "abstract.tex",
+      "sections/01_introduction.tex",
+      "sections/07_characterizations.tex",
+      "sections/10_discussion.tex",
+      "appendices/certificate_proofs.tex",
+      "figures/example_table.tex",
+      "figures/implication_map.tex"
+    ],
+    "ChatGPT": [
+      "acknowledgments.tex"
+    ],
+    "OpenAI": [
+      "acknowledgments.tex"
+    ],
+    "Mausberg": [
+      "acknowledgments.tex"
+    ],
+    "FKS": [
+      "sections/01_introduction.tex"
+    ],
+    "lem": [
+      "sections/01_introduction.tex",
+      "sections/02_preliminaries.tex",
+      "sections/03_rectangle.tex",
+      "sections/04_family.tex",
+      "sections/09_related.tex",
+      "appendices/certificate_proofs.tex",
+      "appendices/explicit_proofs.tex",
+      "appendices/family_proof.tex",
+      "appendices/geometric_bounds.tex",
+      "appendices/median_proofs.tex",
+      "appendices/oracle_bounds.tex",
+      "appendices/resource_proofs.tex",
+      "appendices/statistical_dimension.tex"
+    ],
+    "params": [
+      "sections/01_introduction.tex",
+      "sections/02_preliminaries.tex",
+      "sections/03_rectangle.tex"
+    ],
+    "thm": [
+      "sections/01_introduction.tex",
+      "sections/03_rectangle.tex",
+      "sections/04_family.tex",
+      "sections/06_explicit.tex",
+      "sections/07_characterizations.tex",
+      "sections/08_sgd.tex",
+      "sections/09_related.tex",
+      "sections/10_discussion.tex",
+      "appendices/cap_proper_proofs.tex",
+      "appendices/certificate_proofs.tex",
+      "appendices/explicit_proofs.tex",
+      "appendices/family_proof.tex",
+      "appendices/median_proofs.tex",
+      "appendices/network_proofs.tex",
+      "appendices/oracle_bounds.tex",
+      "appendices/resource_proofs.tex",
+      "figures/cap_geometry.tex",
+      "figures/example_table.tex",
+      "figures/order_median.tex",
+      "figures/rectify_round.tex",
+      "figures/template_flip.tex"
+    ],
+    "pointwise": [
+      "sections/01_introduction.tex",
+      "sections/02_preliminaries.tex",
+      "appendices/cap_proper_proofs.tex",
+      "appendices/experiments.tex"
+    ],
+    "minimax": [
+      "sections/01_introduction.tex",
+      "sections/02_preliminaries.tex",
+      "sections/03_rectangle.tex",
+      "sections/09_related.tex",
+      "appendices/certificate_proofs.tex",
+      "appendices/resource_proofs.tex",
+      "appendices/statistical_dimension.tex"
+    ],
+    "leftmargin": [
+      "sections/01_introduction.tex",
+      "sections/10_discussion.tex"
+    ],
+    "itemsep": [
+      "sections/01_introduction.tex",
+      "sections/10_discussion.tex"
+    ],
+    "Pn": [
+      "sections/01_introduction.tex",
+      "sections/04_family.tex",
+      "figures/family_parameters.tex"
+    ],
+    "prf": [
+      "sections/01_introduction.tex",
+      "sections/06_explicit.tex",
+      "sections/08_sgd.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "fastprf": [
+      "sections/01_introduction.tex",
+      "sections/06_explicit.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "classicalbarrier": [
+      "sections/01_introduction.tex",
+      "sections/10_discussion.tex",
+      "appendices/resource_proofs.tex"
+    ],
+    "rsd": [
+      "sections/01_introduction.tex"
+    ],
+    "Roadmap": [
+      "sections/01_introduction.tex"
+    ],
+    "preprocessing": [
+      "sections/01_introduction.tex",
+      "sections/10_discussion.tex"
+    ],
+    "PRF": [
+      "sections/01_introduction.tex",
+      "sections/06_explicit.tex",
+      "sections/08_sgd.tex",
+      "sections/10_discussion.tex",
+      "appendices/explicit_proofs.tex",
+      "appendices/network_proofs.tex",
+      "figures/family_parameters.tex"
+    ],
+    "Unsubscripted": [
+      "sections/02_preliminaries.tex"
+    ],
+    "nonanticipating": [
+      "sections/02_preliminaries.tex"
+    ],
+    "representability": [
+      "sections/02_preliminaries.tex"
+    ],
+    "infimum": [
+      "sections/02_preliminaries.tex",
+      "sections/04_family.tex",
+      "sections/07_characterizations.tex",
+      "appendices/certificate_proofs.tex",
+      "appendices/oracle_bounds.tex",
+      "appendices/resource_proofs.tex"
+    ],
+    "submatrix": [
+      "sections/02_preliminaries.tex",
+      "appendices/family_proof.tex"
+    ],
+    "flippable": [
+      "sections/02_preliminaries.tex"
+    ],
+    "Pointwise": [
+      "sections/03_rectangle.tex",
+      "sections/05_learners.tex"
+    ],
+    "nonstopping": [
+      "sections/03_rectangle.tex",
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "monochromaticity": [
+      "sections/03_rectangle.tex",
+      "appendices/geometric_bounds.tex"
+    ],
+    "th": [
+      "sections/03_rectangle.tex"
+    ],
+    "supremum": [
+      "sections/03_rectangle.tex",
+      "sections/07_characterizations.tex",
+      "sections/08_sgd.tex",
+      "appendices/certificate_proofs.tex",
+      "appendices/resource_proofs.tex"
+    ],
+    "elim": [
+      "sections/03_rectangle.tex"
+    ],
+    "asymptotics": [
+      "sections/05_learners.tex"
+    ],
+    "evaluable": [
+      "sections/05_learners.tex",
+      "sections/06_explicit.tex",
+      "sections/08_sgd.tex",
+      "appendices/median_proofs.tex"
+    ],
+    "injectively": [
+      "sections/06_explicit.tex"
+    ],
+    "subgrid": [
+      "sections/06_explicit.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "superpolynomial": [
+      "sections/06_explicit.tex",
+      "sections/08_sgd.tex",
+      "sections/10_discussion.tex"
+    ],
+    "quasipolynomial": [
+      "sections/06_explicit.tex"
+    ],
+    "hiddenkey": [
+      "sections/06_explicit.tex",
+      "sections/08_sgd.tex",
+      "appendices/network_proofs.tex"
+    ],
+    "regularstars": [
+      "sections/06_explicit.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "forster": [
+      "sections/07_characterizations.tex",
+      "appendices/certificate_proofs.tex"
+    ],
+    "OQ": [
+      "sections/07_characterizations.tex"
+    ],
+    "nonconstant": [
+      "sections/07_characterizations.tex"
+    ],
+    "derandomize": [
+      "sections/07_characterizations.tex"
+    ],
+    "nonvertical": [
+      "sections/07_characterizations.tex",
+      "appendices/median_proofs.tex"
+    ],
+    "Feldman's": [
+      "sections/07_characterizations.tex",
+      "sections/09_related.tex",
+      "appendices/statistical_dimension.tex"
+    ],
+    "pgglobal": [
+      "sections/07_characterizations.tex",
+      "appendices/certificate_proofs.tex",
+      "figures/example_table.tex"
+    ],
+    "polylogarithmic": [
+      "sections/07_characterizations.tex",
+      "sections/10_discussion.tex"
+    ],
+    "approxrect": [
+      "sections/07_characterizations.tex",
+      "sections/09_related.tex",
+      "appendices/certificate_proofs.tex"
+    ],
+    "iid": [
+      "sections/08_sgd.tex"
+    ],
+    "coordinatewise": [
+      "sections/08_sgd.tex",
+      "appendices/cap_proper_proofs.tex",
+      "appendices/certificate_proofs.tex"
+    ],
+    "thresholding": [
+      "sections/08_sgd.tex"
+    ],
+    "ReLU": [
+      "sections/08_sgd.tex"
+    ],
+    "labelings": [
+      "sections/08_sgd.tex"
+    ],
+    "polynomially": [
+      "sections/08_sgd.tex",
+      "sections/09_related.tex",
+      "sections/10_discussion.tex",
+      "appendices/isotropy_program.tex",
+      "appendices/median_proofs.tex"
+    ],
+    "distinguisher": [
+      "sections/08_sgd.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "halfspace": [
+      "sections/09_related.tex",
+      "sections/10_discussion.tex"
+    ],
+    "Feldman": [
+      "sections/09_related.tex",
+      "appendices/statistical_dimension.tex"
+    ],
+    "BHKR": [
+      "sections/09_related.tex"
+    ],
+    "nonstar": [
+      "sections/09_related.tex"
+    ],
+    "BHHLT": [
+      "sections/09_related.tex"
+    ],
+    "MKAS": [
+      "sections/09_related.tex"
+    ],
+    "tradeoff": [
+      "sections/10_discussion.tex"
+    ],
+    "Vandermonde": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "contragrediently": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "Gaussians": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "unnormalized": [
+      "appendices/cap_proper_proofs.tex",
+      "appendices/isotropy_program.tex"
+    ],
+    "disjointness": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "nonfailure": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "propercomplexity": [
+      "appendices/cap_proper_proofs.tex"
+    ],
+    "subcell": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "summands": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "memoryless": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "nondeparting": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "Rbound": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "univariate": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "sublevel": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "Sublevel": [
+      "appendices/certificate_proofs.tex",
+      "appendices/isotropy_program.tex"
+    ],
+    "semidefinite": [
+      "appendices/certificate_proofs.tex",
+      "appendices/isotropy_program.tex"
+    ],
+    "functionals": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "planedc": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "planeplain": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "Hardwire": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "injective": [
+      "appendices/certificate_proofs.tex",
+      "appendices/median_proofs.tex"
+    ],
+    "minimaxpremise": [
+      "appendices/certificate_proofs.tex"
+    ],
+    "nonincident": [
+      "appendices/certificate_proofs.tex",
+      "appendices/geometric_bounds.tex"
+    ],
+    "subgradient": [
+      "appendices/certificate_proofs.tex",
+      "appendices/isotropy_program.tex"
+    ],
+    "Doob": [
+      "appendices/concentration.tex"
+    ],
+    "fe": [
+      "appendices/experiments.tex"
+    ],
+    "HMAC": [
+      "appendices/experiments.tex"
+    ],
+    "SQDC": [
+      "appendices/experiments.tex"
+    ],
+    "endian": [
+      "appendices/experiments.tex"
+    ],
+    "py": [
+      "appendices/experiments.tex"
+    ],
+    "CSV": [
+      "appendices/experiments.tex"
+    ],
+    "Subgrid": [
+      "appendices/experiments.tex"
+    ],
+    "indistinguishability": [
+      "appendices/experiments.tex",
+      "appendices/explicit_proofs.tex"
+    ],
+    "pushforward": [
+      "appendices/explicit_proofs.tex"
+    ],
+    "nonincidences": [
+      "appendices/family_proof.tex"
+    ],
+    "Binet": [
+      "appendices/isotropy_program.tex"
+    ],
+    "polytope": [
+      "appendices/isotropy_program.tex"
+    ],
+    "barthe": [
+      "appendices/isotropy_program.tex"
+    ],
+    "Exponentials": [
+      "appendices/isotropy_program.tex"
+    ],
+    "Cholesky": [
+      "appendices/isotropy_program.tex"
+    ],
+    "balancedmedian": [
+      "appendices/median_proofs.tex"
+    ],
+    "encodings": [
+      "appendices/network_proofs.tex"
+    ],
+    "unqueried": [
+      "appendices/network_proofs.tex"
+    ],
+    "Pathwise": [
+      "appendices/oracle_bounds.tex"
+    ],
+    "discretization": [
+      "appendices/statistical_dimension.tex"
+    ],
+    "discretized": [
+      "appendices/statistical_dimension.tex"
+    ],
+    "feldman": [
+      "appendices/statistical_dimension.tex"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+\begin{samepage}
+\begin{proposition}[Affine-line quantitative comparison]\label{prop:affine}
+For the $p^2$ affine nonvertical lines on $\mathbb F_p^2$, the joint-distribution ratio in Theorem~\ref{thm:barrier} can be chosen as
+\[
+ R=\frac{2p}{1+(p-1)^{-2}}\ge p.
+\]
+Thus every common learner of constant expected error $\epsilon<1/4$ has $m/\tau^2=\Omega(p)$. More generally, if on every instance it achieves correlation at least $2\gamma>0$ with probability at least $\alpha$, then
+\[
+ m\ge\tau^2\left(\alpha R-\frac1{4\gamma^2}\right).
+\]
+At Feldman's weak-learning parameters $\tau=1/t$, $\gamma>1/t$, $t=(p/32)^{1/4}$ and $\alpha=2/3$, this gives $m=\Omega(\sqrt p)$; at constant tolerance and constant advantage it gives $m=\Omega(p)$.
+\end{proposition}
+\end{samepage}
+\begin{proof}
+Let $P$ have lines as rows and points as columns, with value one on incidences. Each row has $p$ ones. Two rows with different slopes intersect once; rows with the same slope and different intercepts are disjoint. Hence
+\[
+ PP^\top=pI+J-\operatorname{diag}(J_p,\ldots,J_p).
+\]
+Set $A=pP-J$. Direct multiplication using $PJ=pJ$ gives
+\[
+ AA^\top=p^2\bigl(pI-\operatorname{diag}(J_p,\ldots,J_p)\bigr),
+ \qquad \|A\|_{\rm op}^2=p^3.
+\]
+For target line $h$, use probability $1/(2p)$ on each point of the line and $1/(2p(p-1))$ on each other point; labels are positive exactly on the line. Against the uniform fair-label reference, the likelihood-ratio residuals are $r_h(x,+1)=A_{hx}$ and $r_h(x,-1)=-A_{hx}/(p-1)$. Therefore
+\[
+ \Lambda=\frac p2(1+(p-1)^{-2}),\qquad R=p^2/\Lambda.
+\]
+This proves the ratio and the expected-error consequence.
+
+For the success-probability statement use the fixed, valid reference-following oracle from the proof of Theorem~\ref{thm:barrier}. For each fixed learner seed, at most fraction $m/(R\tau^2)$ of targets depart from its reference path. Let $c_h$ be the correlation of the reference leaf with target $h$. The energy lemma gives $\sum_hc_h^2\le\Lambda$. Consequently at most fraction $1/(4\gamma^2R)$ of targets have $c_h\ge2\gamma$. The fraction of successful actual outputs is no larger than the sum of these two fractions. Average over the learner seed and use the assumed success probability on each target. This gives $\alpha\le m/(R\tau^2)+1/(4\gamma^2R)$ and the stated inequality. Substitution of $t$ yields $(2/3)p/t^2-1/4=\Omega(\sqrt p)$ in the cited weak regime. This comparison keeps both tolerance and success criteria explicit.
+\end{proof}

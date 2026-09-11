@@ -1,0 +1,69 @@
+% Canonical statement: sections/05_learners.tex:113-120
+\begin{theorem}[Succinct median learner]\label{thm:fast}
+Let $0<\epsilon<1/4$. Suppose entries of a real-grid incidence flip $A$ can be evaluated in time $E(n)$, where $n=\log_2(2N^3)$. There is a deterministic improper distribution-independent SQ learner of error at most $\epsilon$, using $O(n^2)$ queries at raw tolerance $\epsilon/8192$, with total computation polynomial in $(n,1/\epsilon,E(n))$ and an efficiently evaluable output. If $A$ is star-regular, there is a proper randomized learner with
+\[
+ m=O(n^2+1/\epsilon+\log(1/\epsilon)),\qquad
+ \tau=\epsilon/8192,
+\]
+with the same polynomial-time property and expected error at most $\epsilon$ against every valid oracle.
+\end{theorem}
+
+% Proof binding: appendices/median_proofs.tex:11-68
+\begin{proof}[Proof of \cref{thm:fast}]
+Query $\beta$, obtaining $\widehat\beta$. If $\widehat\beta\le\epsilon/4$, return the all-positive row $(a,b)=(1,2N^2)$. Its loss is at most $\epsilon/4+\zeta$. Otherwise
+\[
+ \beta>\epsilon/4-\zeta>\epsilon/8,
+ \qquad \beta>1023\zeta>512\zeta.
+\]
+All subsequent negative-measure queries are unconditioned indicators and have error at most $\zeta$.
+
+First take a noisy median $v_x$ of $x$. If its atom is heavy in Lemma~\ref{lem:median}, it consists of one negative point: a nonvertical target line has at most one point with a given $x$ coordinate. Binary queries $\mu^-\{x=v_x,y\le t\}$ locate its $y$ coordinate. Each such query has true mass either zero or more than $\beta/9$. Threshold $\widehat\beta/32$ distinguishes these cases despite error $\zeta$: it exceeds $\zeta$ and is less than $\beta/9-\zeta$. We then use the heavy-point completion described below.
+
+Otherwise fix the prefix $P=\{x\le v_x\}$, whose mass satisfies \eqref{eq:balancedmedian}. Maintain an integer interval containing the unknown slope $a^*\in[1,N]$. At its midpoint $a$, take a noisy median $v$ of
+\[
+ f_a(x,y)=y-ax,
+ \qquad 1-N^2\le f_a(x,y)\le2N^2.
+\]
+On the target line this is $(a^*-a)x+b^*$. Query the mass $m$ of its median atom.
+
+Suppose that atom is heavy. Query its intersection mass $l$ with $P$. If both $\widehat l\ge\widehat\beta/8$ and $\widehat m-\widehat l\ge\widehat\beta/8$, then $a=a^*$ and $v=b^*$. Indeed, for $a\ne a^*$, $f_a$ is injective on the target line, so its atom is a single point and lies wholly on one side of $P$. One of the true split masses is zero. Its directly observed value is at most $\zeta$, or its difference of two observed values at most $2\zeta$, both less than $\widehat\beta/8$. Conversely, when $a=a^*$, the atom has mass $\beta$ and the median value is exactly $b^*$. The two true split masses are at least $\beta/2-3\zeta/2$ and $3\beta/8-21\zeta/8$ by \eqref{eq:balancedmedian}. Their observed lower bounds exceed $\widehat\beta/8$, using $\beta>512\zeta$. Thus the test accepts precisely the constant-residual case. Return the exact target row in that case. If the split test fails, the heavy atom is a single negative point; locate its $x$ coordinate by binary queries restricted to $\{f_a=v\}$, then put $y=ax+v$ and use the heavy-point completion.
+
+It remains to handle a light residual atom. The set $Q=\{f_a\le v\}$ also satisfies \eqref{eq:balancedmedian}. If $a^*>a$, the restrictions of $P,Q$ to the target line are prefixes of the same order. Consequently
+\[
+ \mu^-(P\cap Q)\ge\beta/2-3\zeta/2.
+\]
+If $a^*<a$, they are a prefix and a suffix. Their union covers the entire negative support whenever they overlap. Thus, whether or not they overlap,
+\[
+ \mu^-(P\cap Q)
+ \le\max\{0,\mu^-(P)+\mu^-(Q)-\beta\}
+ \le\beta/4+21\zeta/4.
+\]
+Query this intersection and compare its answer to $3\widehat\beta/8$. In the first case the answer is at least $\beta/2-5\zeta/2>3\widehat\beta/8$; in the second it is at most $\beta/4+25\zeta/4<3\widehat\beta/8$. Both inequalities follow from $\beta>512\zeta$. Equality of slopes is impossible in the light case, because the entire negative mass would be one residual atom. Retain the appropriate strict half of the slope interval. After $O(\log N)$ stages only $a^*$ remains. A median query search for its constant residual gives $b^*$, so return $h_{a^*,b^*}$. Each slope stage uses $O(\log N)$ queries. This is the all-light algorithm.
+
+\paragraph{Heavy-point completion.}
+We have located an actual negative point $p$. Query the negative tail
+\[
+ \beta_p=\mu^-(X\setminus\{p\}).
+\]
+If its answer exceeds $\epsilon/4$, then $\beta_p>\epsilon/4-\zeta$. For a half-interval of slopes in the star at $p$, query negative mass away from $p$ on the union of those lines. Every negative point other than $p$ determines the same unique target slope, so this query is exactly zero or $\beta_p$. Threshold $\epsilon/8$ distinguishes the cases. Binary search identifies the target in $O(\log N)$ queries. The union is succinctly evaluable: for a query point $q\ne p$, test $q_x\ne p_x$, divisibility of $q_y-p_y$ by $q_x-p_x$, and membership of the quotient in the chosen slope interval. This requires no enumeration and no evaluation of flips.
+
+If the tail answer is at most $\epsilon/4$, the improper learner returns the point predictor that is negative only at $p$. Its loss is $\beta_p\le\epsilon/4+\zeta$. This proves the deterministic improper statement for every evaluable flip matrix.
+
+For proper output, put
+\[
+ C_0=\max\{64\lceil\log_2(2N^3)\rceil,\lceil128/\epsilon\rceil\}.
+\]
+If $t(p)\le C_0$, enumerate its slopes, discard rows positive at $p$ by an entry evaluation, and query the full loss of each remaining row until an answer is at most $\epsilon/2$. The target is among them and must pass. A passing row has actual loss at most $\epsilon/2+\zeta$.
+
+If $t(p)>C_0$, star-regularity supplies at least $t(p)/4$ rows negative at $p$. The sets of negative points of different star rows outside $p$ are disjoint. At most $8/\epsilon$ rows can therefore have $D$-mass greater than $\epsilon/8$ on their outside negative sets. At least $t(p)/4-8/\epsilon\ge t(p)/8$ rows are negative at $p$ and have outside negative mass at most $\epsilon/8$. Every such row has loss at most
+\[
+ \beta_p+\epsilon/8\le3\epsilon/8+\zeta,
+\]
+and its loss answer is at most $3\epsilon/8+2\zeta<\epsilon/2$, regardless of the oracle. Sample
+\[
+ J=\lceil16\ln(4/\epsilon)\rceil
+\]
+independent star slopes as follows: draw $q=\lceil\log_2t(p)\rceil$ unbiased bits, interpret them as an integer, reduce modulo $t(p)$, and add one. Every slope has probability at least $1/(2t(p))$, so a guaranteed-passing row has probability at least $1/16$ in each trial. Evaluate its label at $p$ and test negative rows as above. The chance that no guaranteed-passing row is sampled is at most $(1-1/16)^J\le\epsilon/4$. On that event return the all-positive row. All other outputs have error at most $\epsilon/2+\zeta$. The expected loss is at most $\epsilon/2+\zeta+\epsilon/4<\epsilon$.
+
+There are $O(n^2)$ median queries, $O(n)$ locating and star-search queries, and at most $O(n+1/\epsilon+\log(1/\epsilon))$ candidate tests. Every predicate uses polynomially many $n$-bit integer operations and at most one entry evaluation. The output is either a row index with its evaluation algorithm or, in the improper case, a point predictor. The finite answer rounding specified before Lemma~\ref{lem:median} completes the bit-complexity assertion.
+\end{proof}

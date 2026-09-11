@@ -1,0 +1,16 @@
+% Canonical statement: sections/06_explicit.tex:57-59
+\begin{lemma}[Regular stars for almost every key]\label{lem:regularstars}
+Use the star-regularity definition in \cref{sec:fast}: every template star with at least $64\lceil n\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\epsilon$; the algorithm tests it only for stars larger than $C_0=\max\{64\lceil n\rceil,\lceil128/\epsilon\rceil\}$. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\ref{thm:prf}, failure occurs for only a negligible fraction of keys.
+\end{lemma}
+
+% Proof binding: appendices/explicit_proofs.tex:40-49
+\begin{proof}[Proof of \cref{lem:regularstars}]
+At a fixed point with $t$ incident rows, the number of negatives is a sum of $t$ independent fair bits. For $\lambda=\ln3$,
+\[
+ \Pr[Z<t/4]\le e^{\lambda t/4}\left(\frac{1+e^{-\lambda}}2\right)^t
+ =\left(\frac{2}{3^{3/4}}\right)^t\le e^{-t/16}.
+\]
+For the last elementary inequality, $\ln(3^{3/4}/2)>1/16$; for example $3^3/2^4=27/16>e^{1/4}$, since $e^{1/4}\le(1-1/4)^{-1}=4/3<27/16$. If $t\ge64\lceil n\rceil$, the failure probability is at most $e^{-4n}$. There are at most $2^n$ points, so a union bound gives $e^{-(4-\ln2)n}\le e^{-3n}$.
+
+A distinguisher can read every incidence bit and test all stars in time $2^{O(n)}$. This is below $2^{\sigma^\delta}$ for the stated key length. The random-function bound plus PRF indistinguishability proves the claim. Polynomial growth of $\sigma$ in $n$ makes $e^{-3n}$ negligible in the key length as well.
+\end{proof}

@@ -1,0 +1,7 @@
+Title: Distribution-independent SQ learning does not imply low dimension complexity
+Subtitle: A negative answer to Open Question 2 of Feldman, Kamath and Srebro
+Author: Samuel Mausberg
+Primary category: cs.LG
+Secondary categories: cs.CC, math.CO, stat.ML
+Comments: 59 pages, including appendices; reproducible CPU checks supplied separately.
+Abstract characters: 1225

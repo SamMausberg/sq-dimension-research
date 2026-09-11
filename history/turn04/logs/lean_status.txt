@@ -1,0 +1,3 @@
+lake --version
+bash: lake: command not found
+exit status: 127

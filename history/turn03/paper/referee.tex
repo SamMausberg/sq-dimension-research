@@ -1,0 +1,39 @@
+\section{Independent referee derivation and endpoint audit}\label{app:referee}
+We rederived Theorem~9 without using a favorable oracle. The result agrees with its earlier constants. In the table below $u=D(U)$, $s=D(S)$, $a=s/u$, $b=\nu(T)$, $w=D(S\cap\{h^*\ne c\})$, and hats denote oracle answers. ``Pathwise'' means that no random-oracle assumption is used. The conditioning for mixture expectations includes the returned $\widehat u$ and all earlier history, but precedes the fresh rectangle draw.
+
+\small
+\begin{longtable}{@{}p{.6cm}p{6.2cm}p{4.9cm}>{\raggedright\arraybackslash}p{2.4cm}@{}}
+\toprule
+& Inequality or invariant & Adverse valid answer or justification & Randomness used\\
+\midrule\endfirsthead
+\toprule & Inequality or invariant & Adverse valid answer or justification & Randomness used\\\midrule\endhead
+R1 & $\tau\le\epsilon/8$, $\tau\le r\epsilon/64$ & Direct substitution of $P$; no reply. & None\\
+R2 & Nonstop $u>\epsilon/4-\tau\ge\epsilon/8$ & $\widehat u=u+\tau$ can keep the smallest $u$ active. & Pathwise\\
+R3 & $\tau/u\le r/8$ & R1--R2. & None\\
+R4 & Acceptance gives $s\ge ru/2-(1+r/2)\tau$ & $\widehat s=s+\tau$, $\widehat u=u-\tau$ favor accepting a small set. & Pathwise\\
+R5 & Accepted $a\ge5r/16\ge r/4$ & Substitute R3 into R4. & None\\
+R6 & $a\ge3r/4$ gives $\widehat s-r\widehat u/2\ge ru/16>0$ & $\widehat s=s-\tau$, $\widehat u=u+\tau$ oppose acceptance. & Pathwise\\
+R7 & Target in $T$ implies $w=0$, $\widehat w\le\tau<2\tau$ & Maximal reply $\widehat w=w+\tau$. & Pathwise\\
+R8 & $\sum_{\rm elim}b\le\sum_{\rm elim}-\ln(1-b)\le\ln K$ & Target retained; normalized target weight grows from $1/K$ to at most one. & Pathwise\\
+R9 & Before peel $j$: $\epsilon/8\le(1-r/4)^{j-1}\le e^{-(j-1)r/4}$ & R2, R5, and $\ln(1-z)\le-z$. & Pathwise\\
+R10 & Number of peels at most $P$ & Take logarithms in R9. & None\\
+R11 & A peel has $w\le3\tau$; total wrong mass $\le3P\tau=\epsilon/8$ & $\widehat w=w-\tau$ permits the largest wrong mass. Peeled sets are disjoint. & Pathwise\\
+R12 & Normal stop: $u\le\epsilon/4+\tau$; loss $\le\epsilon/2$ & $\widehat u=u-\tau$ permits the largest residual mass. Empty residual has mass zero. & Pathwise\\
+R13 & On acceptance, $G=a$ or $b$, so $G\ge ab$ & Both admissible actions obey this, irrespective of the mismatch reply. & Pathwise\\
+R14 & $\E[ab\mid\text{past}]\ge r$ & Integrate pointwise mixture coverage against $D$ conditioned on $U$. & Fresh learner draw\\
+R15 & $\E G\ge r-(3r/4)\E b\ge r/4$ & Rejection is confined to $a<3r/4$ by R6; $b\le1$. & Fresh learner draw\\
+R16 & $\sum G\le\ln K+\ln(8/\epsilon)+1=B$ before budget termination & R8; peel ratios telescope excluding the last, whose $a\le1$. No logarithm of zero. & Pathwise\\
+R17 & $e^{-g}\le1-(1-e^{-1})g$ for $0\le g\le1$ & Convexity chord. After normal stopping put $G=1$. & None\\
+R18 & $\E[e^{-G}\mid\text{past}]\le e^{-r/8}$; $\E e^{-\sum G}\le e^{-rR/8}$ & R15, R17 and conditional expectation induction. & Learner draws; oracle arbitrary\\
+R19 & $\Pr[\text{budget failure}]\le e^{B-rR/8}\le\epsilon/2$ & R16 and Markov's inequality. & Learner draws; oracle arbitrary\\
+R20 & $\E L\le\epsilon/2+\Pr[\text{budget failure}]\le\epsilon$ & R12 and $0\le L\le1$. & Learner draws; oracle arbitrary\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+A randomized oracle can be included by conditioning on its past private coins; each displayed response bound still holds for every permitted answer. No step averages away an adversarial error. The drift proof allows the oracle to choose either permissible action after seeing the current query. It does not give an oracle access to future learner randomness.
+
+\paragraph{Counting audit.}
+There are exactly $N(N+1)/2$ empty template rows: row $(a,b)$ has no incidence precisely when $b>2N^2-a$. They are all-positive rows of every flip. Their weights $k_h/I$ in Theorem~12 are zero; no uniform distribution on an empty set is formed. For nonempty rows these weights sum to one. For a fixed embedding, loss minimization ranges over finitely many attained sign patterns, so the infimum is a minimum. The weighted incidence mistake count is an integer divided by $I$; some embedding has value at most its expectation bound. The same embedding is used for every row, with row-specific weights, exactly as required by the definition.
+
+The working convention is $\sign(0)=+1$. A positive row-specific bias in one common added coordinate turns zero scores positive without changing any negative score. Thus the strict rank in the counting argument is $d+1$, and the event is $\dc^\eta<s_\eta$, not $\dc^\eta\le s_\eta$. If the sign convention is $\sign(0)=-1$, use a negative bias. If zero predictions are counted as errors, replacing them by $+1$ can only reduce the number of mistakes, so the same lower bound still follows. Exact probabilistic dimension uses a full-support marginal; zero loss means that every point is correct. These observations make the conclusions insensitive to either fixed tie rule, without weakening the universal quantifiers over $D$ and $h$.

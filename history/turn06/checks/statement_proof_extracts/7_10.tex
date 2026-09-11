@@ -1,0 +1,18 @@
+% Canonical statement: sections/07_characterizations.tex:217-228
+\begin{theorem}[Marginal adaptation, under a small-query budget]\label{thm:adapt}
+Let $H_A$ be a flip class at scale $N$ with $M=N^3$, let $m\ge1$ be an integer, and let $0<\tau\le1$ and $0<\epsilon<1/4$. Every deterministic $(m,\tau)$-SQ learner with worst-case query budget $m$ satisfying \eqref{eq:guarantee} obeys
+\[
+ u\ge\frac{\ln\dc(H_A)-\ln(m+1)}
+ {\ln(\lceil2/\tau\rceil+1)},
+\]
+where $u$ is the marginal-branching depth defined in Theorem~\ref{thm:tree}. In particular, if $\dc(H_A)\ge c_0N/\log M$ for an absolute $c_0>0$, then for any fixed $C>0$, $m\le(\log M)^C$ and all sufficiently large $N$,
+\[
+ u=\Omega_C\!\left(\frac{\log N}{\log(2+1/\tau)}\right).
+\]
+At fixed positive tolerance, the $\Omega(\log N)$ requirement matches the $O_d(\log M)$ marginal-query upper bound of the deterministic finite-net learner, at fixed accuracy.
+\end{theorem}
+
+% Proof binding: appendices/certificate_proofs.tex:266-268
+\begin{proof}[Proof of \cref{thm:adapt}]
+Take logarithms of Theorem~\ref{thm:tree}, $\dc(H_A)\le(m+1)(\lceil2/\tau\rceil+1)^u$. The high-dimension event gives $\ln\dc(H_A)\ge\ln N-\ln\log M+O(1)$. Under the stated query budget the numerator is at least $\tfrac12\ln N$ for large $N$. The upper bound is Theorem~\ref{thm:caps}. All constants depend only on the displayed fixed parameters.
+\end{proof}

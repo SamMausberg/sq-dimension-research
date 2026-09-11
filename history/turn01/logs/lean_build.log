@@ -1,0 +1,14 @@
+Actual local build attempt, 2026-09-10
+$ lean --version
+bash: line 199: lean: command not found
+exit=127
+$ lake build
+bash: line 200: lake: command not found
+exit=127
+$ python: fetch official toolchain descriptor
+URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+fetch_exit=1
+RESULT: no Lean compiler output exists; compilation was not performed.
+$ lake build
+bash: line 138: lake: command not found
+exit=127

@@ -1,0 +1,12 @@
+% Canonical statement: sections/04_family.tex:77-82
+\begin{lemma}[From exact probabilistic to strict dimension]\label{lem:exact-prob}
+For every finite nonempty class $H$ with $K=|H|$,
+\begin{equation}\label{eq:exact-prob}
+ \dc(H)\le(\lceil\log_2K\rceil+1)\dc_{1/2}(H)+1.
+\end{equation}
+\end{lemma}
+
+% Proof binding: sections/04_family.tex:83-85
+\begin{proof}
+Choose a full-support distribution on $X$. Zero loss under this distribution means correct labels at every point. Draw $t=\lceil\log_2K\rceil+1$ independent embeddings from a law witnessing $\dc_{1/2}(H)=d$. Each fixed target fails in all $t$ embeddings with probability at most $2^{-t}$. A union bound gives probability at most $K2^{-t}<1$ that some target fails everywhere. Hence one collection works for all targets. Concatenate its $t$ embeddings; each row selects a successful block. Adding one constant coordinate as above makes the representation strict. This proves \eqref{eq:exact-prob}. 
+\end{proof}

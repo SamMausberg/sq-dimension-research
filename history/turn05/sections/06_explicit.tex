@@ -1,0 +1,77 @@
+\section{Conditional explicit families}\label{sec:explicit}
+\subsection{Conditional succinctly computable separations}\label{sec:prf}
+We now distinguish explicit evaluation from explicit deterministic selection of a good table. A seeded family is \emph{succinctly evaluable} if its entries are computable in time polynomial in the example encoding length and the supplied seed length. The result below gives a negligible exceptional set of keys. It does not efficiently recognize good keys or specify an efficiently computable deterministic sequence of them.
+
+\paragraph{Cryptographic assumption.}
+Fix a constant $\delta>0$, decreasing it to be less than one if necessary. Assume a polynomial-time bit-output pseudorandom function family $\{f_s\}_{s\in\{0,1\}^\sigma}$, defined on inputs long enough to encode a grid row and point, such that every oracle algorithm running in time at most $2^{\sigma^\delta}$ has negligible distinguishing advantage between $f_s$ for uniform $s$ and a uniform random function. Negligibility is in $\sigma$. We use this assumption directly. The standard one-way-function to pseudorandom-generator and generator to pseudorandom-function constructions supply it from suitably subexponentially secure one-way functions, after polynomial reparameterization and a possible reduction of the positive exponent \citep{HILL99,GGM86}. These general cryptographic reductions are imported; the reduction to sign-rank below is given completely.
+
+Take $n=3b+1$, $N=2^b$, so that the domain size is exactly $2N^3=2^n$. Encode $(a,b',x,y)$ injectively in $O(n)$ bits and pad if needed to the PRF input length. Define $A_s$ to be positive off template incidences and to have sign $2f_s(a,b',x,y)-1$ on incidences. Thus a bit one flips a negative entry to positive.
+
+
+\begin{lemma}[Small subgrid counting and decision cost]\label{lem:subgrid}
+At grid scale $k\ge2$, put $K_k=2k^3$ and
+\[
+ I_k=2k^4-\left(\frac{k(k+1)}2\right)^2,
+ \qquad D_k=\left\lfloor\frac{k}{24\log_2 k}\right\rfloor.
+\]
+Under independent fair flips,
+\[
+ \Pr[\sr(A)\le D_k]\le2^{-k^4/2}.
+\]
+Whether $\sr(A)\le D_k$ can be decided after reading at most $I_k\le2k^4$ oracle bits, in time $2^{O(k^3D_k\log k)}=2^{O(k^4)}$ when $D_k\ge1$. When $D_k=0$, the event is empty and is decided immediately.
+\end{lemma}
+
+\noindent Proof: see \cref{proof:subgrid}.\par
+
+
+
+\begin{theorem}[Conditional almost-every-key explicit lower bounds]\label{thm:prf}
+Assume the stated PRF security for a fixed $\delta>0$. Fix $c\ge1$, $0<\epsilon<1/4$, $n=3b+1$, and put
+\[
+ \sigma=n^{\lceil(4c+2)/\delta\rceil}.
+\]
+For every key, entries of $A_s$ and hypotheses in $H_{A_s}$ are evaluable in $\operatorname{poly}_c(n)$ time. Every key has RECTIFY and proper learners with $O_\epsilon(n)$ queries and tolerance $\Omega_\epsilon(1)$. For all sufficiently large admissible $n$, outside a negligible fraction of keys,
+\[
+ \boxed{\dc(H_{A_s})\ge\frac{n^c}{30\log_2n}.}
+\]
+Here the learner with $O(n)$ queries may use table-polynomial computation. A succinct polynomial-time implementation with $O(n^2)$ queries is established in Section~\ref{sec:fast}.
+\end{theorem}
+
+\noindent Proof: see \cref{proof:prf}.\par
+
+
+For the linear implication choose any $c>1$. For any proposed fixed-degree polynomial in $(m,1/\tau,n)$ choose $c$ larger than its degree, holding $\epsilon$ fixed. The lower bound then exceeds that polynomial for all sufficiently large $n$. The polynomial key-length exponent depends on $c$; this statement is a hierarchy of succinctly evaluable families, not one polynomial-key family that beats every polynomial. Choosing instead $k=n^{\log_2n}$ and $\sigma=\lceil k^{6/\delta}\rceil$ makes the same proof give superpolynomial dimension with quasipolynomial seed length and evaluation time. It does not settle polynomial-time deterministic explicit selection in the direction of \citet[Problem~4.1]{HHPTZ22}.
+
+
+\begin{proposition}[Unconditional polynomial advice]\label{prop:advice}
+Fix $c\ge1$ and $0<\epsilon<1/4$. For all sufficiently large $n=3b+1$, there is a family of incidence-flip classes on $2^n$ points indexed by advice strings of length $O_c(n^{4c})$. Every entry is evaluable in $\operatorname{poly}_c(n)$ time. For all but a $2^{-\Omega_c(n^{4c})}$ fraction of advice strings,
+\[
+ \dc(H)\ge\frac{n^c}{30\log_2 n}.
+\]
+Every advice string admits a proper deterministic learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $O_{c,\epsilon}(\log n)$ queries at tolerance $\Omega_\epsilon(1)$.
+\end{proposition}
+The advice stores only the flip bits of a polynomial-size subgrid. Collapsing all other points to one positive point gives a polynomial-size effective table, so its proper cap learner has $O_{c,\epsilon}(\log n)$ queries. The full construction and counting proof appear in \cref{proof:advice}.
+
+This is an almost-every-advice result. Neither it nor \cref{thm:prf} specifies a polynomial-time deterministic selector of good descriptions. The PRF result additionally fixes a cryptographic family and supports the hidden-key comparison in \cref{prop:hiddenkey}.
+
+\begin{lemma}[Regular stars for almost every key]\label{lem:regularstars}
+Fix $0<\epsilon<1/4$ and define star-regularity with the threshold $C_0=\max\{64\lceil n\rceil,\lceil128/\epsilon\rceil\}$ from \cref{thm:fast}. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\ref{thm:prf}, failure occurs for only a negligible fraction of keys.
+\end{lemma}
+
+\noindent Proof: see \cref{proof:regularstars}.\par
+
+
+
+\begin{corollary}[Conditional polynomial-time, seed-known separation]\label{cor:fastprf}
+Under the PRF assumption, for every fixed $c\ge1$ and $0<\epsilon<1/4$, all but a negligible fraction of keys in Theorem~\ref{thm:prf} define classes with
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2n},\qquad
+ m=O_\epsilon(n^2),\qquad\tau=\Omega_\epsilon(1),
+\]
+and a proper learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time given the key. Every key has the corresponding deterministic improper polynomial-time learner, independently of star-regularity.
+\end{corollary}
+
+\noindent Proof: see \cref{proof:fastprf}.\par
+
+
+Taking $c>2$ refutes the linear query/tolerance implication even when the learner must run in time polynomial in $n$. Taking $c$ larger than twice a proposed polynomial degree refutes each fixed-degree polynomial in $(m,1/\tau,n)$ within this computational model. The key length and runtime exponents grow with $c$, so this does not refute a bound whose right side also charges an arbitrary polynomial of the actual runtime or expanded description size. Reducing the succinct query bound to $O(n)$ remains open.

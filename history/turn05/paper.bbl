@@ -1,0 +1,263 @@
+\begin{thebibliography}{34}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abbe et~al.(2021{\natexlab{a}})Abbe, Boix-Adser{\`a}, Brennan,
+  Bresler, and Nagaraj]{ABBBN21}
+Emmanuel Abbe, Enric Boix-Adser{\`a}, Matthew Brennan, Guy Bresler, and Dheeraj
+  Nagaraj.
+\newblock The staircase property: how hierarchical structure can guide deep
+  learning.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  2021{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2108.10573}.
+
+\bibitem[Abbe et~al.(2021{\natexlab{b}})Abbe, Kamath, Malach, Sandon, and
+  Srebro]{AKMSS21}
+Emmanuel Abbe, Pritish Kamath, Eran Malach, Colin Sandon, and Nathan Srebro.
+\newblock On the power of differentiable learning versus {PAC} and {SQ}
+  learning.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~34, pages 24340--24351, 2021{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2108.04190}.
+\newblock Full version: arXiv:2108.04190v2.
+
+\bibitem[Abbe et~al.(2022)Abbe, Boix-Adser{\`a}, and Misiakiewicz]{ABM22}
+Emmanuel Abbe, Enric Boix-Adser{\`a}, and Theodor Misiakiewicz.
+\newblock The merged-staircase property: a necessary and nearly sufficient
+  condition for {SGD} learning of sparse functions on two-layer neural
+  networks.
+\newblock arXiv:2202.08658, 2022.
+\newblock URL \url{https://arxiv.org/abs/2202.08658}.
+
+\bibitem[Alon et~al.(2005)Alon, Pach, Pinchasi, Radoi{\v c}i{\'c}, and
+  Sharir]{APP05}
+Noga Alon, J{\'a}nos Pach, Rom Pinchasi, Rado{\v s} Radoi{\v c}i{\'c}, and
+  Micha Sharir.
+\newblock Crossing patterns of semi-algebraic sets.
+\newblock \emph{Journal of Combinatorial Theory, Series A}, 111\penalty0
+  (2):\penalty0 310--326, 2005.
+\newblock URL
+  \url{https://web.math.princeton.edu/~nalon/PDFS/publications.html}.
+
+\bibitem[Alon et~al.(2016)Alon, Moran, and Yehudayoff]{AMY16}
+Noga Alon, Shay Moran, and Amir Yehudayoff.
+\newblock Sign rank versus {VC} dimension.
+\newblock In \emph{Conference on Learning Theory}, volume~49 of
+  \emph{Proceedings of Machine Learning Research}, pages 47--80, 2016.
+\newblock URL \url{https://arxiv.org/abs/1503.07648}.
+\newblock Full version: arXiv:1503.07648.
+
+\bibitem[Balcan and Feldman(2013)]{BF13}
+Maria-Florina Balcan and Vitaly Feldman.
+\newblock Statistical active learning algorithms for noise tolerance and
+  differential privacy, 2013.
+\newblock URL \url{https://arxiv.org/abs/1307.3102}.
+\newblock Extended version, arXiv:1307.3102v4.
+
+\bibitem[Ben-David et~al.(2002)Ben-David, Eiron, and Simon]{BDES02}
+Shai Ben-David, Nadav Eiron, and Hans~Ulrich Simon.
+\newblock Limitations of learning via embeddings in euclidean half spaces.
+\newblock \emph{Journal of Machine Learning Research}, 3:\penalty0 441--461,
+  2002.
+\newblock URL \url{https://www.jmlr.org/papers/v3/bendavid02a.html}.
+
+\bibitem[Bindua et~al.(2026)Bindua, Hatami, Karimi, and Robere]{BHKR26}
+Riju Bindua, Hamed Hatami, Hasti Karimi, and Robert Robere.
+\newblock Lower bounds for approximate sign rank.
+\newblock arXiv:2605.01038v2, 2026.
+\newblock URL \url{https://arxiv.org/abs/2605.01038}.
+
+\bibitem[Blondal et~al.(2026)Blondal, Hatami, Hatami, Lalov, and
+  Tretiak]{BHHLT26}
+Ari Blondal, Hamed Hatami, Pooya Hatami, Chavdar Lalov, and Sivan Tretiak.
+\newblock Sign-rank, index, and list replicability: connections and
+  separations.
+\newblock arXiv:2606.18236v1, 2026.
+\newblock URL \url{https://arxiv.org/abs/2606.18236}.
+
+\bibitem[Chornomaz et~al.(2025)Chornomaz, Moran, and Waknine]{CMW25}
+Bogdan Chornomaz, Shay Moran, and Tom Waknine.
+\newblock On reductions and representations of learning problems in euclidean
+  spaces, 2025.
+\newblock URL \url{https://arxiv.org/abs/2411.10784}.
+\newblock STOC 2025; preprint arXiv:2411.10784.
+
+\bibitem[Diakonikolas et~al.(2022)Diakonikolas, Tzamos, and Kane]{DKT22}
+Ilias Diakonikolas, Christos Tzamos, and Daniel~M. Kane.
+\newblock A strongly polynomial algorithm for approximate {Forster} transforms
+  and its application to halfspace learning.
+\newblock arXiv:2212.03008, 2022.
+\newblock URL \url{https://arxiv.org/abs/2212.03008}.
+
+\bibitem[Dunagan and Vempala(2004)]{DV04}
+John Dunagan and Santosh Vempala.
+\newblock A simple polynomial-time rescaling algorithm for solving linear
+  programs.
+\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
+  pages 315--320, 2004.
+
+\bibitem[Feldman(2008)]{Feldman08}
+Vitaly Feldman.
+\newblock Evolvability from learning algorithms.
+\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
+  pages 619--628, 2008.
+\newblock URL \url{https://vtaly.net/papers.html}.
+
+\bibitem[Feldman(2011)]{Feldman11}
+Vitaly Feldman.
+\newblock Distribution-independent evolvability of linear threshold functions.
+\newblock In \emph{Conference on Learning Theory}, volume~19 of
+  \emph{Proceedings of Machine Learning Research}, pages 253--272, 2011.
+\newblock URL \url{https://proceedings.mlr.press/v19/feldman11b.html}.
+
+\bibitem[Feldman(2017)]{Feldman17}
+Vitaly Feldman.
+\newblock A general characterization of the statistical query complexity.
+\newblock In \emph{Conference on Learning Theory}, volume~65 of
+  \emph{Proceedings of Machine Learning Research}, pages 785--830, 2017.
+\newblock URL \url{https://proceedings.mlr.press/v65/feldman17c.html}.
+
+\bibitem[Feldman et~al.(2017)Feldman, Guzman, and Vempala]{FGV21}
+Vitaly Feldman, Cristobal Guzman, and Santosh Vempala.
+\newblock Statistical query algorithms for mean vector estimation and
+  stochastic convex optimization.
+\newblock arXiv:1512.09170, 2017.
+\newblock URL \url{https://arxiv.org/abs/1512.09170}.
+
+\bibitem[Feldman et~al.(2026)Feldman, Kamath, and Srebro]{FKS26}
+Vitaly Feldman, Pritish Kamath, and Nathan Srebro.
+\newblock Invited open problem: Is the power of deep learning over linear
+  models inherently distribution dependent?
+\newblock In \emph{Proceedings of the Thirty-Ninth Conference on Learning
+  Theory}, volume 336 of \emph{Proceedings of Machine Learning Research}, pages
+  7117--7122, 2026.
+\newblock URL \url{https://proceedings.mlr.press/v336/feldman26a.html}.
+
+\bibitem[Forster(2002)]{Forster02}
+J{\"u}rgen Forster.
+\newblock A linear lower bound on the unbounded error probabilistic
+  communication complexity.
+\newblock \emph{Journal of Computer and System Sciences}, 65\penalty0
+  (4):\penalty0 612--625, 2002.
+\newblock \doi{10.1016/S0022-0000(02)00019-3}.
+\newblock URL \url{https://doi.org/10.1016/S0022-0000(02)00019-3}.
+
+\bibitem[Frick et~al.(2026)Frick, Hosseini, and Vasileuski]{FHV26}
+Florian Frick, Kaave Hosseini, and Aliaksei Vasileuski.
+\newblock A {$\mathbb Z_2$}-topological framework for sign-rank lower bounds.
+\newblock arXiv:2604.01510v2, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.01510}.
+
+\bibitem[Goldreich et~al.(1986)Goldreich, Goldwasser, and Micali]{GGM86}
+Oded Goldreich, Shafi Goldwasser, and Silvio Micali.
+\newblock How to construct random functions.
+\newblock \emph{Journal of the ACM}, 33\penalty0 (4):\penalty0 792--807, 1986.
+\newblock \doi{10.1145/6490.6503}.
+\newblock URL \url{https://doi.org/10.1145/6490.6503}.
+
+\bibitem[Gonen et~al.(2013)Gonen, Sabato, and Shalev-Shwartz]{GSS13}
+Alon Gonen, Sivan Sabato, and Shai Shalev-Shwartz.
+\newblock Efficient active learning of halfspaces: an aggressive approach.
+\newblock \emph{Journal of Machine Learning Research}, 14:\penalty0 2583--2615,
+  2013.
+\newblock URL \url{https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf}.
+
+\bibitem[G{\"o}{\"o}s et~al.(2025)G{\"o}{\"o}s, Harms, Imbach, and
+  Sokolov]{GHIS25}
+Mika G{\"o}{\"o}s, Nathaniel Harms, Valentin Imbach, and Dmitry Sokolov.
+\newblock Sign-rank of {$k$}-hamming distance is constant.
+\newblock arXiv:2506.12022v2, 2025.
+\newblock URL \url{https://arxiv.org/abs/2506.12022}.
+
+\bibitem[H{\aa}stad et~al.(1999)H{\aa}stad, Impagliazzo, Levin, and
+  Luby]{HILL99}
+Johan H{\aa}stad, Russell Impagliazzo, Leonid~A. Levin, and Michael Luby.
+\newblock A pseudorandom generator from any one-way function.
+\newblock \emph{SIAM Journal on Computing}, 28\penalty0 (4):\penalty0
+  1364--1396, 1999.
+\newblock \doi{10.1137/S0097539793244708}.
+\newblock URL \url{https://doi.org/10.1137/S0097539793244708}.
+
+\bibitem[Hatami et~al.(2022)Hatami, Hatami, Pires, Tao, and Zhao]{HHPTZ22}
+Hamed Hatami, Pooya Hatami, William Pires, Ran Tao, and Rosie Zhao.
+\newblock Lower bound methods for sign-rank and their limitations.
+\newblock Electronic Colloquium on Computational Complexity, TR22-079, 2022.
+\newblock URL \url{https://eccc.weizmann.ac.il/report/2022/079/}.
+
+\bibitem[Hatami et~al.(2023)Hatami, Hosseini, and Meng]{HHM23}
+Hamed Hatami, Kaave Hosseini, and Xiang Meng.
+\newblock A {Borsuk--Ulam} lower bound for sign-rank and its applications.
+\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
+  pages 463--471, 2023.
+\newblock URL \url{https://eccc.weizmann.ac.il/report/2022/130/}.
+\newblock Preprint: ECCC TR22-130.
+
+\bibitem[Kamath et~al.(2020)Kamath, Montasser, and Srebro]{KMS20}
+Pritish Kamath, Omar Montasser, and Nathan Srebro.
+\newblock Approximate is good enough: probabilistic variants of dimensional and
+  margin complexity.
+\newblock In \emph{Conference on Learning Theory}, volume 125 of
+  \emph{Proceedings of Machine Learning Research}, pages 2236--2262, 2020.
+\newblock URL \url{https://proceedings.mlr.press/v125/kamath20b.html}.
+
+\bibitem[Karchmer and Malach(2025)]{KM25}
+Ari Karchmer and Eran Malach.
+\newblock The power of random features and the limits of distribution-free
+  gradient descent.
+\newblock In \emph{International Conference on Machine Learning}, volume 267 of
+  \emph{Proceedings of Machine Learning Research}, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v267/karchmer25a.html}.
+
+\bibitem[Kearns(1998)]{Kearns98}
+Michael Kearns.
+\newblock Efficient noise-tolerant learning from statistical queries.
+\newblock \emph{Journal of the ACM}, 45\penalty0 (6):\penalty0 983--1006, 1998.
+\newblock \doi{10.1145/293347.293351}.
+\newblock URL \url{https://doi.org/10.1145/293347.293351}.
+
+\bibitem[Mahboubi and Cohen(2012)]{MC12}
+Assia Mahboubi and Cyril Cohen.
+\newblock Formal proofs in real algebraic geometry: from ordered fields to
+  quantifier elimination.
+\newblock arXiv:1201.3731, 2012.
+\newblock URL \url{https://arxiv.org/abs/1201.3731}.
+
+\bibitem[Malach et~al.(2021)Malach, Kamath, Abbe, and Srebro]{MKAS21}
+Eran Malach, Pritish Kamath, Emmanuel Abbe, and Nathan Srebro.
+\newblock Quantifying the benefit of using differentiable learning over tangent
+  kernels.
+\newblock In \emph{International Conference on Machine Learning}, volume 139 of
+  \emph{Proceedings of Machine Learning Research}, pages 7379--7389, 2021.
+\newblock URL \url{https://proceedings.mlr.press/v139/malach21a.html}.
+
+\bibitem[Renegar(1992)]{Renegar92}
+James Renegar.
+\newblock On the computational complexity and geometry of the first-order
+  theory of the reals. {I--III}.
+\newblock \emph{Journal of Symbolic Computation}, 13\penalty0 (3):\penalty0
+  255--352, 1992.
+
+\bibitem[Vorobjov(2021)]{Vorobjov21}
+Nicolai Vorobjov.
+\newblock Lecture notes on complexity of quantifier elimination over the reals.
+\newblock arXiv:2112.00456, 2021.
+\newblock URL \url{https://arxiv.org/abs/2112.00456}.
+
+\bibitem[Warren(1968)]{Warren68}
+Hugh~E. Warren.
+\newblock Lower bounds for approximation by nonlinear manifolds.
+\newblock \emph{Transactions of the American Mathematical Society},
+  133:\penalty0 167--178, 1968.
+
+\bibitem[Zhang et~al.(2026)Zhang, Tang, Yin, Chen, Qian, and Zou]{VALG26}
+Dechen Zhang, Xuan Tang, Xinxiang Yin, Xingwu Chen, Jian Qian, and Difan Zou.
+\newblock {VALG}: An agentic system for {ML} theory research and demonstrations
+  on {COLT} 2026 open problems.
+\newblock arXiv:2608.13060v1, 2026.
+\newblock URL \url{https://arxiv.org/abs/2608.13060}.
+
+\end{thebibliography}

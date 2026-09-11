@@ -1,0 +1,16 @@
+{
+  "seed": 2026091103,
+  "rho": 1048576,
+  "epsilon": "1/10",
+  "inner_epsilon": "1/40",
+  "tau": "1/23226329280",
+  "P": 24194093,
+  "budget": 151681296,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "elapsed_seconds": 300.1788351979999,
+  "runs": 448,
+  "restarts": 4,
+  "coordinate_steps": 3,
+  "notes": "Finite point-centered and Gaussian cap pool; exact pointwise certificate. Numerical radial isotropy, not an exact real transform. Public-transcript greedy endpoint adversary; no private row side/color is read during marginal answers. Not a worst-policy certificate."
+}

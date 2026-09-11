@@ -1,0 +1,130 @@
+{
+  "1": {
+    "label": "thm:main",
+    "new": "3.1"
+  },
+  "2": {
+    "label": "lem:params",
+    "new": "3.2"
+  },
+  "3": {
+    "label": "lem:mixture",
+    "new": "3.3"
+  },
+  "4": {
+    "label": "thm:construction",
+    "new": "4.1"
+  },
+  "5": {
+    "label": "thm:prob",
+    "new": "4.2"
+  },
+  "6": {
+    "label": "thm:rsd",
+    "new": "I.1"
+  },
+  "7": {
+    "label": "thm:caps",
+    "new": "5.1"
+  },
+  "8": {
+    "label": "thm:proper",
+    "new": "5.2"
+  },
+  "9": {
+    "label": "lem:subgrid",
+    "new": "6.1"
+  },
+  "10": {
+    "label": "thm:prf",
+    "new": "6.2"
+  },
+  "11": {
+    "label": "lem:median",
+    "new": "5.3"
+  },
+  "12": {
+    "label": "thm:fast",
+    "new": "5.4"
+  },
+  "13": {
+    "label": "lem:regularstars",
+    "new": "6.4"
+  },
+  "14": {
+    "label": "cor:fastprf",
+    "new": "6.5"
+  },
+  "15": {
+    "label": "thm:communication",
+    "new": "7.1"
+  },
+  "16": {
+    "label": "thm:energy",
+    "new": "7.2"
+  },
+  "17": {
+    "label": "thm:barrier",
+    "new": "7.3"
+  },
+  "18": {
+    "label": "thm:forster",
+    "new": "7.4"
+  },
+  "19": {
+    "label": "thm:plane",
+    "new": "7.5"
+  },
+  "20": {
+    "label": "thm:tree",
+    "new": "7.6"
+  },
+  "21": {
+    "label": "prop:affine",
+    "new": "7.7"
+  },
+  "22": {
+    "label": "thm:pgglobal",
+    "new": "7.8"
+  },
+  "23": {
+    "label": "thm:halfspaces",
+    "new": "7.9"
+  },
+  "24": {
+    "label": "thm:adapt",
+    "new": "7.10"
+  },
+  "25": {
+    "label": "cor:approxrect",
+    "new": "7.11"
+  },
+  "26": {
+    "label": "thm:network",
+    "new": "8.2"
+  },
+  "27": {
+    "label": "thm:description",
+    "new": "10.1"
+  },
+  "28": {
+    "label": "thm:classicalbarrier",
+    "new": "10.2"
+  },
+  "29": {
+    "label": "prop:unseen",
+    "new": "10.3"
+  },
+  "30": {
+    "label": "prop:hiddenkey",
+    "new": "8.3"
+  },
+  "31": {
+    "label": "prop:cap-bound",
+    "new": "L.1"
+  },
+  "32": {
+    "label": "prop:pg-rect",
+    "new": "L.2"
+  }
+}

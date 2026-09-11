@@ -1,0 +1,943 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf/tex/latex/lm/lmodern.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file main.aux.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd)
+(/usr/share/texmf/tex/latex/lm/omllmm.fd)
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd)
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg) (./intro.tex
+
+Package natbib Warning: Citation `FKS26' on page 1 undefined on input line 2.
+
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathsy.enc}]
+
+Package natbib Warning: Citation `HHPTZ22' on page 2 undefined on input line 18
+.
+
+
+Package natbib Warning: Citation `Warren68' on page 2 undefined on input line 1
+8.
+
+
+Package natbib Warning: Citation `AMY16' on page 2 undefined on input line 18.
+
+
+Package natbib Warning: Citation `APP05' on page 2 undefined on input line 18.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 2 undefined on input line 18
+.
+
+
+LaTeX Warning: Reference `sec:rsd' on page 2 undefined on input line 18.
+
+
+LaTeX Warning: Reference `sec:related' on page 2 undefined on input line 18.
+
+)
+[2{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+LaTeX Warning: Reference `app:referee' on page 3 undefined on input line 59.
+
+
+LaTeX Warning: Reference `eq:guarantee' on page 3 undefined on input line 78.
+
+
+[3{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}]
+
+Package natbib Warning: Citation `HHPTZ22' on page 4 undefined on input line 10
+2.
+
+
+LaTeX Warning: Reference `eq:params1' on page 4 undefined on input line 128.
+
+
+LaTeX Warning: Reference `eq:params2' on page 4 undefined on input line 128.
+
+
+LaTeX Warning: Reference `lem:mixture' on page 4 undefined on input line 128.
+
+
+LaTeX Warning: Reference `sec:caps' on page 4 undefined on input line 130.
+
+
+LaTeX Warning: Reference `thm:main' on page 4 undefined on input line 132.
+
+
+[4]
+
+LaTeX Warning: Reference `eq:coverage' on page 5 undefined on input line 165.
+
+
+LaTeX Warning: Reference `eq:elim-budget' on page 5 undefined on input line 173
+.
+
+
+[5]
+
+LaTeX Warning: Reference `eq:drift' on page 6 undefined on input line 183.
+
+
+LaTeX Warning: Reference `eq:total-budget' on page 6 undefined on input line 18
+7.
+
+
+LaTeX Warning: Reference `thm:main' on page 6 undefined on input line 196.
+
+(./figure.tex)
+[6]
+
+LaTeX Warning: Reference `thm:main' on page 7 undefined on input line 226.
+
+
+LaTeX Warning: Reference `app:oldgeometry' on page 7 undefined on input line 22
+6.
+
+
+LaTeX Warning: Reference `eq:I' on page 7 undefined on input line 236.
+
+
+Package natbib Warning: Citation `APP05' on page 7 undefined on input line 238.
+
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 7 undefined on input line 23
+8.
+
+
+[7]
+
+Package natbib Warning: Citation `Warren68' on page 8 undefined on input line 2
+49.
+
+
+Package natbib Warning: Citation `AMY16' on page 8 undefined on input line 249.
+
+
+
+LaTeX Warning: Reference `thm:main' on page 8 undefined on input line 254.
+
+
+LaTeX Warning: Reference `eq:structural' on page 8 undefined on input line 257.
+
+
+
+[8]
+
+LaTeX Warning: Reference `eq:warren' on page 9 undefined on input line 300.
+
+
+LaTeX Warning: Reference `eq:approx-prob' on page 9 undefined on input line 304
+.
+
+
+LaTeX Warning: Reference `eq:exact-prob' on page 9 undefined on input line 306.
+
+
+
+LaTeX Warning: Reference `eq:exact-prob' on page 9 undefined on input line 306.
+
+
+
+LaTeX Warning: Reference `thm:construction' on page 9 undefined on input line 3
+06.
+
+
+LaTeX Warning: Reference `eq:approx-prob' on page 9 undefined on input line 306
+.
+
+
+LaTeX Warning: Reference `thm:prob' on page 9 undefined on input line 309.
+
+
+LaTeX Warning: Reference `thm:main' on page 9 undefined on input line 312.
+
+
+[9]
+
+LaTeX Warning: Reference `lem:mixture' on page 10 undefined on input line 341.
+
+
+[10]
+
+Package natbib Warning: Citation `Feldman17' on page 11 undefined on input line
+ 357.
+
+
+LaTeX Warning: Reference `eq:feldman' on page 11 undefined on input line 366.
+
+
+Package natbib Warning: Citation `Feldman17' on page 11 undefined on input line
+ 374.
+
+
+LaTeX Warning: Reference `thm:main' on page 11 undefined on input line 374.
+
+(./caps.tex
+
+LaTeX Warning: Reference `lem:mixture' on page 11 undefined on input line 2.
+
+
+[11]
+
+LaTeX Warning: Reference `thm:main' on page 12 undefined on input line 11.
+
+
+LaTeX Warning: Reference `thm:forster' on page 12 undefined on input line 27.
+
+
+LaTeX Warning: Reference `app:convex' on page 12 undefined on input line 27.
+
+
+[12]
+
+LaTeX Warning: Reference `app:convex' on page 13 undefined on input line 52.
+
+
+LaTeX Warning: Reference `thm:main' on page 13 undefined on input line 66.
+
+
+LaTeX Warning: Reference `thm:main' on page 13 undefined on input line 68.
+
+) (./proper.tex
+[13]
+
+LaTeX Warning: Reference `thm:main' on page 14 undefined on input line 29.
+
+
+[14]
+
+LaTeX Warning: Reference `eq:propercomplexity' on page 15 undefined on input li
+ne 68.
+
+) (./prf.tex
+
+Package natbib Warning: Citation `HILL99' on page 15 undefined on input line 5.
+
+
+
+Package natbib Warning: Citation `GGM86' on page 15 undefined on input line 5.
+
+
+[15]
+
+LaTeX Warning: Reference `eq:warren' on page 16 undefined on input line 26.
+
+
+Package natbib Warning: Citation `Renegar92' on page 16 undefined on input line
+ 36.
+
+
+Package natbib Warning: Citation `Vorobjov21' on page 16 undefined on input lin
+e 36.
+
+
+[16]
+
+LaTeX Warning: Reference `sec:fast' on page 17 undefined on input line 48.
+
+
+LaTeX Warning: Reference `lem:subgrid' on page 17 undefined on input line 57.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 17 undefined on input line 6
+6.
+
+
+LaTeX Warning: Reference `sec:secret' on page 17 undefined on input line 69.
+
+
+LaTeX Warning: Reference `lem:subgrid' on page 17 undefined on input line 69.
+
+) (./fast.tex
+[17]
+
+LaTeX Warning: Reference `eq:balancedmedian' on page 18 undefined on input line
+ 23.
+
+
+[18]
+
+LaTeX Warning: Reference `lem:median' on page 19 undefined on input line 49.
+
+
+LaTeX Warning: Reference `eq:balancedmedian' on page 19 undefined on input line
+ 51.
+
+
+LaTeX Warning: Reference `eq:balancedmedian' on page 19 undefined on input line
+ 58.
+
+
+LaTeX Warning: Reference `eq:balancedmedian' on page 19 undefined on input line
+ 60.
+
+
+[19]
+
+LaTeX Warning: Reference `lem:median' on page 20 undefined on input line 97.
+
+
+LaTeX Warning: Reference `thm:prf' on page 20 undefined on input line 101.
+
+
+[20]
+
+LaTeX Warning: Reference `thm:prf' on page 21 undefined on input line 115.
+
+
+LaTeX Warning: Reference `thm:prf' on page 21 undefined on input line 123.
+
+
+LaTeX Warning: Reference `lem:regularstars' on page 21 undefined on input line 
+123.
+
+
+LaTeX Warning: Reference `thm:fast' on page 21 undefined on input line 123.
+
+) (./communication.tex
+[21]
+
+Package natbib Warning: Citation `HHPTZ22' on page 22 undefined on input line 2
+2.
+
+
+LaTeX Warning: Reference `thm:main' on page 22 undefined on input line 22.
+
+
+LaTeX Warning: Reference `thm:halfspaces' on page 22 undefined on input line 25
+.
+
+) (./retained.tex
+
+LaTeX Warning: Reference `eq:energy' on page 22 undefined on input line 23.
+
+
+LaTeX Warning: Reference `eq:count' on page 22 undefined on input line 23.
+
+
+[22]
+
+LaTeX Warning: Reference `eq:guarantee' on page 23 undefined on input line 33.
+
+
+LaTeX Warning: Reference `thm:energy' on page 23 undefined on input line 57.
+
+
+LaTeX Warning: Reference `thm:energy' on page 23 undefined on input line 62.
+
+
+LaTeX Warning: Reference `eq:joint' on page 23 undefined on input line 69.
+
+
+LaTeX Warning: Reference `eq:joint' on page 23 undefined on input line 71.
+
+
+LaTeX Warning: Reference `eq:Rbound' on page 23 undefined on input line 71.
+
+
+LaTeX Warning: Reference `eq:joint' on page 23 undefined on input line 79.
+
+
+Package natbib Warning: Citation `Forster02' on page 23 undefined on input line
+ 86.
+
+
+[23]
+
+LaTeX Warning: Reference `eq:isotropy' on page 24 undefined on input line 128.
+
+
+[24]
+
+LaTeX Warning: Reference `eq:forster' on page 25 undefined on input line 141.
+
+
+LaTeX Warning: Reference `eq:weighted' on page 25 undefined on input line 146.
+
+
+LaTeX Warning: Reference `thm:barrier' on page 25 undefined on input line 149.
+
+
+LaTeX Warning: Reference `thm:forster' on page 25 undefined on input line 149.
+
+
+LaTeX Warning: Reference `eq:guarantee' on page 25 undefined on input line 166.
+
+
+
+[25]
+
+LaTeX Warning: Reference `thm:forster' on page 26 undefined on input line 183.
+
+
+LaTeX Warning: Reference `eq:planedc' on page 26 undefined on input line 183.
+
+
+LaTeX Warning: Reference `eq:planeplain' on page 26 undefined on input line 192
+.
+
+
+LaTeX Warning: Reference `eq:planeplain' on page 26 undefined on input line 202
+.
+
+
+[26]
+
+LaTeX Warning: Reference `thm:barrier' on page 27 undefined on input line 224.
+
+
+LaTeX Warning: Reference `eq:guarantee' on page 27 undefined on input line 236.
+
+
+
+[27]
+
+LaTeX Warning: Reference `eq:guarantee' on page 28 undefined on input line 247.
+
+
+
+LaTeX Warning: Reference `eq:minimaxpremise' on page 28 undefined on input line
+ 271.
+
+
+LaTeX Warning: Reference `eq:tree' on page 28 undefined on input line 271.
+
+
+LaTeX Warning: Reference `eq:approx' on page 28 undefined on input line 278.
+
+
+[28]) (./affine.tex
+
+LaTeX Warning: Reference `thm:barrier' on page 29 undefined on input line 2.
+
+
+LaTeX Warning: Reference `thm:barrier' on page 29 undefined on input line 28.
+
+) (./landscape.tex
+[29]
+
+LaTeX Warning: Reference `thm:barrier' on page 30 undefined on input line 27.
+
+
+LaTeX Warning: Reference `thm:plane' on page 30 undefined on input line 27.
+
+
+LaTeX Warning: Reference `thm:main' on page 30 undefined on input line 27.
+
+
+LaTeX Warning: Reference `thm:main' on page 30 undefined on input line 27.
+
+
+LaTeX Warning: Reference `app:concentration' on page 30 undefined on input line
+ 45.
+
+
+[30]
+
+LaTeX Warning: Reference `thm:barrier' on page 31 undefined on input line 79.
+
+(./landscape_figure.tex
+
+LaTeX Warning: Reference `thm:barrier' on page 31 undefined on input line 11.
+
+
+LaTeX Warning: Reference `thm:main' on page 31 undefined on input line 14.
+
+)
+
+LaTeX Warning: Reference `thm:halfspaces' on page 31 undefined on input line 89
+.
+
+
+LaTeX Warning: Reference `thm:barrier' on page 31 undefined on input line 89.
+
+
+LaTeX Warning: Reference `thm:main' on page 31 undefined on input line 89.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-euf.cfg)
+[31]
+
+LaTeX Warning: Reference `thm:tree' on page 32 undefined on input line 104.
+
+
+LaTeX Warning: Reference `thm:caps' on page 32 undefined on input line 104.
+
+) (./novelty.tex
+
+Package natbib Warning: Citation `Feldman17' on page 32 undefined on input line
+ 3.
+
+
+LaTeX Warning: Reference `sec:rsd' on page 32 undefined on input line 3.
+
+
+Package natbib Warning: Citation `FKS26' on page 32 undefined on input line 3.
+
+
+LaTeX Warning: Reference `thm:prob' on page 32 undefined on input line 3.
+
+
+[32]
+
+Package natbib Warning: Citation `Forster02' on page 33 undefined on input line
+ 6.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 33 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `AMY16' on page 33 undefined on input line 6.
+
+
+Package natbib Warning: Citation `Warren68' on page 33 undefined on input line 
+6.
+
+
+Package natbib Warning: Citation `APP05' on page 33 undefined on input line 6.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 33 undefined on input line 6
+.
+
+
+Package natbib Warning: Citation `DKT22' on page 33 undefined on input line 6.
+
+
+LaTeX Warning: Reference `app:convex' on page 33 undefined on input line 6.
+
+
+Package natbib Warning: Citation `Feldman17' on page 33 undefined on input line
+ 9.
+
+
+LaTeX Warning: Reference `prop:affine' on page 33 undefined on input line 9.
+
+
+Package natbib Warning: Citation `BHKR26' on page 33 undefined on input line 12
+.
+
+
+LaTeX Warning: Reference `cor:approxrect' on page 33 undefined on input line 12
+.
+
+
+Package natbib Warning: Citation `BHHLT26' on page 33 undefined on input line 1
+5.
+
+
+Package natbib Warning: Citation `HHM23' on page 33 undefined on input line 15.
+
+
+
+Package natbib Warning: Citation `FHV26' on page 33 undefined on input line 15.
+
+
+
+Package natbib Warning: Citation `GHIS25' on page 33 undefined on input line 15
+.
+
+
+[33]
+
+Package natbib Warning: Citation `VALG26' on page 34 undefined on input line 18
+.
+
+
+LaTeX Warning: Reference `thm:communication' on page 34 undefined on input line
+ 21.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 34 undefined on input line 2
+1.
+
+
+Package natbib Warning: Citation `AKMSS21' on page 34 undefined on input line 2
+1.
+
+
+LaTeX Warning: Reference `sec:secret' on page 34 undefined on input line 21.
+
+
+Package natbib Warning: Citation `BHKR26' on page 34 undefined on input line 24
+.
+
+
+LaTeX Warning: Reference `thm:main' on page 34 undefined on input line 37.
+
+) (./objections.tex
+
+Package natbib Warning: Citation `Feldman17' on page 34 undefined on input line
+ 3.
+
+
+LaTeX Warning: Reference `prop:affine' on page 34 undefined on input line 3.
+
+
+[34]
+
+LaTeX Warning: Reference `sec:secret' on page 35 undefined on input line 6.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 35 undefined on input line 9
+.
+
+
+LaTeX Warning: Reference `thm:adapt' on page 35 undefined on input line 15.
+
+) (./resources.tex
+
+Package natbib Warning: Citation `AKMSS21' on page 35 undefined on input line 2
+.
+
+
+[35]
+
+LaTeX Warning: Reference `thm:construction' on page 36 undefined on input line 
+24.
+
+
+LaTeX Warning: Reference `thm:construction' on page 36 undefined on input line 
+38.
+
+
+Package natbib Warning: Citation `MC12' on page 36 undefined on input line 47.
+
+
+[36]
+
+LaTeX Warning: Reference `thm:main' on page 37 undefined on input line 49.
+
+
+LaTeX Warning: Reference `lem:mixture' on page 37 undefined on input line 68.
+
+
+[37]
+
+Package natbib Warning: Citation `HHPTZ22' on page 38 undefined on input line 8
+8.
+
+
+LaTeX Warning: Reference `thm:construction' on page 38 undefined on input line 
+88.
+
+
+Package natbib Warning: Citation `HHPTZ22' on page 38 undefined on input line 8
+8.
+
+
+Package natbib Warning: Citation `FHV26' on page 38 undefined on input line 90.
+
+
+
+Package natbib Warning: Citation `GHIS25' on page 38 undefined on input line 90
+.
+
+(./secrets.tex
+[38]
+
+LaTeX Warning: Reference `thm:prf' on page 39 undefined on input line 20.
+
+
+LaTeX Warning: Reference `thm:classicalbarrier' on page 39 undefined on input l
+ine 32.
+
+)) (./open.tex
+
+Package natbib Warning: Citation `HHPTZ22' on page 39 undefined on input line 5
+.
+
+
+[39]) (./referee.tex
+
+LaTeX Warning: Reference `thm:main' on page 40 undefined on input line 2.
+
+[40]
+
+LaTeX Warning: Reference `thm:prob' on page 41 undefined on input line 37.
+
+) (./convex.tex
+[41]
+
+LaTeX Warning: Reference `thm:caps' on page 42 undefined on input line 2.
+
+
+Package natbib Warning: Citation `DKT22' on page 42 undefined on input line 2.
+
+
+[42]
+
+LaTeX Warning: Reference `eq:barthe' on page 43 undefined on input line 55.
+
+
+LaTeX Warning: Reference `eq:barthe' on page 43 undefined on input line 67.
+
+
+[43]) (./concentration.tex) (./verification.tex
+[44] (/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
+
+LaTeX Warning: Reference `thm:prf' on page 45 undefined on input line 7.
+
+
+Overfull \hbox (51.07603pt too wide) in paragraph at lines 7--8
+\T1/lmr/m/n/10.95 (-20) with the two lines con-cate-nated. It is the SHA-256 di
+-gest of the ASCII string \T1/lmtt/m/n/10.95 sq-dc-turn4-main-key-20260910\T1/l
+mr/m/n/10.95 (-20) .
+
+LaTeX Warning: Reference `thm:fast' on page 45 undefined on input line 15.
+
+
+[45]
+
+LaTeX Warning: Reference `lem:subgrid' on page 46 undefined on input line 59.
+
+
+[46]) (./old_lean_section.tex) (./geometry.tex
+
+LaTeX Warning: Reference `sec:caps' on page 47 undefined on input line 3.
+
+
+[47]
+
+LaTeX Warning: Reference `thm:forster' on page 48 undefined on input line 6.
+
+
+LaTeX Warning: Reference `eq:structural' on page 48 undefined on input line 10.
+
+
+
+LaTeX Warning: Reference `thm:main' on page 48 undefined on input line 18.
+
+
+LaTeX Warning: Reference `thm:prob' on page 48 undefined on input line 18.
+
+
+LaTeX Warning: Reference `thm:plane' on page 48 undefined on input line 28.
+
+)
+[48]
+[49]
+
+Package natbib Warning: There were undefined citations.
+
+
+[50] (./main.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+mi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (50 pages, 700456 bytes).
+Transcript written on main.log.

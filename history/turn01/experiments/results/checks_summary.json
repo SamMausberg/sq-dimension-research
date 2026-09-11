@@ -1,0 +1,65 @@
+{
+  "seed": 20260910,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "plane_orders": [
+    2,
+    3,
+    5,
+    7,
+    11
+  ],
+  "plain_gram_checks": 600,
+  "max_sampled_plain_gram_ratio": 6.760000000000003,
+  "energy_count_checks": 500,
+  "adaptive_oracle_checks": 200,
+  "grid_tree_checks": 24,
+  "exhaustive_learner_checks": 100,
+  "walsh4_exact_sign_rank": 3,
+  "walsh4_embedding": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      -1,
+      -1
+    ]
+  ],
+  "walsh4_weights": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      -2,
+      4
+    ],
+    [
+      1,
+      4,
+      -2
+    ],
+    [
+      1,
+      -2,
+      -2
+    ]
+  ],
+  "all_assertions_passed": true,
+  "limits": "Sampled spectral tests are not universal verification. Walsh rank-2 exclusion is exhaustive; its rank-3 certificate is integral. No SDP was run."
+}

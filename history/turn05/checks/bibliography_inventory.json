@@ -1,0 +1,175 @@
+{
+  "references": [
+    {
+      "key": "FKS26",
+      "url": "https://proceedings.mlr.press/v336/feldman26a.html",
+      "doi": null
+    },
+    {
+      "key": "HHPTZ22",
+      "url": "https://eccc.weizmann.ac.il/report/2022/079/",
+      "doi": null
+    },
+    {
+      "key": "APP05",
+      "url": "https://web.math.princeton.edu/~nalon/PDFS/publications.html",
+      "doi": null
+    },
+    {
+      "key": "Warren68",
+      "url": null,
+      "doi": null
+    },
+    {
+      "key": "AMY16",
+      "url": "https://arxiv.org/abs/1503.07648",
+      "doi": null
+    },
+    {
+      "key": "Feldman17",
+      "url": "https://proceedings.mlr.press/v65/feldman17c.html",
+      "doi": null
+    },
+    {
+      "key": "Forster02",
+      "url": "https://doi.org/10.1016/S0022-0000(02)00019-3",
+      "doi": "10.1016/S0022-0000(02)00019-3"
+    },
+    {
+      "key": "AKMSS21",
+      "url": "https://arxiv.org/abs/2108.04190",
+      "doi": null
+    },
+    {
+      "key": "HHM23",
+      "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+      "doi": null
+    },
+    {
+      "key": "GHIS25",
+      "url": "https://arxiv.org/abs/2506.12022",
+      "doi": null
+    },
+    {
+      "key": "FHV26",
+      "url": "https://arxiv.org/abs/2604.01510",
+      "doi": null
+    },
+    {
+      "key": "DKT22",
+      "url": "https://arxiv.org/abs/2212.03008",
+      "doi": null
+    },
+    {
+      "key": "MC12",
+      "url": "https://arxiv.org/abs/1201.3731",
+      "doi": null
+    },
+    {
+      "key": "GGM86",
+      "url": "https://doi.org/10.1145/6490.6503",
+      "doi": "10.1145/6490.6503"
+    },
+    {
+      "key": "HILL99",
+      "url": "https://doi.org/10.1137/S0097539793244708",
+      "doi": "10.1137/S0097539793244708"
+    },
+    {
+      "key": "Renegar92",
+      "url": null,
+      "doi": null
+    },
+    {
+      "key": "Vorobjov21",
+      "url": "https://arxiv.org/abs/2112.00456",
+      "doi": null
+    },
+    {
+      "key": "BHKR26",
+      "url": "https://arxiv.org/abs/2605.01038",
+      "doi": null
+    },
+    {
+      "key": "BHHLT26",
+      "url": "https://arxiv.org/abs/2606.18236",
+      "doi": null
+    },
+    {
+      "key": "VALG26",
+      "url": "https://arxiv.org/abs/2608.13060",
+      "doi": null
+    },
+    {
+      "key": "BDES02",
+      "url": "https://www.jmlr.org/papers/v3/bendavid02a.html",
+      "doi": null
+    },
+    {
+      "key": "KMS20",
+      "url": "https://proceedings.mlr.press/v125/kamath20b.html",
+      "doi": null
+    },
+    {
+      "key": "CMW25",
+      "url": "https://arxiv.org/abs/2411.10784",
+      "doi": null
+    },
+    {
+      "key": "Kearns98",
+      "url": "https://doi.org/10.1145/293347.293351",
+      "doi": "10.1145/293347.293351"
+    },
+    {
+      "key": "Feldman08",
+      "url": "https://vtaly.net/papers.html",
+      "doi": null
+    },
+    {
+      "key": "Feldman11",
+      "url": "https://proceedings.mlr.press/v19/feldman11b.html",
+      "doi": null
+    },
+    {
+      "key": "DV04",
+      "url": null,
+      "doi": null
+    },
+    {
+      "key": "BF13",
+      "url": "https://arxiv.org/abs/1307.3102",
+      "doi": null
+    },
+    {
+      "key": "GSS13",
+      "url": "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf",
+      "doi": null
+    },
+    {
+      "key": "FGV21",
+      "url": "https://arxiv.org/abs/1512.09170",
+      "doi": null
+    },
+    {
+      "key": "KM25",
+      "url": "https://proceedings.mlr.press/v267/karchmer25a.html",
+      "doi": null
+    },
+    {
+      "key": "MKAS21",
+      "url": "https://proceedings.mlr.press/v139/malach21a.html",
+      "doi": null
+    },
+    {
+      "key": "ABBBN21",
+      "url": "https://arxiv.org/abs/2108.10573",
+      "doi": null
+    },
+    {
+      "key": "ABM22",
+      "url": "https://arxiv.org/abs/2202.08658",
+      "doi": null
+    }
+  ],
+  "note": "Source retrieval status and any unresolved original record are reported in VERIFICATION.md; a syntactically present URL is not a retrieval success."
+}

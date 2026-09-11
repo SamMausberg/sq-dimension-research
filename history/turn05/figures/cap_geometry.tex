@@ -1,0 +1,26 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=1.25,font=\small]
+\begin{scope}
+ \fill[oiBlue!22] (60:1.7) arc (60:120:1.7)--cycle;
+ \draw[black!60] (0,0) circle (1.7);
+ \draw[->,black!50] (-2,0)--(2,0);
+ \draw[->,very thick] (0,0)--(0,2.1) node[above] {$u$};
+ \draw[dashed,oiBlue] (-.85,1.472)--(.85,1.472);
+ \node[anchor=west,oiBlue] at (.98,1.50) {$t=\beta$};
+ \draw[dashed,oiOrange] (-1.47,.85)--(1.47,.85);
+ \node[anchor=west,oiOrange] at (1.52,.84) {$s=\alpha$};
+ \draw[->,very thick,oiBlue] (0,0)--(76:1.7) node[above right] {$z$};
+ \draw[->,very thick,oiOrange] (0,0)--(38:1.7) node[right] {$v$};
+ \node[oiBlue] at (-1.18,1.85) {$C_u$};
+\end{scope}
+\node[align=left,anchor=west,text width=6.3cm] at (3.05,.9)
+ {$t=\langle u,z\rangle\ge\beta=\sqrt{1-\alpha^2}$\\[5pt]
+  $s=\langle u,v\rangle>\alpha$\\[8pt]
+  $\langle z,v\rangle\ge ts-\sqrt{1-t^2}\sqrt{1-s^2}>0$\\[5pt]
+  because $s^2+t^2>1$.};
+\node[align=left,anchor=west,text width=6.3cm] at (3.05,-1.05)
+ {The point cap and the row threshold differ. A negative row side is handled by a singleton-side split.};
+\end{tikzpicture}
+\caption{Cap geometry in a two-dimensional section. The drawing uses $\alpha=1/2$ and $\beta=\sqrt3/2$. Blue denotes point vectors in the cap; the orange row vector satisfies the weaker row-side threshold. The strict inequality proves the common template sign used in \cref{thm:caps}.}\label{fig:cap}
+\end{figure}

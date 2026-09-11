@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-10",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "mathematical_scope": "Partial results and a ruled-out explicit candidate. No unrestricted OQ2/OQ1 resolution.",
+  "lean_status": "UNCOMPILED: missing executable; attempted download failed DNS. Full main theorem not formalized.",
+  "lean_build_exit": 127,
+  "lean_target": "leanprover/lean4:v4.34.0-rc2",
+  "mathlib_commit_locked": false,
+  "cpu_checks_passed": true,
+  "sgd_reporting_runs": 135,
+  "pdf_pages": 13,
+  "pdf_compiled": true,
+  "latex_final_warnings": false
+}

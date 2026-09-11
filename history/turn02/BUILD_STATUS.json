@@ -1,0 +1,15 @@
+{
+  "pdf_pages": 24,
+  "pdf_out_of_page_text_spans": [],
+  "latex_final_exit": 0,
+  "latex_final_warnings": false,
+  "cpu_audit_passed": true,
+  "lean_compiled": false,
+  "lean_version_exit": 127,
+  "lake_version_exit": 127,
+  "lake_build_exit": 127,
+  "mathlib_commit": "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9",
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "isotropic_transform_implemented": false,
+  "pdf_sha256": "33d73541b7d1d26e950c9831109c53b2a33e91e7f121ab63e20ff13bd21d9d2a"
+}

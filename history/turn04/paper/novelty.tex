@@ -1,0 +1,40 @@
+\section{Related work and novelty audit}\label{sec:related}
+\paragraph{SQ learning and dimension.}
+Statistical-query learning permits an algorithm to access bounded expectations rather than individual examples. Feldman's randomized search characterization supplies a general dimension of this access model \citep{Feldman17}; our use of it is confined to Section~\ref{sec:rsd}. The question of \citet{FKS26} asks whether one learner serving every marginal must admit a common low-dimensional linear representation. Our rectangle learner answers negatively without invoking the characterization. The exact and averaged probabilistic variants require the distinct reductions in Theorem~\ref{thm:prob}. In particular, uniform approximation on the sparse random matrix would not prove the averaged-dimension lower bound.
+
+\paragraph{Sign-rank, margin and geometry.}
+Forster's normalization method provides spectral lower bounds \citep{Forster02}. The construction and the separation between sign-rank, VC dimension, average margin and rectangle ratio are due to \citet{HHPTZ22}, building on \citet{AMY16}. We import their grid construction and Warren's general strict-pattern theorem \citep{Warren68}; we derive the application-specific counting and probabilistic lower bounds. The homogeneous-rectangle theorem of \citet{APP05} is used only to sharpen the inverse rectangle constant to $2^{15}$. Our cap proof supplies an independent dimension-dependent constant. The minimax rectangle-mixture idea occurs in the average-margin argument of \citet[Theorem~3.1]{HHPTZ22}; the new step here is its adversarial-oracle peeling/elimination analysis and bounded query budget. Approximate Forster transforms are prior algorithmic work \citep{DKT22}; Appendix~\ref{app:convex} gives the fixed-dimensional implementation needed here.
+
+\paragraph{The finite-field separation of 2017.}
+\citet[Theorem~7.7]{Feldman17} studies affine lines on $\mathbb F_p^2$ and proves a distribution-independent weak-learning lower bound of $t/2-1$ queries at tolerance $1/t$, where $t=(p/32)^{1/4}$, for the stated accuracy and success-probability regime. Theorem~7.8 there gives a separately fixed-distribution learner with $O(1/\epsilon^2)$ queries of tolerance $\epsilon^2/13$. Our projective-plane argument is not literally the same matrix, but Proposition~\ref{prop:affine} applies the joint certificate to his affine class. At constant expected error it gives $m/\tau^2=\Omega(p)$, hence $m=\Omega(p)$ at constant tolerance. The proposition also supplies the exact success-probability comparison at his tolerance. These are quantitative refinements of the hardness side; his class is not a small-complexity distribution-independent learner and therefore is not the present counterexample. Our real-grid monotone flips lie on the easy side of that universal-marginal requirement.
+
+\paragraph{Approximate sign-rank, May 2026.}
+\citet[Theorem~1.3]{BHKR26} extend the large-rectangle property to approximate sign-rank and partial matrices. Their approximate rank fixes one \emph{deterministic} column embedding and, for each row and each marginal, permits a new separating vector with error at most $\eta$. It is not the random-embedding quantity $\dc^\eta$ used here. Their theorem supplies row and column fractions $d^{-C_\eta d}$ and $d^{-C_\eta d^2}$, respectively, with $C_\eta$ stated as $O(\log(1/(1-2\eta)))$, for fixed $0<\eta<1/2$; one may enlarge the constant and use $d\ge2$. Corollary~\ref{cor:approxrect} below converts this published geometric theorem into a common SQ learner with the displayed parameters. For partial matrices their rectangle is homogeneous on nonstar entries, possibly containing stars; we do not silently regard it as a full monochromatic rectangle of an arbitrary completion.
+
+\paragraph{Index and list replicability, June 2026.}
+\citet[Theorems~1.1, 1.2 and 3.2]{BHHLT26} prove $\operatorname{Ind}_{\mathbb Z_2}(H)\le2\operatorname{LR}(H)-1$ and show that projective-plane incidence classes have list replicability at most three and index at most five despite unbounded sign-rank. Our joint-distribution theorem shows that those same projective-plane classes are SQ-hard when a common learner must serve every marginal. Thus bounded list replicability or bounded index is not the missing SQ upper-bound criterion. Their separation concerns different parameters and does not resolve the question answered here. Earlier and concurrent topological bounds \citep{HHM23,FHV26}, and the total Hamming-distance upper bounds of \citet{GHIS25}, likewise do not give the sought efficient explicit high-sign-rank selection for the constant-rectangle flip family.
+
+\paragraph{The August 2026 conditional SQ theorem.}
+The audit also found \citet[Assumption~4.42 and Theorem~4.9]{VALG26}. Its SQ result assumes that the span of all seed-averaged terminal response functions, over complete response rules, already has dimension at most $B(1+m/\tau^2)^k$. Under that additional assumption it proves a dimension upper bound. The extra response-rank hypothesis is not a consequence of the SQ interface proved there. Our counterexample rules out deriving such a universal polynomial hypothesis from distribution-independent SQ learnability alone. The checked May, June and August preprints therefore contain related geometric results or a conditional SQ theorem, not an unconditional resolution of the original implication. This is a scoped audit of these primary sources, not a claim that an online search certifies exhaustive priority.
+
+\paragraph{Learning versus communication and differentiable learning.}
+The converse communication construction in Theorem~\ref{thm:communication} is \citet[Proposition~3.14]{HHPTZ22}; its composition with RECTIFY yields the SQ sufficient condition and the halfspace boundary case. The proper completion and the order-median succinct learner exploit the real incidence geometry rather than invoking a generic protocol-to-learning conversion. The differentiable-learning simulations of \citet{AKMSS21} use engineered models and initialization and charge the simulated computation in their network-size bounds. They do not preserve the remaining prescribed benign-SGD algorithm. The hidden-key bounds in Section~\ref{sec:secret} explicitly distinguish uniform key-independent learners from class-dependent architecture choices.
+
+\begin{samepage}
+\begin{corollary}[Published approximate rank as an SQ sufficient condition]\label{cor:approxrect}
+Fix $0<\eta<1/2$. Suppose a total sign matrix has approximate sign-rank at most $d$ in the deterministic-embedding sense of \citet{BHKR26}. Put $\bar d=\max\{2,d\}$ and
+\[
+ \rho_\eta=\bar d^{C_\eta(\bar d+\bar d^2)},
+\]
+where $C_\eta$ is a sufficiently large constant valid in their rectangle theorem. Then
+\[
+ \rect(H)\ge\rho_\eta^{-1},\quad
+ m=O\bigl(\rho_\eta(\log K+\log(1/\epsilon))\bigr),\quad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho_\eta\log(1/\epsilon)}\right)
+\]
+for one distribution-independent learner. Equivalently $\rho_\eta=\bar d^{O_\eta(\bar d^2)}$. The source does not give a numerical value of its universal constant; none is invented here.
+\end{corollary}
+\end{samepage}
+\begin{proof}
+The published theorem gives a uniform-product rectangle of the displayed product fraction. For rational row and column distributions, duplicate each row and column according to integer denominator multiplicities. Approximate sign-rank does not increase: duplicate columns use the same embedding, and every distribution on copies pushes forward to a distribution on original columns; duplicate rows require no new representation. Apply the rectangle theorem to this duplicated total matrix. Projecting a monochromatic rectangle to the original indices retains its sign and can only increase its product-weighted mass. Finally approximate arbitrary weights by rational weights. The maximum over the finitely many rectangle product masses is continuous, so the lower bound persists. Apply Theorem~\ref{thm:main} with $\rho=\rho_\eta$.
+\end{proof}

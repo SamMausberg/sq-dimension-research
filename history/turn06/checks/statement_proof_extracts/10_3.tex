@@ -1,0 +1,15 @@
+% Canonical statement: sections/10_discussion.tex:48-56
+\begin{proposition}[Unseen independent labels]\label{prop:unseen}
+Fix the full-length template line $\ell_0:y=x+1$ and the uniform distribution on its $N$ points. Choose $A$ by independent fair incidence flips. Let a single learner, chosen independently of $A$, receive $T$ independent labeled samples from $(D,h_{\ell_0})$ and no further information about $A$. Then
+\[
+ \E_{A,\mathrm{sample},\mathrm{coins}}L_{D,h_{\ell_0}}(\widehat h)
+ \ge\frac12(1-1/N)^T
+ \ge\frac12(1-T/N).
+\]
+Thus a guarantee of average error at most $\epsilon$, or a guarantee for every flip table, requires $T\ge(1-2\epsilon)N$. If $\epsilon<1/4$ and $S\ge2$, such a uniformly successful $S$-parameter learner satisfies $TS\ge\dc(H_A)/3$ for every member of the flip family.
+\end{proposition}
+
+% Proof binding: appendices/resource_proofs.tex:39-41
+\begin{proof}[Proof of \cref{prop:unseen}]
+Condition on the sampled point indices, their observed labels, and the learner's random coins. The label at any unobserved point of $\ell_0$ remains an independent fair bit. The learner's prediction there has conditional error $1/2$. A fixed point is unobserved with probability $(1-1/N)^T$. Average over the $N$ points to get the first inequality. The second follows by induction from $(1-z)^T\ge1-Tz$ for $0\le z\le1$. Rearranging proves the sample requirement. For the final claim, $T>N/2$ and $S\ge2$ give $TS\ge N$, whereas $\dc(H_A)\le2N+1\le3N$ for every table.
+\end{proof}

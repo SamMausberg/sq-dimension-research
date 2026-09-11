@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering\footnotesize
+\begin{tabularx}{\linewidth}{@{}p{.23\linewidth}p{.19\linewidth}p{.20\linewidth}X@{}}
+\toprule
+Class & Rectangle ratio & Dimension & Bounds on $m/\tau^2$ and certificate\\\midrule
+Incidence flips & $\ge2^{-15}$ & $\Omega(N/\log N)$ for most flips & $O_\epsilon(\log N)$ upper; counting proves high rank.\\
+Projective planes & $\Theta(1/q)$ & $[(q+1)/\sqrt q,\,2q+3]$ & $\Omega_\epsilon(q)$ lower; $O_\epsilon(q^3\log q)$ rectangle upper; joint certificate.\\
+Affine lines over $\mathbb F_p$ & $\Theta(1/p)$ & $\le2p+1$ & $\Omega_\epsilon(p)$ lower; $O_\epsilon(p^2)$ exhaustive upper; joint certificate.\\
+Cube halfspaces, odd $n$ & $\le e^{-n/4}$ & $\le n$ & $O(n^5/\epsilon^4)$ upper via bounded-margin optimization.\\
+All cube parities & $\le2^{-n}$ & $\ge2^{n/2}$ & $\Omega_\epsilon(2^n)$ lower and $O_\epsilon(2^n)$ upper; orthogonal Gram matrix.\\
+\bottomrule
+\end{tabularx}
+\caption{Proved comparison bounds. Query lower bounds refer to fixed $\epsilon<1/4$ and the adversarial SQ model. Entries give bounds established here, rather than a claim of globally optimal complexity. The affine rectangle estimate follows from the degree proof for \cref{thm:pgglobal} and the affine centered incidence norm.}\label{tab:examples}
+\end{table}

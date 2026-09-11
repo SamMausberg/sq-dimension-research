@@ -1,0 +1,209 @@
+{
+  "references": [
+    {
+      "key": "FKS26",
+      "url": "https://proceedings.mlr.press/v336/feldman26a.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "HHPTZ22",
+      "url": "https://eccc.weizmann.ac.il/report/2022/079/",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "APP05",
+      "url": "https://doi.org/10.1016/j.jcta.2004.12.008",
+      "doi": "10.1016/j.jcta.2004.12.008",
+      "status": "VERIFIED primary institutional DOI metadata; original full text unresolved"
+    },
+    {
+      "key": "Warren68",
+      "url": null,
+      "doi": null,
+      "status": "DOWNGRADED original record unresolved"
+    },
+    {
+      "key": "AMY16",
+      "url": "https://arxiv.org/abs/1503.07648",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "Feldman17",
+      "url": "https://proceedings.mlr.press/v65/feldman17c.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "Forster02",
+      "url": "https://doi.org/10.1016/S0022-0000(02)00019-3",
+      "doi": "10.1016/S0022-0000(02)00019-3",
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "AKMSS21",
+      "url": "https://arxiv.org/abs/2108.04190",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "HHM23",
+      "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "GHIS25",
+      "url": "https://arxiv.org/abs/2506.12022",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "FHV26",
+      "url": "https://arxiv.org/abs/2604.01510",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "DKT22",
+      "url": "https://arxiv.org/abs/2212.03008",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "MC12",
+      "url": "https://arxiv.org/abs/1201.3731",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "GGM86",
+      "url": "https://doi.org/10.1145/6490.6503",
+      "doi": "10.1145/6490.6503",
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "HILL99",
+      "url": "https://doi.org/10.1137/S0097539793244708",
+      "doi": "10.1137/S0097539793244708",
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "Renegar92",
+      "url": null,
+      "doi": null,
+      "status": "DOWNGRADED original record unresolved"
+    },
+    {
+      "key": "Vorobjov21",
+      "url": "https://arxiv.org/abs/2112.00456",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "BHKR26",
+      "url": "https://arxiv.org/abs/2605.01038",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "BHHLT26",
+      "url": "https://arxiv.org/abs/2606.18236",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "VALG26",
+      "url": "https://arxiv.org/abs/2608.13060",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "BDES02",
+      "url": "https://www.jmlr.org/papers/v3/bendavid02a.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "KMS20",
+      "url": "https://proceedings.mlr.press/v125/kamath20b.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "CMW25",
+      "url": "https://arxiv.org/abs/2411.10784",
+      "doi": null,
+      "status": "DOWNGRADED original record unresolved"
+    },
+    {
+      "key": "Kearns98",
+      "url": "https://doi.org/10.1145/293347.293351",
+      "doi": "10.1145/293347.293351",
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "Feldman08",
+      "url": null,
+      "doi": null,
+      "status": "DOWNGRADED original record unresolved"
+    },
+    {
+      "key": "Feldman11",
+      "url": "https://proceedings.mlr.press/v19/feldman11b.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "DV04",
+      "url": null,
+      "doi": null,
+      "status": "DOWNGRADED original record unresolved"
+    },
+    {
+      "key": "BF13",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "GSS13",
+      "url": "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "FGV21",
+      "url": "https://doi.org/10.1287/moor.2020.1111",
+      "doi": "10.1287/moor.2020.1111",
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "KM25",
+      "url": "https://proceedings.mlr.press/v267/karchmer25a.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "MKAS21",
+      "url": "https://proceedings.mlr.press/v139/malach21a.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "ABBBN21",
+      "url": "https://arxiv.org/abs/2108.10573",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    },
+    {
+      "key": "ABM22",
+      "url": "https://proceedings.mlr.press/v178/abbe22a.html",
+      "doi": null,
+      "status": "See SOURCE_CHECKS.md for fresh versus retained source verification"
+    }
+  ],
+  "requested_original_record_gaps": 5
+}

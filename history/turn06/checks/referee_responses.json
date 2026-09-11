@@ -1,0 +1,86 @@
+{
+  "R1.1": {
+    "status": "FIXED",
+    "response": "The model now includes the entire public transcript and current query, while excluding future private coins. The drift conditions on the stopping answer before the fresh draw. `sections/02_preliminaries.tex:9-17`; `sections/03_rectangle.tex:63-124`"
+  },
+  "R1.2": {
+    "status": "ANSWERED AND CLARIFIED",
+    "response": "For the upper bound a single valid policy is fixed throughout, and progress is bounded for each permissible action. The lower-bound memoryless policy is chosen before the private seed. The full-batch comparison uses the deterministic source learner, whose guarantee is pointwise in all response sequences, so it satisfies the stronger expectation-of-supremum premise. `sections/03_rectangle.tex:63-124`; `appendices/certificate_proofs.tex:23-50`; `sections/08_sgd.tex:36-40`"
+  },
+  "R1.3": {
+    "status": "ANSWERED",
+    "response": "The randomized construction bounds the probability of budget exhaustion, not the conditional loss on every seed. The finite-net construction has progress at every stage and a fixed deterministic cap; the last paragraph of the proper proof explicitly removes the failure event for that implementation. `sections/03_rectangle.tex:63-124`; `appendices/cap_proper_proofs.tex:4-57`; `appendices/cap_proper_proofs.tex:60-103`"
+  },
+  "R1.4": {
+    "status": "FIXED AND ANSWERED",
+    "response": "The displayed Main Theorem now places the prescribed fixed eta before the existence of infinitely many classes. Corollary 4.4 fixes any proposed constant C and polynomial, chooses a constant epsilon with C epsilon<1/2, and then sends M to infinity. Accuracy-dependent constants do not grow with M. `sections/01_introduction.tex:17-35`; `sections/04_family.tex:89-95`; `sections/04_family.tex:96-98`"
+  },
+  "R1.5": {
+    "status": "FIXED",
+    "response": "The computational regimes remain separate: 5.1 and 5.2 are table-polynomial; 5.4 and 6.5 are succinct and use O(n^2) queries. Local accuracy hypotheses were added to 7.1 and 7.9. `sections/05_learners.tex:6-21`; `sections/05_learners.tex:46-59`; `sections/05_learners.tex:113-120`; `sections/06_explicit.tex:65-72`; `sections/07_characterizations.tex:7-19`; `sections/07_characterizations.tex:190-197`"
+  },
+  "R1.6": {
+    "status": "FIXED",
+    "response": "The transcript and adaptation statements now include finite nonempty classes, integer query budget, tolerance range, accuracy range and the common-learning premise. The Omega conclusion explicitly assumes the high-dimension event and m <= (log M)^C. The exhaustive correlational learner remains the counterexample to dropping the budget restriction. `sections/07_characterizations.tex:133-149`; `sections/07_characterizations.tex:217-228`; `sections/07_characterizations.tex:233-233`"
+  },
+  "R1.7": {
+    "status": "FIXED; ORIGINAL PAGES RECOVERED",
+    "response": "Repository base64 ranges recovered the checksummed original content streams for PDF pages 2-4, including OQ1, OQ2 and the two probabilistic formulas. The direct full-PDF downloads failed; no claim is made that a complete original binary was saved. The quotation matches the original words; symbols, ligatures and line wrapping are typeset normally. The explicit tie convention is retained rather than identifying the vacuous raw-score formula with the nondegenerate problem. `sections/01_introduction.tex:3-6`; `sections/02_preliminaries.tex:36-39`; see SOURCE_CHECKS.md A1."
+  },
+  "R2.1": {
+    "status": "FIXED; SOURCE FORMULATION IDENTIFIED",
+    "response": "The family proof gives s=K^2, v=2Kd and degree 2, with d<=K/2 and empty zero-floor cases. The subgrid proof now states D_k<=k<=K_k/2 explicitly and explains the limited use of k>=32; the first positive floor is 180. Warren is used in AMY Theorem 21/Lemma 22 form, not represented as an original-source verification. `appendices/family_proof.tex:2-30`; `appendices/explicit_proofs.tex:4-20`; checks/constants.json."
+  },
+  "R2.2": {
+    "status": "ANSWERED; PROOF BINDING IMPROVED",
+    "response": "The row bias is positive under sign(0)=+1 and negative under the opposite rule. A row with no negative scores admits any sufficiently small positive bias. Empty-incidence rows receive weight zero. The inequality is dc^eta<s_eta so that d+1<=s_eta. The tie lemma now states only its finite core; the lower-bound consequence is placed after Corollary 4.4, avoiding a forward logical dependency in its statement. `sections/02_preliminaries.tex:95-97`; `appendices/oracle_bounds.tex:36-40`; `sections/04_family.tex:51-76`"
+  },
+  "R2.3": {
+    "status": "ANSWERED WITH EXPLICIT SOURCE STATUS",
+    "response": "The sharp per-side constant is explicitly the HHPTZ Theorem 1.9 formulation of APP. The original APP DOI/text lookup remains unresolved and is downgraded in the source ledger. The independent cap proof uses no sharp imported constant: its Gaussian-volume estimate gives c6/48>1/207360>2^-18. `appendices/family_proof.tex:2-30`; `appendices/geometric_bounds.tex:7-21`"
+  },
+  "R2.4": {
+    "status": "FIXED",
+    "response": "The k<=d case is explicitly a new evaluation-coordinate factorization: rows are e_h, and point coordinates are their strict template scores. Each score is nonzero, so normalization is legal and uniform row covariance is I_k/k. The perturbation for larger survivor sets preserves all signs and makes every d-subset independent, without removing candidates. `appendices/cap_proper_proofs.tex:4-57`"
+  },
+  "R2.5": {
+    "status": "ANSWERED; ORACLE INTERFACE CLARIFIED",
+    "response": "Appendix J gives a polynomial radius, fixed-precision gradient grid, rational clipped projection and denominator growth bounded over a polynomial number of iterations. It then controls Cholesky pivots and normalized covariance. The computational model now explicitly uses finite binary oracle responses; arbitrary exact reals are allowed only in the uncharged query model. `appendices/isotropy_program.tex:4-81`; `appendices/isotropy_program.tex:81-81`; `sections/02_preliminaries.tex:15-17`"
+  },
+  "R2.6": {
+    "status": "ANSWERED",
+    "response": "Every positive-mass continuation is a proper nonempty rectangular subcell. There are finitely many pairs, so exact termination holds; zero-mass cells receive a finite exact lookup protocol at zero expected cost. Conditional measures remain product. `appendices/certificate_proofs.tex:4-10`"
+  },
+  "R2.7": {
+    "status": "ANSWERED",
+    "response": "The actual algebra is in Theorems 7.5 and 7.8; 7.3 is the joint barrier. The proof computes A^T A, the two-label residual Gram, R>=q and 11+8M<=19M for M=m/tau^2>=1. Ordinary and joint certificates remain distinct. Integer affine checks and exact rational plane constants were rerun. `sections/07_characterizations.tex:105-123`; `appendices/certificate_proofs.tex:105-163`; `appendices/certificate_proofs.tex:205-220`"
+  },
+  "R2.8": {
+    "status": "ANSWERED",
+    "response": "The proposition bounds numerical certificates, not actual sign-rank. In the proof the rectangle representation is mixed with an orthogonal strict representation, and separate private padding coordinates restore unit norms without changing cross products; delta tends to zero only after strict realization. `sections/10_discussion.tex:25-37`; `appendices/resource_proofs.tex:18-37`"
+  },
+  "R3.1": {
+    "status": "ANSWERED; DECISION-SOURCE FORMULATION IDENTIFIED",
+    "response": "The distinguisher reads I_k independent incidence bits and fills the rest deterministically. Finite strict scores have a positive minimum, so scaling gives >=1 constraints with degree two and bounded integer coefficients. The singly exponential bit bound is explicitly the formulation in Vorobjov attributed to Renegar. Constants in 2^{O_c(n^{4c})} are eventually absorbed by n^{4c+2}<=sigma^delta. `appendices/explicit_proofs.tex:4-20`; `appendices/explicit_proofs.tex:23-37`"
+  },
+  "R3.2": {
+    "status": "FIXED",
+    "response": "Lemma 6.4 now uses the same epsilon-independent threshold 64 ceil(n) as star-regularity in Section 5. C0 additionally includes 128/epsilon only for candidate testing. The existing Chernoff proof establishes the stronger threshold. Both failure terms are negligible under the fixed polynomial reparameterization, and their sum remains negligible. `sections/06_explicit.tex:57-59`; `appendices/explicit_proofs.tex:40-49`; `appendices/explicit_proofs.tex:52-54`"
+  },
+  "R3.3": {
+    "status": "FIXED AND CHECKED AGAINST FULL VERSION",
+    "response": "The full-batch model lists the five-piece activation, DAG with constant input, trainable edge parameters, initialization map, half-square loss, reused sample, clipped mean and rounding lattice. Its expectation-of-supremum is now displayed explicitly. The deterministic source algorithm satisfies that premise pointwise. One ignored random bit is used, so r=0 need not be interpreted. Theorem 3d and the definitions were checked in arXiv:2108.04190v2, printed pages 4,7,14. `sections/08_sgd.tex:4-29`; `sections/08_sgd.tex:36-40`"
+  },
+  "R3.4": {
+    "status": "ANSWERED",
+    "response": "The test point is independent of all training indices. A union bound gives collision probability at most q/N, whether or not training indices repeat, and noncollision success for a random function is exactly 1/2. The resulting subtraction is q/(2N). The proposition quantifies a key-independent learner and average key success, not per-table or class-dependent-architecture success. `sections/08_sgd.tex:83-88`; `appendices/network_proofs.tex:13-15`; `sections/10_discussion.tex:48-56`"
+  },
+  "R3.5": {
+    "status": "ANSWERED",
+    "response": "The proof reserves half the tolerance for rounding. Residuals and divisibility predicates have O(n)-bit integer arguments; signed denominator division is an exact integer predicate. Biased modulo sampling assigns every slope probability >=1/(2t), and at least t/8 slopes pass, giving 1/16. C0 and J agree with the script after distinguishing raw from effective tolerance. `appendices/median_proofs.tex:11-68`; `supplement/experiments/seeded_fast.py:33-33,97-99`; checks/constant_occurrences.json."
+  },
+  "R3.6": {
+    "status": "ANSWERED",
+    "response": "Only the polynomial subgrid bits are stored. Every outside point is mapped to one positive dummy point and outside rows to one all-positive row. The seven-coordinate template is strict; proper predictions lift to indexed rows of the full class. This neither selects a uniform good-key sequence nor removes the runtime exponent from a resource-charged bound. `sections/06_explicit.tex:46-52`; `appendices/explicit_proofs.tex:57-65`"
+  }
+}

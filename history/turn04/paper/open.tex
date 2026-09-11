@@ -1,0 +1,15 @@
+\clearpage
+\section{Open problems}
+The SQ implications are refuted for ordinary, exact probabilistic and averaged probabilistic dimension, including proper learners on the separating family. Several distinct questions remain.
+
+\paragraph{One efficiently explicit superpolynomial family.}
+The conditional construction gives any prescribed fixed power by increasing the polynomial key-length exponent. It does not give one polynomial-key family beating all polynomials, or an efficient deterministic selector of good keys. Obtaining such an explicit total family with bounded or polynomial inverse rectangle ratio remains in the direction of \citet[Problem~4.1]{HHPTZ22}. Quasipolynomial seed length and the inefficient short exhaustive generator do not meet this requirement. Reducing the succinct order-median learner from $O(n^2)$ to $O(n)$ queries is another concrete algorithmic question.
+
+\paragraph{Benign SGD and the information supplied about the class.}
+For the prescribed fully connected bias-free ReLU architecture, Gaussian initialization, logistic loss, one fixed step size, online samples and tail-sum output, does a common expected-error guarantee imply $\dc(H)\le CTS$ or $\operatorname{poly}(T,S)$? The original statement allows architecture choices to depend on $H$. A uniform key-independent variant is stronger and is obstructed by the hidden-key results. They must not be conflated. A resource-aware replacement theorem that charges total time, generated memory or expanded circuit size also remains open.
+
+\paragraph{A characterization of distribution-independent SQ complexity.}
+Large rectangle ratio and bounded product-average communication are sufficient but not necessary. Cube halfspaces and parities both have exponentially small rectangles, but only the latter have the corresponding SQ hardness. A rectangle-type measure capable of characterizing SQ complexity must therefore include an additional optimization or representation resource that separates these two boundary cases. No such characterization is established here.
+
+\paragraph{The joint query/tolerance tradeoff.}
+The projective-plane family has $\rect^{-1}=\Theta(q)$ and satisfies $m/\tau^2=\Omega(q)$. RECTIFY gives $m/\tau^2=O_\epsilon(\rho^3\log|H|)$ at fixed accuracy. The linear lower bound in $\rho$ does not match that cubic dependence. Optimizing this joint tradeoff is separate from the now-refuted dimension implication.

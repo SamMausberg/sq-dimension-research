@@ -1,0 +1,14 @@
+% Canonical statement: sections/06_explicit.tex:65-72
+\begin{corollary}[Conditional polynomial-time, seed-known separation]\label{cor:fastprf}
+Under the PRF assumption, for every fixed $c\ge1$ and $0<\epsilon<1/4$, all but a negligible fraction of keys in Theorem~\ref{thm:prf} define classes with
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2n},\qquad
+ m=O_\epsilon(n^2),\qquad\tau=\Omega_\epsilon(1),
+\]
+and a proper learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time given the key. Every key has the corresponding deterministic improper polynomial-time learner, independently of star-regularity.
+\end{corollary}
+
+% Proof binding: appendices/explicit_proofs.tex:52-54
+\begin{proof}[Proof of \cref{cor:fastprf}]
+Intersect the high-rank key event from Theorem~\ref{thm:prf} with the star-regular event from Lemma~\ref{lem:regularstars}. Their two negligible exceptional probabilities have negligible sum. Apply Theorem~\ref{thm:fast} and the polynomial-time entry evaluator.
+\end{proof}

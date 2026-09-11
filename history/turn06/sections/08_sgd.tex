@@ -1,0 +1,92 @@
+\section{Consequences for differentiable learning}\label{sec:resources}
+A polynomial-time SQ learner can be simulated by gradient descent on an engineered differentiable model. The simulation charges its computation in the model size. This gives a consequence for the title question of \citet{FKS26}, while keeping the prescribed online-SGD problem separate.
+
+\subsection{An engineered gradient-descent corollary}
+The model used by \citet[Theorem~3d]{AKMSS21} is a directed acyclic neural network with $n+1$ inputs, including a constant input, one output, and one trainable weight per edge. Its activation is the piecewise-linear ``two-stage ramp''
+\[
+ \sigma(z)=\begin{cases}
+ -2,&z<-3,\\ z+1,&-3\le z\le-1,\\0,&-1<z<0,\\z,&0\le z\le2,\\2,&z>2.
+ \end{cases}
+\]
+Initialization is a specified polynomial-time computable map $W:\{0,1\}^r\to\R^p$, rather than an independent Gaussian law. Labels lie in $\{0,1\}$ and the loss is $\tfrac12(f(x)-y)^2$. Full-batch updates reuse one iid sample $S$ of size $m_s$, with a fixed constant step size and
+\begin{equation}\label{eq:engineered-gradient}
+ \theta_{t+1}=\theta_t-\gamma g_t,\qquad
+ g_t\in\lambda\mathbb Z^p\cap[-1,1]^p,\qquad
+ \left\|g_t-\frac1{m_s}\sum_{(x,y)\in S}
+       [\nabla_\theta\tfrac12(f_{\theta_t}(x)-y)^2]_1\right\|_\infty
+ \le\frac{3\lambda}{4}.
+\end{equation}
+Here $[\cdot]_1$ denotes coordinatewise clipping to $[-1,1]$. The guarantee is $\E_{S,R}\sup_{(g_t)\ \mathrm{admissible}}L(f_{\theta_{T\prime}})$: expectation over the reused sample and initialization follows the supremum over all admissible rounded-gradient sequences. The supremum may depend on that entire sample. The constructed trajectories are differentiable and have gradient coordinates bounded by one, so clipping leaves them unchanged.
+
+The imported simulation states that an SQ algorithm with $k$ queries, tolerance $\tau_0$, $r$ random bits and running time $\mathrm{TIME}$ has such a simulation with
+\begin{equation}\label{eq:engineered-parameters}
+ \lambda=\tau_0/16,\quad T'=2k,\quad
+ m_s\lambda^2>C\bigl(k\log(1/\lambda)+\log(1/\delta)\bigr),\quad
+ p=\operatorname{poly}(k,1/\tau_0,r,\mathrm{TIME},1/\delta),
+\end{equation}
+whose expected square loss exceeds the SQ algorithm's by at most $\delta$. The constant $C$ is universal. These are the parameters of the full-batch part of that theorem; the sample is not refreshed at each step.
+
+\begin{corollary}[Engineered differentiable learning with high dimension]\label{cor:engineered}
+Assume the PRF hypothesis of \cref{thm:prf}. Fix $c\ge1$ and $0<\epsilon<1/4$. For every sufficiently large admissible encoding length $n$ and every key $s$, the class $H_{A_s}$, encoded on $\{0,1\}^n$, has an engineered neural network and initialization of the form above, each describable and evaluable in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $\operatorname{poly}_{c,\epsilon}(n)$ parameters. After $O(n^2)$ full-batch updates using $\operatorname{poly}_{c,\epsilon}(n)$ examples and the finite-precision gradient rule \eqref{eq:engineered-gradient}, thresholding the final output at $1/2$ has expected classification error at most $\epsilon$ for every marginal and every target in $H_{A_s}$. For all but a negligible fraction of keys,
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2 n}.
+\]
+The model and initialization may depend on $s$, but are fixed before the marginal and target.
+\end{corollary}
+\begin{proof}
+Use the deterministic improper order-median learner of \cref{thm:fast} at accuracy $\epsilon/8$. It works for every key with $k=O(n^2)$ queries, tolerance $\Omega(\epsilon)$, and polynomial running time including query evaluation. Recode its labels and predictions from $\{-1,+1\}$ to $\{0,1\}$. Its square loss is half its classification loss, hence at most $\epsilon/16$ against every valid response sequence. A dyadic tolerance $\tau_0$ within a factor two of the advertised one preserves this guarantee and the asymptotic bounds.
+
+Give the deterministic source learner one ignored random bit and apply \eqref{eq:engineered-parameters} with $r=1$ and $\delta=\epsilon/16$. Its initialization map may ignore this bit as well. The sample size and model size are polynomial in $n$ for fixed $c,\epsilon$, and the expected final square loss is at most $\epsilon/8$. A thresholding mistake implies $|f(x)-y|\ge1/2$ and therefore square loss at least $1/8$. The expected classification loss is at most $\epsilon$. The PRF sign-rank conclusion is \cref{thm:prf}; it is independent of the simulation. The deterministic source learner satisfies the simulation's supremum-over-responses premise without exchanging a supremum and an expectation.
+\end{proof}
+
+The activation, architecture and initialization are engineered, and model size charges the simulated computation. In particular, the polynomial degree in the size bound can depend on $c$. The corollary establishes gradient-based distribution-independent learning of the class; it does not assert a superpolynomial separation between dimension and the size of this particular network.
+
+\subsection{The prescribed online-SGD question}
+For comparison, the remaining question fixes $X=\{-1,+1\}^n$ and a fully connected bias-free ReLU network
+\[
+ f_\theta(x)=\theta_L\sigma\bigl(\theta_{L-1}\sigma(\cdots\sigma(\theta_1x))\bigr),
+ \qquad S=\sum_{i=1}^L n_i n_{i-1}.
+\]
+Here $n_0=n$ and $n_L=1$. Each layer-$i$ weight is initialized independently with law $N(0,1/n_{i-1})$. With one fixed step size $\eta$, for $t=0,\ldots,T-1$ draw $x^{(t)}\sim D$ independently and set
+\[
+ \theta^{(t+1)}=\theta^{(t)}-\eta\nabla_\theta
+ \ell\!\left(h^*(x^{(t)})f_{\theta^{(t)}}(x^{(t)})\right),
+ \qquad \ell(z)=\log(1+e^{-z}).
+\]
+The returned predictor is
+\[
+ \widehat h(x)=\sign\!\left(\sum_{t=\lceil T/2\rceil}^{T}f_{\theta^{(t)}}(x)\right).
+\]
+The architecture, step size and horizon are fixed for the class before $D$ and $h^*$. Open Question 1 of \citet[Section~2]{FKS26} asks whether a guarantee $\E L_{D,h^*}(\widehat h)\le\epsilon<1/4$ for every $D,h^*$, with expectation over both initialization and online sampling, forces $\dc(H)\le CTS$. Their Section~4 also asks for a polynomial bound in $(T,S)$. This question remains open here.
+
+A population-gradient method with $S$ coordinates, $T$ calls, per-example coordinate bound $B_g$ and adversarial Euclidean tolerance $\delta$ has an SQ simulation with
+\[
+ m=TS,\qquad\tau=\delta/(B_g\sqrt S).
+\]
+Query each gradient coordinate divided by $B_g$. After rescaling, each error is at most $\delta/\sqrt S$, so the total squared error is at most $\delta^2$. Induction over the calls proves the simulation. Conversely, the adaptive objective $J_q(t;x,y)=tq(x,y)$ has derivative $\E q$. These observations concern gradient-oracle models. A sampled online gradient need not lie in a prescribed small ball about the population gradient, and its sampling-law guarantee does not imply success against every perturbation in that ball; see also \citet{FGV21,AKMSS21}.
+
+\begin{proposition}[A bias-free ReLU representation]\label{thm:network}
+Pad the grid domain to a cube of dimension $n=\lceil\log_2(2N^3)\rceil$, giving every padding point label $+1$. Every member is represented exactly by a bias-free ReLU network with widths $(n,2n,N+1,1)$ and at most
+\[
+ S=2n^2+2n(N+1)+(N+1)
+\]
+weights. Its common dimension complexity is at most $2N+1$. This proposition is an upper bound, not a claim that $S$ parameters are necessary.
+\end{proposition}
+
+\noindent Proof: see \cref{proof:network}.\par
+
+A fixed $b$-bit-per-weight architecture has at most $2^{bS}$ parameter choices. Representing all $2^N$ independent labelings of a fixed line in such an architecture would require $bS\ge N$. Unrestricted real weights have no fixed bit budget, so this finite-precision count does not give a lower bound for every real-weight representation of an individual row.
+
+\subsection{Hidden keys and class information}\label{sec:secret}
+Fix the full-length template line $\ell_0:y=x+1$ and its uniform point distribution. \Cref{prop:unseen} proves a sample lower bound for a single learner independent of a random table, even when that learner is told $\ell_0$ and the marginal. The missing information is the unobserved label pattern. The computational analogue concerns a hidden PRF key.
+
+\begin{proposition}[Hidden-key computational hardness]\label{prop:hiddenkey}
+Under the PRF assumption of Theorem~\ref{thm:prf}, no probabilistic polynomial-time learner independent of $s$, with a polynomial-time evaluable output and only polynomially many labeled samples from the uniform distribution on $\ell_0$, has average error at most $1/2-\gamma(n)$ for uniform $s$, where $\gamma(n)\ge1/\operatorname{poly}(n)$. More precisely, a learner with $q(n)$ samples and advantage $\gamma(n)$ gives a PRF distinguisher of advantage at least
+\[
+ \gamma(n)-\frac{q(n)}{2N}.
+\]
+\end{proposition}
+
+\noindent Proof: see \cref{proof:hiddenkey}.\par
+
+A guarantee for every key, or for all but a negligible fraction of keys, implies the average guarantee ruled out by \cref{prop:hiddenkey}. The original online-SGD formulation permits architecture, step size and horizon to depend on the class. Gaussian initialization alone does not remove that dependence. Thus the hidden-key reduction applies to key-independent finite-time procedures, rather than to every class-dependent design allowed in Open Question 1. A negative answer to that question requires a small compatible network and an analysis of the specified dynamics under every marginal.

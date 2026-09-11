@@ -1,0 +1,194 @@
+[
+  {
+    "label": "thm:main",
+    "number": 1,
+    "page": 4,
+    "title": "Distribution-independent rectangle learner"
+  },
+  {
+    "label": "lem:params",
+    "number": 2,
+    "page": 4,
+    "title": "Exact parameters"
+  },
+  {
+    "label": "lem:mixture",
+    "number": 3,
+    "page": 4,
+    "title": "A marginal-free rectangle mixture"
+  },
+  {
+    "label": "thm:construction",
+    "number": 4,
+    "page": 7,
+    "title": "Construction and ordinary dimension"
+  },
+  {
+    "label": "thm:prob",
+    "number": 5,
+    "page": 9,
+    "title": "Approximate counting and exact probabilistic dimension"
+  },
+  {
+    "label": "thm:rsd",
+    "number": 6,
+    "page": 10,
+    "title": "Rectangle bound for randomized statistical dimension"
+  },
+  {
+    "label": "thm:caps",
+    "number": 7,
+    "page": 12,
+    "title": "Pointwise cap mixture and table-polynomial implementation"
+  },
+  {
+    "label": "thm:proper",
+    "number": 8,
+    "page": 14,
+    "title": "Proper RECTIFY"
+  },
+  {
+    "label": "lem:subgrid",
+    "number": 9,
+    "page": 16,
+    "title": "Small subgrid counting and decision cost"
+  },
+  {
+    "label": "thm:prf",
+    "number": 10,
+    "page": 17,
+    "title": "Conditional almost-every-key explicit lower bounds"
+  },
+  {
+    "label": "lem:median",
+    "number": 11,
+    "page": 18,
+    "title": "Noisy integer medians"
+  },
+  {
+    "label": "thm:fast",
+    "number": 12,
+    "page": 19,
+    "title": "Succinct median learner"
+  },
+  {
+    "label": "lem:regularstars",
+    "number": 13,
+    "page": 21,
+    "title": "Regular stars for almost every key"
+  },
+  {
+    "label": "cor:fastprf",
+    "number": 14,
+    "page": 21,
+    "title": "Conditional polynomial-time, seed-known separation"
+  },
+  {
+    "label": "thm:communication",
+    "number": 15,
+    "page": 21,
+    "title": "Communication as a sufficient condition"
+  },
+  {
+    "label": "thm:energy",
+    "number": 16,
+    "page": 22,
+    "title": "Finite energy and threshold counting"
+  },
+  {
+    "label": "thm:barrier",
+    "number": 17,
+    "page": 23,
+    "title": "Joint-distribution SQ barrier"
+  },
+  {
+    "label": "thm:forster",
+    "number": 18,
+    "page": 24,
+    "title": "Spectral sign-rank bounds"
+  },
+  {
+    "label": "thm:plane",
+    "number": 19,
+    "page": 26,
+    "title": "An escaping plain-Gram family, but not an SQ separation"
+  },
+  {
+    "label": "thm:tree",
+    "number": 20,
+    "page": 28,
+    "title": "Marginal-branching and approximate probabilistic bounds"
+  },
+  {
+    "label": "prop:affine",
+    "number": 21,
+    "page": 29,
+    "title": "Affine-line quantitative comparison"
+  },
+  {
+    "label": "thm:pgglobal",
+    "number": 22,
+    "page": 30,
+    "title": "Global projective-plane rectangle ratio"
+  },
+  {
+    "label": "thm:halfspaces",
+    "number": 23,
+    "page": 31,
+    "title": "Small rectangle ratio does not prevent SQ learning"
+  },
+  {
+    "label": "thm:adapt",
+    "number": 24,
+    "page": 32,
+    "title": "Marginal adaptation, with its query-budget qualification"
+  },
+  {
+    "label": "cor:approxrect",
+    "number": 25,
+    "page": 35,
+    "title": "Published approximate rank as an SQ sufficient condition"
+  },
+  {
+    "label": "thm:network",
+    "number": 26,
+    "page": 36,
+    "title": "Representation does not give the required dynamics"
+  },
+  {
+    "label": "thm:description",
+    "number": 27,
+    "page": 37,
+    "title": "Source-description length alone does not repair the implication"
+  },
+  {
+    "label": "thm:classicalbarrier",
+    "number": 28,
+    "page": 38,
+    "title": "What the classical-method barrier actually bounds"
+  },
+  {
+    "label": "prop:unseen",
+    "number": 29,
+    "page": 39,
+    "title": "Unseen independent labels"
+  },
+  {
+    "label": "prop:hiddenkey",
+    "number": 30,
+    "page": 39,
+    "title": "Hidden-key computational hardness"
+  },
+  {
+    "label": "prop:cap-bound",
+    "number": 31,
+    "page": 49,
+    "title": "Independent constant rectangle bound"
+  },
+  {
+    "label": "prop:pg-rect",
+    "number": 32,
+    "page": 49,
+    "title": "Uniform-product rectangles in a projective plane"
+  }
+]

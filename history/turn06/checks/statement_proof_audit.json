@@ -1,0 +1,667 @@
+{
+  "numbered_statements": 39,
+  "unique_canonical_statements": 39,
+  "bound_proofs": 39,
+  "deferred_pointer_targets": 25,
+  "acyclic": true,
+  "no_independent_appendix_restatements": true,
+  "statement_rows": [
+    {
+      "label": "lem:finite-minimax",
+      "number": "2.1",
+      "file": "sections/02_preliminaries.tex",
+      "start": 64,
+      "end": 72,
+      "sha256": "ac8dfb84c4d16b26a8f52fd9abd53f78a96c4b2954cb066963a158338d1a9608",
+      "proof": {
+        "file": "sections/02_preliminaries.tex",
+        "start": 73,
+        "end": 86,
+        "sha256": "b8dfe74ff8e34c5bf9dbaf4f7f040c91ede14a13fdd727e27539437d8a3f71e0",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:product-weights",
+      "number": "2.2",
+      "file": "sections/02_preliminaries.tex",
+      "start": 88,
+      "end": 90,
+      "sha256": "1538b28f1b090abc1fcc71062120984851dc7a6f4b195e29cc63360e0721a877",
+      "proof": {
+        "file": "sections/02_preliminaries.tex",
+        "start": 91,
+        "end": 93,
+        "sha256": "31461f3c1384b941d3c74549115ed55ce552999b90d83a8b9793ae4f15dc51ab",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:ties",
+      "number": "2.3",
+      "file": "sections/02_preliminaries.tex",
+      "start": 95,
+      "end": 97,
+      "sha256": "948e090c32db7eb15c09ca71db49920d0f820488c4868f01e264fa156c058c51",
+      "proof": {
+        "file": "appendices/oracle_bounds.tex",
+        "start": 36,
+        "end": 40,
+        "sha256": "c79ba5a8f08ac5683b14a3e507c61210c6d088a8573d68a87110cc34088c410a",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:main",
+      "number": "3.1",
+      "file": "sections/03_rectangle.tex",
+      "start": 3,
+      "end": 10,
+      "sha256": "fa4ac9e3b5aaa667a99b9f95470d182179384804466c6e3bf6175adb1a5b61ca",
+      "proof": {
+        "file": "sections/03_rectangle.tex",
+        "start": 63,
+        "end": 124,
+        "sha256": "91d82f44ea643e8988946a303ced8b86dff1604d7141c42011d4ccbc3f01c299",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:params",
+      "number": "3.2",
+      "file": "sections/03_rectangle.tex",
+      "start": 13,
+      "end": 19,
+      "sha256": "4d9c1ad6b6697cccbc7c3887f1edb972d893666855ce8137f5c82fc9355ef686",
+      "proof": {
+        "file": "sections/03_rectangle.tex",
+        "start": 63,
+        "end": 124,
+        "sha256": "91d82f44ea643e8988946a303ced8b86dff1604d7141c42011d4ccbc3f01c299",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:mixture",
+      "number": "3.3",
+      "file": "sections/03_rectangle.tex",
+      "start": 23,
+      "end": 30,
+      "sha256": "aed191f3ae073d124b81e14e252d69b6ed6ed7de031aa234b1d803279a861225",
+      "proof": {
+        "file": "sections/03_rectangle.tex",
+        "start": 32,
+        "end": 36,
+        "sha256": "619f39470e1004a8b6f013aef373eb47ddb9b836d4a7f86531dbb994258275b4",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:construction",
+      "number": "4.1",
+      "file": "sections/04_family.tex",
+      "start": 7,
+      "end": 17,
+      "sha256": "d8d15f7beb3c893d318d20bfcd554505e2893a4821a28b8542151b216468c623",
+      "proof": {
+        "file": "appendices/family_proof.tex",
+        "start": 2,
+        "end": 30,
+        "sha256": "488f7bd3ca8af09c0a4406f0e608522ae5b9c5d2fd6c53976fa9b150a58e0bb1",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:prob",
+      "number": "4.2",
+      "file": "sections/04_family.tex",
+      "start": 36,
+      "end": 49,
+      "sha256": "5e9ba5ba6bd5a49ee88a9673f790d908ce61cf4ee305da70152c7c8469402466",
+      "proof": {
+        "file": "sections/04_family.tex",
+        "start": 51,
+        "end": 76,
+        "sha256": "9b7ccbab9dc727617d33f3c759d6b6f00816d06ee672e42437711b7e4976945b",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:exact-prob",
+      "number": "4.3",
+      "file": "sections/04_family.tex",
+      "start": 77,
+      "end": 82,
+      "sha256": "deb9b25435afc3b2ffb3a62fe514b0ab1a2770ff5e9d37d7dbac95d0e521092f",
+      "proof": {
+        "file": "sections/04_family.tex",
+        "start": 83,
+        "end": 85,
+        "sha256": "1d4434d82bb61e074f1aa8cee9cf99c35c82e81e5bb25b2472483262016e0f11",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "cor:negative-answer",
+      "number": "4.4",
+      "file": "sections/04_family.tex",
+      "start": 89,
+      "end": 95,
+      "sha256": "f802e9d406b96dd3fa4a400d19dbd774a22746b2cf6911a47ab2a8e098e95eb9",
+      "proof": {
+        "file": "sections/04_family.tex",
+        "start": 96,
+        "end": 98,
+        "sha256": "42b1d725dd5939deff3fafcea5ab705c783e369566fdcf18b6e2c8a9df92b316",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:caps",
+      "number": "5.1",
+      "file": "sections/05_learners.tex",
+      "start": 6,
+      "end": 21,
+      "sha256": "3677a5929c274c27f66b2ec48c2a85a3a63a4b5c872e4967f6a35b7ec5eee9c2",
+      "proof": {
+        "file": "appendices/cap_proper_proofs.tex",
+        "start": 4,
+        "end": 57,
+        "sha256": "d74ed20ef34de280e953dd04748790d397f5d601bc21276ff57c44bc6bbea96c",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:proper",
+      "number": "5.2",
+      "file": "sections/05_learners.tex",
+      "start": 46,
+      "end": 59,
+      "sha256": "c950dc8565391029e7c68826b95c1ea0268ad2a0ef0044b519cceef29a91d296",
+      "proof": {
+        "file": "appendices/cap_proper_proofs.tex",
+        "start": 60,
+        "end": 103,
+        "sha256": "c31bcbf60c68f8e7b8b526ec7a158d8facd798c0dbcc9907f66130012090b90a",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:median",
+      "number": "5.3",
+      "file": "sections/05_learners.tex",
+      "start": 87,
+      "end": 100,
+      "sha256": "f713c95aca701177ecb4cbdc85c3700e38eeb06f77c7d0a8c196e8519fdf91a3",
+      "proof": {
+        "file": "appendices/median_proofs.tex",
+        "start": 4,
+        "end": 8,
+        "sha256": "e8a765fe334023ce9d0403ec8617c83fb5747427518e9eb9d74cde0339af4860",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:fast",
+      "number": "5.4",
+      "file": "sections/05_learners.tex",
+      "start": 113,
+      "end": 120,
+      "sha256": "755843b4ce37c8651669f6a137fa2a4d8af3766e02e914752d8531e2610a8c91",
+      "proof": {
+        "file": "appendices/median_proofs.tex",
+        "start": 11,
+        "end": 68,
+        "sha256": "1587f424a221fae7bdbd6f9e1a9370515b1a36bb4549c4ec5c3fc38064e366ee",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:subgrid",
+      "number": "6.1",
+      "file": "sections/06_explicit.tex",
+      "start": 11,
+      "end": 22,
+      "sha256": "5dc8a83ccf648af2b9a8d36a4014f9589356a51d3e2402d2e86d33a32d093745",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "start": 4,
+        "end": 20,
+        "sha256": "9bd6b9d15b2b6ddd13483346d9f8484cbae8171d7695798b09b20ca68b8dde3a",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:prf",
+      "number": "6.2",
+      "file": "sections/06_explicit.tex",
+      "start": 28,
+      "end": 38,
+      "sha256": "38ee31f01a5b7f93fa5f45ec58a3b0eeece7191e2b4b3270fcaa92cc0412f3b8",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "start": 23,
+        "end": 37,
+        "sha256": "b656e9e9690f4fb2097ed748e2fec93f43577655b3ac4705a93d3248b9e960ea",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:advice",
+      "number": "6.3",
+      "file": "sections/06_explicit.tex",
+      "start": 46,
+      "end": 52,
+      "sha256": "fe1b6e6dc214810de9b4873434eb8dcabac507169274ecd8e488839d2d5ed2b6",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "start": 57,
+        "end": 65,
+        "sha256": "e491ff332b3a9e3dc33d8571bf948496a19dd29b271666404331f5db98d9e8a5",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "lem:regularstars",
+      "number": "6.4",
+      "file": "sections/06_explicit.tex",
+      "start": 57,
+      "end": 59,
+      "sha256": "cf35c92de6bf406791a3c02efa43671d76c388c3dfce604540878bbcc863f5b7",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "start": 40,
+        "end": 49,
+        "sha256": "dd5fcf1981162ab2770e88d2cc6a52e473e5615f6b279ab34a4f717df87f0063",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "cor:fastprf",
+      "number": "6.5",
+      "file": "sections/06_explicit.tex",
+      "start": 65,
+      "end": 72,
+      "sha256": "15257554c0fefdd03e23bae35088b042c53c6ae06b7723b75b033a1619d9ffa3",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "start": 52,
+        "end": 54,
+        "sha256": "0f8a436f309cc1d8e53b955d46dd89aefd6117e38a091ed9d44219d61ef9c28f",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:communication",
+      "number": "7.1",
+      "file": "sections/07_characterizations.tex",
+      "start": 7,
+      "end": 19,
+      "sha256": "c8d1e02aff036dd3cde355df349fa95d324c9361e89f75eca04e1f15edbf2e7f",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 4,
+        "end": 10,
+        "sha256": "bd175bfe8f31922b363976a37e3d00f3605a5d225ad62169713b44fe63f5f08c",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:energy",
+      "number": "7.2",
+      "file": "sections/07_characterizations.tex",
+      "start": 28,
+      "end": 43,
+      "sha256": "187b24e80eec7fd1ea27adec0884187adf694b1c97bd42512721c04bc3b81979",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 13,
+        "end": 20,
+        "sha256": "9ac513a23af0ed26335466a65ad6821dc5506319df0b8d1ab0693f394e014566",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:barrier",
+      "number": "7.3",
+      "file": "sections/07_characterizations.tex",
+      "start": 49,
+      "end": 67,
+      "sha256": "10cb2b53ea819fdd821bb4bf4ec33f41f8f99fe938d061997a16f3aef3e6c6bc",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 23,
+        "end": 50,
+        "sha256": "801e65332221e26539a2e3ccb98ab0c52a80e7f1a37a0af6c45943c7c5a1012a",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:forster",
+      "number": "7.4",
+      "file": "sections/07_characterizations.tex",
+      "start": 87,
+      "end": 96,
+      "sha256": "a172dff389ef61d399add3a261b8e52828c2712e32a6edaae42886a44afb5353",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 53,
+        "end": 102,
+        "sha256": "fed82af1b3262c75c58e2e30a2ab07a55732fcf4bf17f205fa4ae4fcd7a7fe1d",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:plane",
+      "number": "7.5",
+      "file": "sections/07_characterizations.tex",
+      "start": 105,
+      "end": 123,
+      "sha256": "a9d2a49bd926bba5b7cdc2b24e4060ccd435a83aa076bfb956ceefd7e1413236",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 105,
+        "end": 163,
+        "sha256": "952e7c72271ceed5ccb6f322f271d48dea4f652bfb68e56d7733767605f589b4",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:tree",
+      "number": "7.6",
+      "file": "sections/07_characterizations.tex",
+      "start": 133,
+      "end": 149,
+      "sha256": "011402cb10a550e37d4a6466da22233e497dfd3b4e7c549d680b9955f2c72b27",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 166,
+        "end": 182,
+        "sha256": "236711a6fdd8d635e65e7cbeaa64833d1877268112c1d728ec7c00c0c95a3808",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:affine",
+      "number": "7.7",
+      "file": "sections/07_characterizations.tex",
+      "start": 158,
+      "end": 168,
+      "sha256": "a19e6b60c01a057496e3f5373244e5b3ed97d58e048977c10a8e9c2fc44cee49",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 185,
+        "end": 202,
+        "sha256": "ed52f8424b1fe1927589119574e6b4188468f35748f443bad08440833af9f612",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:pgglobal",
+      "number": "7.8",
+      "file": "sections/07_characterizations.tex",
+      "start": 175,
+      "end": 181,
+      "sha256": "9ebc183919de2413e303ad388cc20303923509ed2b086bf9591bd3c1ec271c81",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 205,
+        "end": 220,
+        "sha256": "9d93cf172fcfbe728d572cfc0b8efa816ea758ffed70386a99d764032a05296c",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:halfspaces",
+      "number": "7.9",
+      "file": "sections/07_characterizations.tex",
+      "start": 190,
+      "end": 197,
+      "sha256": "4456df2ad905aa485da780d13c6bad54abbd1ba280f13f20db5c6526a574a517",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 223,
+        "end": 263,
+        "sha256": "77fc10d1fac833b00e652a717017ebc3250d7a4f0ed4ec5b417f57f8a150cfec",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:adapt",
+      "number": "7.10",
+      "file": "sections/07_characterizations.tex",
+      "start": 217,
+      "end": 228,
+      "sha256": "896677b3fd3a7672b9b177dedbe8ce594a711da711010a8573d8071f0f1a8aa6",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 266,
+        "end": 268,
+        "sha256": "bf0e23fc4b2ef13ec06f83087094522e1018488914915f673e56dd354110cafc",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "cor:approxrect",
+      "number": "7.11",
+      "file": "sections/07_characterizations.tex",
+      "start": 236,
+      "end": 248,
+      "sha256": "a131a3347e97e986ffbededa2e203961d3225ba171430c757d23785616acc107",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "start": 271,
+        "end": 273,
+        "sha256": "15bf6ef53f0d4c5f2f9fdefec200cff8ae20022288bf322c254014c60ad48047",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "cor:engineered",
+      "number": "8.1",
+      "file": "sections/08_sgd.tex",
+      "start": 29,
+      "end": 35,
+      "sha256": "525d83bf2b3438252991b995e6a027062b5a261489b9b5c7d2db7324ada69188",
+      "proof": {
+        "file": "sections/08_sgd.tex",
+        "start": 36,
+        "end": 40,
+        "sha256": "00525737e7324e09b564dac8c0045057fee4876a74a468d5189e7cf245fa007f",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:network",
+      "number": "8.2",
+      "file": "sections/08_sgd.tex",
+      "start": 68,
+      "end": 74,
+      "sha256": "e88231142e798087c91af46aeadb53401e0462b388b0933281c8fc7ff62aea7f",
+      "proof": {
+        "file": "appendices/network_proofs.tex",
+        "start": 4,
+        "end": 10,
+        "sha256": "3141713f7ef6f76e567a1d9f27064eeb0acae783e95f989936f27af20ede110e",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:hiddenkey",
+      "number": "8.3",
+      "file": "sections/08_sgd.tex",
+      "start": 83,
+      "end": 88,
+      "sha256": "65996637800a7a1c0eaef9b22a7d6421ca11a5b2f6756501768e67d210f6e105",
+      "proof": {
+        "file": "appendices/network_proofs.tex",
+        "start": 13,
+        "end": 15,
+        "sha256": "d49b4d45271f3ad7c452b36a1ea608d62f1d48cf40d41806d161bae35c2ac552",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:description",
+      "number": "10.1",
+      "file": "sections/10_discussion.tex",
+      "start": 9,
+      "end": 16,
+      "sha256": "5fc8928045aa82de0261a06cea78e8da2ce90da3e57c3d31184c0e6297542a31",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "start": 3,
+        "end": 16,
+        "sha256": "db4728352e1b27c0989902a8e2f5983380e1f420456786dd3e114a4ddcbd9ede",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:classicalbarrier",
+      "number": "10.2",
+      "file": "sections/10_discussion.tex",
+      "start": 25,
+      "end": 37,
+      "sha256": "76f2b4744de02304ce374522cd043285a232b8470d3f5b6639d72646edcf1e19",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "start": 18,
+        "end": 37,
+        "sha256": "542e99cc5e1b75f781b387d5455699c4e4240390341766cb6ba9fa019fdce78c",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:unseen",
+      "number": "10.3",
+      "file": "sections/10_discussion.tex",
+      "start": 48,
+      "end": 56,
+      "sha256": "404ec7348c8ff4f298d29a78e8e1c7408bd781a1268c174ba1480d1cf98668c0",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "start": 39,
+        "end": 41,
+        "sha256": "8b17e3a5f112c7311a7b9a1c5040e5c30cac8556d870b78b44f7559ce6383e56",
+        "binding": "explicit canonical reference"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:cap-bound",
+      "number": "L.1",
+      "file": "appendices/geometric_bounds.tex",
+      "start": 3,
+      "end": 5,
+      "sha256": "88b22c38cefc9e7ad748554185648fb1f6680f61807138d0ddf854c94ed85232",
+      "proof": {
+        "file": "appendices/geometric_bounds.tex",
+        "start": 7,
+        "end": 21,
+        "sha256": "9bcb3ba9be1a5e562dfd4c76c141288ffc82424f18490911be00d79f4d1026fd",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "prop:pg-rect",
+      "number": "L.2",
+      "file": "appendices/geometric_bounds.tex",
+      "start": 23,
+      "end": 29,
+      "sha256": "4747b1289ca946941bedc182e2ae5f089e261a6a2f047460f5c5d7a9c4f96c25",
+      "proof": {
+        "file": "appendices/geometric_bounds.tex",
+        "start": 31,
+        "end": 39,
+        "sha256": "fc228ee910f264933b5af59c86a0a6d97422e609710ef7fc638c98e2d8a10a4c",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    },
+    {
+      "label": "thm:rsd",
+      "number": "I.1",
+      "file": "appendices/statistical_dimension.tex",
+      "start": 10,
+      "end": 16,
+      "sha256": "5646afb2f9006c274771faea6c47947786404a08edda1bb65f731298796975a4",
+      "proof": {
+        "file": "appendices/statistical_dimension.tex",
+        "start": 18,
+        "end": 46,
+        "sha256": "9e010d0a87e6c920f3d885ec6d9c98833189627a6243619b97f58f05b0a5f21b",
+        "binding": "immediately following canonical statement"
+      },
+      "restatement": "No independent restatement: proof binds the canonical statement."
+    }
+  ],
+  "deliberate_changes": [
+    {
+      "label": "lem:ties",
+      "number": "2.3",
+      "diff": "--- turn5:sections/02_preliminaries.tex\n+++ turn6:sections/02_preliminaries.tex\n@@ -1,3 +1,3 @@\n \\begin{lemma}[Tie conventions and strict realization]\\label{lem:ties}\n-For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. The probabilistic lower bounds in \\cref{thm:prob,lem:exact-prob} remain valid under either tie rule or when all zero scores count as errors.\n+For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. If all zero scores are counted as errors, replacing their predictions by $+1$ cannot increase loss, for any marginal and target.\n \\end{lemma}"
+    },
+    {
+      "label": "lem:regularstars",
+      "number": "6.4",
+      "diff": "--- turn5:sections/06_explicit.tex\n+++ turn6:sections/06_explicit.tex\n@@ -1,3 +1,3 @@\n \\begin{lemma}[Regular stars for almost every key]\\label{lem:regularstars}\n-Fix $0<\\epsilon<1/4$ and define star-regularity with the threshold $C_0=\\max\\{64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil\\}$ from \\cref{thm:fast}. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\\ref{thm:prf}, failure occurs for only a negligible fraction of keys.\n+Use the star-regularity definition in \\cref{sec:fast}: every template star with at least $64\\lceil n\\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\\epsilon$; the algorithm tests it only for stars larger than $C_0=\\max\\{64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil\\}$. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\\ref{thm:prf}, failure occurs for only a negligible fraction of keys.\n \\end{lemma}"
+    },
+    {
+      "label": "thm:communication",
+      "number": "7.1",
+      "diff": "--- turn5:sections/07_characterizations.tex\n+++ turn6:sections/07_characterizations.tex\n@@ -5,7 +5,7 @@\n  \\qquad\n  \\mathrm{AC}_{\\times}(H)\\le2\\rect(H)^{-1}.\n \\]\n-In particular, if $\\mathrm{AC}_{\\times}(H)\\le c$, one distribution-independent SQ learner uses\n+In particular, for every $0<\\epsilon<1/4$, if $\\mathrm{AC}_{\\times}(H)\\le c$, one distribution-independent SQ learner satisfies \\eqref{eq:guarantee} using\n \\[\n  m=O\\bigl(4^c(\\log|H|+\\log(1/\\epsilon))\\bigr),\\qquad\n  \\tau=\\Omega\\!\\left(\\frac{\\epsilon}{4^c\\log(1/\\epsilon)}\\right).\n"
+    },
+    {
+      "label": "thm:tree",
+      "number": "7.6",
+      "diff": "--- turn5:sections/07_characterizations.tex\n+++ turn6:sections/07_characterizations.tex\n@@ -1,5 +1,5 @@\n \\begin{theorem}[Marginal-branching and approximate probabilistic bounds]\\label{thm:tree}\n-Let $B=\\lceil2/\\tau\\rceil+1$, with $0<\\tau\\leq1$. For a deterministic learner satisfying \\eqref{eq:guarantee}, decompose each query as\n+Let $H\\subseteq\\{-1,+1\\}^X$ be finite and nonempty, $m\\ge1$ an integer, $0<\\tau\\le1$, and $0<\\epsilon<1/4$. Put $B=\\lceil2/\\tau\\rceil+1$. Suppose a depth-at-most-$m$ deterministic $(m,\\tau)$-SQ learner satisfies \\eqref{eq:guarantee} for this $H$ and $\\epsilon$. Decompose each query as\n \\[\n  q(x,y)=a(x)+yb(x),\\quad\n  a(x)=\\tfrac12(q(x,+1)+q(x,-1)),\\quad\n@@ -10,7 +10,7 @@\n  \\dc(\\cH)\\leq(m+1)B^u.\n \\end{equation}\n In particular, a deterministic correlational-only learner has $\\dc(\\cH)\\leq m+1$.\n-For an arbitrary randomized learner satisfying \\eqref{eq:guarantee},\n+For an arbitrary randomized $(m,\\tau)$-SQ learner with worst-case query budget $m$ satisfying \\eqref{eq:guarantee} under the same hypotheses,\n \\begin{equation}\\label{eq:approx}\n  \\dc^{\\epsilon}(\\cH)\\leq B^m.\n \\end{equation}\n"
+    },
+    {
+      "label": "thm:halfspaces",
+      "number": "7.9",
+      "diff": "--- turn5:sections/07_characterizations.tex\n+++ turn6:sections/07_characterizations.tex\n@@ -4,5 +4,5 @@\n  X_n=\\{-1,+1\\}^n,\\qquad\n  H_n=\\{x\\mapsto\\sign\\langle w,x\\rangle:w\\in\\{-1,+1\\}^n\\}.\n \\]\n-Then $\\dc(H_n)\\le n$, $\\rect(H_n)\\le e^{-n/4}$, and there is one distribution-independent SQ learner with $m=O(n^3/\\epsilon^2)$ and $\\tau=\\epsilon/(8n)$.\n+Then $\\dc(H_n)\\le n$ and $\\rect(H_n)\\le e^{-n/4}$. For every $0<\\epsilon<1/4$, one deterministic distribution-independent SQ learner satisfies \\eqref{eq:guarantee} with $m=O(n^3/\\epsilon^2)$ and $\\tau=\\epsilon/(8n)$.\n \\end{theorem}"
+    },
+    {
+      "label": "thm:adapt",
+      "number": "7.10",
+      "diff": "--- turn5:sections/07_characterizations.tex\n+++ turn6:sections/07_characterizations.tex\n@@ -1,10 +1,10 @@\n \\begin{theorem}[Marginal adaptation, under a small-query budget]\\label{thm:adapt}\n-Any deterministic learner of a high-dimension flip class obeys\n+Let $H_A$ be a flip class at scale $N$ with $M=N^3$, let $m\\ge1$ be an integer, and let $0<\\tau\\le1$ and $0<\\epsilon<1/4$. Every deterministic $(m,\\tau)$-SQ learner with worst-case query budget $m$ satisfying \\eqref{eq:guarantee} obeys\n \\[\n  u\\ge\\frac{\\ln\\dc(H_A)-\\ln(m+1)}\n  {\\ln(\\lceil2/\\tau\\rceil+1)},\n \\]\n-where $u$ is the marginal-branching depth defined in Theorem~\\ref{thm:tree}. In particular, for $m\\le(\\log M)^C$ and all sufficiently large $N$,\n+where $u$ is the marginal-branching depth defined in Theorem~\\ref{thm:tree}. In particular, if $\\dc(H_A)\\ge c_0N/\\log M$ for an absolute $c_0>0$, then for any fixed $C>0$, $m\\le(\\log M)^C$ and all sufficiently large $N$,\n \\[\n  u=\\Omega_C\\!\\left(\\frac{\\log N}{\\log(2+1/\\tau)}\\right).\n \\]\n"
+    }
+  ],
+  "note": "The program checks source bindings and a reviewed dependency graph, not mathematical validity."
+}

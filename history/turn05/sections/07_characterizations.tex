@@ -1,0 +1,260 @@
+\section{Sufficient conditions and their limits}\label{sec:characterizations}
+The rectangle condition admits a communication interpretation, but neither condition characterizes SQ learnability. Spectral certificates give a separate sufficient condition for hardness. Cube halfspaces and parities distinguish these directions.
+\subsection{Product-distribution communication}\label{sec:communication}
+Let $\mathrm{AC}_{\times}(H)$ be the supremum over product distributions $\mu\times\nu$ of the minimum expected bit cost of an exact deterministic communication protocol for $(x,h)\mapsto h(x)$. The protocol may depend on the two distributions. It must compute the function on every pair, including pairs of zero probability. Leaves of a binary deterministic protocol are monochromatic rectangles.
+
+
+\begin{theorem}[Communication as a sufficient condition]\label{thm:communication}
+For every finite class,
+\[
+ \rect(H)\ge2^{-2\mathrm{AC}_{\times}(H)-1},
+ \qquad
+ \mathrm{AC}_{\times}(H)\le2\rect(H)^{-1}.
+\]
+In particular, if $\mathrm{AC}_{\times}(H)\le c$, one distribution-independent SQ learner uses
+\[
+ m=O\bigl(4^c(\log|H|+\log(1/\epsilon))\bigr),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{4^c\log(1/\epsilon)}\right).
+\]
+\end{theorem}
+
+\noindent Proof: see \cref{proof:communication}.\par
+
+
+The cube halfspaces in Theorem~\ref{thm:halfspaces} show non-necessity here too. Under the uniform product, their largest rectangle has mass at most $e^{-n/4}$. The first proof therefore gives expected communication at least $n/(8\ln2)-1/2$, even though they have a distribution-independent polynomial-query learner. This direct consequence needs no Gap-Hamming reduction. Bounded product-average communication and a rectangle ratio bounded below are equivalent up to the displayed nonlinear conversion; neither characterizes SQ learning.
+
+\subsection{Spectral certificates and why they miss this}\label{sec:retained}
+
+\begin{lemma}[Finite energy and threshold counting]\label{thm:energy}
+Let $P_0$ be a probability distribution on a finite set $Z$, and let $r_1,\ldots,r_K\in L^2(P_0)$. Set
+\[
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad \Lambda=\|\Gamma\|_\op.
+\]
+For every $a:Z\to\R$,
+\begin{equation}\label{eq:energy}
+ \sum_{j=1}^K\bigl(\E_{P_0}r_j a\bigr)^2
+ \leq\Lambda\E_{P_0}a^2.
+\end{equation}
+In particular, if $|a|\leq1$ and $\tau>0$, then
+\begin{equation}\label{eq:count}
+ \bigl|\{j:|\E_{P_0}r_j a|>\tau\}\bigr|\tau^2\leq\Lambda.
+\end{equation}
+More generally, for any finite list of real numbers $c_i$, $\tau\geq0$, and $\sum_i c_i^2\leq\Lambda$, one has $|\{i:\tau<|c_i|\}|\tau^2\leq\Lambda$.
+\end{lemma}
+
+\noindent Proof: see \cref{proof:energy}.\par
+
+
+
+\begin{theorem}[Joint-distribution SQ barrier]\label{thm:barrier}
+Let $\mu$ be a full-support distribution on $X$ and let $P_0=\mu\otimes\mathrm{Unif}\{-1,+1\}$. For $j\in[K]$, let $P_j$ be the labeled distribution arising from some $D_j$ and $h_j\in\cH$. Put
+\[
+ r_j=\frac{P_j}{P_0}-1,\qquad
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad
+ \Lambda=\|\Gamma\|_\op,\qquad R=K/\Lambda.
+\]
+Any randomized adaptive $(m,\tau)$-SQ learner satisfying \eqref{eq:guarantee} obeys
+\begin{equation}\label{eq:joint}
+ 1-2\epsilon\leq\sqrt{\frac\Lambda K}+
+ \frac{m\Lambda}{K\tau^2},
+ \quad\text{equivalently}\quad
+ \frac m{\tau^2}\geq(1-2\epsilon)R-\sqrt R.
+\end{equation}
+Consequently, for $\epsilon<1/4$,
+\begin{equation}\label{eq:Rbound}
+ R\leq4+4m/\tau^2.
+\end{equation}
+\end{theorem}
+
+\noindent Proof: see \cref{proof:barrier}.\par
+
+
+\paragraph{The stated fixed-marginal barrier.}
+Set $D_j=\mu$ for every $j$. Then $r_j(x,y)=y h_j(x)$ and
+\[
+ \Gamma_{ij}=G_{ij}=\E_\mu[h_i h_j].
+\]
+For $R=K/\|G\|_\op\geq16$, \eqref{eq:joint} implies
+\begin{equation}\label{eq:fixed}
+ m\geq\tfrac14 R\tau^2.
+\end{equation}
+Indeed, $1-2\epsilon>1/2$ and $\sqrt R\leq R/4$. The cutoff matters: a uniformly positive lower bound proportional to $R\tau^2$ cannot hold for all tiny families, since a singleton needs no queries. The next theorem supplies the accompanying dimension lower bound.
+
+\subsubsection{Spectral sign-rank bounds}
+We use the spectral method associated with Forster \citep{Forster02}, but include its geometric step rather than treating the published theorem as a proof.
+
+
+\begin{theorem}[Spectral sign-rank bounds]\label{thm:forster}
+If $A\in\R^{N\times K}$ satisfies $|A_{xj}|\geq1$ for all entries, then
+\begin{equation}\label{eq:forster}
+ \sr(\sign A)\geq\frac{\sqrt{NK}}{\|A\|_\op}.
+\end{equation}
+If $M\in\{-1,+1\}^{N\times K}$ and $G=M^\top\diag(\mu)M$ for any distribution $\mu$ on its rows, then
+\begin{equation}\label{eq:weighted}
+ \sr(M)\geq\sqrt{K/\|G\|_\op}.
+\end{equation}
+\end{theorem}
+
+\noindent Proof: see \cref{proof:forster}.\par
+
+
+Theorems~\ref{thm:barrier} and \ref{thm:forster} prove the valid conditional assertion in the proposed spectral barrier: a certificate with ratio $R$ yields dimension lower bound $\sqrt R$ and query lower bound $\Omega(R\tau^2)$ when $R$ is large. They do not prove that all explicit sign-rank lower bounds admit such an ordinary label-Gram certificate. The following family disproves that extra assertion in precisely this form.
+
+\subsubsection{Projective planes}
+
+\begin{theorem}[Projective-plane incidence classes]\label{thm:plane}
+For each prime $q\geq2$, let $X_q$ be the points of the projective plane over $\mathbb F_q$, and let $\cH_q$ have one hypothesis per line, positive on that line and negative elsewhere. Set $N=q^2+q+1$ and $k=q+1$. Then:
+\begin{align}
+ \frac{q+1}{\sqrt q}&\leq\dc(\cH_q)\leq2q+3,\label{eq:planedc}\\
+ \frac{|J|}{\|[\E_\mu h_i h_j]_{i,j\in J}\|_\op}&\leq16
+ \quad\text{for every distribution $\mu$ and nonempty $J\subseteq\cH_q$}.
+ \label{eq:planeplain}
+\end{align}
+There is a distribution-independent $N$-query tolerance-$\tau$ learner of loss at most $\tau$. For each \emph{fixed} $D$ and $0<\epsilon<1/4$, there is a learner allowed to depend on $D$, with tolerance $\epsilon/2$ and
+\[
+ m_D\leq1+s+\binom{s}{2},\qquad
+ s=\left\lceil\frac{4\log N+2}{\epsilon}\right\rceil,
+\]
+that has loss at most $\epsilon$ for every target. Here $\log$ is natural.
+Nevertheless every \emph{single} learner satisfying \eqref{eq:guarantee}, with $m\geq1$, $0<\tau\leq1$, and $\epsilon<1/4$, satisfies
+\begin{equation}\label{eq:plane19}
+ \dc(\cH_q)\leq19m/\tau^2.
+\end{equation}
+\end{theorem}
+
+\noindent Proof: see \cref{proof:plane}.\par
+
+
+\paragraph{Why projective planes do not separate.}
+The family has unbounded dimension while all the proposed ordinary label-Gram ratios remain bounded. This is a genuine failure of the stated universality premise, not a counterexample to OQ2. The efficient learner needed for such a separation is impossible here: the target-dependent balanced marginals produce a joint-distribution ratio of order $q$. The lower-bound witness changes entry magnitudes, which the ordinary label Gram matrix cannot capture. This also verifies an explicit separation between fixed-distribution and distribution-independent SQ learning: $m_D=O(n^2/\epsilon^2)$ at tolerance $\epsilon/2$, whereas for $q\geq16$ any common learner needs $m/\tau^2\geq q/4$. Since $N\leq2q^2$, the latter is at least $2^{(n-1)/2}/4$. The dimension lower bound is at least $2^{(n-1)/4}$. None of these fixed-$D$ learners can be substituted for the single algorithm in OQ2.
+
+\subsubsection{Transcript compression}
+
+\begin{theorem}[Marginal-branching and approximate probabilistic bounds]\label{thm:tree}
+Let $B=\lceil2/\tau\rceil+1$, with $0<\tau\leq1$. For a deterministic learner satisfying \eqref{eq:guarantee}, decompose each query as
+\[
+ q(x,y)=a(x)+yb(x),\quad
+ a(x)=\tfrac12(q(x,+1)+q(x,-1)),\quad
+ b(x)=\tfrac12(q(x,+1)-q(x,-1)).
+\]
+Construct its marginal-response tree as follows. If $a$ is constant, retain only the answer equal to that constant. Otherwise retain the $B$ equally spaced answers in $[-1,1]$. Let $u$ be the maximum number of nonconstant-$a$ nodes on a retained root-to-leaf path. Then
+\begin{equation}\label{eq:tree}
+ \dc(\cH)\leq(m+1)B^u.
+\end{equation}
+In particular, a deterministic correlational-only learner has $\dc(\cH)\leq m+1$.
+For an arbitrary randomized learner satisfying \eqref{eq:guarantee},
+\begin{equation}\label{eq:approx}
+ \dc^{\epsilon}(\cH)\leq B^m.
+\end{equation}
+\end{theorem}
+
+\noindent Proof: see \cref{proof:tree}.\par
+
+
+The deterministic argument does not derandomize the learner: fixing its seed need not preserve its expected guarantee. The probabilistic bound is exponential, not polynomial, and gives no exact $\dc_{1/2}$ bound.
+
+
+
+\begin{proposition}[Affine-line quantitative comparison]\label{prop:affine}
+For the $p^2$ affine nonvertical lines on $\mathbb F_p^2$, the joint-distribution ratio in Theorem~\ref{thm:barrier} can be chosen as
+\[
+ R=\frac{2p}{1+(p-1)^{-2}}\ge p.
+\]
+Thus every common learner of constant expected error $\epsilon<1/4$ has $m/\tau^2=\Omega(p)$. More generally, if on every instance it achieves correlation at least $2\gamma>0$ with probability at least $\alpha$, then
+\[
+ m\ge\tau^2\left(\alpha R-\frac1{4\gamma^2}\right).
+\]
+At Feldman's weak-learning parameters $\tau=1/t$, $\gamma>1/t$, $t=(p/32)^{1/4}$ and $\alpha=2/3$, this gives $m=\Omega(\sqrt p)$; at constant tolerance and constant advantage it gives $m=\Omega(p)$.
+\end{proposition}
+
+\noindent Proof: see \cref{proof:affine}.\par
+
+
+\subsection{Rectangle geometry: tight examples and non-necessity}\label{sec:landscape}
+
+\begin{theorem}[Global projective-plane rectangle ratio]\label{thm:pgglobal}
+For the point--line incidence class of $\operatorname{PG}(2,q)$, over any prime-power order $q\ge2$ for which the plane is defined,
+\[
+ \frac1{8(q+1)}\le\rect(H_q)\le\frac{q}{(q+1)^2}.
+\]
+Thus the infimum over \emph{all} product distributions is $\Theta(1/q)$, not merely the maximum rectangle under the uniform product measure.
+\end{theorem}
+
+\noindent Proof: see \cref{proof:pgglobal}.\par
+
+
+\paragraph{What is and is not tight.}
+Theorem~\ref{thm:barrier} and the balanced target-dependent marginals of Theorem~\ref{thm:plane} give $m/\tau^2=\Omega(q)=\Omega(\rho)$ for this family. At a fixed positive tolerance this yields $m=\Omega(\rho)$. Theorem~\ref{thm:main}, however, uses $\tau=\Theta_\epsilon(1/\rho)$ and has $m/\tau^2=O_\epsilon(\rho^3\log K)$. Thus the geometry is sharp and a linear inverse-rectangle dependence is unavoidable at fixed tolerance, but the joint $(m,\tau)$ dependence of Theorem~\ref{thm:main} is \emph{not} established as tight up to logarithms. Lowering tolerance cannot be ignored in a tightness claim.
+
+
+\begin{theorem}[Small rectangle ratio does not prevent SQ learning]\label{thm:halfspaces}
+For odd $n$, let
+\[
+ X_n=\{-1,+1\}^n,\qquad
+ H_n=\{x\mapsto\sign\langle w,x\rangle:w\in\{-1,+1\}^n\}.
+\]
+Then $\dc(H_n)\le n$, $\rect(H_n)\le e^{-n/4}$, and there is one distribution-independent SQ learner with $m=O(n^3/\epsilon^2)$ and $\tau=\epsilon/(8n)$.
+\end{theorem}
+
+\noindent Proof: see \cref{proof:halfspaces}.\par
+
+
+For contrast, all parities on $\{-1,+1\}^n$ have an orthonormal label Gram matrix under the uniform marginal: the product of distinct characters is a nonconstant character, whose mean cancels by flipping one coordinate. Theorem~\ref{thm:barrier} therefore gives $m/\tau^2=\Omega(2^n)$ at any fixed accuracy below $1/4$. The same Walsh orthogonality bounds every uniform monochromatic rectangle mass by $2^{-n}$. Small rectangles can therefore occur on either the easy or the hard side of SQ learning.
+
+For an ordinary Gram matrix $G=\E_\mu hh^\top$ on $K$ rows, let $R=K/\|G\|_{\mathrm{op}}$. A monochromatic rectangle $S\times T$ satisfies
+\[
+ \mu(S)|T|^2\le\E_\mu\!\left(\sum_{h\in T}h(x)\right)^2
+ \le\|G\|_{\mathrm{op}}|T|.
+\]
+Thus its mass under $\mu$ times the uniform row prior is at most $1/R$. A large ordinary certificate supplies both small rectangles and the SQ lower bound; small rectangles alone supply neither converse. This distinction is depicted in \cref{fig:landscape}.
+
+\input{figures/implication_map.tex}
+
+\paragraph{Why the spectral certificates miss the counterexample.}
+For a fixed-marginal label-Gram certificate $G$ on $K$ hypotheses, a monochromatic rectangle $S\times T$ satisfies
+\[
+ \|G\|_{\rm op}\ge\E_\mu\left(\sum_{h\in T}h(x)/\sqrt{|T|}\right)^2
+ \ge\mu(S)|T|.
+\]
+Hence every such rectangle under $\mu\times\mathrm{Unif}(H)$ has mass at most $\|G\|_{\rm op}/K$. A large ordinary-Gram ratio therefore implies small rectangles \emph{and}, separately, SQ hardness. The arrow from small rectangles to hardness is false by Theorem~\ref{thm:halfspaces}. The balanced projective-plane certificate is a joint-distribution certificate, not one of these bounded ordinary-Gram ratios. For the flip family, Theorems~\ref{thm:barrier} and~\ref{thm:main} give $\mathfrak J(H_A)=O_\epsilon(\log M)$ while $\dc(H_A)=\Omega(N/\log M)$. This is the promised failure of joint-certificate completeness.
+
+
+\begin{theorem}[Marginal adaptation, under a small-query budget]\label{thm:adapt}
+Any deterministic learner of a high-dimension flip class obeys
+\[
+ u\ge\frac{\ln\dc(H_A)-\ln(m+1)}
+ {\ln(\lceil2/\tau\rceil+1)},
+\]
+where $u$ is the marginal-branching depth defined in Theorem~\ref{thm:tree}. In particular, for $m\le(\log M)^C$ and all sufficiently large $N$,
+\[
+ u=\Omega_C\!\left(\frac{\log N}{\log(2+1/\tau)}\right).
+\]
+At fixed positive tolerance, the $\Omega(\log N)$ requirement matches the $O_d(\log M)$ marginal-query upper bound of the deterministic finite-net learner, at fixed accuracy.
+\end{theorem}
+
+\noindent Proof: see \cref{proof:adapt}.\par
+
+
+The query-budget qualification cannot be dropped: querying the correlation with every row is a deterministic correlational learner with $u=0$ and $m=K$. Randomization is not intrinsically necessary for the separation, because the finite-net enumeration is deterministic. What is necessary for a small-query deterministic learner here is adaptation to marginal information. At inverse-polylogarithmic tolerance the proved lower bound loses a $\log\log M$ factor; no sharper matching statement is made.
+
+\subsection{Approximate deterministic embeddings}
+\begin{corollary}[Published approximate rank as an SQ sufficient condition]\label{cor:approxrect}
+Fix $0<\eta<1/2$ and $0<\epsilon<1/4$. Suppose a total sign matrix has approximate sign-rank at most $d$ in the deterministic-embedding sense of \citet{BHKR26}. Put $\bar d=\max\{2,d\}$ and
+\[
+ \rho_\eta=\bar d^{C_\eta(\bar d+\bar d^2)},
+\]
+where $C_\eta$ is a sufficiently large constant valid in their rectangle theorem. Then
+\[
+ \rect(H)\ge\rho_\eta^{-1},\quad
+ m=O\bigl(\rho_\eta(\log K+\log(1/\epsilon))\bigr),\quad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho_\eta\log(1/\epsilon)}\right)
+\]
+for one distribution-independent learner. Equivalently $\rho_\eta=\bar d^{O_\eta(\bar d^2)}$. The implicit constant depends only on $\eta$.
+\end{corollary}
+
+\noindent Proof: see \cref{proof:approxrect}.\par
+For comparison with randomized SQ dimension, see Appendix~\ref{sec:rsd}. The construction of RECTIFY is independent of that characterization.
+
+\paragraph{Comparison of the example families.}
+\Cref{tab:examples} collects the bounds. For affine lines, the degree argument in \cref{proof:pgglobal} gives $\rect\ge1/(8p)$. The centered affine incidence matrix has norm $\sqrt p$ by \cref{prop:affine}; under uniform product weights the same bilinear argument gives rectangle mass at most $1/p$. Each affine row has $p$ exceptional labels, so the moment-curve construction of \cref{thm:construction} gives dimension at most $2p+1$. Exhaustively testing row correlations gives the displayed affine upper bound. For parities, the uniform Gram matrix is the identity and the spectral theorem gives dimension at least $2^{n/2}$; exhaustive testing matches the query lower bound at fixed accuracy.
+\input{figures/example_table.tex}

@@ -1,0 +1,63 @@
+% Canonical statement: sections/07_characterizations.tex:87-96
+\begin{theorem}[Spectral sign-rank bounds]\label{thm:forster}
+If $A\in\R^{N\times K}$ satisfies $|A_{xj}|\geq1$ for all entries, then
+\begin{equation}\label{eq:forster}
+ \sr(\sign A)\geq\frac{\sqrt{NK}}{\|A\|_\op}.
+\end{equation}
+If $M\in\{-1,+1\}^{N\times K}$ and $G=M^\top\diag(\mu)M$ for any distribution $\mu$ on its rows, then
+\begin{equation}\label{eq:weighted}
+ \sr(M)\geq\sqrt{K/\|G\|_\op}.
+\end{equation}
+\end{theorem}
+
+% Proof binding: appendices/certificate_proofs.tex:53-102
+\begin{proof}[Proof of \cref{thm:forster}]
+Let $d=\sr(M)$, with $M=\sign A$ in the first assertion. Choose a strict representation
+$M_{xj}=\sign\langle z_x,v_j\rangle$ in $\R^d$. If $d\geq K$, both conclusions are immediate: $\|A\|_\op\geq\sqrt N$ from any column, while $G_{jj}=1$ implies $\|G\|_\op\geq1$. We henceforth have $1\leq d<K$.
+
+Perturb the finitely many $v_j$ within sufficiently small open neighborhoods so that signs are unchanged and every $d$ of them are independent. Such a perturbation exists: for each $d$-subset the determinant is a nonzero polynomial in the vector coordinates, and a finite union of its zero sets has empty interior. To justify this elementary fact, a nonzero univariate polynomial has finitely many roots; induction on the number of variables, by viewing the polynomial as a polynomial in the last variable, shows that a multivariate polynomial cannot vanish on a nonempty open box. Apply this to the product of the finitely many determinant polynomials.
+
+We prove that there is an invertible $T$ such that the normalized vectors
+$u_j=Tv_j/\|Tv_j\|$ satisfy
+\begin{equation}\label{eq:isotropy}
+ \sum_{j=1}^K u_ju_j^\top=(K/d)I_d.
+\end{equation}
+For every $1\leq r\leq d$, there is a common $\delta>0$ such that at most $d-r$ of the $v_j$ have projection norm less than $\delta$ onto any $r$-dimensional subspace. In fact, any $d-r+1$ of the vectors are independent, so cannot all belong to the orthogonal complement of an $r$-dimensional subspace. Their maximum projection norm is therefore positive for every such subspace. Its minimum is positive by compactness of the space of orthogonal projection matrices of rank $r$; this space is closed and bounded. Take the minimum over finitely many subsets and $r$.
+
+For positive definite $Q$ with $\det Q=1$, minimize
+\[
+ F(Q)=\sum_{j=1}^K\log(v_j^\top Qv_j).
+\]
+Write the decreasing eigenvalues of $Q$ as $e^{s_1}\geq\cdots\geq e^{s_d}$, where $\sum_i s_i=0$. For each $r$, at least $K-d+r$ of the quadratic forms are at least $\delta^2e^{s_r}$. Order the $K$ log quadratic forms increasingly. For the first $d$ entries use respectively the bounds
+$\log\delta^2+s_d,\ldots,\log\delta^2+s_1$; each of the remaining $K-d$ entries is at least $\log\delta^2+s_1$. Thus
+\[
+ F(Q)\geq K\log\delta^2+(K-d)s_1.
+\]
+Since $K>d$, every sublevel set has bounded largest eigenvalue. The determinant condition then bounds the smallest eigenvalue away from zero. Sublevel sets are compact, so a minimizer $Q$ exists.
+For a symmetric traceless matrix $B$, the path
+$Q(t)=Q^{1/2}\exp(tB)Q^{1/2}$ retains determinant one. Its derivative at zero gives
+\[
+ 0=\sum_j\frac{v_j^\top Q^{1/2}BQ^{1/2}v_j}{v_j^\top Qv_j}
+   =\tr\left(B\sum_j u_ju_j^\top\right),
+ \qquad u_j=\frac{Q^{1/2}v_j}{\|Q^{1/2}v_j\|}.
+\]
+A symmetric matrix orthogonal to every traceless symmetric matrix is scalar: subtract its scalar trace part and take that difference as $B$. Taking traces gives \eqref{eq:isotropy}, with $T=Q^{1/2}$.
+
+Replace each row vector by the normalization of $T^{-\top}z_x$, denoted $e_x$, so $\|e_x\|=1$ and all signs are preserved. Let $U$ be the matrix with columns $u_j$. For every row of $A$,
+\[
+ \langle e_x,UA_{x,\cdot}^{\top}\rangle
+ =\sum_j |A_{xj}|\,|\langle e_x,u_j\rangle|
+ \geq\sum_j\langle e_x,u_j\rangle^2=K/d.
+\]
+Here $|\langle e_x,u_j\rangle|\leq1$ was used. Consequently,
+\[
+ NK^2/d^2\leq\|UA^\top\|_F^2
+ \leq\|A\|_\op^2\|U\|_F^2=K\|A\|_\op^2.
+\]
+This proves \eqref{eq:forster}. For $M$, use the same row inequality, square, and average under $\mu$:
+\[
+ K^2/d^2\leq\sum_x\mu(x)\|UM_{x,\cdot}^{\top}\|^2
+ =\tr(UGU^\top)\leq\|G\|_\op\tr(UU^\top)=K\|G\|_\op.
+\]
+The last inequality follows by diagonalizing the positive semidefinite $G$, whose eigenvalues lie between zero and its operator norm. This proves \eqref{eq:weighted}.
+\end{proof}

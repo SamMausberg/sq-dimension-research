@@ -1,0 +1,65 @@
+\section{Introduction}\label{sec:introduction}
+\citet{FKS26} ask: ``We ask whether distribution-independent SQ learning implies low dimension complexity''. The answer is negative. One learner can serve every input distribution with few statistical queries while every common linear representation requires exponentially many dimensions in the domain's encoding length.
+
+Here is the quantitative question in the notation used below. Let $X$ be finite, $n=\log_2|X|$, and $H\subseteq\{-1,+1\}^X$. Let $\dc(H)$ be the least dimension of a strict linear representation of every $h\in H$ by one feature map. Suppose a randomized adaptive $(m,\tau)$ statistical-query learner has expected classification error at most a fixed $0<\epsilon<1/4$ for every marginal $D$ on $X$ and target $h\in H$. The proposed conclusions, in decreasing strength, are
+\begin{align}
+\dc(H)&\le C m/\tau^2, &&\text{(L)}\label{eq:linear-question}\\
+\dc(H)&\le p(m,1/\tau), &&\text{(P)}\label{eq:poly-question}\\
+\dc(H)&\le p(m,1/\tau,n), &&\text{(Pn)}\label{eq:polyn-question}
+\end{align}
+where $C$ and the polynomial $p$ are universal. We also consider $\dc_{1/2}$, which permits a random embedding realizing each target exactly with probability at least $1/2$, and $\dc^\eta$, which permits expected best-linear-predictor error at most $\eta$. Their precise quantifiers and tie conventions appear in \cref{sec:preliminaries}. Each proposed conclusion fails for these notions as well.
+
+\begin{maintheorem}[Main result]
+For every finite nonempty class $H$, write
+\[
+\rect(H)=\inf_{\mu\in\Delta(X),\nu\in\Delta(H)}
+ \max_{S\times T\,\mathrm{monochromatic}}\mu(S)\nu(T).
+\]
+If $\rect(H)\ge1/\rho$ with $\rho\ge1$, then for every $0<\epsilon<1/4$ one distribution-independent SQ learner achieves expected error at most $\epsilon$ against every valid adaptive oracle, using
+\[
+ m=O\!\left(\rho(\log|H|+\log(1/\epsilon))\right),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho\log(1/\epsilon)}\right).
+\]
+For infinitely many $M$, there are classes on $2M$ points with $\rect(H)\ge2^{-15}$ and
+\[
+ \dc(H)=\Omega\!\left(\frac{M^{1/3}}{\log M}\right),\quad
+ \dc_{1/2}(H)=\Omega\!\left(\frac{M^{1/3}}{\log^2 M}\right),\quad
+ \dc^\eta(H)=\Omega_\eta\!\left(\frac{M^{1/3}}{\log M}\right)
+\]
+for every prescribed fixed $0\le\eta<1/2$. They have proper deterministic learners with $m=O_\epsilon(\log M)$ and $\tau=\Omega_\epsilon(1)$, computable in polynomial time from the supplied table.
+\end{maintheorem}
+The parameter constants are given in \cref{lem:params}; the separation follows from \cref{thm:construction,thm:prob,lem:exact-prob,thm:caps,thm:proper}. The deterministic implementation has a pointwise worst-case error guarantee, so the counterexample does not depend on averaging the learner's error over its random seed.
+
+\paragraph{Mechanism.}
+A fixed feature map must realize every example--hypothesis sign simultaneously. A learner can first ask where the unknown marginal places mass, then label an agreed region or remove inconsistent hypotheses. A finite minimax argument turns the product-distribution rectangle property into a distribution over rectangles that covers every point without knowing the marginal. RECTIFY charges either action to the product of the rectangle's two masses. One potential controls hypothesis eliminations; another controls peeled mass. Their combination yields the finite query budget. The incidence-flip construction preserves this rectangle structure while counting forces high sign-rank.
+
+\paragraph{Contributions.}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item A rectangle-based sufficient condition for distribution-independent SQ learning, with explicit tolerance and a worst-case query bound (\cref{thm:main,lem:params}).
+\item A negative answer to (L), (P) and (Pn), including exact and averaged probabilistic dimension under nondegenerate loss conventions (\cref{cor:negative-answer}).
+\item Table-polynomial cap samplers, a deterministic implementation, and proper learning for the separating family (\cref{thm:caps,thm:proper}).
+\item A succinct order-median learner with $O(n^2)$ queries, and conditional key-known polynomial-time separations for every prescribed polynomial degree (\cref{thm:fast,thm:prf,cor:fastprf}).
+\item Communication sufficient conditions, spectral obstructions, and examples distinguishing rectangle size from SQ complexity (\cref{thm:communication,thm:barrier,thm:halfspaces}).
+\item Quantified marginal adaptation and resource barriers, together with a precise engineered-gradient corollary and the remaining online-SGD question (\cref{thm:adapt,cor:engineered,thm:description,thm:classicalbarrier,prop:unseen}).
+\end{itemize}
+
+\begin{table}[t]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}p{.30\linewidth}X@{}}
+\toprule
+Imported ingredient & Role in the argument\\\midrule
+Incidence flips and rectangle geometry \citep{HHPTZ22} & Supply a class with large rectangles and many freely chosen signs.\\
+Warren's theorem \citep{Warren68,AMY16} & Counts strict low-rank sign patterns; the application-specific constants and probabilistic reductions are derived here.\\
+Homogeneous rectangles \citep{APP05,HHPTZ22} & Sharpen the constant to $2^{-15}$; \cref{prop:cap-bound} independently gives $2^{-18}$.\\
+Finite minimax \citep{HHPTZ22} & Supplies the mixture device; the learning progress and oracle analysis use that device.\\
+SQ and differentiable-learning characterizations \citep{Feldman17,AKMSS21} & Used only for the separate comparisons in \cref{sec:resources,sec:rsd}.\\
+\bottomrule
+\end{tabularx}
+\caption{Imported results and their roles. The adaptive learner, its proper and succinct implementations, and the stated reductions are proved in the sections indicated.}\label{tab:imports}
+\end{table}
+
+\paragraph{Roadmap.}
+\Cref{sec:rectangle} proves the learner; \cref{sec:construction} gives the separating family. \Cref{sec:learners,sec:explicit} treat implementation and succinct descriptions. \Cref{sec:characterizations} compares sufficient conditions and certificates. \Cref{sec:resources} addresses differentiable learning, and \cref{sec:discussion} states the remaining questions. Deferred proofs and reproducibility material follow the references.
+
+\paragraph{Scope.}
+SQ query complexity charges neither the class description nor preprocessing. Table-polynomial and seed-polynomial running times are distinguished throughout. A high-probability statement about keys or advice does not select an efficient deterministic sequence of good strings. The conditional statements assume the specified PRF security. Probabilistic dimensions use Boolean predictions with an explicit tie rule; a raw-score loss that declares every zero score correct is excluded. The original class-dependent Gaussian-initialized online-SGD implication remains open.

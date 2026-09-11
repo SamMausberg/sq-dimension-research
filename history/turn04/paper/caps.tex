@@ -1,0 +1,77 @@
+\section{Cap mixtures and computation from an explicit table}\label{sec:caps}
+The linear program in Lemma~\ref{lem:mixture} has exponentially many possible rectangles. A fixed-dimensional template makes a different sampler available. Exact radial isotropy is used to state its clean geometric constant; the algorithmic corollary uses a rational approximation and a finite net. Exact real transformations and finite-bit computation are not identified.
+
+\begin{samepage}
+\begin{theorem}[Pointwise cap mixture and table-polynomial implementation]\label{thm:caps}
+Fix $d\ge1$. Let $F$ have a strict rank-$d$ representation and no negative $2\times2$, and let $A$ be any monotone flip of its negative entries. Perturb the row vectors once into linear general position without changing $F$. At any nonempty survivor set, use the uniform row prior $\nu$. There is a cap sampler, depending on the surviving rows but not on the unknown marginal, such that
+\begin{equation}\label{eq:capcoverage}
+ \forall x\in U,\qquad \E[\1_S(x)\nu(T)]\ge\frac{c_d}{8d},
+ \quad c_d=\Pr_{u\sim\mathrm{Unif}(S^{d-1})}
+ [u_1\ge\sqrt{1-1/(2d)}].
+\end{equation}
+Here $c_1=1/2$. Thus Theorem~\ref{thm:main} applies with $\rho=8d/c_d$ in the ideal real-arithmetic model.
+
+For each fixed $d$, given the explicit table of $A$ and rational template vectors of bit length at most $b$, there are randomized and deterministic implementations, polynomial in $|X|,|H|,b,1/\epsilon$, with
+\[
+ m=O_d(\log|H|+\log(1/\epsilon)),\qquad
+ \tau=\Omega_d(\epsilon/\log(1/\epsilon)).
+\]
+Queries are intersections of stored cap tests, or such tests split by one row label or one point's row labels. This is polynomial time in the supplied table, not in $n=\log_2|X|$ alone.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+We first make the once-only perturbation precise. Number the rows $j=1,\ldots,K$. Replace a row vector $v_j$ by
+\[
+ v_j(t)=v_j+t(1,j,\ldots,j^{d-1}).
+\]
+Choose a positive rational upper bound $t_0$ so that every dot product retains its strict sign for $0<t<t_0$. The finitely many original rational dot products and the perturbation dot products give such a bound by direct comparison. For each $d$-subset of rows, its determinant is a polynomial in $t$ of degree $d$ whose leading coefficient is a nonzero Vandermonde determinant. At most $d\binom Kd$ values are forbidden. Testing that many plus one rational grid values in $(0,t_0)$ finds a valid value, with polynomial bit length and polynomial work for fixed $d$. When $K<d$, perturb all subsets of size at most $K$ to independence instead, or work directly in their span. The same perturbation works for every later survivor set.
+
+Suppose there are $k>d$ surviving rows. Any proper $j$-dimensional subspace contains at most $j$ of them, strictly less than $kj/d$. The radial-isotropy proof of Theorem~\ref{thm:forster} therefore applies; its convex formulation is also proved in Appendix~\ref{app:convex}. Transform and normalize the rows to vectors $v_h\in S^{d-1}$ with
+\[
+ \E_\nu v_hv_h^\top=I_d/d.
+\]
+Transform points contragrediently and normalize them to $z_x$. All template signs remain strict. If $k\le d$, retain \emph{all} rows and reduce to their common span: the map $x\mapsto (\langle v_h,u_x\rangle)_{h\in V}$ and the row vectors $e_h\in\R^k$ give the same strict signs and exact isotropy in dimension $k$. No target is discarded by a subspace restriction.
+
+Write the effective dimension as $j\le d$, put $\alpha^2=1/(2j)$ and $\beta=\sqrt{1-\alpha^2}$, and sample $u$ uniformly on $S^{j-1}$. Define
+\[
+ C_u=\{x:\langle u,z_x\rangle\ge\beta\},\qquad
+ T_u^\pm=\{h:\pm\langle u,v_h\rangle>\alpha\}.
+\]
+For $Z=\langle u,v_h\rangle^2\in[0,1]$, isotropy gives $\E_\nu Z=1/j$. Since
+\[
+ \E Z\le\alpha^2+\Pr[Z>\alpha^2],
+\]
+we have $\nu(T_u^+)+\nu(T_u^-)\ge1/(2j)$. Choose the larger side, of mass at least $1/(4j)$.
+
+The geometry is strict. If $s=\langle u,v\rangle>\alpha$ and $t=\langle u,z\rangle\ge\beta$, then
+\[
+ \langle z,v\rangle\ge ts-\sqrt{1-t^2}\sqrt{1-s^2}>0,
+\]
+because $s,t>0$ and $s^2+t^2>1$. Replacing $v$ by $-v$ proves the negative-side assertion. Thus $C_u\times T_u^+$ is positive in $F$, and $C_u\times T_u^-$ is negative in $F$.
+
+A positive rectangle survives in $A$. A negative rectangle has a singleton side. If its row side is $\{h\}$, partition $C_u\cap U$ according to $h(x)$ in $A$ and choose either color with probability $1/2$. If its point side is $\{x\}$, partition the row side according to $h(x)$ and choose either color with probability $1/2$. Empty outcomes are allowed. The singleton-point case is essential and is not replaced by a singleton-row assumption. Conditional on $x\in C_u$, its expected weighted coverage after this split is at least half the chosen side's mass, hence at least $1/(8j)$. Rotational invariance gives probability $c_j$ of cap membership. Therefore the pointwise bound is $c_j/(8j)\ge c_d/(8d)$. To verify the last inequality, couple the first coordinate of uniform spheres by normalizing an increasing list of independent standard Gaussians. Its absolute value decreases as dimension grows, while $\sqrt{1-1/(2j)}$ increases. Symmetry supplies the factor $1/2$, including the case $j=1$.
+
+For finite-bit computation, Appendix~\ref{app:convex} gives a deterministic rational transform with normalized covariance at least $3I_j/(4j)$. The preceding second-moment argument then gives total side mass at least $1/(4j)$, selected-side mass at least $1/(8j)$, and split coverage at least $1/(16j)$ whenever a point belongs to the cap.
+
+Use the finite direction set
+\[
+ W_j=\left\{\frac{g}{\|g\|}:0\ne g\in(16j)^{-1}\mathbb Z^j\cap[-1,1]^j\right\},
+ \qquad J_j=|W_j|\le(32j+1)^j.
+\]
+Repetitions of a direction cause no difficulty. Rounding a unit vector coordinatewise produces $g$ with $\|g-z\|\le1/(32\sqrt j)$; normalization changes it by at most twice this amount. Thus $\langle z,g/\|g\|\rangle\ge1-1/(512j)>\beta$, where the last inequality follows from $\beta\le1-1/(4j)$. Every point is in at least one cap. Uniformly sampling $W_j$ and the split color yields coverage at least $1/(16jJ_j)$. The common rational lower bound
+\begin{equation}\label{eq:netr}
+ r_d=\frac1{16d(32d+1)^d}
+\end{equation}
+works in all effective dimensions. All membership comparisons are rational: for example $\langle z,g/\|g\|\rangle\ge\beta$ means that the unnormalized dot product is positive and
+\[
+ \langle z_{\rm raw},g\rangle^2\ge(1-1/(2j))\|z_{\rm raw}\|^2\|g\|^2.
+\] The row-side tests use the analogous strict squared comparison. Consequently no exact sampling of a continuous direction is required. Theorem~\ref{thm:main} with $r_d$ proves the randomized finite-bit bound.
+
+For determinism, enumerate the at most $2J_j$ outcomes and query each $D(S)$, using the same tolerance and stopping check as Theorem~\ref{thm:main} with $r_d$. Choose the outcome maximizing $b\widehat s$, where $b=\nu(T)$. Coverage implies that some outcome has $bs\ge r_du$. The chosen one has
+\[
+ bs\ge r_du-2\tau,\qquad ab\ge r_d-2\tau/u\ge3r_d/4.
+\]
+Thus both $a$ and $b$ are at least $3r_d/4$. Query its mismatch mass and peel or eliminate exactly as before. The target survives, and all error bounds remain valid. Each stage has progress at least $3r_d/4$, whereas the deterministic total-progress bound is $B$. There cannot be more than $\lceil4B/(3r_d)\rceil+1$ nonstopping stages. There are $O_d(1)$ queries per stage. This proves the deterministic claim, without fixing a successful private seed after seeing $D$.
+\end{proof}
+
+For $d=6$, $c_6\approx0.0003509774$ and $8d/c_d\approx136760.93$. These numerical values describe the ideal sampler. The rational-net construction has worse, dimension-dependent constants but the same stated asymptotics. A low-rank template alone is insufficient: the no-negative-$2\times2$ condition is used exactly at the splitting step.

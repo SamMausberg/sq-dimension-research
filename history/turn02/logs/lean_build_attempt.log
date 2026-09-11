@@ -1,0 +1,9 @@
+$ lake --version
+bash: line 152: lake: command not found
+exit=127
+$ lake build
+bash: line 152: lake: command not found
+exit=127
+$ lean --version
+bash: line 152: lean: command not found
+exit=127

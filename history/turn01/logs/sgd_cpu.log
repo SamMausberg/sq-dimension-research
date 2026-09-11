@@ -1,0 +1,120 @@
+{
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "cpu_only": true,
+  "architecture": [
+    3,
+    8,
+    1
+  ],
+  "T": 1200,
+  "S": 32,
+  "eta": 0.05,
+  "init_variance": [
+    0.3333333333333333,
+    0.125
+  ],
+  "relu_derivative_at_zero": 0,
+  "sign_at_zero": 1,
+  "tail": "sum of post-update f_theta(t), t from T//2 through T inclusive",
+  "distribution_seed": 20260910,
+  "reporting_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "pilot_seeds": [
+    10000,
+    10001
+  ],
+  "pilot_steps": 600,
+  "adversary": "max mean pilot error among ten fixed distributions; not certified worst case",
+  "target_extension": "projective-plane q=2 uses first seven cube points; eighth label is -1",
+  "runs": 135,
+  "summary": [
+    {
+      "family": "parity_degree1",
+      "distribution": "uniform",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree1",
+      "distribution": "sparse_mixture",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree1",
+      "distribution": "adversarial_search",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "uniform",
+      "runs": 5,
+      "mean_error": 0.5,
+      "min_error": 0.5,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "sparse_mixture",
+      "runs": 5,
+      "mean_error": 0.14750000000000002,
+      "min_error": 0.05,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "adversarial_search",
+      "runs": 5,
+      "mean_error": 0.5,
+      "min_error": 0.5,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "uniform",
+      "runs": 35,
+      "mean_error": 0.025,
+      "min_error": 0.0,
+      "max_error": 0.625,
+      "zero_error_runs": 32
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "sparse_mixture",
+      "runs": 35,
+      "mean_error": 0.030000000000000002,
+      "min_error": 0.0,
+      "max_error": 0.48750000000000004,
+      "zero_error_runs": 12
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "adversarial_search",
+      "runs": 35,
+      "mean_error": 0.033689291572683924,
+      "min_error": 0.0,
+      "max_error": 0.5,
+      "zero_error_runs": 11
+    }
+  ],
+  "limits": "These finite runs neither establish distribution-independent learning nor refute the SGD conjecture."
+}

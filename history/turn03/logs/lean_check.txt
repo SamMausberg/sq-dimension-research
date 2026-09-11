@@ -1,0 +1,4 @@
+$ lake --version
+[Errno 2] No such file or directory: 'lake'
+exit_code=127
+No compiler/build/axiom audit was performed.

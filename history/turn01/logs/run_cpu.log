@@ -1,0 +1,410 @@
+{
+  "seed": 20260910,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "plane_orders": [
+    2,
+    3,
+    5,
+    7,
+    11
+  ],
+  "plain_gram_checks": 600,
+  "max_sampled_plain_gram_ratio": 6.760000000000003,
+  "energy_count_checks": 500,
+  "adaptive_oracle_checks": 200,
+  "grid_tree_checks": 24,
+  "exhaustive_learner_checks": 100,
+  "walsh4_exact_sign_rank": 3,
+  "walsh4_embedding": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      -1,
+      -1
+    ]
+  ],
+  "walsh4_weights": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      -2,
+      4
+    ],
+    [
+      1,
+      4,
+      -2
+    ],
+    [
+      1,
+      -2,
+      -2
+    ]
+  ],
+  "all_assertions_passed": true,
+  "limits": "Sampled spectral tests are not universal verification. Walsh rank-2 exclusion is exhaustive; its rank-3 certificate is integral. No SDP was run."
+}
+
+Projective-plane bounds:
+{'q': 2, 'N': 7, 'k': 3, 'dc_lower': 2.1213203435596424, 'dc_upper': 7, 'signed_witness_norm': 3.299831645537222, 'joint_lambda': 1.2152777777777786, 'joint_R': 5.759999999999996, 'largest_sampled_plain_gram_ratio': 6.124999999999993}
+{'q': 3, 'N': 13, 'k': 4, 'dc_lower': 2.3094010767585034, 'dc_upper': 9, 'signed_witness_norm': 5.6291651245988525, 'joint_lambda': 1.4594907407407434, 'joint_R': 8.907216494845345, 'largest_sampled_plain_gram_ratio': 6.760000000000003}
+{'q': 5, 'N': 31, 'k': 6, 'dc_lower': 2.6832815729997477, 'dc_upper': 13, 'signed_witness_norm': 11.553017883748918, 'joint_lambda': 2.2767777777777836, 'joint_R': 13.615733736762447, 'largest_sampled_plain_gram_ratio': 2.65714285714286}
+{'q': 7, 'N': 57, 'k': 8, 'dc_lower': 3.0237157840738176, 'dc_upper': 17, 'signed_witness_norm': 18.850978091335218, 'joint_lambda': 3.200277879008756, 'joint_R': 17.810953346855932, 'largest_sampled_plain_gram_ratio': 2.180525428808301}
+{'q': 11, 'N': 133, 'k': 12, 'dc_lower': 3.6181361349331636, 'dc_upper': 25, 'signed_witness_norm': 36.75925809310571, 'joint_lambda': 5.12982354537103, 'joint_R': 25.926817720663017, 'largest_sampled_plain_gram_ratio': 1.5412078291460463}
+{
+  "seed": 20260911,
+  "isotropy_checks": [
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 0,
+      "iterations": 92,
+      "max_isotropy_error": 1.280462707109756e-12,
+      "min_determinant": 0.013627551206796028,
+      "spectral_lower": 0.38739749610084917,
+      "weighted_lower": 1.18959174586809
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 1,
+      "iterations": 68,
+      "max_isotropy_error": 1.8514517938818684e-12,
+      "min_determinant": 0.041824220317349406,
+      "spectral_lower": 0.49145679534214326,
+      "weighted_lower": 1.4044415083343533
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 2,
+      "iterations": 53,
+      "max_isotropy_error": 5.281103971170632e-13,
+      "min_determinant": 0.09704722674167064,
+      "spectral_lower": 0.3876857841525248,
+      "weighted_lower": 1.2219085283698001
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 3,
+      "iterations": 46,
+      "max_isotropy_error": 9.196100562935572e-13,
+      "min_determinant": 0.035305572593842184,
+      "spectral_lower": 0.41827428991690585,
+      "weighted_lower": 1.1958389582202686
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 0,
+      "iterations": 56,
+      "max_isotropy_error": 2.383139371932279e-12,
+      "min_determinant": 0.005978056942531925,
+      "spectral_lower": 0.37979793489904756,
+      "weighted_lower": 1.276259790779645
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 1,
+      "iterations": 58,
+      "max_isotropy_error": 1.1848128660149216e-12,
+      "min_determinant": 0.006378444535706548,
+      "spectral_lower": 0.46142231035560466,
+      "weighted_lower": 1.2089700337907041
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 2,
+      "iterations": 94,
+      "max_isotropy_error": 1.3455361831387035e-12,
+      "min_determinant": 0.03530173312205312,
+      "spectral_lower": 0.48572320691798876,
+      "weighted_lower": 1.5065790275017286
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 3,
+      "iterations": 53,
+      "max_isotropy_error": 1.2720879156457377e-12,
+      "min_determinant": 0.0009731028411196401,
+      "spectral_lower": 0.4851272419293971,
+      "weighted_lower": 1.2485598445669133
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 0,
+      "iterations": 64,
+      "max_isotropy_error": 1.2106182654303497e-12,
+      "min_determinant": 0.0012327299913603845,
+      "spectral_lower": 0.5870130575306846,
+      "weighted_lower": 1.224927700528087
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 1,
+      "iterations": 75,
+      "max_isotropy_error": 1.7314535943261308e-12,
+      "min_determinant": 0.0024790527131768815,
+      "spectral_lower": 0.448599161042438,
+      "weighted_lower": 1.4277379861321304
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 2,
+      "iterations": 75,
+      "max_isotropy_error": 1.3321786237951293e-12,
+      "min_determinant": 0.0011775442881393026,
+      "spectral_lower": 0.5193149715366705,
+      "weighted_lower": 1.4978201481424156
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 3,
+      "iterations": 50,
+      "max_isotropy_error": 9.172704291180347e-13,
+      "min_determinant": 0.0007995653589730754,
+      "spectral_lower": 0.5478378997805985,
+      "weighted_lower": 1.764647961037467
+    }
+  ],
+  "maximum_isotropy_residual": 2.383139371932279e-12,
+  "minimax_checks": 100,
+  "maximum_minimax_gap": 8.604228440844963e-16,
+  "algebra_gradient_checks": 1000,
+  "prior_probability": "1/100",
+  "replaced_prior_probability": "1",
+  "parity_linear_program_status": 2,
+  "relu_odd_part_checks": 100,
+  "certificate_dimension_checks": 100,
+  "fixed_distribution_cover_checks": [
+    {
+      "q": 2,
+      "trial": 0,
+      "sample_length": 49,
+      "cover_size": 7,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 2,
+      "trial": 1,
+      "sample_length": 49,
+      "cover_size": 7,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 3,
+      "trial": 0,
+      "sample_length": 62,
+      "cover_size": 13,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 3,
+      "trial": 1,
+      "sample_length": 62,
+      "cover_size": 13,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 5,
+      "trial": 0,
+      "sample_length": 79,
+      "cover_size": 31,
+      "maximum_cover_distance": 1.1102230246251565e-16,
+      "attempts": 1
+    },
+    {
+      "q": 5,
+      "trial": 1,
+      "sample_length": 79,
+      "cover_size": 31,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 7,
+      "trial": 0,
+      "sample_length": 91,
+      "cover_size": 57,
+      "maximum_cover_distance": 1.1102230246251565e-16,
+      "attempts": 1
+    },
+    {
+      "q": 7,
+      "trial": 1,
+      "sample_length": 91,
+      "cover_size": 57,
+      "maximum_cover_distance": 2.220446049250313e-16,
+      "attempts": 1
+    },
+    {
+      "q": 11,
+      "trial": 0,
+      "sample_length": 108,
+      "cover_size": 133,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 11,
+      "trial": 1,
+      "sample_length": 108,
+      "cover_size": 133,
+      "maximum_cover_distance": -2.220446049250313e-16,
+      "attempts": 1
+    }
+  ],
+  "all_assertions_passed": true,
+  "limits": "Isotropy iteration and LP tests are finite numerical checks, not formal certificates of the universal theorems."
+}
+{
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "cpu_only": true,
+  "architecture": [
+    3,
+    8,
+    1
+  ],
+  "T": 1200,
+  "S": 32,
+  "eta": 0.05,
+  "init_variance": [
+    0.3333333333333333,
+    0.125
+  ],
+  "relu_derivative_at_zero": 0,
+  "sign_at_zero": 1,
+  "tail": "sum of post-update f_theta(t), t from T//2 through T inclusive",
+  "distribution_seed": 20260910,
+  "reporting_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "pilot_seeds": [
+    10000,
+    10001
+  ],
+  "pilot_steps": 600,
+  "adversary": "max mean pilot error among ten fixed distributions; not certified worst case",
+  "target_extension": "projective-plane q=2 uses first seven cube points; eighth label is -1",
+  "runs": 135,
+  "summary": [
+    {
+      "family": "parity_degree1",
+      "distribution": "uniform",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree1",
+      "distribution": "sparse_mixture",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree1",
+      "distribution": "adversarial_search",
+      "runs": 5,
+      "mean_error": 0.0,
+      "min_error": 0.0,
+      "max_error": 0.0,
+      "zero_error_runs": 5
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "uniform",
+      "runs": 5,
+      "mean_error": 0.5,
+      "min_error": 0.5,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "sparse_mixture",
+      "runs": 5,
+      "mean_error": 0.14750000000000002,
+      "min_error": 0.05,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "parity_degree3",
+      "distribution": "adversarial_search",
+      "runs": 5,
+      "mean_error": 0.5,
+      "min_error": 0.5,
+      "max_error": 0.5,
+      "zero_error_runs": 0
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "uniform",
+      "runs": 35,
+      "mean_error": 0.025,
+      "min_error": 0.0,
+      "max_error": 0.625,
+      "zero_error_runs": 32
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "sparse_mixture",
+      "runs": 35,
+      "mean_error": 0.030000000000000002,
+      "min_error": 0.0,
+      "max_error": 0.48750000000000004,
+      "zero_error_runs": 12
+    },
+    {
+      "family": "plane_q2",
+      "distribution": "adversarial_search",
+      "runs": 35,
+      "mean_error": 0.033689291572683924,
+      "min_error": 0.0,
+      "max_error": 0.5,
+      "zero_error_runs": 11
+    }
+  ],
+  "limits": "These finite runs neither establish distribution-independent learning nor refute the SGD conjecture."
+}

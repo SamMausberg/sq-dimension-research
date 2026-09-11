@@ -1,0 +1,10 @@
+\section{The cube concentration calculation used for non-necessity}\label{app:concentration}
+Let $f$ on the uniform $n$-cube change by at most one when one coordinate is flipped. Reveal the coordinates successively and write the Doob differences as $D_i$. Conditional on the first $i-1$ coordinates, the two conditional expectations after revealing coordinate $i$ differ by at most one: couple the remaining coordinates identically and use the bounded-difference hypothesis. Thus $D_i$ is conditionally centered and lies in an interval of length at most one.
+
+For any centered random variable $Z$ in an interval of length one, let $F(\lambda)=\log\E e^{\lambda Z}$. Differentiation of the finite sum gives $F''(\lambda)$ equal to the variance under the exponentially tilted law. A variable $Y\in[a,b]$ has variance at most $(b-a)^2/4$: from $(Y-a)(b-Y)\ge0$ obtain $\operatorname{Var}(Y)\le(\E Y-a)(b-\E Y)\le(b-a)^2/4$. Hence $F''\le1/4$, and integrating twice using $F(0)=F'(0)=0$ yields $F(\lambda)\le\lambda^2/8$ for either sign of $\lambda$.
+
+Iterating conditional expectation gives
+\[
+ \E\exp\{\lambda(f-\E f)\}\le\exp(n\lambda^2/8).
+\]
+Markov's inequality and $\lambda=4a/n$ imply $\Pr[f-\E f\ge a]\le e^{-2a^2/n}$. Apply the same calculation to $-f$ for the lower tail. All distributions here are finite, so differentiation and conditional expectations require no limiting justification.

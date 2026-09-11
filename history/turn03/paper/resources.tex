@@ -1,0 +1,106 @@
+\section{Possible objections}\label{sec:objections}
+\paragraph{Is this Feldman's 2017 separation?}
+No. Feldman's finite-field line class is easy for every separately fixed, known marginal but is hard for one distribution-independent SQ learner \citep[Theorems~7.7--7.8]{Feldman17}. RECTIFY is one algorithm for every marginal of a different, real-grid incidence-flip family. The unknown marginal is learned through valid SQ answers, not supplied as side information. Theorem~4 independently verifies the earlier type of separation for projective planes.
+
+\paragraph{Does knowing $A$ constitute a loophole?}
+The learner knows the concept class, as permitted by the statement being refuted. Its table is not charged to query count. This is an important resource asymmetry, not access to the unknown target or distribution. Section~\ref{sec:resources} shows why merely charging source-code length does not repair it.
+
+\paragraph{Is the class natural or efficiently explicit?}
+The high-sign-rank selection is obtained by counting, not by an efficiently computable formula for its entries. The short exhaustive generator below is computable but not an efficient explicit construction. The computational explicitness problem remains related to Problem~4.1 of \citet{HHPTZ22}.
+
+\paragraph{Is the learner efficient?}
+For fixed template dimension, Theorem~\ref{thm:caps} gives polynomial time in the supplied truth table and its rational representation; Theorem~\ref{thm:proper} also makes the output proper. The table itself has exponentially many bits in the example encoding length. No running-time polynomial in $n$ alone is claimed.
+
+\paragraph{Does randomization matter?}
+The general rectangle theorem uses a randomized mixture. For these fixed-dimensional templates a finite net can be enumerated, giving a deterministic learner with the same fixed-dimension query asymptotics. Theorem~\ref{thm:adapt} establishes a marginal-adaptation requirement under a small-query budget, not an unconditional randomization requirement.
+
+\section{What survives for SGD and resource-bounded learners}\label{sec:resources}
+The SQ theorem does not settle the benign-SGD question. A generic SQ algorithm can store or regenerate its class description for free before issuing any query. Ordinary gradient dynamics have a fixed network, initialization, and objective. The SQ-to-differentiable-learning simulation of \citet{AKMSS21} uses engineered models and initialization; its computational network size depends on the simulated computation, not solely on the number of SQ calls. Its ReLU alternative also allows fixed weights. Our table-polynomial implementation remains exponential-time in $n$ when the table is supplied explicitly, and therefore does not establish a small plain network by that simulation.
+
+For reference, a robust population-gradient method with $S$ parameters, $T$ calls, per-example coordinate bound $B_g$, and adversarial Euclidean error tolerance $\delta$ is simulated by
+\[
+ m=TS,\qquad\tau=\delta/(B_g\sqrt S).
+\]
+Query each gradient coordinate divided by $B_g$, then multiply back: the coordinate errors are at most $\delta/\sqrt S$, so their squared sum is at most $\delta^2$. Induction over updates proves the simulation. Conversely the adaptive objective $J_q(t;x,y)=tq(x,y)$ has population derivative $\E q$, realizing a scalar SQ. This converse permits changing the objective; it is not the fixed logistic-loss process of the SGD question.
+
+The remaining SGD question is exactly the one with $X=\{-1,+1\}^n$, a fully connected bias-free ReLU network, independent layer-$i$ Gaussian initialization of variance $1/n_{i-1}$, online gradients of $\log(1+e^{-yf_\theta(x)})$, one fixed step size, and classification by the specified tail sum. Does a common expected-error guarantee at $\epsilon<1/4$ imply $\dc(H)\le CTS$ or $\dc(H)\le\operatorname{poly}(T,S)$? A sampled gradient is not a worst-case approximate population gradient, and success under its sampling law does not imply robustness to every vector perturbation. No answer for those particular dynamics is established here.
+
+\begin{proposition}[Representation does not give the required dynamics]\label{thm:network}
+Pad the grid domain to a cube of dimension $n=\lceil\log_2(2N^3)\rceil$, giving every padding point label $+1$. Every member is represented exactly by a bias-free ReLU network with widths $(n,2n,N+1,1)$ and at most
+\[
+ S=2n^2+2n(N+1)+(N+1)
+\]
+weights. Its common dimension complexity is at most $2N+1$. This proposition is an upper bound, not a claim that $S$ parameters are necessary.
+\end{proposition}
+\begin{proof}
+The first hidden layer computes $\sigma(x_i),\sigma(-x_i)$ for every coordinate. These give $x_i$ by subtraction and the constant $c=\sigma(x_1)+\sigma(-x_1)=1$ on the cube. For every negative point $p$, a second-layer unit computes
+\[
+ \sigma\left(\sum_i p_ix_i-(n-1)c\right).
+\]
+At $x=p$ its value is one; at every other cube point the sum is at most $n-2$ and the unit is zero. Pass $c$ through one additional unit and output $c$ minus twice the sum of the negative-point units. Pad unused units by zero weights. There are at most $N$ negative points, and counting all fully connected weights gives the claimed $S$. The moment-curve proof in Theorem~11 still applies to the padded domain. Padding preserves every dimension lower bound by restriction; it preserves a rectangle lower bound up to a factor two, because either padding carries at least half the point mass or the original domain does.
+\end{proof}
+
+A typical flip table has $I=\Theta(N^4)$ unconstrained bits. This does not by itself prove a lower bound of $N$ on the number of unrestricted real network parameters: a real parameter has no fixed bit budget. Under a separate $b$-bit-per-weight convention, a fixed $S$-weight architecture has at most $2^{bS}$ parameter choices, so representing all $2^N$ independently specified patterns on a fixed line would require $bS\ge N$. That bounded-precision counting statement concerns an entire family of patterns, not a necessary parameter count for every fixed row of one fixed $A$. It is not used to answer the SGD question.
+
+\begin{theorem}[Source-description length alone does not repair the implication]\label{thm:description}
+Interpret $\ell$ as the bit length of a finite learner program, including literal hard-coded constants and data, but do not charge running time or generated workspace. There is a computable sequence of incidence-flip classes and learners with
+\[
+ n,\ell,m=O(\log N),\qquad 1/\tau=O_\epsilon(1),\qquad
+ \dc(H)=\Omega(N/\log N).
+\]
+Consequently no universal bound $\dc(H)\le\operatorname{poly}(m,1/\tau,n,\ell)$ holds in this interpretation.
+\end{theorem}
+\begin{proof}
+Let $K=2N^3$, $b_N=\lceil\log_2(4K)\rceil$, and $d_N=\lfloor N/(128b_N)\rfloor$. For sufficiently large $N$, the counting bound in Theorem~11 guarantees a flip matrix of sign-rank greater than $d_N$: indeed $\log_2(4eK)\le2b_N$, so
+\[
+ 2Kd_N\log_2(4eK)\le N^4/16<I.
+\]
+Select the lexicographically first such matrix. This selection is computable. For a proposed matrix $A$, the predicate $\sr(A)\le d_N$ is the truth of the finite real sentence
+\[
+ \exists U\in\R^{K\times d_N},\ V\in\R^{d_N\times K}\quad
+ \bigwedge_{i,j} A_{ij}\sum_{s=1}^{d_N}U_{is}V_{sj}>0.
+\]
+Decision of finite polynomial real sentences is the classical real-closed-field decision theorem. We use this explicit imported decidability result, not a claimed practical low-rank solver; a formal constructive treatment is given by \citet{MC12}. Enumerate the finitely many flip tables and decide the displayed sentence for each until the first failure. The counting argument ensures termination. Small $N$ can be handled by any fixed table.
+
+A single fixed program performs this generation and then runs the finite rational rectangle-mixture algorithm. Encode $N$ in $O(\log N)$ bits. Fix an accuracy such as $1/16$, so that all accuracy constants have constant-length descriptions. Conservative rational ceilings can replace the logarithmic constants in Theorem~9, making every step an ordinary finite computation. The table generation happens before the first SQ; it has no query cost. The learner therefore has $m=O(\log K)$ and constant positive tolerance, while the chosen class has $\dc>d_N=\Omega(N/\log N)$. Its program description has size $O(\log N)$. The generated table occupies far more space, which this interpretation does not charge. The displayed polynomial implication is contradicted.
+\end{proof}
+
+This does not produce an efficient explicit counterexample. It instead shows that a resource-aware repair must charge computation, generated memory, or an expanded circuit description, not just the length of the program that generates them. One genuinely stronger question is whether charging total preprocessing and query-evaluation time $t$ yields a bound polynomial in $(m,1/\tau,n,\ell,t)$ in a specified finite-bit model. We state this as an open question, not as an established or uniquely natural repair.
+
+\begin{proposition}[What the classical-method barrier actually bounds]\label{thm:classicalbarrier}
+For the orientation in which rows are hypotheses, let
+\[
+ m_{\rm avg}(A)=\inf_{\mu\in\Delta(X)}\ 
+ \sup_{\substack{\text{strict unit-vector}\text{representations of }A}}
+ \min_h\E_{x\sim\mu}|\langle v_h,u_x\rangle|.
+\]
+Then
+\[
+ \sqrt{\operatorname{VC}(H)}\le m_{\rm avg}(A)^{-1}\le\rect(A)^{-1}.
+\]
+In particular, if $\rect(A)^{-1}\le\operatorname{poly}(n)$, these three classical lower-bound parameters cannot certify superpolynomial sign-rank. This does not upper-bound sign-rank itself and does not imply that every SQ-easy class has large rectangles.
+\end{proposition}
+\begin{proof}
+Fix a point prior $\mu$. Apply the finite separation argument of Lemma~10 to the transposed matrix, obtaining a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R$ with
+\[
+ \forall h,\quad\E_R[\1_{T_R}(h)\mu(S_R)]\ge r,
+ \qquad r=\rect(A).
+\]
+In the Euclidean space indexed by rectangles, put
+\[
+ a_h(R)=c_R\sqrt{\lambda_R}\1_{T_R}(h),\qquad
+ b_x(R)=\sqrt{\lambda_R}\1_{S_R}(x).
+\]
+Their norms are at most one, and their inner product is $A_{hx}$ times the probability that $R$ covers $(h,x)$. These products may be zero, so this alone is not a strict representation. Add an orthogonal strict unit-vector representation scaled by $\sqrt\delta$, and scale the displayed vectors by $\sqrt{1-\delta}$. Every resulting product is strict with the required sign, and its average absolute value in each row is at least $(1-\delta)r$. Pad row norms and point norms separately in orthogonal private coordinates to make them one without changing any cross inner products. Letting $\delta\downarrow0$ proves $m_{\rm avg}(A)\ge r$.
+
+For the VC bound, suppose $v$ points are shattered and use their uniform point prior. In any strict unit-vector representation, select one row $h_\sigma$ for each sign pattern $\sigma\in\{-1,+1\}^v$. If the minimum row-average margin is $a$, then
+\[
+ va\le\sum_{i=1}^v\sigma_i\langle v_{h_\sigma},u_i\rangle
+ \le\left\|\sum_{i=1}^v\sigma_i u_i\right\|.
+\]
+Averaging the square of the last norm over independent fair signs gives $v$, because cross terms cancel. Some sign pattern has norm at most $\sqrt v$, so $a\le1/\sqrt v$. Take the supremum over representations and the infimum over priors. For $v=0$ the inequality is immediate. This proves the chain, including the strict-sign correction.
+\end{proof}
+
+The chain and its original average-margin interpretation are due to \citet{HHPTZ22}; the proof is included to fix the orientation and strict-sign issue. A counterexample obtained with a polynomial inverse rectangle bound cannot be certified as high-sign-rank by those numerical parameters. Counting is already a way around that barrier, as Theorem~11 demonstrates. Therefore the barrier does not rescue the program-length conjecture. For an \emph{efficiently explicit} sequence it motivates seeking a method beyond those parameters, in the direction of \citet[Problem~4.1]{HHPTZ22}.
+
+The recent topological methods provide a distinct parameter, not one proved bounded by this chain. The checked results do not supply the missing efficient total construction: \citet{FHV26} prove near-$2k$ bounds for certain \emph{partial} Gap Hamming matrices, while \citet{GHIS25} bound the sign-rank of total $k$-Hamming-distance matrices by $2^{O(k)}$ independently of the bit dimension. These facts neither rule out a future topological route nor prove that it evades the rectangle obstruction on the particular flip family. No such explicit corollary is claimed here.

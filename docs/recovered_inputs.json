@@ -1,0 +1,32 @@
+[
+  {
+    "revision": "turn01",
+    "source": "sq_dc_first_attempt.zip",
+    "sha256": "9ee124a2c298a0e5db7bf4e20b471643510ddf53957c6f9d51463afdf767c26d"
+  },
+  {
+    "revision": "turn02",
+    "source": "sq_dc_turn2_complete.zip",
+    "sha256": "2b2cf71b7dff03f3a36314c4dd0adc5130db9aea62df44207615a64badf567f9"
+  },
+  {
+    "revision": "turn03",
+    "source": "sq_dc_turn3_complete.zip",
+    "sha256": "7530bea608130c18ff9b1836ae490e20c5627226ac6638889e05c8afc9ccb8df"
+  },
+  {
+    "revision": "turn04",
+    "source": "sq_dc_turn4_complete.zip",
+    "sha256": "78e2899b37727a3f02f7abc9c213602814d18df1d000616d1f849395b54e0414"
+  },
+  {
+    "revision": "turn05",
+    "source": "Samuel_Mausberg_SQ_Paper_Source_and_Verification.zip",
+    "sha256": "716029adcdecb5aab15b9ed8e62ad2f8f9000c1f96a14f6d2bd489f0cffed7ce"
+  },
+  {
+    "revision": "turn06",
+    "source": "Samuel_Mausberg_Submission_Bundle.zip",
+    "sha256": "da46a07c91e4a496675daa23643a33bbd3ca4111a78a38be7bbe14925fd1143c"
+  }
+]

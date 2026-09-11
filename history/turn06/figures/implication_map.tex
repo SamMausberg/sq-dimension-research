@@ -1,0 +1,26 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]
+\node[diagram box,text width=3.2cm,fill=oiBlue!8] (rect) at (0,5.2) {Large rectangles\\$\rect\ge1/\rho$};
+\node[diagram box,text width=3.2cm,fill=oiBlue!8] (comm) at (5,5.2) {Bounded product-average\\communication};
+\node[diagram box,text width=3.0cm,fill=oiPurple!10] (rank) at (10,5.2) {Large sign-rank};
+\node[diagram box,text width=3.2cm] (plain) at (0,2.4) {Small ordinary-Gram\\certificate ratios};
+\node[diagram box,text width=3.2cm,fill=oiGreen!12] (easy) at (5,2.4) {SQ-easy};
+\node[diagram box,text width=3.0cm] (smallrect) at (10,2.4) {Small rectangles};
+\node[diagram box,text width=3.2cm] (joint) at (0,0) {Large joint-distribution\\certificate};
+\node[diagram box,text width=3.2cm,fill=oiOrange!15] (hard) at (5,0) {SQ-hard};
+\node[diagram box,text width=3.0cm] (gram) at (10,0) {Large ordinary-Gram\\certificate};
+\draw[solid implication,<->] (rect)--node[above]{\cref{thm:communication}}(comm);
+\draw[solid implication] (rect)--node[left,font=\tiny,align=right]{\cref{thm:energy}\\product weights}(plain);
+\draw[solid implication] (rect.south east)--node[above,sloped]{\cref{thm:main}}(easy.north west);
+\draw[solid implication] (comm)--node[right]{\cref{thm:communication}}(easy);
+\draw[solid implication] (joint)--node[above]{\cref{thm:barrier}}(hard);
+\draw[solid implication] (gram)--node[above]{\cref{thm:barrier}}(hard);
+\draw[solid implication] (gram)--node[right,align=left]{\cref{thm:energy}}(smallrect);
+\draw[coexist] (rect.north) to[bend left=30] node[above]{incidence flips: \cref{thm:construction}} (rank.north);
+\draw[coexist] (easy)--node[above=7pt,font=\tiny,align=center]{cube halfspaces\\\cref{thm:halfspaces}}(smallrect);
+\draw[coexist] (plain)--node[left,align=right]{projective planes\\\cref{thm:plane}}(joint);
+\node[font=\scriptsize,align=center] at (5,-1.25) {Solid arrows are implications, with the stated parameter loss.\\Dashed connectors denote coexistence, not implications.};
+\end{tikzpicture}
+\caption{Which resources separate. Small rectangles alone do not imply SQ hardness: cube halfspaces are a counterexample. An ordinary spectral certificate separately forces small rectangles and SQ hardness. Projective planes require the stronger joint-distribution certificate, while incidence flips combine large rectangles with large sign-rank.}\label{fig:landscape}
+\end{figure}

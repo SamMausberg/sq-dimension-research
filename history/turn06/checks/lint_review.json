@@ -1,0 +1,17 @@
+{
+  "tool": "chktex",
+  "raw_log": "logs/current/chktex-raw-final.log",
+  "warning_counts": {
+    "8": 539,
+    "1": 204,
+    "3": 70,
+    "12": 3,
+    "36": 124,
+    "25": 42,
+    "13": 3,
+    "11": 1,
+    "38": 2
+  },
+  "review": "Style diagnostics were reviewed, including command spacing, math primes, compound-word hyphens, range punctuation and TeX-table macros. The literal source abbreviation s.t. was preserved. No manuscript change was warranted by remaining style-only diagnostics. Missing global chktex resource file is an installation warning.",
+  "zero_raw_warning_claim": false
+}

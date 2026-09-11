@@ -1,0 +1,494 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{auxlemma}{Auxiliary lemma}
+\newtheorem*{conjecture}{Conjecture}
+\DeclareMathOperator{\dc}{dc}
+\DeclareMathOperator{\sr}{signrank}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\op}{\mathrm{op}}
+\title{A Joint-Distribution SQ Barrier and a Failed\ Projective-Plane Separation}
+\author{Research working draft}
+\date{September 10, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We investigate whether distribution-independent statistical-query learning forces low dimension complexity. We prove a finite, adversarial-oracle lower bound using Gram matrices of joint-distribution likelihood-ratio residuals. It applies to randomized adaptive learners and permits the hard marginal distribution to depend on the target. Projective-plane incidence classes have dimension at least $(q+1)/\sqrt q$, although every ordinary label-Gram certificate, over every marginal and every subfamily, has ratio at most $16$. Thus ordinary label-Gram certificates do not exhaust explicit spectral sign-rank lower bounds. The stronger joint-distribution barrier nevertheless proves $\dc(\cH_q)\leq 19m/\tau^2$ for this family, ruling it out as a separation. We also prove a deterministic marginal-branching bound, an exponential approximate probabilistic dimension bound, and a quantitatively explicit transfer from robust population-gradient algorithms to SQ. We identify a prior-conditioning error in a 2025 random-feature proof. The unrestricted polynomial implications remain unresolved in this attempt. Numerical checks and CPU SGD runs were executed; the accompanying Lean source is uncompiled, not a verified formalization.
+\end{abstract}
+
+\section{Definitions, scope, and the attempted separation}
+Let $X$ be a nonempty finite set, $N=|X|$, $n=\log_2N$, and let $\varnothing\ne\cH\subseteq\{-1,+1\}^X$. A distribution $D$ assigns nonnegative masses summing to one. For $h,g:X\to\{-1,+1\}$, put
+\[
+ L_{D,h}(g)=\sum_xD(x)\1_{g(x)\ne h(x)},\qquad
+ \E_D[hg]=1-2L_{D,h}(g).
+\]
+The last identity follows pointwise from $h(x)g(x)=1-2\1_{g(x)\ne h(x)}$.
+The dimension complexity $\dc(\cH)$ is the least nonnegative integer $d$ admitting a map $\phi:X\to\R^d$ such that for every $h\in\cH$ some $w\in\R^d$ satisfies
+\begin{equation}\label{eq:strict}
+ h(x)\langle w,\phi(x)\rangle>0\quad\text{for all }x\in X.
+\end{equation}
+It equals the sign-rank of the matrix $M_{xh}=h(x)$: a feature representation factors a sign-realizing matrix as $\Phi W$, and a rank-$d$ matrix admits such a factorization. The minimum exists, since $\phi(x)=e_x\in\R^N$ works with $w_x=h(x)$.
+
+A statistical query is any $q:X\times\{-1,+1\}\to[-1,1]$. A tolerance-$\tau$ oracle can return any $v\in\R$ with
+\[
+ |v-\E_{x\sim D}q(x,h(x))|\leq\tau.
+\]
+An oracle policy may depend on the full query-answer history. A depth-$m$ deterministic decision tree has real-valued response branches and a Boolean hypothesis at each leaf. Early stopping is represented by padding with zero queries. A randomized algorithm samples a private seed, then uses a deterministic tree. We require the output-loss random variables to be measurable. The learning guarantee is
+\begin{equation}\label{eq:guarantee}
+ \forall D\ \forall h\in\cH\ \forall\text{ valid oracle policies }O,
+ \qquad \E_{\omega}L_{D,h}(A^O_\omega)\leq\epsilon.
+\end{equation}
+Fixing the internal randomness of a randomized valid oracle reduces it to such a policy; averaging preserves the bound.
+
+For the probabilistic variants, use $\sign(0)=+1$. The definition of $\dc$ itself remains strict as in \eqref{eq:strict}. The quantity $\dc_{1/2}(\cH)$ is the least $d$ for which one distribution over maps $\phi:X\to\R^d$ has, for every $D,h$, probability at least $1/2$ of admitting some $w$ with zero loss. The quantity $\dc^{\eta}(\cH)$ replaces that requirement with $\E_\phi\inf_w L_{D,h}(\sign\langle w,\phi\rangle)\leq\eta$. In both definitions the distribution over embeddings is fixed before $D$ and $h$ are chosen.
+
+We study the question posed by Feldman, Kamath, and Srebro \citep{FKS26}. Except where stated otherwise, assume $m\geq1$, $0<\tau\leq1$, and $0\leq\epsilon<1/4$. These are substantive-parameter conventions, not a change to the user's literal question: if $m=0$ is permitted, a nonempty singleton class is learned exactly without queries but has $\dc=1$, so the literal bound $Cm/\tau^2$ already fails. Replacing $m$ with $m+1$ removes this defect. Unrestricted tolerances also require normalization: a singleton can ignore even an arbitrarily large tolerance.
+
+\begin{conjecture}[Working hypothesis, not a theorem]
+After these harmless normalizations, distribution-independent SQ learnability implies $\dc(\cH)\leq\operatorname{poly}(m,1/\tau,n)$, with an absolute polynomial independent of $\epsilon<1/4$.
+\end{conjecture}
+The deterministic correlational case and the failed family below support this working hypothesis, but do not distinguish it from the stronger forms. No conclusion about the unrestricted truth of forms (a), (b), or (c) is claimed.
+
+\section{The spectral barrier, with the oracle quantifiers retained}
+\begin{lemma}[Finite energy and threshold counting]\label{thm:energy}
+Let $P_0$ be a probability distribution on a finite set $Z$, and let $r_1,\ldots,r_K\in L^2(P_0)$. Set
+\[
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad \Lambda=\|\Gamma\|_\op.
+\]
+For every $a:Z\to\R$,
+\begin{equation}\label{eq:energy}
+ \sum_{j=1}^K\bigl(\E_{P_0}r_j a\bigr)^2
+ \leq\Lambda\E_{P_0}a^2.
+\end{equation}
+In particular, if $|a|\leq1$ and $\tau>0$, then
+\begin{equation}\label{eq:count}
+ \bigl|\{j:|\E_{P_0}r_j a|>\tau\}\bigr|\tau^2\leq\Lambda.
+\end{equation}
+More generally, for any finite list of real numbers $c_i$, $\tau\geq0$, and $\sum_i c_i^2\leq\Lambda$, one has $|\{i:\tau<|c_i|\}|\tau^2\leq\Lambda$.
+\end{lemma}
+\begin{proof}
+Let $T:\R^K\to L^2(P_0)$ send $b$ to $\sum_jb_jr_j$. Then $T^*T=\Gamma$. For every unit vector $b$,
+\[
+ |\langle b,T^*a\rangle|=|\langle Tb,a\rangle|
+ \leq\|Tb\|_2\|a\|_2\leq\sqrt\Lambda\|a\|_2.
+\]
+Taking the supremum over $b$ and squaring proves \eqref{eq:energy}. Each selected summand in \eqref{eq:count} is greater than $\tau^2$; discarding nonnegative unselected summands proves the result. The same argument, with weak inequalities, proves the final statement even when $\tau=0$.
+\end{proof}
+
+\begin{theorem}[Joint-distribution SQ barrier]\label{thm:barrier}
+Let $\mu$ be a full-support distribution on $X$ and let $P_0=\mu\otimes\mathrm{Unif}\{-1,+1\}$. For $j\in[K]$, let $P_j$ be the labeled distribution arising from some $D_j$ and $h_j\in\cH$. Put
+\[
+ r_j=\frac{P_j}{P_0}-1,\qquad
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad
+ \Lambda=\|\Gamma\|_\op,\qquad R=K/\Lambda.
+\]
+Any randomized adaptive $(m,\tau)$-SQ learner satisfying \eqref{eq:guarantee} obeys
+\begin{equation}\label{eq:joint}
+ 1-2\epsilon\leq\sqrt{\frac\Lambda K}+
+ \frac{m\Lambda}{K\tau^2},
+ \quad\text{equivalently}\quad
+ \frac m{\tau^2}\geq(1-2\epsilon)R-\sqrt R.
+\end{equation}
+Consequently, for $\epsilon<1/4$,
+\begin{equation}\label{eq:Rbound}
+ R\leq4+4m/\tau^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+First $\Lambda>0$. Indeed, with $a_j(x,y)=y h_j(x)$ we have $\|a_j\|_{L^2(P_0)}=1$ and
+$\langle r_j,a_j\rangle=\E_{P_j}a_j-\E_{P_0}a_j=1$. Thus $\|r_j\|_2\geq1$ and $\Lambda\geq\Gamma_{jj}\geq1$.
+
+For a fixed private seed, run the learner on the reference responses $\E_{P_0}q$. Write the resulting queries as $q_1,\ldots,q_m$ and the leaf output as $g_0$. This is a counterfactual tree path; the reference need not be realizable. For target $j$, choose the following memoryless oracle, which does not know the private seed:
+\[
+ O_j(q)=
+ \begin{cases}
+ \E_{P_0}q,&|\E_{P_j}q-\E_{P_0}q|\leq\tau,\\
+ \E_{P_j}q,&\text{otherwise}.
+ \end{cases}
+\]
+It is valid for $P_j$ on every query. If its run first departs from the reference transcript, that departure occurs at one of the reference queries with $|\langle r_j,q_t\rangle|>\tau$. Lemma~\ref{thm:energy} and a union bound give, for this fixed seed,
+\[
+ \frac1K\bigl|\{j:\text{the transcript departs from the reference}\}\bigr|
+ \leq\frac{m\Lambda}{K\tau^2}.
+\]
+For the reference leaf, define $c_j=\E_{P_j}[y g_0(x)]$. Since $\E_{P_0}[y g_0(x)]=0$, Lemma~\ref{thm:energy} gives
+\[
+ \frac1K\sum_j|c_j|\leq
+ \sqrt{\frac1K\sum_jc_j^2}\leq\sqrt{\Lambda/K}.
+\]
+Let $s_j$ be the correlation of the actual output under $O_j$. On a nondeparting transcript it equals $c_j$; on a departing transcript it is at most $1$. Therefore
+$s_j\leq|c_j|+\1_{\text{departure for }j}$.
+Average this inequality over $j$ and then over the private seed. The learner's guarantee gives an average correlation at least $1-2\epsilon$. This proves \eqref{eq:joint}. Notice that we did not choose a different oracle after seeing the seed.
+
+Finally write $M=m/\tau^2$. From \eqref{eq:joint}, $R/2\leq\sqrt R+M$. The square $(\sqrt R-2)^2\geq0$ gives $\sqrt R\leq R/4+1$. Combining yields \eqref{eq:Rbound}.
+\end{proof}
+
+\paragraph{The requested fixed-marginal barrier.}
+Set $D_j=\mu$ for every $j$. Then $r_j(x,y)=y h_j(x)$ and
+\[
+ \Gamma_{ij}=G_{ij}=\E_\mu[h_i h_j].
+\]
+For $R=K/\|G\|_\op\geq16$, \eqref{eq:joint} implies
+\begin{equation}\label{eq:fixed}
+ m\geq\tfrac14 R\tau^2.
+\end{equation}
+Indeed, $1-2\epsilon>1/2$ and $\sqrt R\leq R/4$. The cutoff matters: a uniformly positive lower bound proportional to $R\tau^2$ cannot hold for all tiny families, since a singleton needs no queries. The next theorem supplies the accompanying dimension lower bound.
+
+\section{A self-contained sign-rank lower bound}
+We use the spectral method associated with Forster \citep{Forster02}, but include its geometric step rather than treating the published theorem as a proof.
+
+\begin{theorem}[Spectral sign-rank bounds]\label{thm:forster}
+If $A\in\R^{N\times K}$ satisfies $|A_{xj}|\geq1$ for all entries, then
+\begin{equation}\label{eq:forster}
+ \sr(\sign A)\geq\frac{\sqrt{NK}}{\|A\|_\op}.
+\end{equation}
+If $M\in\{-1,+1\}^{N\times K}$ and $G=M^\top\diag(\mu)M$ for any distribution $\mu$ on its rows, then
+\begin{equation}\label{eq:weighted}
+ \sr(M)\geq\sqrt{K/\|G\|_\op}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $d=\sr(M)$, with $M=\sign A$ in the first assertion. Choose a strict representation
+$M_{xj}=\sign\langle z_x,v_j\rangle$ in $\R^d$. If $d\geq K$, both conclusions are immediate: $\|A\|_\op\geq\sqrt N$ from any column, while $G_{jj}=1$ implies $\|G\|_\op\geq1$. We henceforth have $1\leq d<K$.
+
+Perturb the finitely many $v_j$ within sufficiently small open neighborhoods so that signs are unchanged and every $d$ of them are independent. Such a perturbation exists: for each $d$-subset the determinant is a nonzero polynomial in the vector coordinates, and a finite union of its zero sets has empty interior. To justify this elementary fact, a nonzero univariate polynomial has finitely many roots; induction on the number of variables, by viewing the polynomial as a polynomial in the last variable, shows that a multivariate polynomial cannot vanish on a nonempty open box. Apply this to the product of the finitely many determinant polynomials.
+
+We prove that there is an invertible $T$ such that the normalized vectors
+$u_j=Tv_j/\|Tv_j\|$ satisfy
+\begin{equation}\label{eq:isotropy}
+ \sum_{j=1}^K u_ju_j^\top=(K/d)I_d.
+\end{equation}
+For every $1\leq r\leq d$, there is a common $\delta>0$ such that at most $d-r$ of the $v_j$ have projection norm less than $\delta$ onto any $r$-dimensional subspace. In fact, any $d-r+1$ of the vectors are independent, so cannot all belong to the orthogonal complement of an $r$-dimensional subspace. Their maximum projection norm is therefore positive for every such subspace. Its minimum is positive by compactness of the space of orthogonal projection matrices of rank $r$; this space is closed and bounded. Take the minimum over finitely many subsets and $r$.
+
+For positive definite $Q$ with $\det Q=1$, minimize
+\[
+ F(Q)=\sum_{j=1}^K\log(v_j^\top Qv_j).
+\]
+Write the decreasing eigenvalues of $Q$ as $e^{s_1}\geq\cdots\geq e^{s_d}$, where $\sum_i s_i=0$. For each $r$, at least $K-d+r$ of the quadratic forms are at least $\delta^2e^{s_r}$. Order the $K$ log quadratic forms increasingly. For the first $d$ entries use respectively the bounds
+$\log\delta^2+s_d,\ldots,\log\delta^2+s_1$; each of the remaining $K-d$ entries is at least $\log\delta^2+s_1$. Thus
+\[
+ F(Q)\geq K\log\delta^2+(K-d)s_1.
+\]
+Since $K>d$, every sublevel set has bounded largest eigenvalue. The determinant condition then bounds the smallest eigenvalue away from zero. Sublevel sets are compact, so a minimizer $Q$ exists.
+For a symmetric traceless matrix $B$, the path
+$Q(t)=Q^{1/2}\exp(tB)Q^{1/2}$ retains determinant one. Its derivative at zero gives
+\[
+ 0=\sum_j\frac{v_j^\top Q^{1/2}BQ^{1/2}v_j}{v_j^\top Qv_j}
+   =\tr\left(B\sum_j u_ju_j^\top\right),
+ \qquad u_j=\frac{Q^{1/2}v_j}{\|Q^{1/2}v_j\|}.
+\]
+A symmetric matrix orthogonal to every traceless symmetric matrix is scalar: subtract its scalar trace part and take that difference as $B$. Taking traces gives \eqref{eq:isotropy}, with $T=Q^{1/2}$.
+
+Replace each row vector by the normalization of $T^{-\top}z_x$, denoted $e_x$, so $\|e_x\|=1$ and all signs are preserved. Let $U$ be the matrix with columns $u_j$. For every row of $A$,
+\[
+ \langle e_x,UA_{x,\cdot}^{\top}\rangle
+ =\sum_j |A_{xj}|\,|\langle e_x,u_j\rangle|
+ \geq\sum_j\langle e_x,u_j\rangle^2=K/d.
+\]
+Here $|\langle e_x,u_j\rangle|\leq1$ was used. Consequently,
+\[
+ NK^2/d^2\leq\|UA^\top\|_F^2
+ \leq\|A\|_\op^2\|U\|_F^2=K\|A\|_\op^2.
+\]
+This proves \eqref{eq:forster}. For $M$, use the same row inequality, square, and average under $\mu$:
+\[
+ K^2/d^2\leq\sum_x\mu(x)\|UM_{x,\cdot}^{\top}\|^2
+ =\tr(UGU^\top)\leq\|G\|_\op\tr(UU^\top)=K\|G\|_\op.
+\]
+The last inequality follows by diagonalizing the positive semidefinite $G$, whose eigenvalues lie between zero and its operator norm. This proves \eqref{eq:weighted}.
+\end{proof}
+
+Theorems~\ref{thm:barrier} and \ref{thm:forster} prove the valid conditional assertion in the proposed spectral barrier: a certificate with ratio $R$ yields dimension lower bound $\sqrt R$ and query lower bound $\Omega(R\tau^2)$ when $R$ is large. They do not prove that all explicit sign-rank lower bounds admit such an ordinary label-Gram certificate. The following family disproves that extra assertion in precisely this form.
+
+\section{Projective planes: a complete candidate analysis}
+\begin{theorem}[An escaping plain-Gram family, but not an SQ separation]\label{thm:plane}
+For each prime $q\geq2$, let $X_q$ be the points of the projective plane over $\mathbb F_q$, and let $\cH_q$ have one hypothesis per line, positive on that line and negative elsewhere. Set $N=q^2+q+1$ and $k=q+1$. Then:
+\begin{align}
+ \frac{q+1}{\sqrt q}&\leq\dc(\cH_q)\leq2q+3,\label{eq:planedc}\\
+ \frac{|J|}{\|[\E_\mu h_i h_j]_{i,j\in J}\|_\op}&\leq16
+ \quad\text{for every distribution $\mu$ and nonempty $J\subseteq\cH_q$}.
+ \label{eq:planeplain}
+\end{align}
+There is a distribution-independent $N$-query tolerance-$\tau$ learner of loss at most $\tau$. For each \emph{fixed} $D$ and $0<\epsilon<1/4$, there is a learner allowed to depend on $D$, with tolerance $\epsilon/2$ and
+\[
+ m_D\leq1+s+\binom{s}{2},\qquad
+ s=\left\lceil\frac{4\log N+2}{\epsilon}\right\rceil,
+\]
+that has loss at most $\epsilon$ for every target. Here $\log$ is natural.
+Nevertheless every \emph{single} learner satisfying \eqref{eq:guarantee}, with $m\geq1$, $0<\tau\leq1$, and $\epsilon<1/4$, satisfies
+\begin{equation}\label{eq:plane19}
+ \dc(\cH_q)\leq19m/\tau^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Points are one-dimensional subspaces of $\mathbb F_q^3$; lines are kernels of nonzero linear functionals, modulo nonzero scalar multiples. There are $(q^3-1)/(q-1)=N$ of each. A line contains $(q^2-1)/(q-1)=k$ points. Two distinct points span a unique two-dimensional subspace, hence lie on one common line. Two distinct kernels intersect in one one-dimensional subspace. These facts also show each point lies on $k$ lines.
+
+Let $P$ be the $N\times N$ incidence matrix. Then
+\[
+ P\1=k\1,\qquad P^\top P=qI+\1\1^\top.
+\]
+Define $A=(N/k)P-\1\1^\top$. Its positive entries equal $N/k-1=q^2/(q+1)\geq1$, and its negative entries equal $-1$. Direct multiplication gives
+\[
+ A\1=0,\qquad
+ A^\top A=(N/k)^2q\left(I-\frac{\1\1^\top}{N}\right).
+\]
+Indeed, the coefficient of $\1\1^\top$ before simplification is $N^2/k^2-N=-Nq/k^2$, since $k^2=N+q$. Thus $\|A\|_\op=(N/k)\sqrt q$, and Theorem~\ref{thm:forster} gives the lower bound in \eqref{eq:planedc}.
+
+For the upper bound, enumerate the points by distinct integers $1,\ldots,N$ and use the common embedding
+$\phi(t)=(1,t,\ldots,t^{2k})$. For a positive set $S$ of size $k$, the polynomial
+\[
+ p_S(t)=\tfrac12-\prod_{a\in S}(t-a)^2
+\]
+is positive on $S$ and negative on all other domain points: away from $S$ the product is a positive integer. Its coefficient vector is the required weight vector. Hence $\dc\leq2k+1$.
+
+Now prove \eqref{eq:planeplain}. Write $K=|J|$, and restrict $P$ to the selected columns. If $K<16$, the Gram matrix has diagonal entries one, so its norm is at least one and the result follows. Suppose $K\geq16$ and let $r_x$ be the number of selected lines containing point $x$.
+If $r_x<K/4$ for every $x$, take the unit vector $a=\1/\sqrt K$. At each point,
+\[
+ |\textstyle\sum_{j\in J}a_jh_j(x)|=|2r_x-K|/\sqrt K>\sqrt K/2.
+\]
+Its Gram Rayleigh quotient is at least $K/4$. Otherwise choose $x_0$ incident with $r\geq K/4$ selected lines and let $S$ be those $r$ lines. At $x_0$ all these labels are positive; at any other point at most one is positive, since two points have a unique common line. For the unit vector $a=\1_S/\sqrt r$,
+\[
+ |\textstyle\sum_j a_jh_j(x)|\geq(r-2)/\sqrt r\geq\sqrt r/2
+ \quad\text{for all }x,
+\]
+since $r\geq4$. Its Rayleigh quotient is at least $r/4\geq K/16$, for every $\mu$. This proves \eqref{eq:planeplain}, including marginals concentrated on a single point.
+
+The claimed learner queries $q_j(x,y)=y h_j(x)$ for every line and outputs a hypothesis with maximum answer. The true target has correlation one, hence receives answer at least $1-\tau$. A maximizing hypothesis has true correlation at least $1-2\tau$, and loss at most $\tau$, regardless of the marginal and the oracle. Thus it is one distribution-independent learner.
+
+We prove the fixed-$D$ claim before excluding a common efficient learner. Let $\delta=\epsilon/2$ and sample a length-$s$ sequence from the known $D$. For any pair of hypotheses at $D$-distance greater than $\delta$, the probability of identical labels on the sequence is at most $(1-\delta)^s\leq e^{-\delta s}$. A union bound over fewer than $N^2$ pairs is at most $N^2e^{-\delta s}\leq e^{-1}<1$. Consequently some sequence has the property that hypotheses with identical traces are within $D$-distance $\delta$. Hardwire one such sequence and one representative hypothesis per trace into the learner. On at most $s$ distinct sampled points there are at most $1+s+\binom{s}{2}$ traces: the empty trace, at most $s$ singleton traces, and at most one line through each pair of distinct sampled points. Every trace of size at least two is determined by one such pair. The representatives therefore form a $D$-cover of the claimed size. Query their label correlations and select the largest answer. A representative within $\delta$ of the true target has correlation at least $1-2\delta$. With tolerance $\tau=\epsilon/2$, the selected output has correlation at least $1-2\delta-2\tau$ and error at most $\delta+\tau=\epsilon$. The hardwired cover depends on $D$; this is not one learner serving all marginals.
+
+To rule out a much cheaper common learner, choose for target line $j$ the distribution
+\[
+ D_j(x)=\begin{cases}(2k)^{-1},&P_{xj}=1,\\[1mm]
+ (2(N-k))^{-1},&P_{xj}=0.
+ \end{cases}
+\]
+Take the reference $P_0$ to be uniform on $X_q\times\{-1,+1\}$. With $c=k/(N-k)$, its residual likelihood ratios satisfy
+\[
+ r_j(x,+1)=A_{xj},\qquad r_j(x,-1)=-cA_{xj}.
+\]
+For example the first formula is $2N D_j(x)-1=N/k-1$ on the line and $-1$ elsewhere; the second is $-1$ on the line and $N/(N-k)-1=c$ elsewhere. Consequently
+\begin{align*}
+ \Gamma&=\frac{1+c^2}{2N}A^\top A,\\
+ \Lambda&=\frac{qN}{2}\left(\frac1{(q+1)^2}+\frac1{q^4}\right),\\
+ R&=\frac{2}{q((q+1)^{-2}+q^{-4})}\geq\frac{(q+1)^2}{q}\geq q.
+\end{align*}
+The penultimate inequality uses $q^4\geq(q+1)^2$ for $q\geq2$, which follows from $q^2\geq q+1$. By Theorem~\ref{thm:barrier}, $R\leq4+4M$ for $M=m/\tau^2$. Therefore
+\[
+ \dc(\cH_q)\leq2q+3\leq2R+3\leq11+8M\leq19M,
+\]
+where the final inequality uses $M\geq1$.
+\end{proof}
+
+\paragraph{What failed.}
+The family has unbounded dimension while all the proposed ordinary label-Gram ratios remain bounded. This is a genuine failure of the stated universality premise, not a counterexample to OQ2. The efficient learner needed for such a separation is impossible here: the target-dependent balanced marginals produce a joint-distribution ratio of order $q$. The lower-bound witness changes entry magnitudes, which the ordinary label Gram matrix cannot capture. This also verifies an explicit separation between fixed-distribution and distribution-independent SQ learning: $m_D=O(n^2/\epsilon^2)$ at tolerance $\epsilon/2$, whereas for $q\geq16$ any common learner needs $m/\tau^2\geq q/4$. Since $N\leq2q^2$, the latter is at least $2^{(n-1)/2}/4$. The dimension lower bound is at least $2^{(n-1)/4}$. None of these fixed-$D$ learners can be substituted for the single algorithm in OQ2.
+
+\section{What direct transcript compression actually proves}
+\begin{theorem}[Marginal-branching and approximate probabilistic bounds]\label{thm:tree}
+Let $B=\lceil2/\tau\rceil+1$, with $0<\tau\leq1$. For a deterministic learner satisfying \eqref{eq:guarantee}, decompose each query as
+\[
+ q(x,y)=a(x)+yb(x),\quad
+ a(x)=\tfrac12(q(x,+1)+q(x,-1)),\quad
+ b(x)=\tfrac12(q(x,+1)-q(x,-1)).
+\]
+Construct its marginal-response tree as follows. If $a$ is constant, retain only the answer equal to that constant. Otherwise retain the $B$ equally spaced answers in $[-1,1]$. Let $u$ be the maximum number of nonconstant-$a$ nodes on a retained root-to-leaf path. Then
+\begin{equation}\label{eq:tree}
+ \dc(\cH)\leq(m+1)B^u.
+\end{equation}
+In particular, a deterministic correlational-only learner has $\dc(\cH)\leq m+1$.
+For an arbitrary randomized learner satisfying \eqref{eq:guarantee},
+\begin{equation}\label{eq:approx}
+ \dc^{\epsilon}(\cH)\leq B^m.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The grid has spacing $2/(B-1)\leq\tau$, so nearest-grid rounding errs by at most $\tau/2$. The marginal tree has at most $B^u$ leaves: suppress unary nodes and use induction on the number of remaining branching nodes per path. It has at most $(m+1)B^u$ nodes, because every node has a descendant leaf and a depth between zero and $m$, and assigning each node one such pair is injective when the depth is fixed along a leaf's path.
+Collect the function $b$ at every internal node and the Boolean output at every leaf. These are the common features $f_1,\ldots,f_s$, where $s\leq(m+1)B^u$ and each feature has absolute value at most one.
+
+Fix $D,h$. Follow the tree by giving the exact constant response or rounding $\E_Da$ to the grid. If at some node $|\E_D hb|>\tau/2$, one of the signed features $b,-b$ has correlation greater than $\tau/2$. Otherwise every answer is a valid SQ response: the difference from the true expectation $\E_Da+\E_D hb$ is at most $\tau/2+\tau/2$. A valid policy realizing this finite transcript extends to all other histories by exact answers. The deterministic guarantee then gives leaf correlation at least $1-2\epsilon>1/2\geq\tau/2$. We have proved
+\begin{equation}\label{eq:minimaxpremise}
+ \forall D,\qquad \max_{i,\ s_i\in\{-1,+1\}}\E_D[h(x)s_if_i(x)]\geq\tau/2.
+\end{equation}
+We supply the finite separation step. Let $C$ be the convex hull of the vectors $(h(x)s_if_i(x))_{x\in X}$ and let $Q=(\tau/2)\1+\R_{\geq0}^X$. If $C\cap Q$ were empty, the compact set $C$ and closed set $Q$ would have a positive attained minimum distance. To see attainment, take a minimizing sequence; the $C$ components have a convergent subsequence, and bounded distances make the $Q$ components bounded too. A zero minimum would put the limit in both sets. Let $(c,z)$ minimize the positive distance and put $v=z-c$. By differentiating squared distance along line segments, for every $c'\in C,z'\in Q$ we obtain
+\[
+ \langle v,c'-c\rangle\leq0,\qquad
+ \langle v,z'-z\rangle\geq0.
+\]
+Taking $z'=z+te_x$ gives $v_x\geq0$. Furthermore $v\ne0$, and
+\[
+ \max_{c'\in C}\langle v,c'\rangle
+ \leq\langle v,c\rangle<\langle v,z\rangle
+ =\min_{z'\in Q}\langle v,z'\rangle=(\tau/2)\sum_xv_x.
+\]
+Normalizing $v$ to a distribution contradicts \eqref{eq:minimaxpremise}. Hence a convex combination in $C\cap Q$ exists. Its coefficients define a linear combination of the common features whose product with $h(x)$ is at least $\tau/2$ at every point. This is a strict representation and proves \eqref{eq:tree}. For correlational-only queries $a=0$, hence $u=0$.
+
+For a randomized learner, fix a seed and instead retain all grid answers to each full query. There are at most $B^m$ leaves. Use all leaf outputs as coordinates of an embedding, padding when needed. This distribution over embeddings depends only on the learner's seed, not on $D,h$. For fixed $D,h$, the policy rounding each true expectation to the grid is valid. Its output is one of the leaf features. Selecting that coordinate as $w$ gives
+\[
+ \inf_w L_{D,h}(\sign\langle w,\phi_\omega\rangle)
+ \leq L_{D,h}(A_\omega^{O_{D,h}}).
+\]
+Averaging over the seed proves \eqref{eq:approx}. No seed is selected after observing $D$ or $h$.
+\end{proof}
+
+The deterministic argument does not derandomize the learner: fixing its seed need not preserve its expected guarantee. The probabilistic bound is exponential, not polynomial, and gives no exact $\dc_{1/2}$ bound.
+
+\section{The exact population-gradient transfer}
+The relationship between precision-limited differentiable learning and SQ learning requires quantitative assumptions; it does not identify the plain online-SGD process with an adversarial population-gradient oracle \citep{AKMSS21}.
+
+\begin{theorem}[Coordinatewise simulation, with parameters]\label{thm:gradient}
+Consider an adaptive population-gradient algorithm with $S\geq1$ parameters and $T\geq1$ gradient calls. Suppose every coordinate of its per-example gradient at every reachable state has absolute value at most $B_g>0$. Suppose its expected error guarantee holds against every response within Euclidean distance $\delta>0$ of the true population gradient, at every call. If $\delta\leq B_g\sqrt S$, it has an SQ simulation with
+\begin{equation}\label{eq:gradparams}
+ m=TS,\qquad \tau=\frac\delta{B_g\sqrt S}.
+\end{equation}
+Thus an OQ2 bound $F(m,1/\tau,n)$ transfers here to\[
+ F(TS,B_g\sqrt S/\delta,n).
+\]
+In particular, form (a) would imply
+\begin{equation}\label{eq:gradresult}
+ \dc(\cH)\leq C\,T B_g^2 S^2/\delta^2,
+\end{equation}
+not the claimed $CTS$ bound for plain SGD.
+\end{theorem}
+\begin{proof}
+At a fixed gradient call and state $\theta$, query
+$q_i(x,y)=g_{\theta,i}(x,y)/B_g$ for each coordinate, keeping $\theta$ fixed until all $S$ responses arrive. Every query lies in $[-1,1]$. Multiplying the answer by $B_g$ incurs coordinate error at most $B_g\tau=\delta/\sqrt S$. The sum of squared coordinate errors is at most $\delta^2$. The simulated vector is therefore a valid approximate-gradient response. Induction over calls shows that each trajectory is covered by the assumed robust guarantee. There are $TS$ scalar queries, proving \eqref{eq:gradparams}. Substituting these parameters into $F$ proves the transfer and \eqref{eq:gradresult}.
+\end{proof}
+
+Conversely, a scalar SQ query is the derivative at zero of the per-example objective $J_q(t;x,y)=tq(x,y)$. A one-dimensional approximate-gradient answer of accuracy $\tau$ is exactly an SQ answer of tolerance $\tau$. This converse permits adaptively selected objectives. It is not a simulation by the single fixed bias-free ReLU architecture and logistic loss in OQ1.
+
+\paragraph{What does not transfer.}
+A sampled online gradient need not lie within a prescribed small Euclidean ball around the population gradient. An expectation guarantee over sampled gradients does not imply a guarantee against every perturbation in such a ball. Unbounded Gaussian initialization and unbounded weight trajectories do not provide the global gradient bound assumed above. A norm bound or truncation must be proved separately, not inserted silently. Taking $\delta=0$ produces infinite-precision access, outside the finite-tolerance SQ estimate. Therefore no $CTS$ or polynomial $(T,S)$ implication for the specified online-SGD learner is established here.
+
+\section{A specific defect in the 2025 prior-averaging proof}
+Karchmer and Malach's arXiv v1 \citep{KM25}, Appendix A.2, samples $g\sim\mu$ and an example $(x,f(x))$, then outputs $g(z)g(x)f(x)$. The proof conditions the target prior on a bad set and reuses an averaged guarantee. But replacing the prior also changes the law of the sampled $g$. This invalidates the claimed contradiction. Appendix A.3 additionally samples features using boosted example distributions, which depend on the task, rather than establishing one task-independent embedding law. We do not infer that every theorem statement in the paper is false; these are defects in the displayed argument.
+
+\begin{proposition}[Explicit prior-conditioning obstruction]\label{thm:conditioning}
+Let $X=\{-1,+1\}^2$ with uniform $\rho$, and $h_1(x)=x_1$, $h_2(x)=x_2$. Let $\mu(h_2)=p$, $\mu(h_1)=1-p$, for $0<p<1$. For target $h_2$, the preceding procedure, viewed as sampling a whole Boolean predictor, has probability exactly $p$ of producing a predictor with positive correlation under $\rho$. Conditioning only the target prior on $\{h_2\}$ retains that probability $p$. Replacing the feature-sampling prior by this conditional prior changes it to $1$.
+\end{proposition}
+\begin{proof}
+If $g=h_2$, then $g(x)h_2(x)=1$ and the predictor is $h_2$ everywhere. If $g=h_1$, the predictor is either $h_1$ or $-h_1$, both orthogonal to $h_2$ because
+$\E_\rho[x_1x_2]=0$. Thus positive correlation occurs exactly when $g=h_2$, with probability $p$. Conditioning the target does not affect this fixed sampling law. Resampling $g$ from the point mass at $h_2$ makes the event certain. The two purported sides of the conditioning contradiction therefore concern different algorithms.
+\end{proof}
+
+\section{CPU experiments and an architectural check}
+\begin{proposition}[An odd-part restriction of one-hidden-layer bias-free ReLU]\label{thm:odd}
+For $f(x)=v^\top\sigma(Wx)$ with no biases, $f(x)-f(-x)=v^\top Wx$. The same odd-part linearity holds for any finite sum of such networks. On uniform $\{-1,+1\}^3$, every such summed predictor, classified with $\sign(0)=+1$, has error at least $1/8$ against $h(x)=x_1x_2x_3$.
+\end{proposition}
+\begin{proof}
+The scalar identity $\max(z,0)-\max(-z,0)=z$ follows by considering $z\geq0$ and $z\leq0$. Applying it coordinatewise proves the first assertion and summing proves the second. Let $F$ be a sum and write $F(x)-F(-x)=a\cdot x$. If $F$ classified all eight points correctly, then $h(-x)=-h(x)$ would imply
+$h(x)(F(x)-F(-x))>0$ for every $x$. The inequality is strict even under the tie convention, since the negatively labeled point must have a strictly negative score. But
+\[
+ \sum_{x\in\{-1,+1\}^3}h(x)(a\cdot x)=0:
+\]
+each coordinate summand is a constant times the product of the other two coordinates, whose sum is zero. This contradiction forces at least one erroneous point, of uniform mass $1/8$.
+\end{proof}
+
+The scripts use only CPU NumPy and SciPy. The bound-check seed is $20260910$. The plane generator uses prime fields $q\in\{2,3,5,7,11\}$. It verifies the incidence identities with integer arithmetic, the signed spectral witness, the full residual-density Gram formula, $600$ sampled ordinary-Gram cases, $500$ energy/count cases, $200$ adaptive reference-oracle couplings, $24$ grid/tree cases, and $100$ exhaustive-learner cases. The auxiliary script also checks $12$ numerically computed radial-isotropic transforms, $100$ primal--dual minimax LP pairs, $1000$ algebraic and gradient-error cases, the exact two-target conditioning example, $100$ ReLU odd-part cases, $100$ joint-certificate dimension bounds, and $10$ fixed-distribution cover constructions. The largest radial-isotropy residual was $2.39\cdot10^{-12}$ and the largest LP primal--dual gap was $8.61\cdot10^{-16}$. These finite tests are not a replacement for the preceding universal proofs.
+
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$q$ & $N$ & $(q+1)/\sqrt q$ & $2q+3$ & joint $R$\\
+\midrule
+2&7&2.121320&7&5.760000\\
+3&13&2.309401&9&8.907216\\
+5&31&2.683282&13&13.615734\\
+7&57&3.023716&17&17.810953\\
+11&133&3.618136&25&25.926818\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For a small exact sign-rank check, the script exhausts all signed row orders of the $4\times4$ Walsh matrix and finds none with at most one sign change in every column. This excludes sign-rank at most two. The criterion is exact: in a strict two-dimensional representation orient each row ray into one open half-plane, order its angle, and each column's dot product changes sign at most once over an angular interval of length less than $\pi$. Coincident rays may be ordered arbitrarily. Conversely such an order is realized by $(1,t)$ and affine thresholds between adjacent integers, after undoing the row signs. The script also checks the following rank-three certificate using exact integer arithmetic:
+\[
+ H=\begin{pmatrix}1&1&1&1\\1&-1&1&-1\\1&1&-1&-1\\1&-1&-1&1\end{pmatrix},\quad
+ \Phi=\begin{pmatrix}1&0&0\\1&1&0\\1&0&1\\1&-1&-1\end{pmatrix},\quad
+ W=\begin{pmatrix}1&1&1&1\\0&-2&4&-2\\0&4&-2&-2\end{pmatrix}.
+\]
+Every entry of $H\odot(\Phi W)$ is at least one. Thus the computed exact sign-rank is three. No SDP computation was performed.
+
+For SGD, the architecture is $(3,8,1)$, with $S=32$, $T=1200$, $\eta=0.05$, independent Gaussian weight variances $1/3$ and $1/8$, logistic loss, and ReLU derivative zero at zero. At each step one fresh point is sampled from the fixed $D$. We sum post-update network outputs at times $t=T/2,\ldots,T$, and use $\sign(0)=+1$. Targets comprise the first-coordinate parity, degree-three parity, and all seven $q=2$ incidence hypotheses, extended by label $-1$ at an eighth cube point.
+
+Distributions are uniform; a mixture of $0.1$ uniform and $0.9$ uniform on two seeded points; and an empirical adversary selected from ten fixed candidates using two pilot seeds and $600$ steps. Candidate distributions include uniform, half-positive/half-negative, and eight Dirichlet draws. Reporting uses the five disjoint seeds $0,\ldots,4$. The adversary is a reproducible search, not a certified worst-case distribution. All $135$ reporting runs, their distributions, and pilot scores are saved.
+
+\begin{center}\small
+\begin{tabular}{llrr}
+\toprule
+Target family & Distribution & Runs & Mean error\\
+\midrule
+Degree-one parity & Uniform &5&0.000000\\
+Degree-one parity & Sparse mixture &5&0.000000\\
+Degree-one parity & Searched adversary &5&0.000000\\
+Degree-three parity & Uniform &5&0.500000\\
+Degree-three parity & Sparse mixture &5&0.147500\\
+Degree-three parity & Searched adversary &5&0.500000\\
+Plane $q=2$ & Uniform &35&0.025000\\
+Plane $q=2$ & Sparse mixture &35&0.030000\\
+Plane $q=2$ & Searched adversary &35&0.033689\\
+\bottomrule
+\end{tabular}\end{center}
+
+These observations do not establish distribution-independent learning or refute OQ1. In particular, Proposition~\ref{thm:odd} already prevents exact representation of the degree-three target by this shallow architecture or its tail sum. Success on several distributions cannot replace the universal quantifier in \eqref{eq:guarantee}.
+
+\section{Formalization status and reproducibility}
+The source \texttt{lean/SQDC.lean} defines finite distributions, strict dimension complexity, bounded queries, real-response adaptive trees, history-dependent valid oracles, and deterministic and arbitrary-seed randomized distribution-independent learnability. It contains proof-script drafts for the counting consequence of Lemma~\ref{thm:energy}, the algebraic consequence of Theorem~\ref{thm:barrier}, query decomposition, and the scalar identity behind Proposition~\ref{thm:odd}. These are precisely identified substatements, not the full spectral or adaptive theorem.
+
+\textbf{The Lean source is uncompiled.} The actual build attempt returned \texttt{lean: command not found} and \texttt{lake: command not found}, each with exit code $127$. Fetching the toolchain failed with a DNS-resolution error. No successful compiler output or axiom audit exists. The source has no intentionally inserted proof holes or additional axioms, but it is not a machine-checked deliverable. The targeted toolchain is \texttt{leanprover/lean4:v4.34.0-rc2}, read from Mathlib's official master toolchain file on the working date. The dependency still tracks master rather than a pinned manifest. A future successful build must lock its commit and preserve the manifest.
+
+The mathematical checks and SGD scripts did execute successfully under Python $3.13.5$ and NumPy $2.3.5$. Raw files live in \texttt{experiments/results}; actual command logs are under \texttt{logs}. The build instructions and source-to-statement coverage table are in the archive README. Floating-point assertions use stated numerical tolerances, while incidence identities and the displayed rank-three sign certificate are checked integrally.
+
+\section{Exactly what remains open in this attempt}
+The unrestricted normalized implications (a), (b), and (c) are not proved or refuted. Neither are their polynomial exact-probabilistic $\dc_{1/2}$ or approximate-probabilistic $\dc^{C\epsilon}$ variants. Theorem~\ref{thm:tree} proves only an exponential approximate-probabilistic bound. Theorem~\ref{thm:plane} settles the strongest proposed form for one explicit family and invalidates the ordinary-Gram universality premise. It is not a solution of OQ2. Theorem~\ref{thm:gradient} is conditional and does not establish either claimed implication for plain online SGD.
+
+A precise sufficient target for the next proof attempt is the following. Define $\mathfrak J(\cH)$ as the supremum of $K/\|\Gamma\|_\op$ over every finite list of realizable labeled distributions from $\cH$ and every full-support fair-label reference used in Theorem~\ref{thm:barrier}. Repeated targets with different marginals are allowed. This is finite: the residual vectors have mean zero in a space of dimension $2N-1$, each has squared norm at least one, and hence $\Lambda\geq\tr\Gamma/(2N-1)\geq K/(2N-1)$. Taking one target with $D=\mu$ gives $\mathfrak J\geq1$. Thus
+\[
+ 1\leq\mathfrak J(\cH)\leq2N-1,\qquad
+ \mathfrak J(\cH)\leq4+4m/\tau^2
+\]
+for every learner in the stated regime.
+\begin{conjecture}[Sufficient certificate-completeness statement]
+There is an absolute polynomial $p$ such that
+$\dc(\cH)\leq p(\mathfrak J(\cH),\log_2|X|)$ for every nonempty finite class.
+\end{conjecture}
+This conjecture would imply form (c) by direct substitution. It is not claimed equivalent to OQ2. The missing step is a sign-rank upper bound from small joint-distribution certificate strength. Neither the ordinary-Gram method nor the invalid prior-conditioning argument supplies it.
+
+\begin{thebibliography}{4}
+\bibitem{FKS26}
+Vitaly Feldman, Pritish Kamath, and Nathan Srebro.
+Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?
+In \emph{Proceedings of the Thirty-Ninth Conference on Learning Theory},
+Proceedings of Machine Learning Research 336, pages 7117--7122, 2026.
+\url{https://proceedings.mlr.press/v336/feldman26a.html}.
+
+\bibitem{Forster02}
+J\"urgen Forster.
+A Linear Lower Bound on the Unbounded Error Probabilistic Communication Complexity.
+\emph{Journal of Computer and System Sciences}, 65(4):612--625, 2002.
+\url{https://doi.org/10.1016/S0022-0000(02)00019-3}.
+
+\bibitem{AKMSS21}
+Emmanuel Abbe, Pritish Kamath, Eran Malach, Colin Sandon, and Nathan Srebro.
+On the Power of Differentiable Learning versus PAC and SQ Learning.
+\emph{Advances in Neural Information Processing Systems}, 34:24340--24351, 2021.
+\url{https://arxiv.org/abs/2108.04190}.
+
+\bibitem{KM25}
+Ari Karchmer and Eran Malach.
+The Power of Random Features and the Limits of Distribution-Free Gradient Descent.
+arXiv:2505.10423v1, 2025. The proof audit refers specifically to Appendix A.2--A.3 of version 1.
+\url{https://arxiv.org/abs/2505.10423v1}.
+\end{thebibliography}
+\end{document}

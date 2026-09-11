@@ -1,0 +1,15 @@
+\section{Possible objections}\label{sec:objections}
+\paragraph{Is this the 2017 separation?}
+No. The finite-field line example of \citet{Feldman17} is easy for each separately fixed marginal but hard for one common distribution-independent learner. Our real-grid flips have one learner for every marginal. Proposition~\ref{prop:affine} separately quantifies the comparison on the older affine class.
+
+\paragraph{Does the learner know the table?}
+It knows its class, as allowed in the SQ premise. The first implementation reads a table; the succinct implementation instead evaluates the supplied key. Neither receives the unknown target or marginal. Hiding that key changes the learning problem, as the propositions in Section~\ref{sec:secret} show.
+
+\paragraph{How explicit is the class?}
+The unconditional high-rank selection is by counting. The conditional result gives polynomial-time entries for almost every key, but no efficient deterministic good-key selector. The short exhaustive generator is computable but inefficient. These distinctions matter for the explicit-construction direction of \citet[Problem~4.1]{HHPTZ22}.
+
+\paragraph{Is the learner efficient and proper?}
+The cap and finite-net implementations are polynomial in the table. The order-median implementation is polynomial in the encoding length and the entry-evaluation cost. It is proper under star-regularity, which holds for almost every PRF key. Its $O(n^2)$ query count differs from the $O(n)$ table-based count.
+
+\paragraph{Does randomization cause the separation?}
+No. A deterministic finite-net implementation achieves the table-based bounds, and the succinct improper learner is deterministic. The necessary resource for a small-query deterministic learner is marginal adaptation, as quantified in Theorem~\ref{thm:adapt}.

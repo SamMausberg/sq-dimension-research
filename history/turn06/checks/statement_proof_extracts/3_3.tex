@@ -1,0 +1,16 @@
+% Canonical statement: sections/03_rectangle.tex:23-30
+\begin{lemma}[A marginal-free rectangle mixture]\label{lem:mixture}
+Assume $H$ is finite, $0<r\le\rect(H)$, and fix nonempty $U\subseteq X$, nonempty $V\subseteq H$, and a distribution $\nu$ on $V$. There is a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R\subseteq U\times V$ such that
+\begin{equation}\label{eq:coverage}
+ \forall x\in U,\qquad
+ \E_{R\sim\lambda}\bigl[\1_{S_R}(x)\nu(T_R)\bigr]\ge r.
+\end{equation}
+This distribution can be computed from $(H,U,V,\nu)$ without a query about $D$.
+\end{lemma}
+
+% Proof binding: sections/03_rectangle.tex:32-36
+\begin{proof}
+For each rectangle $Q$, set $z_Q(x)=\1_{S_Q}(x)\nu(T_Q)$. The rectangle hypothesis on the restricted matrix gives
+$\max_Q\langle\mu,z_Q\rangle\ge r$ for every $\mu\in\Delta(U)$.
+Apply \cref{lem:finite-minimax}. The resulting feasibility problem has rational coefficients when $\nu,r$ are rational, so it admits a rational solution. No information about $D$ enters this computation.
+\end{proof}

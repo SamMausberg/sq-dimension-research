@@ -1,0 +1,8 @@
+Subject: Manuscript on Open Question 2
+
+Dear Vitaly Feldman, Pritish Kamath and Nathan Srebro,
+
+I have prepared a manuscript answering Open Question 2 with a negative result. It proves that a product-distribution monochromatic-rectangle condition suffices for distribution-independent statistical-query learning, and applies it to incidence-flip classes whose ordinary and nondegenerate probabilistic dimension complexities are superpolynomial in their SQ parameters and domain encoding length. The paper includes proper and deterministic table-based learners, as well as conditional succinct families. Open Question 1 remains open. An unconditional efficiently explicit family exceeding every polynomial also remains open. The manuscript is available at [arXiv link]. I would appreciate comments on the argument and its relation to your formulation, including the tie convention in the probabilistic definitions.
+
+Best regards,
+Samuel Mausberg

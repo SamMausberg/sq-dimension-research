@@ -1,0 +1,67 @@
+\section{CPU verification and adversarial oracle experiments}\label{app:verification}
+All new experiments are CPU-only. They test the cap-based learner and its proper completion, not SGD. The final reporting seed is $2026091103$; the separate algebraic-check seed is $2026091107$. The scripts, input families, all rational distributions, every query and answer, numerical diagnostics, exact finite-coverage certificates, and independent audit outputs are included in the accompanying archive. Execution used Python 3.13.5, NumPy 2.3.5, SciPy, mpmath, and one numerical thread. The final learner experiment took 300.18 seconds in this environment; this observed runtime is not a complexity theorem.
+
+\paragraph{Executed cap law versus the ideal sampler.}
+The practical implementation perturbs the template once, computes numerical radial-isotropic transforms with the convex log-determinant objective, and constructs a finite pool from point-centered directions and 32 seeded Gaussian directions. This pool is not the ideal continuous uniform-sphere law and is not the enormous deterministic net used in the bit-complexity proof. The numerical solver uses L-BFGS, with a 120-decimal Newton fallback and a separate small-survivor formula. Early floating-point conditioning failures are retained as diagnostic logs. No failed numerical transform was silently counted as a verified transform.
+
+The guarantee used for each reported state is instead \emph{the exact finite coverage of the actual pool}. The script checks each resulting rectangle against the integer table and verifies the pointwise coverage inequality by integer counting. Conditioning the pool to remove known-empty point sets can only increase coverage. The catalog depends only on the survivor set and a fixed seed, not on the unknown marginal or on previous instances. Across 1,735 catalogs, all 1,106,791 rectangles were monochromatic, and all 1,096,914 pointwise constraints passed. The minimum certified coverage was $0.00013950892857142856$, above the common required bound $2^{-20}$. The largest numerical covariance residual was $2.003\cdot10^{-5}$. Exact coverage, not this floating-point residual, certifies application of the learner's argument to each recorded catalog.
+
+This is a certificate-checked implementation on the reported finite states, not a verified polynomial-time numerical solver on arbitrary input. Appendix~\ref{app:convex} proves a separate conservative bit-polynomial algorithm. We do not describe an approximate matrix as an exact irrational optimizer.
+
+\paragraph{Oracle policy.}
+The exact oracle computes expectations using rational arithmetic. The adversarial policy always chooses a tolerance endpoint and uses the complete \emph{public} query-answer history. On a proposed rectangle's marginal-mass query it returns the lower endpoint to obstruct acceptance; it does not inspect the private row side or the as-yet-unrevealed color. On a residual-mass query it prefers an available premature stop with larger current error, and otherwise delays stopping. A mismatch query itself reveals its color; the policy chooses an endpoint that induces a wrong peel when possible, otherwise preferring elimination. On candidate verification it favors a high-error acceptance when available. In the proper completion it favors the small-tail branch when the endpoint permits it. The exact tie rules and decision functions are in the script and are replayed by the independent audit.
+
+This policy is greedy with respect to immediate error and continuation. It is explicitly adversarial, but it is not proved to maximize final error or runtime over all possible oracle policies and future learner coins. In particular, the marginal answer does not read private $T$ or $c$ information that the query has not disclosed. An earlier diagnostic version did so; its outputs were discarded and the final experiments were rerun with the public-transcript policy.
+
+\paragraph{Distribution search.}
+For every $N=2,\ldots,8$, the script generates a fixed random flip matrix and uses 16 reporting distributions, each supported on at most 20 points. Structured cases include mass on a target's template incidences, on its actual negative points, on three points, and on a small tail just above the stopping threshold. Four random restarts with three coordinate mutations each search for larger error and round count, with proper and improper objectives included. Learner reporting seeds are separate from the pilot seeds. Every case is run with both learners and both oracles, giving $7\cdot16\cdot2\cdot2=448$ runs.
+
+The outer accuracy is $\epsilon=1/10$. To compare the variants on the same tolerance, both run the rectangle phase at $\theta=1/40$, with
+\[
+ \rho=2^{20},\qquad P_\theta=24194093,\qquad
+ \tau=\frac1{23226329280},\qquad R=151681296.
+\]
+These conservative universal budgets greatly exceed observed use. The table reports maxima over both exact and adversarial-oracle runs, not certified worst cases over all distributions or policies.
+
+\begin{center}\small
+\begin{tabular}{rrrrrrr}
+\toprule
+&\multicolumn{3}{c}{Improper cap learner}&\multicolumn{3}{c}{Proper cap learner}\\
+$N$&Error&Rounds&Queries&Error&Rounds&Queries\\
+\midrule
+2&0.0062500001&78&163&0.0062500001&73&152\\
+3&0.0062500001&268&543&0.0099348873&268&544\\
+4&0.0062500001&667&1351&0.0062500001&565&1139\\
+5&0.0062500001&3845&7701&0.0062500001&3845&7702\\
+6&0.0062500001&2038&4086&0.0062500001&2038&4087\\
+7&0.0062500001&7227&14464&0.0062500001&7227&14465\\
+8&0.0062500001&4190&8392&0.0062500001&4190&8393\\
+\bottomrule
+\end{tabular}
+\end{center}
+Error entries are rounded upward; raw rational errors are retained. The largest actual improper error was $0.006250000021527293$ and the largest proper error was $0.009934887239$. Exact-oracle trajectories sometimes take more rounds than the greedy endpoint policy: an adversarial premature stop raises error but can shorten the run. This is not a contradiction and is why runtime and error are reported separately.
+
+The audit checked 339,922 query-answer pairs, including 103,989 endpoint answers, and all 224 proper outputs belonged to the supplied class. It reconstructed the residual set, candidate set, partial predictor, target-preservation invariant, and final error from each transcript. Proposal outcomes totaled 1,432 negative-or-positive peel decisions, 2,732 eliminations, and 163,462 rejections. A negative peel decision in the proper learner interrupts peeling and starts proper completion; it is not necessarily committed to the partial predictor. Termination counts were 279 residual stops, 105 rectangle-candidate acceptances, 28 identified rows, 28 small-tail candidate acceptances, and eight empty residual sets. All invariant and oracle checks passed.
+
+\paragraph{Product-distribution rectangle witnesses.}
+To inspect the mechanism rather than assume uniform product weights, a separate search uses ten restarts, four support-coordinate changes, and five alternating linear-program cycles on at most ten rows and ten columns. The resulting weights are rounded to rational masses with denominator $10^8$. The largest monochromatic rectangle under each resulting product measure is then computed exactly by exhausting all row subsets and both colors. This gives a rigorous \emph{upper bound} on the infimum defining $\rect(A)$, not an exact computation of that infimum. Together with Theorem~11, the certified intervals are
+\[
+ 2^{-15}\le\rect(A)\le u_N,
+\]
+where the following decimal upper bounds are rounded upward.
+\begin{center}
+\begin{tabular}{rrrrrrrr}
+\toprule
+$N$&2&3&4&5&6&7&8\\
+\midrule
+$u_N$&.242215&.222223&.243056&.244898&.244898&.244083&.244898\\
+\bottomrule
+\end{tabular}
+\end{center}
+Zero-weight selected rows and columns are allowed. The enumeration still certifies the complete product measure because all unselected entries have zero mass. All seven witnesses passed the independent exact audit. The intervals are wide; the experiment does not claim a numerical characterization of $\rect$ or asymptotic behavior from $N\le8$.
+
+\paragraph{Finite inequality checks.}
+The auxiliary script checked 80,000 combinations of extreme valid answers for the acceptance inequalities, 2,000 elimination sequences, 500 exact sign-strictification examples, 825 exact star-union identification identities, exhaustive uniform-cube rectangles for $n=1,3$, and 400 arbitrary-product projective-plane bounds. It verified the incidence and empty-row counts for all seven grid sizes. The empty-row counts were $3,6,10,15,21,28,36$; the incidence counts were $23,126,412,1025,2151,4018,6896$. Every assertion passed. These are finite checks of the formulas, not substitutes for their universal proofs.
+
+\paragraph{Scope of verification.}
+The paper supplies human-readable proofs of its new universal statements. The numerical searches do not certify global adversaries or optimizers. The practical solver's exact catalog checks certify its recorded states, not all possible states on every possible input. Warren's sign-pattern theorem, the sharper homogeneous-rectangle theorem, and real-closed-field decidability are imported classical results with explicit citations rather than new complete formalizations. The pinned Lean sources are uncompiled. Open questions are labeled as such, and no empirical observation is promoted to an unrestricted theorem.

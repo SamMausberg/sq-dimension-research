@@ -1,0 +1,23 @@
+{
+  "seed": 20260910,
+  "counts": {
+    "rectangle_parameter_cases": 20,
+    "exact_median_endpoint_inequalities": 280,
+    "covariance_cases": 19,
+    "subgrid_enumerations": 15,
+    "plane_cases": 7,
+    "hinge_constant_cases": 15
+  },
+  "all_passed": true,
+  "constants": {
+    "c6": 0.0003509774353562009,
+    "inverse_coverage_exact": 136760.92866564382,
+    "r6": "1/4961523892727904",
+    "inverse_r6": 4961523892727904,
+    "five_ball_lower": 0.0003403264786554272,
+    "five_ball_flip_lower": 7.0901349719880665e-06,
+    "first_positive_D_k": 180,
+    "covariance_lower_factor": 0.8161764705882353,
+    "proper_mass_ratio_min": 18.195113489698564
+  }
+}

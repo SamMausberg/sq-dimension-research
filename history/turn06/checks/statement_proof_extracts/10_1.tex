@@ -1,0 +1,25 @@
+% Canonical statement: sections/10_discussion.tex:9-16
+\begin{theorem}[Source-description length alone does not repair the implication]\label{thm:description}
+Fix $0<\epsilon<1/4$. Interpret $\ell$ as the bit length of a finite learner program, including literal hard-coded constants and data, but do not charge running time or generated workspace. There is a computable sequence of incidence-flip classes and learners with
+\[
+ n,\ell,m=O(\log N),\qquad 1/\tau=O_\epsilon(1),\qquad
+ \dc(H)=\Omega(N/\log N).
+\]
+Consequently no universal bound $\dc(H)\le\operatorname{poly}(m,1/\tau,n,\ell)$ holds in this interpretation.
+\end{theorem}
+
+% Proof binding: appendices/resource_proofs.tex:3-16
+\begin{proof}[Proof of \cref{thm:description}]
+Let $K=2N^3$, $b_N=\lceil\log_2(4K)\rceil$, and $d_N=\lfloor N/(128b_N)\rfloor$. For sufficiently large $N$, the counting bound in Theorem~\ref{thm:construction} guarantees a flip matrix of sign-rank greater than $d_N$: indeed $\log_2(4eK)\le2b_N$, so
+\[
+ 2Kd_N\log_2(4eK)\le N^4/16<I.
+\]
+Select the lexicographically first such matrix. This selection is computable. For a proposed matrix $A$, the predicate $\sr(A)\le d_N$ is the truth of the finite real sentence
+\[
+ \exists U\in\R^{K\times d_N},\ V\in\R^{d_N\times K}\quad
+ \bigwedge_{i,j} A_{ij}\sum_{s=1}^{d_N}U_{is}V_{sj}>0.
+\]
+Decision of finite polynomial real sentences is the classical real-closed-field decision theorem. A constructive treatment of this decidability result is given by \citet{MC12}. Enumerate the finitely many flip tables and decide the displayed sentence for each until the first failure. The counting argument ensures termination. Small $N$ can be handled by any fixed table.
+
+A single fixed program performs this generation and then runs the finite rational rectangle-mixture algorithm. Encode $N$ in $O(\log N)$ bits. For each fixed $\epsilon$, run at a fixed rational accuracy below $\epsilon$, whose description length is constant with respect to $N$. Conservative rational ceilings can replace the logarithmic constants in Theorem~\ref{thm:main}, making every step an ordinary finite computation. The table generation happens before the first SQ; it has no query cost. The learner therefore has $m=O(\log K)$ and constant positive tolerance, while the chosen class has $\dc>d_N=\Omega(N/\log N)$. Its program description has size $O(\log N)$. The generated table occupies far more space, which this interpretation does not charge. This contradicts the displayed polynomial implication.
+\end{proof}

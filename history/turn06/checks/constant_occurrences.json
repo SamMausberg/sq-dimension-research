@@ -1,0 +1,381 @@
+{
+  "2^{-15}": [
+    {
+      "file": "sections/01_introduction.tex",
+      "line": 28,
+      "text": "For every prescribed fixed $0\\le\\eta<1/2$ and infinitely many $M$, there are classes on $2M$ points with $\\rect(H)\\ge2^{-15}$ and"
+    },
+    {
+      "file": "sections/01_introduction.tex",
+      "line": 58,
+      "text": "Homogeneous rectangles \\citep{APP05,HHPTZ22} & Sharpen the constant to $2^{-15}$; \\cref{prop:cap-bound} independently gives $2^{-18}$.\\\\"
+    },
+    {
+      "file": "sections/04_family.tex",
+      "line": 8,
+      "text": "Every monotone flip $A$ satisfies $\\operatorname{VC}(A)\\le2$ and $\\rect(A)\\ge2^{-15}$. The template has $\\sr(F)\\le6$ and exactly"
+    },
+    {
+      "file": "appendices/family_proof.tex",
+      "line": 22,
+      "text": "For $d=6$ this is $2^{-15}$."
+    }
+  ],
+  "2^{-18}": [
+    {
+      "file": "sections/01_introduction.tex",
+      "line": 58,
+      "text": "Homogeneous rectangles \\citep{APP05,HHPTZ22} & Sharpen the constant to $2^{-15}$; \\cref{prop:cap-bound} independently gives $2^{-18}$.\\\\"
+    },
+    {
+      "file": "appendices/geometric_bounds.tex",
+      "line": 4,
+      "text": "Let $c_d$ be the normalized surface measure of the cap of Section~\\ref{sec:caps} on $S^{d-1}$, $d\\ge2$. Every matrix $F$ of sign-rank at most $d$ satisfies $\\rect(F)\\ge c_d/(4d)$. If $F$ has no negative $2\\times2$, every monotone flip $A$ satisfies $\\rect(A)\\ge c_d/(8d)$. In particular, for $d=6$ this is greater than $2^{-18}$."
+    },
+    {
+      "file": "appendices/geometric_bounds.tex",
+      "line": 18,
+      "text": "\\qquad \\frac{c_6}{48}>\\frac1{207360}>2^{-18}."
+    }
+  ],
+  "24": [
+    {
+      "file": "sections/03_rectangle.tex",
+      "line": 16,
+      "text": "r&=1/\\rho,&P&=1+\\lceil4\\rho\\ln(8/\\epsilon)\\rceil,&\\tau&=\\epsilon/(24P),\\label{eq:params1}\\\\"
+    },
+    {
+      "file": "sections/03_rectangle.tex",
+      "line": 68,
+      "text": "Indeed $P\\ge4\\rho\\ln(8/\\epsilon)>4\\rho\\ln32$, and $24\\cdot4\\ln32>64$. At a nonstopping round, write"
+    },
+    {
+      "file": "sections/06_explicit.tex",
+      "line": 15,
+      "text": "\\qquad D_k=\\left\\lfloor\\frac{k}{24\\log_2 k}\\right\\rfloor."
+    },
+    {
+      "file": "appendices/cap_proper_proofs.tex",
+      "line": 67,
+      "text": "For $P_\\theta=1+\\lceil4r^{-1}\\ln(8/\\theta)\\rceil$ and $\\tau=\\theta/(24P_\\theta)$,"
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 5,
+      "text": "119c2f8e0061d0ff5d241b229c78"
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 25,
+      "text": "5&36&0.0243217961&14&0.254&0\\\\"
+    },
+    {
+      "file": "appendices/explicit_proofs.tex",
+      "line": 30,
+      "text": "for sufficiently large $n$. Under a uniform function its acceptance probability is at most $2^{-k^4/2}$ by Lemma~\\ref{lem:subgrid}. Under the PRF it is therefore at most $2^{-k^4/2}+\\operatorname{negl}(\\sigma)$, which is negligible in $n$. Restricting a sign realization cannot increase its rank. Consequently, except on that event, the full dimension is at least $D_k+1>k/(24\\log_2k)$."
+    },
+    {
+      "file": "appendices/explicit_proofs.tex",
+      "line": 34,
+      "text": "D_k+1>\\frac{k}{24\\log_2k}\\ge\\frac{n^c}{30\\log_2n}."
+    },
+    {
+      "file": "appendices/explicit_proofs.tex",
+      "line": 36,
+      "text": "This proves the displayed constant. The choice $k=n^c$ alone would instead give $n^c/(24c\\log_2n)$; its factor $c$ cannot be discarded. Also $N=2^{(n-1)/3}$, rather than $2^{n/3}$, respects the fixed definition $n=\\log_2|X|$."
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 11,
+      "text": "for b in [F(512),F(513),F(1023),F(1024),F(10000)]:"
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 38,
+      "text": "K=2*k**3;I=2*k**4-(k*(k+1)//2)**2;D=math.floor(k/(24*math.log2(k)))"
+    },
+    {
+      "file": "supplement/experiments/cap_sq.py",
+      "line": 25,
+      "text": "TAU=INNER/(24*P)"
+    },
+    {
+      "file": "supplement/experiments/cap_sq.py",
+      "line": 26,
+      "text": "BUDGET=math.ceil(8*RHO*(math.log(1024)+math.log(8/float(INNER))+1+math.log(2/float(INNER))))"
+    },
+    {
+      "file": "supplement/experiments/high_precision.py",
+      "line": 37,
+      "text": "if max(abs(z) for z in g)<mp.mpf('1e-24'):break"
+    },
+    {
+      "file": "supplement/experiments/make_figure.py",
+      "line": 9,
+      "text": "s=[r'\\begin{figure}[ht]',r'\\centering',r'\\begin{tikzpicture}[x=0.24cm,y=0.24cm]']"
+    }
+  ],
+  "30": [
+    {
+      "file": "sections/01_introduction.tex",
+      "line": 53,
+      "text": "\\begin{tabularx}{\\linewidth}{@{}p{.30\\linewidth}X@{}}"
+    },
+    {
+      "file": "sections/06_explicit.tex",
+      "line": 35,
+      "text": "\\boxed{\\dc(H_{A_s})\\ge\\frac{n^c}{30\\log_2n}.}"
+    },
+    {
+      "file": "sections/06_explicit.tex",
+      "line": 49,
+      "text": "\\dc(H)\\ge\\frac{n^c}{30\\log_2 n}."
+    },
+    {
+      "file": "sections/06_explicit.tex",
+      "line": 68,
+      "text": "\\dc(H_{A_s})\\ge\\frac{n^c}{30\\log_2n},\\qquad"
+    },
+    {
+      "file": "sections/08_sgd.tex",
+      "line": 32,
+      "text": "\\dc(H_{A_s})\\ge\\frac{n^c}{30\\log_2 n}."
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 34,
+      "text": "Error and wall-time entries are rounded upward. Wall time includes the exact finite-support oracle, not the cost of a physical statistical oracle. Raw output also records simulator time separately. These are empirical maxima and single-run timings, not asymptotic runtime estimates. All 304 runs passed 4,798 exact query-answer checks; all 304 outputs were proper. The 30 slope-search runs specifically exercise the order comparison used to resolve the all-light case."
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 50,
+      "text": "6&8&.0062500001&645&1308&.462\\\\"
+    },
+    {
+      "file": "appendices/explicit_proofs.tex",
+      "line": 34,
+      "text": "D_k+1>\\frac{k}{24\\log_2k}\\ge\\frac{n^c}{30\\log_2n}."
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 50,
+      "text": "a=negative[seed];target=(a,N+1-a);points=[p,(1,2*N*N)];weights=[700,300]"
+    },
+    {
+      "file": "supplement/experiments/seeded_fast.py",
+      "line": 155,
+      "text": "cases.append(((a,b),[neg[0],pos],[700,300],'single_negative'))"
+    }
+  ],
+  "512": [
+    {
+      "file": "sections/05_learners.tex",
+      "line": 88,
+      "text": "Suppose $\\beta>0$, $|\\widehat\\beta-\\beta|\\le\\zeta$, and $\\beta\\ge512\\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\\mu^-\\{f\\le t\\}$ and threshold $\\widehat\\beta/2$ returns $v\\in[L,H]$ with"
+    },
+    {
+      "file": "appendices/cap_proper_proofs.tex",
+      "line": 43,
+      "text": "Repetitions of a direction cause no difficulty. Rounding a unit vector coordinatewise produces $g$ with $\\|g-z\\|\\le1/(32\\sqrt j)$; normalization changes it by at most twice this amount. Thus $\\langle z,g/\\|g\\|\\rangle\\ge1-1/(512j)>\\beta$, where the last inequality follows from $\\beta\\le1-1/(4j)$. Every point is in at least one cap. Uniformly sampling $W_j$ and the split color yields coverage at least $1/(16jJ_j)$. The common rational lower bound"
+    },
+    {
+      "file": "appendices/isotropy_program.tex",
+      "line": 36,
+      "text": "\\delta=\\frac{d}{512k^2},\\quad a=\\frac{\\delta}{36d},\\quad"
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 7,
+      "text": "In the light-atom case, $m\\le\\widehat\\beta/8+\\zeta\\le\\beta/8+9\\zeta/8$. Add this to the upper bound on $\\mu^-\\{f<v\\}$ to obtain \\eqref{eq:balancedmedian}. In the other case $m>\\widehat\\beta/8-\\zeta\\ge\\beta/8-9\\zeta/8>\\beta/9$, since $\\beta\\ge512\\zeta$."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 15,
+      "text": "\\qquad \\beta>1023\\zeta>512\\zeta."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 28,
+      "text": "Suppose that atom is heavy. Query its intersection mass $l$ with $P$. If both $\\widehat l\\ge\\widehat\\beta/8$ and $\\widehat m-\\widehat l\\ge\\widehat\\beta/8$, then $a=a^*$ and $v=b^*$. Indeed, for $a\\ne a^*$, $f_a$ is injective on the target line, so its atom is a single point and lies wholly on one side of $P$. One of the true split masses is zero. Its directly observed value is at most $\\zeta$, or its difference of two observed values at most $2\\zeta$, both less than $\\widehat\\beta/8$. Conversely, when $a=a^*$, the atom has mass $\\beta$ and the median value is exactly $b^*$. The two true split masses are at least $\\beta/2-3\\zeta/2$ and $3\\beta/8-21\\zeta/8$ by \\eqref{eq:balancedmedian}. Their observed lower bounds exceed $\\widehat\\beta/8$, using $\\beta>512\\zeta$. Thus the test accepts precisely the constant-residual case. Return the exact target row in that case. If the split test fails, the heavy atom is a single negative point; locate its $x$ coordinate by binary queries restricted to $\\{f_a=v\\}$, then put $y=ax+v$ and use the heavy-point completion."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 40,
+      "text": "Query this intersection and compare its answer to $3\\widehat\\beta/8$. In the first case the answer is at least $\\beta/2-5\\zeta/2>3\\widehat\\beta/8$; in the second it is at most $\\beta/4+25\\zeta/4<3\\widehat\\beta/8$. Both inequalities follow from $\\beta>512\\zeta$. Equality of slopes is impossible in the light case, because the entire negative mass would be one residual atom. Retain the appropriate strict half of the slope interval. After $O(\\log N)$ stages only $a^*$ remains. A median query search for its constant residual gives $b^*$, so return $h_{a^*,b^*}$. Each slope stage uses $O(\\log N)$ queries. This is the all-light algorithm."
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 11,
+      "text": "for b in [F(512),F(513),F(1023),F(1024),F(10000)]:"
+    }
+  ],
+  "1023": [
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 15,
+      "text": "\\qquad \\beta>1023\\zeta>512\\zeta."
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 11,
+      "text": "for b in [F(512),F(513),F(1023),F(1024),F(10000)]:"
+    }
+  ],
+  "4096": [
+    {
+      "file": "sections/05_learners.tex",
+      "line": 84,
+      "text": "Write $\\mu^-(E)=\\Pr_D[p\\in E,\\ h^*(p)=-1]$, $\\beta=\\mu^-(X)$, and $\\zeta=\\epsilon/4096$. We analyze answers of error at most $\\zeta$. In a finite-bit implementation request raw SQ tolerance $\\zeta/2$ and round each response with additional error at most $\\zeta/2$, using $O(\\log(1/\\epsilon))$ bits after the binary point. This makes the algorithm a finite-bit computation without assuming exact real arithmetic. Points have coordinates $(x,y)$; the label in an SQ is a separate variable."
+    },
+    {
+      "file": "sections/05_learners.tex",
+      "line": 126,
+      "text": "Set $\\zeta=\\epsilon/4096$. Query the total negative mass $\\beta$\\;"
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 15,
+      "text": "The script \\texttt{seeded\\_fast.py} executes the proper algorithm of Theorem~\\ref{thm:fast} for $N=2,\\ldots,8,16,32$. It does not construct a truth table or enumerate all domain points inside the learner. The simulator represents $D$ by its finite support. The stated accuracy is $\\epsilon=1/10$, and the exact-rational experiments use effective tolerance $\\zeta=\\epsilon/4096=1/40960$. The finite-bit theorem requests raw tolerance $\\zeta/2$ to reserve the other half for response rounding; these runs have no additional rounding error."
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 36,
+      "text": "The small grid sweep cannot reach the large-star sampling branch because its conservative threshold is at least $128/\\epsilon=1280$. A separate unit test therefore uses $N=4096$ and the point $p=(1,N+1)$, whose star has 4096 lines. Exactly 1968 of these keyed rows are negative at $p$, exceeding the required local quarter fraction. On 20 learner seeds, a distribution putting mass $.7$ at $p$ and $.3$ at a positive outside point produced a proper zero-error answer. Full transcripts are saved. This tests the large-star branch at one verified star; it does not claim that the entire $N=4096$ table was generated or tested for regularity."
+    },
+    {
+      "file": "supplement/experiments/algebra_and_stress.py",
+      "line": 45,
+      "text": "N=4096;cls=SeedClass(N);p=(1,N+1)"
+    },
+    {
+      "file": "supplement/experiments/seeded_fast.py",
+      "line": 33,
+      "text": "self.tau=eps/4096;self.mode=mode;self.trace=[];self.seconds=0."
+    },
+    {
+      "file": "supplement/experiments/seeded_fast.py",
+      "line": 136,
+      "text": "if desc['reason']!='star_sampling_failure':assert err<=eps/2+eps/4096,(desc,err)"
+    },
+    {
+      "file": "supplement/experiments/seeded_fast.py",
+      "line": 181,
+      "text": "(OUT/'metadata.json').write_text(json.dumps(dict(key_hex=KEY.hex(),random_seed=SEED,epsilon='1/10',tau='1/40960',runs=len(allrows),note='HMAC-SHA256 experimental keyed hash; no security claim. Public-query endpoint adversary; finite search, not global worst case.'),indent=2))"
+    },
+    {
+      "file": "supplement/experiments/seeded_fast.py",
+      "line": 188,
+      "text": "assert val==Q(q['truth']) and abs(Q(q['answer'])-val)<=Q(1,40960);checks+=1"
+    }
+  ],
+  "8192": [
+    {
+      "file": "sections/05_learners.tex",
+      "line": 114,
+      "text": "Let $0<\\epsilon<1/4$. Suppose entries of a real-grid incidence flip $A$ can be evaluated in time $E(n)$, where $n=\\log_2(2N^3)$. There is a deterministic improper distribution-independent SQ learner of error at most $\\epsilon$, using $O(n^2)$ queries at raw tolerance $\\epsilon/8192$, with total computation polynomial in $(n,1/\\epsilon,E(n))$ and an efficiently evaluable output. If $A$ is star-regular, there is a proper randomized learner with"
+    },
+    {
+      "file": "sections/05_learners.tex",
+      "line": 117,
+      "text": "\\tau=\\epsilon/8192,"
+    }
+  ],
+  "16/(15": [],
+  "16/(17": [],
+  "19": [
+    {
+      "file": "sections/05_learners.tex",
+      "line": 114,
+      "text": "Let $0<\\epsilon<1/4$. Suppose entries of a real-grid incidence flip $A$ can be evaluated in time $E(n)$, where $n=\\log_2(2N^3)$. There is a deterministic improper distribution-independent SQ learner of error at most $\\epsilon$, using $O(n^2)$ queries at raw tolerance $\\epsilon/8192$, with total computation polynomial in $(n,1/\\epsilon,E(n))$ and an efficiently evaluable output. If $A$ is star-regular, there is a proper randomized learner with"
+    },
+    {
+      "file": "sections/05_learners.tex",
+      "line": 117,
+      "text": "\\tau=\\epsilon/8192,"
+    },
+    {
+      "file": "sections/07_characterizations.tex",
+      "line": 120,
+      "text": "\\begin{equation}\\label{eq:plane19}"
+    },
+    {
+      "file": "sections/07_characterizations.tex",
+      "line": 121,
+      "text": "\\dc(\\cH_q)\\leq19m/\\tau^2."
+    },
+    {
+      "file": "appendices/certificate_proofs.tex",
+      "line": 160,
+      "text": "\\dc(\\cH_q)\\leq2q+3\\leq2R+3\\leq11+8M\\leq19M,"
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 5,
+      "text": "119c2f8e0061d0ff5d241b229c78"
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 36,
+      "text": "The small grid sweep cannot reach the large-star sampling branch because its conservative threshold is at least $128/\\epsilon=1280$. A separate unit test therefore uses $N=4096$ and the point $p=(1,N+1)$, whose star has 4096 lines. Exactly 1968 of these keyed rows are negative at $p$, exceeding the required local quarter fraction. On 20 learner seeds, a distribution putting mass $.7$ at $p$ and $.3$ at a positive outside point produced a proper zero-error answer. Full transcripts are saved. This tests the large-star branch at one verified star; it does not claim that the entire $N=4096$ table was generated or tested for regularity."
+    },
+    {
+      "file": "appendices/experiments.tex",
+      "line": 48,
+      "text": "4&8&.0085570466&198&409&.105\\\\"
+    },
+    {
+      "file": "appendices/oracle_bounds.tex",
+      "line": 28,
+      "text": "R19 & $\\Pr[\\text{budget failure}]\\le e^{B-rR/8}\\le\\epsilon/2$ & R16 and Markov's inequality. & Learner draws; oracle arbitrary\\\\"
+    }
+  ],
+  "C_0": [
+    {
+      "file": "sections/06_explicit.tex",
+      "line": 58,
+      "text": "Use the star-regularity definition in \\cref{sec:fast}: every template star with at least $64\\lceil n\\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\\epsilon$; the algorithm tests it only for stars larger than $C_0=\\max\\{64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil\\}$. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\\ref{thm:prf}, failure occurs for only a negligible fraction of keys."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 53,
+      "text": "C_0=\\max\\{64\\lceil\\log_2(2N^3)\\rceil,\\lceil128/\\epsilon\\rceil\\}."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 55,
+      "text": "If $t(p)\\le C_0$, enumerate its slopes, discard rows positive at $p$ by an entry evaluation, and query the full loss of each remaining row until an answer is at most $\\epsilon/2$. The target is among them and must pass. A passing row has actual loss at most $\\epsilon/2+\\zeta$."
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 57,
+      "text": "If $t(p)>C_0$, star-regularity supplies at least $t(p)/4$ rows negative at $p$. The sets of negative points of different star rows outside $p$ are disjoint. At most $8/\\epsilon$ rows can therefore have $D$-mass greater than $\\epsilon/8$ on their outside negative sets. At least $t(p)/4-8/\\epsilon\\ge t(p)/8$ rows are negative at $p$ and have outside negative mass at most $\\epsilon/8$. Every such row has loss at most"
+    }
+  ],
+  "J=": [
+    {
+      "file": "appendices/cap_proper_proofs.tex",
+      "line": 89,
+      "text": "J=\\lceil8/\\epsilon\\rceil+1"
+    },
+    {
+      "file": "appendices/certificate_proofs.tex",
+      "line": 190,
+      "text": "Set $A=pP-J$. Direct multiplication using $PJ=pJ$ gives"
+    },
+    {
+      "file": "appendices/median_proofs.tex",
+      "line": 63,
+      "text": "J=\\lceil16\\ln(4/\\epsilon)\\rceil"
+    },
+    {
+      "file": "supplement/experiments/affine_checks.py",
+      "line": 15,
+      "text": "K=p*p; J=np.ones((K,K),dtype=np.int64)"
+    },
+    {
+      "file": "supplement/experiments/cap_sq.py",
+      "line": 212,
+      "text": "J=math.ceil(8/float(eps))+1"
+    }
+  ]
+}

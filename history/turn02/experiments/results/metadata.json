@@ -1,0 +1,14 @@
+{
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "rho": 32768,
+  "epsilon": "1/10",
+  "peel_cap": 574362,
+  "tolerance": "1/137846880",
+  "seconds": 6.807650269999613,
+  "quick": false,
+  "number_runs": 793,
+  "exact_oracle": true,
+  "isotropic_transform_used": false,
+  "method": "rectangle LP with exact integer coverage certificate"
+}

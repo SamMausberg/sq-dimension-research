@@ -1,0 +1,29 @@
+{
+  "APP05": {
+    "doi": "10.1016/j.jcta.2004.12.008",
+    "verified_primary_metadata": "https://collaborate.princeton.edu/en/publications/crossing-patterns-of-semi-algebraic-sets/",
+    "publisher_doi_endpoint": "blocked",
+    "full_text": "not recovered"
+  },
+  "secondary_candidates_not_primary_verified": [
+    {
+      "key": "Feldman08",
+      "doi": "10.1145/1374376.1374465",
+      "seen_in": "ResearchGate author-posted record and secondary citations",
+      "primary_endpoint": "blocked"
+    },
+    {
+      "key": "DV04",
+      "doi": "10.1145/1007352.1007404",
+      "seen_in": "MaRDI index",
+      "primary_endpoint": "blocked"
+    },
+    {
+      "key": "Warren68",
+      "doi": "10.1090/S0002-9947-1968-0226281-1",
+      "seen_in": "secondary publication index",
+      "primary_endpoint": "blocked"
+    }
+  ],
+  "crossref": "exact identifier endpoints blocked; no invented responses"
+}

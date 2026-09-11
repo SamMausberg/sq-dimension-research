@@ -1,0 +1,6 @@
+k,rows,points,incidence_bits,D,half_k4,low_rank_event
+2,16,16,23,0,8,empty: strict rank zero impossible
+3,54,54,126,0,81/2,empty: strict rank zero impossible
+4,128,128,412,0,128,empty: strict rank zero impossible
+5,250,250,1025,0,625/2,empty: strict rank zero impossible
+6,432,432,2151,0,648,empty: strict rank zero impossible

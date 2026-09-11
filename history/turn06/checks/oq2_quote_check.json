@@ -1,0 +1,6 @@
+{
+  "verbatim_typeset_fixture_matches": true,
+  "source": "FKS original PDF page 3, blob 59fb15e60215a07d5bb1ca60ce061ee659d24b13",
+  "primary_recovery": "base64 line ranges with zlib-verified PDF content streams",
+  "normalization": "PDF ligatures, line wraps and math typesetting only; English s.t. and terminal period retained."
+}

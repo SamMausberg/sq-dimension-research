@@ -1,0 +1,15 @@
+{
+  "statements": 39,
+  "bound_proofs": 39,
+  "dependency_nodes": 50,
+  "acyclic": true,
+  "intentional_statement_changes": [
+    "2.3",
+    "6.4",
+    "7.1",
+    "7.6",
+    "7.9",
+    "7.10"
+  ],
+  "deferred_targets": 25
+}

@@ -1,0 +1,98 @@
+\section{Preliminaries and notation}\label{sec:preliminaries}
+All domains and hypothesis classes are finite and nonempty. The logarithm $\log_2$ is base two and $\ln$ is natural. Unsubscripted logarithms in asymptotic bounds may use either base. Constants in $O_\epsilon$ or $\Omega_\epsilon$ may depend on a fixed accuracy $\epsilon$, but not on the class or its size. Repeated rows are permitted when a geometric construction indexes identical hypotheses separately.
+
+For a marginal $D\in\Delta(X)$ and Boolean functions $h,g$, define
+\[
+ L_{D,h}(g)=\sum_xD(x)\1_{g(x)\ne h(x)},\qquad
+ \E_D[hg]=1-2L_{D,h}(g).
+\]
+A statistical query is a function $q:X\times\{-1,+1\}\to[-1,1]$. At tolerance $\tau>0$, its response may be any $v$ satisfying
+$|v-\E_Dq(x,h(x))|\le\tau$ \citep{Kearns98}. An oracle policy may choose its answers using the entire public query-answer history, including earlier queries that reveal previous random choices and the current query. This is the strongest nonanticipating adaptive-policy reading of the source\textquotesingle s arbitrary valid responses; the policy is not given unrevealed future private coins. A randomized learner must satisfy
+\begin{equation}\label{eq:guarantee}
+ \forall D\ \forall h\in H\ \forall\text{ valid adaptive oracle policies }O,
+ \qquad\E_\omega L_{D,h}(A^O_\omega)\le\epsilon.
+\end{equation}
+The expectation is over the learner's private randomness only. A deterministic learner is a real-response decision tree of depth at most $m$; a randomized learner is a distribution over such trees. Early stopping can be padded by zero queries. For our finite-state algorithms, all output losses and events are measurable. Randomized oracle policies can be handled by conditioning on their randomness. For computational statements, the oracle returns a finite binary encoding at the stated precision; reserving half the tolerance for rounding gives this interface from a finer-precision answer. Query-complexity statements permit arbitrary real responses and charge no answer-reading cost.
+
+Dimension complexity measures simultaneous linear representability \citep{BDES02}. We use its strict convention: $\dc(H)$ is the least integer $d\ge0$ for which one map $\phi:X\to\R^d$ satisfies
+\begin{equation}\label{eq:strict}
+ \forall h\in H\ \exists w_h\in\R^d\ \forall x\in X,
+ \qquad h(x)\langle w_h,\phi(x)\rangle>0.
+\end{equation}
+A rank factorization of the truth table is exactly such a representation, so $\dc(H)$ equals its sign-rank. The minimum exists because the coordinate embedding $x\mapsto e_x$ works. Allowing a fixed tie rule changes the ordinary dimension by at most one, by \cref{lem:ties}, so the asymptotic separations cover that convention as well.
+
+For the probabilistic notions, set $\sign(0)=+1$ and classify the score before evaluating loss. For $0<\delta<1$, the exact probabilistic dimension $\dc_\delta(H)$ is the least $d$ admitting one law on embeddings such that
+\begin{equation}\label{eq:prob-definition}
+ \forall D,h,\quad
+ \Pr_\phi\!\left[\exists w:\ L_{D,h}(\sign\langle w,\phi\rangle)=0\right]\ge1-\delta.
+\end{equation}
+The case $\delta=1/2$ is used below. This is the probabilistic representation notion associated with \citet{CMW25}. The averaged dimension of \citet{KMS20}, denoted here by $\dc^\eta(H)$, is the least $d$ admitting one embedding law with
+\begin{equation}\label{eq:approx-definition}
+ \forall D,h,\quad
+ \E_\phi\inf_w L_{D,h}(\sign\langle w,\phi\rangle)\le\eta.
+\end{equation}
+The embedding law precedes both $D$ and $h$; the selected vector $w$ need not. For each fixed embedding and marginal, the infimum is a minimum because there are only finitely many Boolean prediction patterns on $X$.
+
+\paragraph{Zero scores.}
+The raw-score formulas in \citet[Section~4]{FKS26}, read together with their strictly negative-product loss, assign zero loss to $w=0$ for every class. In particular, $\Pr[h(x)\langle w,\phi(x)\rangle<0]=0$ when $w=0$. That formula therefore gives a vacuous probabilistic dimension unless the prediction or tie rule is specified. Equations \eqref{eq:prob-definition}--\eqref{eq:approx-definition} use Boolean predictions. \Cref{lem:ties} establishes the same asymptotic lower bounds for the opposite tie rule and for a convention counting zero scores as errors. These are the nondegenerate probabilistic formulations refuted here.
+
+A monochromatic rectangle is a product $S\times T\subseteq X\times H$ on which $h(x)$ is a fixed color $c\in\{-1,+1\}$. Put
+\begin{equation}\label{eq:rect-definition}
+ \rect(H)=\inf_{\mu\in\Delta(X),\nu\in\Delta(H)}
+ \max_{S\times T\text{ monochromatic}}\mu(S)\nu(T).
+\end{equation}
+Restricting to a nonempty submatrix cannot decrease this quantity: extend its two distributions by zero. Hence every lower bound $r\le\rect(H)$ remains valid after peeling points or eliminating rows.
+
+\begin{table}[t]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}p{.23\linewidth}X@{}}
+\toprule
+Symbol & Meaning\\\midrule
+$X,H,K,n$ & Domain, indexed class, $K=|H|$, $n=\log_2|X|$.\\
+$D,\mu,\nu$ & Unknown example marginal; auxiliary point and hypothesis priors.\\
+$m,\tau,\epsilon$ & Query budget, additive tolerance, target classification error.\\
+$U,V,S\times T$ & Unpeeled points, surviving hypotheses, sampled monochromatic rectangle.\\
+$r=1/\rho$ & A known lower bound on $\rect(H)$.\\
+$N,M,I$ & Grid scale, $M=N^3$, and number of independently flippable incidences.\\
+$\dc,\dc_{1/2},\dc^\eta$ & Strict, exact probabilistic, and averaged probabilistic dimensions.\\
+$\Gamma,\Lambda,R$ & Certificate Gram matrix, its operator norm, and the ratio $K/\Lambda$.\\
+\bottomrule
+\end{tabularx}
+\caption{Notation. The round-budget symbol $R$ in \cref{lem:params} is local to RECTIFY and is separate from the spectral ratio.}\label{tab:notation}
+\end{table}
+
+\begin{lemma}[Finite minimax and pointwise coverage]\label{lem:finite-minimax}
+Let $\mathcal A$ be a nonempty finite action set and $Z$ a nonempty finite set of instance types. Let $g_a\in\R^Z$ and $r\in\R$. The following statements are equivalent:
+\[
+ \forall\mu\in\Delta(Z),\ \max_{a\in\mathcal A}\E_\mu g_a\ge r;
+ \qquad
+ \exists\lambda\in\Delta(\mathcal A),\ \forall z\in Z,\ \E_\lambda g_a(z)\ge r.
+\]
+The result also applies when an arbitrary instance set induces only finitely many payoff vectors $(g_a(z))_{a\in\mathcal A}$.
+\end{lemma}
+\begin{proof}
+The reverse implication follows by averaging. For the forward direction, let $C=\operatorname{conv}\{g_a:a\in\mathcal A\}$ and $Q=r\1+\R_{\ge0}^Z$. If disjoint, their minimum distance is positive and attained: $C$ is compact, and a bounded-distance minimizing sequence has bounded $Q$-components. Let $(c,z)$ attain it and put $v=z-c\ne0$. Differentiation along feasible segments gives
+\[
+ \langle v,c'-c\rangle\le0\quad(c'\in C),\qquad
+ \langle v,z'-z\rangle\ge0\quad(z'\in Q).
+\]
+Taking $z'=z+te_x$ yields $v_x\ge0$. Moreover,
+\[
+ \max_{c'\in C}\langle v,c'\rangle
+ \le\langle v,c\rangle<\langle v,z\rangle
+ =\min_{z'\in Q}\langle v,z'\rangle=r\sum_xv_x.
+\]
+Normalize $v$ to a probability distribution, contradicting the first condition. Hence $C\cap Q\ne\varnothing$, and its convex coefficients give $\lambda$. For finitely many payoff types, retain one representative of each type and apply the finite result.
+\end{proof}
+
+\begin{lemma}[From uniform rectangles to product weights]\label{lem:product-weights}
+Suppose a property of finite matrices is preserved by repeating rows and columns. Suppose every matrix with that property has a monochromatic rectangle with row fraction at least $a$ and column fraction at least $b$. Then every such matrix has rectangle ratio at least $ab$ under arbitrary product distributions.
+\end{lemma}
+\begin{proof}
+For strictly positive rational weights, repeat rows and columns according to common-denominator multiplicities. Projecting a monochromatic rectangle back to the original indices preserves its signs and can only increase its weighted side masses. For arbitrary weights, approximate by strictly positive rational distributions. The largest rectangle mass is the maximum of finitely many continuous products of linear functions of the weights, hence is continuous. Passing to the limit gives the assertion.
+\end{proof}
+
+\begin{lemma}[Tie conventions and strict realization]\label{lem:ties}
+For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. If all zero scores are counted as errors, replacing their predictions by $+1$ cannot increase loss, for any marginal and target.
+\end{lemma}
+\noindent The proof, including the attained-infimum and zero-incidence cases, appears in \cref{app:oracle}.

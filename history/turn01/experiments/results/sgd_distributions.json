@@ -1,0 +1,560 @@
+[
+  {
+    "family": "parity_degree1",
+    "target_id": 0,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "parity_degree1",
+    "target_id": 0,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.4625,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "parity_degree1",
+    "target_id": 0,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.12803978522633294,
+      0.29391888197510807,
+      0.006649740497457385,
+      0.1907304015956896,
+      0.0053050859548455205,
+      0.03389147736390825,
+      0.3392166835204166,
+      0.002247943866241596
+    ],
+    "adversary_candidate": 9,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      1.0410040921521157e-08,
+      0.0025265645870743633,
+      0.0,
+      2.4330483012716308e-06,
+      0.0006448935150645876,
+      0.0,
+      0.0,
+      0.0033248702487286923
+    ]
+  },
+  {
+    "family": "parity_degree3",
+    "target_id": 0,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "parity_degree3",
+    "target_id": 0,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "parity_degree3",
+    "target_id": 0,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": 0,
+    "pilot_candidate_errors": [
+      0.4375,
+      0.4375,
+      0.008545299656350024,
+      0.03278074309168368,
+      0.03841981006390789,
+      0.010233108589454802,
+      0.008898968690032316,
+      0.03064199861676488,
+      0.004698044816840122,
+      0.007367139754102349
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 0,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 0,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.4625,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 0,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.006287751996691016,
+      0.12540978931708463,
+      0.21243021859526948,
+      2.4440069532956246e-06,
+      0.2910614408221252,
+      0.18489651071622787,
+      0.00034301943756863266,
+      0.17956882510807992
+    ],
+    "adversary_candidate": 8,
+    "pilot_candidate_errors": [
+      0.0625,
+      0.05,
+      0.0026747985430051998,
+      0.00024034669544471923,
+      0.0006646544605403887,
+      0.003257738405685445,
+      0.006295122149863186,
+      0.000456544548172424,
+      0.0897856345575166,
+      0.001967348102191433
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 1,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 1,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 1,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.005628961016512328,
+      0.17992329137698013,
+      0.38913472259302,
+      0.06831882574353583,
+      0.0025877926544883405,
+      0.020927506273954958,
+      0.055654073282027636,
+      0.27782482705948075
+    ],
+    "adversary_candidate": 5,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      0.013603994804680221,
+      0.02210707440315456,
+      0.006995676738268871,
+      0.04108227021552441,
+      0.009623945082805795,
+      0.027412726985116324,
+      0.002102764155063638,
+      0.011236501862190613
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 2,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 2,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.4625,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 2,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.06000765656707746,
+      0.04276828388715037,
+      0.3096993609409782,
+      0.0010280369373906516,
+      0.000413080112285487,
+      0.5198095142310941,
+      0.040166898454822623,
+      0.026107168869201187
+    ],
+    "adversary_candidate": 8,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      0.012498266743924114,
+      0.000830293909283681,
+      0.0034608571842007015,
+      0.005389907480773292,
+      0.00022076493207495178,
+      0.000868125667477781,
+      0.030517846752234058,
+      0.0007944719457176444
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 3,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 3,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 3,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.0023634569130906594,
+      0.09052862638036213,
+      0.022280558801335556,
+      0.06886879792499635,
+      0.7937820989340876,
+      1.3241631808253684e-06,
+      0.0012797410790275155,
+      0.020895395803919452
+    ],
+    "adversary_candidate": 3,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      9.720582542413188e-07,
+      0.04606448740259365,
+      2.2188178826259977e-06,
+      0.00010308857296024633,
+      0.0052663883435427866,
+      0.0002576881035942896,
+      0.011982381766900816,
+      0.005162890785731813
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 4,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 4,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 4,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.02613893798956769,
+      0.010750874221723616,
+      0.5058822924758596,
+      0.3335550292027008,
+      0.007132669068823304,
+      0.1134385093376115,
+      0.002717239916694607,
+      0.0003844477870187988
+    ],
+    "adversary_candidate": 3,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      0.007533281534080767,
+      0.020600783207241527,
+      0.0038710468845147977,
+      0.0007997006771821418,
+      0.00869859152810028,
+      0.0031156114746130406,
+      1.3594265866588572e-05,
+      0.005182967888504949
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 5,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 5,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.4625,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 5,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.16666666666666666,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.1
+    ],
+    "adversary_candidate": 1,
+    "pilot_candidate_errors": [
+      0.0,
+      0.05,
+      0.006651785057130607,
+      0.017164595219937708,
+      0.0021666751693085345,
+      0.009435857529489949,
+      0.015791544759199777,
+      0.03179516914903123,
+      0.00413226944120812,
+      0.00888182724306651
+    ]
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 6,
+    "distribution": "uniform",
+    "probabilities": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 6,
+    "distribution": "sparse_mixture",
+    "probabilities": [
+      0.0125,
+      0.4625,
+      0.4625,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125,
+      0.0125
+    ],
+    "adversary_candidate": null,
+    "pilot_candidate_errors": null
+  },
+  {
+    "family": "plane_q2",
+    "target_id": 6,
+    "distribution": "adversarial_search",
+    "probabilities": [
+      0.03748933127858482,
+      8.7851868672401e-11,
+      0.2493389926150803,
+      0.016749174263502066,
+      0.18399354919032887,
+      0.0036798278846319104,
+      1.555760753296513e-06,
+      0.5087475689192669
+    ],
+    "adversary_candidate": 9,
+    "pilot_candidate_errors": [
+      0.0,
+      0.0,
+      0.0032353631688925148,
+      2.3246352932045487e-05,
+      0.00835708547676824,
+      0.003934262494385614,
+      0.018604926709522893,
+      0.013301230365264443,
+      0.016649363341913415,
+      0.022426049328603554
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+\section{Rectangle geometry: tight examples and non-necessity}\label{sec:landscape}
+\begin{samepage}
+\begin{theorem}[Global projective-plane rectangle ratio]\label{thm:pgglobal}
+For the point--line incidence class of $\operatorname{PG}(2,q)$, over any prime-power order $q\ge2$ for which the plane is defined,
+\[
+ \frac1{8(q+1)}\le\rect(H_q)\le\frac{q}{(q+1)^2}.
+\]
+Thus the infimum over \emph{all} product distributions is $\Theta(1/q)$, not merely the maximum rectangle under the uniform product measure.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+We prove the lower bound for any bipartite incidence graph whose degrees on both sides are at most $\Delta\ge1$. Fix arbitrary product weights $\mu\times\nu$ and let $p$ be their total incidence mass. If $p\ge1/2$, some point has incident row mass at least $1/2$. At most $\Delta$ rows meet it, so one row has prior mass at least $1/(2\Delta)$. One of that row's two color classes has point mass at least $1/2$. This gives a monochromatic rectangle of mass at least $1/(4\Delta)$.
+
+If $p<1/2$, select each point independently with probability $t=1/(2\Delta)$, obtaining $S$, and let $T$ be all rows with no neighbor in $S$. The rectangle $S\times T$ is nonincident. For a nonincident pair $(x,h)$,
+\[
+ \Pr[x\in S,h\in T]=t(1-t)^{\deg h}
+ \ge t(1-\Delta t)=1/(4\Delta).
+\]
+The inequality $(1-t)^j\ge1-jt$ follows by induction. Averaging the rectangle mass gives at least $(1-p)/(4\Delta)>1/(8\Delta)$. Hence some rectangle has that mass. Taking $\Delta=q+1$ proves the universal lower bound.
+
+For the upper bound choose uniform weights. Let $K=q^2+q+1$, $k=q+1$, and let $P$ be the incidence matrix. The identities $P^\top P=qI+\1\1^\top$ and $P\1=k\1$ give
+\[
+ C=P-(k/K)\1\1^\top,\qquad \|C\|_{\rm op}=\sqrt q.
+\]
+A nonincident rectangle of sizes $a,b$ satisfies $(k/K)ab\le\sqrt q\sqrt{ab}$, so $ab/K^2\le q/k^2$. An incident rectangle has a singleton side and area at most $k$. Its mass is at most $1/K\le q/k^2$, since $qK-k^2=q^3-q-1>0$. This establishes the claimed upper bound on the infimum.
+\end{proof}
+
+\paragraph{What is and is not tight.}
+Theorem~\ref{thm:barrier} and the balanced target-dependent marginals of Theorem~\ref{thm:plane} give $m/\tau^2=\Omega(q)=\Omega(\rho)$ for this family. At a fixed positive tolerance this yields $m=\Omega(\rho)$. Theorem~\ref{thm:main}, however, uses $\tau=\Theta_\epsilon(1/\rho)$ and has $m/\tau^2=O_\epsilon(\rho^3\log K)$. Thus the geometry is sharp and a linear inverse-rectangle dependence is unavoidable at fixed tolerance, but the joint $(m,\tau)$ dependence of Theorem~\ref{thm:main} is \emph{not} established as tight up to logarithms. Lowering tolerance cannot be ignored in a tightness claim.
+
+\begin{samepage}
+\begin{theorem}[Small rectangle ratio does not prevent SQ learning]\label{thm:halfspaces}
+For odd $n$, let
+\[
+ X_n=\{-1,+1\}^n,\qquad
+ H_n=\{x\mapsto\sign\langle w,x\rangle:w\in\{-1,+1\}^n\}.
+\]
+Then $\dc(H_n)\le n$, $\rect(H_n)\le e^{-n/4}$, and there is one distribution-independent SQ learner with $m=O(n^3/\epsilon^2)$ and $\tau=\epsilon/(8n)$.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+All integer inner products are odd and nonzero, so the identity embedding proves the dimension claim. Distinct parameter vectors give distinct rows: conditioning on all but coordinate $i$ shows
+\[
+ \E_x[x_i\sign\langle w,x\rangle]
+ =w_i\Pr[Z_1+\cdots+Z_{n-1}=0],
+\]
+where the $Z_j$ are independent fair signs and the probability is positive. The conditional difference of the two signs is two exactly when that even sum is zero, and is zero otherwise. Thus uniform parameters are also a uniform prior on the distinct hypotheses. We first bound every rectangle under this uniform product measure. A negative rectangle gives two subsets of the cube with all cross Hamming distances at least $t=(n+1)/2$. For a positive rectangle, negate one of its sides to get the same separation condition. Negation preserves cardinality.
+
+Let $A,B$ be nonempty subsets separated in this way. For uniform $Z$ on the cube, set $f(Z)=\operatorname{dist}_{\rm Ham}(Z,A)$ and $s=\E f$. Changing one coordinate changes $f$ by at most one. The elementary bounded-differences calculation proved in Appendix~\ref{app:concentration} gives
+\[
+ \Pr[f-s\le-a]\le e^{-2a^2/n},\qquad
+ \Pr[f-s\ge a]\le e^{-2a^2/n}\quad(a\ge0).
+\]
+Writing $\alpha=|A|/2^n$, $\beta=|B|/2^n$, if $0\le s\le t$ then
+\[
+ \alpha\beta\le\exp\{-2(s^2+(t-s)^2)/n\}
+ \le e^{-t^2/n}\le e^{-n/4}.
+\]
+If $s\ge t$, already $\alpha\le e^{-2t^2/n}$ and $\beta\le1$. Empty rectangles have zero mass. Taking the maximum under this one product measure proves the rectangle upper bound.
+
+For learning, set $z=x/\sqrt n$, $\gamma=1/n$, and optimize
+\[
+ F(v)=\E_D(\gamma-y\langle v,z\rangle)_+
+ \quad\text{over }\|v\|\le1.
+\]
+The target $v^*=w^*/\sqrt n$ has $F(v^*)=0$. At a current $v$, a valid subgradient is
+\[
+ g(v)=\E[-yz\,\1_{\{y\langle v,z\rangle<\gamma\}}],\qquad\|g(v)\|\le1.
+\]
+Query each coordinate using the bounded function
+$q_i(x,y)=-yx_i\1_{\{y\langle v,x/\sqrt n\rangle<\gamma\}}$ and divide its answer by $\sqrt n$. The resulting vector is $g(v)+e$ with $\|e\|\le\tau$, regardless of the coordinatewise answer choices.
+
+Start $v_0=0$, take $T=\lceil100/(\epsilon^2\gamma^2)\rceil$, step $a=T^{-1/2}$, and update by projection of $v_t-a(g_t+e_t)$ onto the unit ball. For any point $v^*$ in that ball, projection cannot increase distance to $v^*$. Expanding the squared distance and using convexity yields
+\[
+ \frac1T\sum_{t<T}F(v_t)
+ \le\frac1{2aT}+\frac a2(1+\tau)^2+2\tau
+ \le\frac{5}{2\sqrt T}+2\tau
+ \le\epsilon\gamma/2.
+\]
+Here $\|v_t-v^*\|\le2$, $\tau=\epsilon\gamma/8<1$, and $\sqrt T\ge10/(\epsilon\gamma)$. Jensen's inequality gives the same hinge bound for $\bar v=T^{-1}\sum_t v_t$. Every classification mistake of $\sign\langle\bar v,z\rangle$ incurs hinge loss at least $\gamma$, including a zero score when the true label is negative. Thus its error is at most $\epsilon/2$. There are $nT$ scalar queries. This proves a deterministic, adversarial-oracle guarantee stronger than the stated expected-error requirement.
+\end{proof}
+
+For contrast, all parities on $\{-1,+1\}^n$ have an orthonormal label Gram matrix under the uniform marginal: the product of distinct characters is a nonconstant character, whose mean cancels by flipping one coordinate. Theorem~\ref{thm:barrier} therefore gives $m/\tau^2=\Omega(2^n)$ at any fixed accuracy below $1/4$. The same Walsh orthogonality bounds every uniform monochromatic rectangle mass by $2^{-n}$. Small rectangles can therefore occur on either the easy or the hard side of SQ learning.
+
+\input{landscape_figure.tex}
+
+\paragraph{Why the spectral certificates miss the counterexample.}
+For a fixed-marginal label-Gram certificate $G$ on $K$ hypotheses, a monochromatic rectangle $S\times T$ satisfies
+\[
+ \|G\|_{\rm op}\ge\E_\mu\left(\sum_{h\in T}h(x)/\sqrt{|T|}\right)^2
+ \ge\mu(S)|T|.
+\]
+Hence every such rectangle under $\mu\times\mathrm{Unif}(H)$ has mass at most $\|G\|_{\rm op}/K$. A large ordinary-Gram ratio therefore implies small rectangles \emph{and}, separately, SQ hardness. The arrow from small rectangles to hardness is false by Theorem~\ref{thm:halfspaces}. The balanced projective-plane certificate is a joint-distribution certificate, not one of these bounded ordinary-Gram ratios. For the flip family, Theorems~\ref{thm:barrier} and~\ref{thm:main} give $\mathfrak J(H_A)=O_\epsilon(\log M)$ while $\dc(H_A)=\Omega(N/\log M)$. This is the promised failure of joint-certificate completeness.
+
+\begin{samepage}
+\begin{theorem}[Marginal adaptation, with its query-budget qualification]\label{thm:adapt}
+Any deterministic learner of a high-dimension flip class obeys
+\[
+ u\ge\frac{\ln\dc(H_A)-\ln(m+1)}
+ {\ln(\lceil2/\tau\rceil+1)},
+\]
+where $u$ is the marginal-branching depth defined in Theorem~\ref{thm:tree}. In particular, for $m\le(\log M)^C$ and all sufficiently large $N$,
+\[
+ u=\Omega_C\!\left(\frac{\log N}{\log(2+1/\tau)}\right).
+\]
+At fixed positive tolerance, the $\Omega(\log N)$ requirement matches the $O_d(\log M)$ marginal-query upper bound of the deterministic finite-net learner, at fixed accuracy.
+\end{theorem}
+\end{samepage}
+\begin{proof}
+Take logarithms of Theorem~\ref{thm:tree}, $\dc(H_A)\le(m+1)(\lceil2/\tau\rceil+1)^u$. The high-dimension event gives $\ln\dc(H_A)\ge\ln N-\ln\log M+O(1)$. Under the stated query budget the numerator is at least $\tfrac12\ln N$ for large $N$. The upper bound is Theorem~\ref{thm:caps}. All constants depend only on the displayed fixed parameters.
+\end{proof}
+
+The query-budget qualification cannot be dropped: querying the correlation with every row is a deterministic correlational learner with $u=0$ and $m=K$. Randomization is not intrinsically necessary for the separation, because the finite-net enumeration is deterministic. What is necessary for a small-query deterministic learner here is adaptation to marginal information. At inverse-polylogarithmic tolerance the proved lower bound loses a $\log\log M$ factor; no sharper matching statement is made.

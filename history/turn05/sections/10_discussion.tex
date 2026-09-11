@@ -1,0 +1,83 @@
+\section{Discussion and open problems}\label{sec:discussion}
+\subsection{Distribution adaptation and simultaneous representation}
+Distribution independence constrains the learner to use one algorithm, rather than one algorithm per marginal. It does not impose a common feature map on its intermediate computations. \Cref{thm:main} locates marginal mass and eliminates hypotheses sequentially; \cref{thm:construction,thm:prob} show that realizing all signs simultaneously can require exponentially larger dimension. Rectangle structure makes the sequential task cheap without bounding the common representation dimension.
+
+The separation uses the difference between general and correlational SQ access. \Cref{thm:tree} gives $\dc(H)\le m+1$ for deterministic correlational learners. For the incidence flips, \cref{thm:adapt} forces $\Omega(\log N)$ marginal-dependent branchings at fixed tolerance under a polylogarithmic query budget, and the deterministic cap learner uses $O(\log M)$ stages. The claim has a query-budget hypothesis: exhaustive correlation testing uses no marginal-dependent branchings but makes one query per row. This is consistent with the margin-based characterization of distribution-independent weak correlational learning \citep{Feldman08,Feldman11}.
+
+An ordinary label-Gram certificate produces both a small-rectangle witness and an SQ lower bound. The constant-rectangle incidence flips exclude a large ordinary certificate, while counting still forces high sign-rank. The joint-distribution certificate is also polynomially bounded for these classes by \cref{thm:barrier} and their efficient SQ learner. The next proposition locates the limitation of source length; the following certificate proposition locates the limitation of the classical parameters.
+
+\begin{theorem}[Source-description length alone does not repair the implication]\label{thm:description}
+Fix $0<\epsilon<1/4$. Interpret $\ell$ as the bit length of a finite learner program, including literal hard-coded constants and data, but do not charge running time or generated workspace. There is a computable sequence of incidence-flip classes and learners with
+\[
+ n,\ell,m=O(\log N),\qquad 1/\tau=O_\epsilon(1),\qquad
+ \dc(H)=\Omega(N/\log N).
+\]
+Consequently no universal bound $\dc(H)\le\operatorname{poly}(m,1/\tau,n,\ell)$ holds in this interpretation.
+\end{theorem}
+
+\noindent Proof: see \cref{proof:description}.\par
+
+
+This does not produce an efficient explicit counterexample. It implies that a resource-aware repair must charge computation, generated memory, or an expanded circuit description, not just the length of the program that generates them. One genuinely stronger question is whether charging total preprocessing and query-evaluation time $t$ yields a bound polynomial in $(m,1/\tau,n,\ell,t)$ in a specified finite-bit model. This finite-bit resource question remains open.
+
+
+
+\begin{proposition}[The classical certificate barrier]\label{thm:classicalbarrier}
+For the orientation in which rows are hypotheses, let
+\[
+ m_{\rm avg}(A)=\inf_{\mu\in\Delta(X)}\ 
+ \sup_{\substack{\text{strict unit-vector}\text{representations of }A}}
+ \min_h\E_{x\sim\mu}|\langle v_h,u_x\rangle|.
+\]
+Then
+\[
+ \sqrt{\operatorname{VC}(H)}\le m_{\rm avg}(A)^{-1}\le\rect(A)^{-1}.
+\]
+In particular, if $\rect(A)^{-1}\le\operatorname{poly}(n)$, these three classical lower-bound parameters cannot certify superpolynomial sign-rank. The bound concerns the three displayed certificates; actual sign-rank can be larger.
+\end{proposition}
+
+\noindent Proof: see \cref{proof:classicalbarrier}.\par
+
+
+The chain and its original average-margin interpretation are due to \citet{HHPTZ22}; the proof is included to fix the orientation and strict-sign issue. A counterexample obtained with a polynomial inverse rectangle bound cannot be certified as high-sign-rank by those numerical parameters. Counting is already a way around that barrier, as Theorem~\ref{thm:construction} demonstrates. Therefore the barrier does not rescue the program-length conjecture. For an \emph{efficiently explicit} sequence it motivates seeking a method beyond those parameters, in the direction of \citet[Problem~4.1]{HHPTZ22}.
+
+The recent topological methods provide a distinct parameter, not one proved bounded by this chain. The checked results do not supply the missing efficient total construction: \citet{FHV26} prove near-$2k$ bounds for certain \emph{partial} Gap Hamming matrices, while \citet{GHIS25} bound the sign-rank of total $k$-Hamming-distance matrices by $2^{O(k)}$ independently of the bit dimension. These facts neither rule out a future topological route nor prove that it evades the rectangle obstruction on the particular flip family. The efficiently explicit total construction remains open.
+
+
+
+\begin{proposition}[Unseen independent labels]\label{prop:unseen}
+Fix the full-length template line $\ell_0:y=x+1$ and the uniform distribution on its $N$ points. Choose $A$ by independent fair incidence flips. Let a single learner, chosen independently of $A$, receive $T$ independent labeled samples from $(D,h_{\ell_0})$ and no further information about $A$. Then
+\[
+ \E_{A,\mathrm{sample},\mathrm{coins}}L_{D,h_{\ell_0}}(\widehat h)
+ \ge\frac12(1-1/N)^T
+ \ge\frac12(1-T/N).
+\]
+Thus a guarantee of average error at most $\epsilon$, or a guarantee for every flip table, requires $T\ge(1-2\epsilon)N$. If $\epsilon<1/4$ and $S\ge2$, such a uniformly successful $S$-parameter learner satisfies $TS\ge\dc(H_A)/3$ for every member of the flip family.
+\end{proposition}
+
+\noindent Proof: see \cref{proof:unseen}.\par
+
+
+
+The final inequality in \cref{prop:unseen} requires one table-independent learner that succeeds on average over tables or uniformly over all tables. It fails as a sample requirement for an individual table: the all-positive table needs no samples. Therefore counting-based random tables obstruct hidden-table learning, but do not prove that every class-dependent benign-SGD choice satisfies the proposed dimension bound. A negative answer to Open Question 1 must exhibit a class of large dimension together with a small fully connected bias-free network and a proof that its specified Gaussian-initialized logistic-loss online updates learn under every marginal. For an efficiently explicit constant-rectangle candidate, \cref{thm:classicalbarrier} identifies which classical lower-bound certificates cannot establish the required dimension.
+
+\subsection{What a characterization must distinguish}
+\Cref{thm:communication} converts bounded product-average deterministic communication into a common SQ learner. \Cref{thm:halfspaces} shows that neither bounded communication nor a large rectangle ratio is necessary. Cube halfspaces and parities both have exponentially small rectangles; only parities have the corresponding exponential SQ lower bound from orthogonality. A characterization therefore needs a representation or optimization resource beyond the rectangle ratio alone.
+
+The standard rescaling route in the opposite direction simulates halfspace learning by SQ using dimension, accuracy and the logarithm of the inverse margin \citep{DV04,BF13}. Grid-coordinate margin bounds make the bit complexity of a representation relevant \citep{GSS13}. By contrast, the domain-size consequence of \cref{thm:main} is direct:
+\[
+ m=O\!\left(\rho^2\log(e|X|)+\rho\log(1/\epsilon)\right),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho\log(1/\epsilon)}\right).
+\]
+It uses the combinatorial bound on VC dimension from rectangles, rather than a small-dimensional realization of the class.
+
+\paragraph{Open problems.}
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item Find one efficiently entry-computable family with polynomial-length descriptions that has constant or polynomial inverse rectangle ratio and dimension exceeding every polynomial in the encoding length. The PRF and advice constructions give one family for each prescribed degree; they do not select such a single polynomial-description family. This follows the explicit-construction direction of \citet[Problem~4.1]{HHPTZ22}.
+\item Resolve the class-dependent benign online-SGD question stated in \cref{sec:resources}. Separately, determine whether charging preprocessing, query evaluation, generated memory and expanded model description yields a dimension bound in a specified finite-bit resource model.
+\item Characterize distribution-independent SQ learnability by a resource that separates cube halfspaces from parities while including the rectangle condition as a sufficient case.
+\item Determine the optimal joint query/tolerance tradeoff. The projective planes have $\rho=\Theta(q)$ and $m/\tau^2=\Omega(\rho)$, while the rectangle theorem gives $O_\epsilon(\rho^3\log|H|)$. Reducing the succinct median learner from $O(n^2)$ to $O(n)$ queries is a separate concrete target.
+\end{enumerate}
+
+\paragraph{Scope.}
+The mathematical statements concern the explicitly defined finite SQ model and nondegenerate classification loss. The conditional statements require the stated PRF security. Efficient evaluation from a seed or advice is distinguished from efficient deterministic selection of a good seed. The representation and simulation theorems retain their precision, initialization and computation hypotheses. Experimental scope is specified in \cref{app:experiments}.

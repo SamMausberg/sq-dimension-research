@@ -1,0 +1,23 @@
+{
+  "all_assertions_passed": true,
+  "seed": 20260911,
+  "counts": {
+    "certificates": 393,
+    "coverage_coordinates": 29242,
+    "trajectories": 793,
+    "proposal_rounds": 3863,
+    "rank_certificates": 26,
+    "robust_acceptance_endpoint_cases": 20000,
+    "entropy_ball_cases": 800,
+    "energy_cases": 500,
+    "elimination_sequences": 1000,
+    "peeling_partition_cases": 1000,
+    "shattered_rectangle_cases": 100,
+    "sauer_counting_bound_cases": 5050
+  },
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "geometric_rectangle_lower_bound": 7.0901349719880665e-06,
+  "notes": "Mixture coverage, trajectories, sign certificates, and local tolerance inequalities use exact arithmetic; energy, entropy, log and cap checks use floating-point tolerances."
+}

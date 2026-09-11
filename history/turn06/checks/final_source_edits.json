@@ -1,0 +1,32 @@
+[
+  {
+    "file": "appendices/family_proof.tex",
+    "before": "For the counting bound, the theorem of \\citet{Warren68} says that",
+    "after": "For the counting bound, we use the strict-pattern formulation of Warren\\textquotesingle s theorem \\citep{Warren68} given in \\citet[Theorem 21 and Lemma 22]{AMY16}:"
+  },
+  {
+    "file": "appendices/family_proof.tex",
+    "before": "strict sign patterns; see \\citet[Theorem 21 and Lemma 22]{AMY16}.",
+    "after": "strict sign patterns."
+  },
+  {
+    "file": "appendices/explicit_proofs.tex",
+    "before": "For $D_k\\ge1$ we have $k\\ge32$, and",
+    "after": "When $D_k\\ge1$, we have $k\\ge32$ and $1\\le D_k\\le k\\le K_k/2$, so the range condition in \\eqref{eq:warren} holds. We use $k\\ge32$ only to bound the logarithm, not as the first positive-floor threshold. Thus"
+  },
+  {
+    "file": "sections/03_rectangle.tex",
+    "before": "\\begin{proof}[Proof of Theorem~\\ref{thm:main}]",
+    "after": "\\begin{proof}[Proof of \\cref{thm:main,lem:params}]"
+  },
+  {
+    "file": "appendices/oracle_bounds.tex",
+    "before": "\\paragraph{Counting check.}",
+    "after": "\\begin{proof}[Proof of \\cref{lem:ties} and the zero-incidence convention]"
+  },
+  {
+    "file": "paper.tex",
+    "before": "\\input{acknowledgments}\n\\label{main-end}",
+    "after": "\\label{main-end}\n\\input{acknowledgments}"
+  }
+]

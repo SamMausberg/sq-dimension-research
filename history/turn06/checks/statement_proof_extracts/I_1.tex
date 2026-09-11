@@ -1,0 +1,39 @@
+% Canonical statement: appendices/statistical_dimension.tex:10-16
+\begin{theorem}[Rectangle bound for randomized statistical dimension]\label{thm:rsd}
+Suppose $H$ is finite and nonempty, $\rho\ge1$, and $\rect(H)\ge1/\rho$. Let $L=\lceil\rho\ln(4/\eta)\rceil$ and $\kappa=\eta/(4L)$, where $0<\eta<1/4$. Then
+\[
+ \RSD_{\kappa_1}(\mathcal Z_\eta,\kappa,1/4)\le4L.
+\]
+This statement allows arbitrary target-dependent marginals and any reference $P_0$.
+\end{theorem}
+
+% Proof binding: appendices/statistical_dimension.tex:18-46
+\begin{proof}
+Fix a finitely supported prior $\pi$ on instances. It induces a prior $\nu$ on hypotheses. Let $\mathcal Q$ be the finite query family $q_{S,c}(x,y)=\1_S(x)\1_{y\ne c}$. Set
+\[
+ \beta=\max_{q\in\mathcal Q}\Pr_{j\sim\pi}[|P_jq-P_0q|>\kappa].
+\]
+Peel $L$ rectangles using the prior-averaged example marginal restricted to the current unpeeled set $U$, and the unchanged hypothesis prior $\nu$. Empty residual mass permits immediate completion. The rectangle condition gives both
+\[
+ \nu(T)\ge r,\qquad \E_jD_j(S)\ge r\E_jD_j(U).
+\]
+Suppose first $\beta<r$. On every instance with target in $T$, the mismatch query has expectation zero. Therefore $P_0q\le\kappa$: otherwise a prior mass at least $r$ would be distinguished. Apart from a prior mass at most $\beta$, we then have $P_jq\le2\kappa$.
+
+After $L$ peels, the expected residual mass is at most $(1-r)^L\le\eta/4$. Markov's inequality shows that at least half the prior puts residual mass at most $\eta/2$. Outside a union of exceptional sets of total mass at most $L\beta$, each of the $L$ wrong-color masses is at most $2\kappa$. The predictor assembled from the rectangle colors and an arbitrary residual label consequently has loss at most $2L\kappa+\eta/2=\eta$ for prior mass at least $1/2-L\beta$. If $\beta\ge r$, then $L\beta\ge L/\rho\ge\ln(4/\eta)>1/2$, so the following inequality remains true trivially:
+\begin{equation}\label{eq:additive-game}
+ \max_g\Pr_\pi[g\text{ good}]+L\max_{q\in\mathcal Q}\Pr_\pi[q\text{ distinguishes}]\ge1/2.
+\end{equation}
+Apply \cref{lem:finite-minimax} to the action pairs $(g,q)$, whose payoff on instance $j$ is
+\[
+ \1_{g\text{ good for }j}+L\1_{q\text{ distinguishes }j}.
+\]
+It gives laws $\mathcal P,\mathcal Q'$ satisfying
+\[
+ \Pr_{g\sim\mathcal P}[g\text{ good for }j]
+ +L\Pr_{q\sim\mathcal Q'}[q\text{ distinguishes }j]\ge1/2
+ \quad\text{for every }j.
+\]
+On $\mathcal B(\mathcal P)$, the second probability is greater than $1/(4L)$. This proves the required coverage.
+
+The continuum of possible marginals creates no compactness gap in this minimax step. Both the predictor set and $\mathcal Q$ are finite. An instance is relevant only through the finite vector of Boolean good-solution and distinguishing-query indicators. There are finitely many such types. Choose one representative of each realized type and apply the finite argument to them. Its inequalities then hold for all original instances. No discretization in total variation and no factor polynomial in $|X|$ is introduced.
+\end{proof}

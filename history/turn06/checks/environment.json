@@ -1,0 +1,11 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pymupdf": "1.26.7",
+  "pillow": "12.3.0",
+  "pdflatex": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "bibtex_command_used_for_this_revision": "bibtex.original; standard bibtex on stock TeX Live",
+  "network_dependency_for_package_build": false
+}

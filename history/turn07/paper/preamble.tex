@@ -1,0 +1,82 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,thmtools,bm}
+\usepackage[hmargin=0.94in,vmargin=0.82in]{geometry}
+\usepackage{booktabs,array,tabularx,longtable,enumitem,siunitx,xcolor,needspace}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xr}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\hypersetup{pdftitle={Distribution-independent SQ learning does not imply low dimension complexity},pdfauthor={Samuel Mausberg},pdfsubject={A negative answer to Open Question 2 of Feldman, Kamath and Srebro},pdfkeywords={statistical queries, sign-rank, dimension complexity, learning theory}}
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[name=Corollary,sibling=theorem]{corollary}
+\declaretheorem[name=Main Theorem,numbered=no]{maintheorem}
+\declaretheorem[name=Auxiliary Lemma,numbered=no]{auxlemma}
+\declaretheorem[name=Open Problem,numbered=no]{openproblem}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{algocf}{Algorithm}{Algorithms}
+\numberwithin{equation}{section}
+\DeclareMathOperator{\dc}{dc}
+\DeclareMathOperator{\sr}{signrank}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\RSD}{RSD}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\op}{\mathrm{op}}
+\definecolor{oiBlue}{HTML}{0072B2}
+\definecolor{oiOrange}{HTML}{E69F00}
+\definecolor{oiGreen}{HTML}{009E73}
+\definecolor{oiPurple}{HTML}{CC79A7}
+\definecolor{oiGray}{HTML}{555555}
+\tikzset{>=Latex,diagram box/.style={draw=oiGray,rounded corners=2pt,align=center,inner sep=5pt,font=\small},solid implication/.style={->,line width=.7pt},coexist/.style={dashed,line width=.7pt,draw=oiPurple}}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small\bfseries}
+\SetAlgoNlRelativeSize{-1}
+\SetKw{Return}{return}
+\SetKw{Continue}{continue}
+\setlength{\emergencystretch}{2em}
+\setlength{\textfloatsep}{14pt plus 3pt minus 2pt}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+\setlist[itemize]{topsep=4pt,itemsep=2pt}
+\setlist[enumerate]{topsep=4pt,itemsep=2pt}
+\renewcommand{\topfraction}{.93}
+\renewcommand{\bottomfraction}{.85}
+\renewcommand{\textfraction}{.06}
+\renewcommand{\floatpagefraction}{.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{3}
+\widowpenalty=7000
+\clubpenalty=7000
+\raggedbottom
+
+\renewcommand{\theHequation}{\theHsection.\arabic{equation}}
+\renewcommand{\theHtheorem}{\theHsection.\arabic{theorem}}
+\providecommand{\theHlemma}{}
+\renewcommand{\theHlemma}{\theHsection.\arabic{theorem}}
+\providecommand{\theHproposition}{}
+\renewcommand{\theHproposition}{\theHsection.\arabic{theorem}}
+\providecommand{\theHcorollary}{}
+\renewcommand{\theHcorollary}{\theHsection.\arabic{theorem}}
+
+\crefname{appendix}{Appendix}{Appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{Section}{Sections}
+\Crefname{subsection}{Section}{Sections}

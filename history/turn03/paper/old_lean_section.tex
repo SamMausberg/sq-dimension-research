@@ -1,0 +1,30 @@
+\section{Finite Lean targets and verification status}\label{app:lean}
+The definitions of finite distributions, strict dimension, SQ queries, adaptive real-response decision trees, oracle validity, and distribution-independent randomized learning remain in \texttt{SQDC.lean}. Four additional finite statements are in \texttt{Turn2.lean}. The Lean sources encode labels as \texttt{Bool}, using \texttt{true} for $+1$ and \texttt{false} for $-1$. They are stated here to make the source-to-paper correspondence exact.
+
+\begin{leanlemma}[Peeling error]
+Let $o:X\to\{\bot\}\cup[t]$ assign every point to at most one peel. Let $c_i\in\{-1,+1\}$ and let $g_0$ be any fallback. Define $g(x)=c_i$ if $o(x)=i$, and $g(x)=g_0(x)$ otherwise. Put $w_i=D\{x:o(x)=i,c_i\ne h(x)\}$ and $u=D\{x:o(x)=\bot\}$. Then $L_{D,h}(g)\le\sum_iw_i+u$. If $w_i\le3\tau$ and $u\le u_0$, then $L_{D,h}(g)\le3t\tau+u_0$.
+\end{leanlemma}
+\begin{proof}
+Partition the finite sum defining loss by $o(x)$. On a peeled set its contribution is exactly $w_i$; on the residual set each error indicator is at most one. Sum the pointwise inequalities and then the upper bounds on $w_i$.
+\end{proof}
+\begin{leanlemma}[Elimination potential]
+Let $p_0,\ldots,p_R>0$, $p_R\le1$, and $0\le b_t<1$ with $p_{t+1}=p_t/(1-b_t)$ for $0\le t<R$. Then $\sum_{t<R}b_t\le-\ln p_0$.
+\end{leanlemma}
+\begin{proof}
+The inequality $\ln(1-b_t)\le-b_t$ gives $b_t\le\ln p_{t+1}-\ln p_t$. Sum and use $\ln p_R\le0$.
+\end{proof}
+\begin{leanlemma}[Positive rectangles survive]
+If $F_{ij}=+1$ implies $A_{ij}=+1$ for every entry, every positive rectangle of $F$ is a positive rectangle of $A$.
+\end{leanlemma}
+\begin{proof}
+Apply the entrywise implication at every pair in the rectangle.
+\end{proof}
+\begin{leanlemma}[Two integer grid lines]
+Let $a,b,c,d,x,y,x',y'\in\mathbb Z$ with $(a,b)\ne(c,d)$, $y=ax+b=cx+d$, and $y'=ax'+b=cx'+d$. Then $x=x'$ and $y=y'$.
+\end{leanlemma}
+\begin{proof}
+If $a=c$, the first equality gives $b=d$, a contradiction. Subtracting the two shared-point equalities gives $(a-c)(x-x')=0$. The integers have no zero divisors, so $x=x'$, and substitution gives $y=y'$.
+\end{proof}
+
+\textbf{The Lean scripts are unverified.} In this turn, \texttt{lake --version} returned command-not-found and exit 127. No further compiler or installation effort was attempted. The previous turn also recorded unavailable build commands. The source is pinned to Mathlib commit \begin{center}\small\texttt{2631d1cc8c2ace6c6a900425d6e5d2b5963966e9}\end{center}, whose toolchain file specifies {\small\texttt{leanprover/lean4:v4.34.0-rc2}}. The repository commit and toolchain were read through the GitHub connector. The scripts contain no deliberately inserted \texttt{sorry} or custom axioms, but no successful compilation or axiom audit is claimed. The main randomized learner and the real-algebraic counting theorem are not yet formalized. Build instructions and actual failure logs are included.
+

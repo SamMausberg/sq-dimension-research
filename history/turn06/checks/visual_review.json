@@ -1,0 +1,22 @@
+{
+  "pdf_sha256": "1faf3c373b76e7626b51fda3af88e58ac3a238a5e927cc1a64140f253e6096a3",
+  "pages": 59,
+  "main_text_pages": 30,
+  "method": "PyMuPDF page contact sheets for all pages; detailed first-page and five individual figure renders inspected by the assistant",
+  "contact_sheets": [
+    "pages_01_12.png",
+    "pages_13_24.png",
+    "pages_25_36.png",
+    "pages_37_48.png",
+    "pages_49_59.png"
+  ],
+  "figures": [
+    "template_flip",
+    "rectify_round",
+    "implication_map",
+    "cap_geometry",
+    "order_median"
+  ],
+  "findings": "No clipped text, missing figures, unreadable labels, broken glyphs or overflow found. The source quotation and author/title metadata were checked on the rendered first page.",
+  "review_type": "AI visual review, not external review"
+}

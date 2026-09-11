@@ -1,0 +1,19 @@
+chktex: WARNING -- Could not find global resource file.
+Warning 12 in sections/01_introduction.tex line 5: Interword spacing (`\ ') should perhaps be used.
+Is there a constant $C$ such that for every class $\mathcal H\subseteq\{\pm1\}^{\mathcal X}$, over any domain $\mathcal X$, and any $\epsilon<1/4$, if there exists an $(m,\tau)$-SQ algorithm s.t. for every input distribution $\mathcal D$ and every $h^\star\in\mathcal H$, the algorithm returns a predictor $\hat h$ with $\E\mathcal L_{\mathcal D,h^\star}(\hat h)\le\epsilon$ (expectation over the randomness of the algorithm), then $\dc(\mathcal H)\le C\cdot m/\tau^2$.  
+                                                                                                                                                                                                   ^
+Warning 11 in figures/order_median.tex line 18: You should use \ldots to achieve an ellipsis.
+   \foreach \x in {1,...,5}{\fill (\x,{2*\x+1}) circle[x radius=.065cm,y radius=.065cm];}  
+                     ^^^
+Warning 38 in sections/06_explicit.tex line 8: You should not use punctuation after quotes.
+Take $n=3b+1$, $N=2^b$, so that the domain size is exactly $2N^3=2^n$. Encode $(a,b',x,y)$ injectively in $O(n)$ bits and pad if needed to the PRF input length. Define $A_s$ to be positive off template incidences and to have sign $2f_s(a,b',x,y)-1$ on incidences. Thus a bit one flips a negative entry to positive.  
+                                                                                    ^
+Warning 38 in sections/06_explicit.tex line 8: You should not use punctuation after quotes.
+Take $n=3b+1$, $N=2^b$, so that the domain size is exactly $2N^3=2^n$. Encode $(a,b',x,y)$ injectively in $O(n)$ bits and pad if needed to the PRF input length. Define $A_s$ to be positive off template incidences and to have sign $2f_s(a,b',x,y)-1$ on incidences. Thus a bit one flips a negative entry to positive.  
+                                                                                                                                                                                                                                                ^
+Warning 12 in appendices/experiments.tex line 20: Interword spacing (`\ ') should perhaps be used.
+$N$&Runs&Largest error&Most queries&Max. wall (ms)&Slope-search runs\\  
+                                        ^
+Warning 12 in appendices/experiments.tex line 44: Interword spacing (`\ ') should perhaps be used.
+$N$&Runs&Largest error&Most rounds&Most queries&Max. wall (s)\\  
+                                                    ^

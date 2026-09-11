@@ -1,0 +1,103 @@
+\section{Proofs for cap mixtures and proper learning}\label{app:proofs-B}
+
+\subsection[Proof of result caps]{Proof of \cref{thm:caps}}\label{proof:caps}
+\begin{proof}
+We first make the once-only perturbation precise. Number the rows $j=1,\ldots,K$. Replace a row vector $v_j$ by
+\[
+ v_j(t)=v_j+t(1,j,\ldots,j^{d-1}).
+\]
+Choose a positive rational upper bound $t_0$ so that every dot product retains its strict sign for $0<t<t_0$. The finitely many original rational dot products and the perturbation dot products give such a bound by direct comparison. For each $d$-subset of rows, its determinant is a polynomial in $t$ of degree $d$ whose leading coefficient is a nonzero Vandermonde determinant. At most $d\binom Kd$ values are forbidden. Testing that many plus one rational grid values in $(0,t_0)$ finds a valid value, with polynomial bit length and polynomial work for fixed $d$. When $K<d$, perturb all subsets of size at most $K$ to independence instead, or work directly in their span. The same perturbation works for every later survivor set.
+
+Suppose there are $k>d$ surviving rows. Any proper $j$-dimensional subspace contains at most $j$ of them, strictly less than $kj/d$. The radial-isotropy proof of Theorem~\ref{thm:forster} therefore applies; its convex formulation is also proved in Appendix~\ref{app:convex}. Transform and normalize the rows to vectors $v_h\in S^{d-1}$ with
+\[
+ \E_\nu v_hv_h^\top=I_d/d.
+\]
+Transform points contragrediently and normalize them to $z_x$. All template signs remain strict. If $k\le d$, retain \emph{all} rows and reduce to their common span: the map $x\mapsto (\langle v_h,u_x\rangle)_{h\in V}$ and the row vectors $e_h\in\R^k$ give the same strict signs and exact isotropy in dimension $k$. No target is discarded by a subspace restriction.
+
+Write the effective dimension as $j\le d$, put $\alpha^2=1/(2j)$ and $\beta=\sqrt{1-\alpha^2}$, and sample $u$ uniformly on $S^{j-1}$. Define
+\[
+ C_u=\{x:\langle u,z_x\rangle\ge\beta\},\qquad
+ T_u^\pm=\{h:\pm\langle u,v_h\rangle>\alpha\}.
+\]
+For $Z=\langle u,v_h\rangle^2\in[0,1]$, isotropy gives $\E_\nu Z=1/j$. Since
+\[
+ \E Z\le\alpha^2+\Pr[Z>\alpha^2],
+\]
+we have $\nu(T_u^+)+\nu(T_u^-)\ge1/(2j)$. Choose the larger side, of mass at least $1/(4j)$.
+
+The geometry is strict. If $s=\langle u,v\rangle>\alpha$ and $t=\langle u,z\rangle\ge\beta$, then
+\[
+ \langle z,v\rangle\ge ts-\sqrt{1-t^2}\sqrt{1-s^2}>0,
+\]
+because $s,t>0$ and $s^2+t^2>1$. Replacing $v$ by $-v$ proves the negative-side assertion. Thus $C_u\times T_u^+$ is positive in $F$, and $C_u\times T_u^-$ is negative in $F$.
+
+A positive rectangle survives in $A$. A negative rectangle has a singleton side. If its row side is $\{h\}$, partition $C_u\cap U$ according to $h(x)$ in $A$ and choose either color with probability $1/2$. If its point side is $\{x\}$, partition the row side according to $h(x)$ and choose either color with probability $1/2$. Empty outcomes are allowed. The singleton-point case is essential and is not replaced by a singleton-row assumption. Conditional on $x\in C_u$, its expected weighted coverage after this split is at least half the chosen side's mass, hence at least $1/(8j)$. Rotational invariance gives probability $c_j$ of cap membership. Therefore the pointwise bound is $c_j/(8j)\ge c_d/(8d)$. To verify the last inequality, couple the first coordinate of uniform spheres by normalizing an increasing list of independent standard Gaussians. Its absolute value decreases as dimension grows, while $\sqrt{1-1/(2j)}$ increases. Symmetry supplies the factor $1/2$, including the case $j=1$.
+
+For finite-bit computation, Appendix~\ref{app:convex} gives a deterministic rational transform with normalized covariance at least $3I_j/(4j)$. The preceding second-moment argument then gives total side mass at least $1/(4j)$, selected-side mass at least $1/(8j)$, and split coverage at least $1/(16j)$ whenever a point belongs to the cap.
+
+Use the finite direction set
+\[
+ W_j=\left\{\frac{g}{\|g\|}:0\ne g\in(16j)^{-1}\mathbb Z^j\cap[-1,1]^j\right\},
+ \qquad J_j=|W_j|\le(32j+1)^j.
+\]
+Repetitions of a direction cause no difficulty. Rounding a unit vector coordinatewise produces $g$ with $\|g-z\|\le1/(32\sqrt j)$; normalization changes it by at most twice this amount. Thus $\langle z,g/\|g\|\rangle\ge1-1/(512j)>\beta$, where the last inequality follows from $\beta\le1-1/(4j)$. Every point is in at least one cap. Uniformly sampling $W_j$ and the split color yields coverage at least $1/(16jJ_j)$. The common rational lower bound
+\begin{equation}\label{eq:netr}
+ r_d=\frac1{16d(32d+1)^d}
+\end{equation}
+works in all effective dimensions. All membership comparisons are rational: for example $\langle z,g/\|g\|\rangle\ge\beta$ means that the unnormalized dot product is positive and
+\[
+ \langle z_{\rm raw},g\rangle^2\ge(1-1/(2j))\|z_{\rm raw}\|^2\|g\|^2.
+\] The row-side tests use the analogous strict squared comparison. Consequently no exact sampling of a continuous direction is required. Theorem~\ref{thm:main} with $r_d$ proves the randomized finite-bit bound.
+
+For determinism, enumerate the at most $2J_j$ outcomes and query each $D(S)$, using the same tolerance and stopping check as Theorem~\ref{thm:main} with $r_d$. Choose the outcome maximizing $b\widehat s$, where $b=\nu(T)$. Coverage implies that some outcome has $bs\ge r_du$. The chosen one has
+\[
+ bs\ge r_du-2\tau,\qquad ab\ge r_d-2\tau/u\ge3r_d/4.
+\]
+Thus both $a$ and $b$ are at least $3r_d/4$. Query its mismatch mass and peel or eliminate exactly as before. The target survives, and all error bounds remain valid. Each stage has progress at least $3r_d/4$, whereas the deterministic total-progress bound is $B$. There cannot be more than $\lceil4B/(3r_d)\rceil+1$ nonstopping stages. There are $O_d(1)$ queries per stage. This proves the deterministic claim, without fixing a successful private seed after seeing $D$.
+\end{proof}
+
+\subsection[Proof of result proper]{Proof of \cref{thm:proper}}\label{proof:proper}
+\begin{proof}
+Set $\theta=\epsilon/4$ and run RECTIFY at accuracy $\theta$, stopping at its first proposed negative peel. Until then all assigned labels, and its fallback, are positive. If it stops normally without a negative peel, output the all-positive member of $H$. The error is at most $\theta/2$. Its budget-failure probability is at most $\theta/2$.
+
+Suppose a negative rectangle $S\times T$ reaches a peeling answer. The acceptance calculation in Theorem~\ref{thm:main} and $u>\theta/8$ give
+\[
+ D(S)>5r\theta/128.
+\]
+For $P_\theta=1+\lceil4r^{-1}\ln(8/\theta)\rceil$ and $\tau=\theta/(24P_\theta)$,
+\[
+ \frac{D(S)}\tau>\frac{15}{16}rP_\theta
+ >\frac{15}{4}\ln(8/\theta)>18,
+\]
+since $\theta<1/16$. A peeling answer implies $D(S\cap\{h^*=+1\})\le3\tau$. Hence the negative mass in $S$ exceeds $15\tau$.
+
+If $S=\{p\}$, then $h^*(p)=-1$ and $p$ is known. Otherwise the negative rectangle has a single row $h_0$. Query its full loss, accepting it when the answer is at most $\epsilon/2$. An accepted candidate has true loss at most $\epsilon/2+\tau$. If it is rejected, $h_0\ne h^*$, since the target's answer would be at most $\tau$. The two rows share at most one negative point. Therefore the negative measure in $S$ is concentrated at a unique point $p$ and has mass greater than $15\tau$. Locate $p$ by binary search over an arbitrary ordering of $S$: for a half $B\subseteq S$, query $D(B\cap\{h^*=-1\})$. The answer is at most $\tau$ when $p\notin B$, and greater than $14\tau$ when $p\in B$. Threshold $4\tau$ safely determines the half. This takes at most $\lceil\log_2|X|\rceil$ queries.
+
+Now let $V_p=\{h:h(p)=-1\}$. Its negative supports away from $p$ are pairwise disjoint; otherwise two rows share two negative points. Query the target's negative mass away from $p$,
+\[
+ \beta=D(\{x\ne p:h^*(x)=-1\}).
+\]
+If the answer exceeds $\epsilon/4$, then $\beta>\epsilon/4-\tau$. For any half $W\subseteq V_p$, define
+\[
+ Q_W(x,y)=\1_{\{y=-1\}}\1_{\{x\ne p\}}
+ \1_{\{x\in\bigcup_{h\in W}\{h=-1\}\}}.
+\]
+Its expectation is exactly $\beta$ if $h^*\in W$ and exactly zero otherwise. Thus threshold $\epsilon/8$ distinguishes the two cases, since $\tau<\epsilon/16$. Binary search finds the target row in at most $\lceil\log_2K\rceil$ queries. If two indexed rows coincide and contain only $p$ as a negative point, this branch cannot occur; in the positive-tail branch the target row is unique.
+
+If the answer for $\beta$ is at most $\epsilon/4$, then $\beta\le\epsilon/4+\tau$. Test up to
+\[
+ J=\lceil8/\epsilon\rceil+1
+\]
+distinct members of $V_p$, again accepting an estimated full loss at most $\epsilon/2$. If fewer than $J$ members exist, these tests include the target. Otherwise their negative masses outside $p$ sum to at most one, by disjointness. One tested row $h$ has such mass at most $1/J<\epsilon/8$. It agrees at $p$, and therefore
+\[
+ L_{D,h^*}(h)\le\beta+D(\{x\ne p:h(x)=-1\})
+ <3\epsilon/8+\tau.
+\]
+Its answer is less than $\epsilon/2$, because $2\tau<\epsilon/8$. Some test consequently passes. Every accepted row has loss at most $\epsilon/2+\tau$.
+
+All nonfailure outcomes are proper and have loss at most $\epsilon/2+\tau$. Any budget failure can output the all-positive row, with loss at most one. Expected loss is bounded by
+\[
+ \epsilon/2+\tau+\theta/2<\epsilon.
+\]
+The extra query counts give \eqref{eq:propercomplexity}. Using the deterministic net implementation removes the budget-failure event and leaves the same proper completion. Its computation consists of cap tests, row-label tests, and unions of explicitly listed row supports, all polynomial in the table size.
+\end{proof}

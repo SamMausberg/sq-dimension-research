@@ -1,0 +1,12 @@
+{
+  "pdf_sha256": "aea1854a562ba52f4c463cb43cd62ab740028d785cc8ac1597eda848c9e3a73e",
+  "review": "Five figure renders, all-page contact sheets, and selected full-resolution pages inspected in this revision.",
+  "figures": [
+    "template_flip",
+    "rectify_round",
+    "implication_map",
+    "cap_geometry",
+    "order_median"
+  ],
+  "pages": 59
+}

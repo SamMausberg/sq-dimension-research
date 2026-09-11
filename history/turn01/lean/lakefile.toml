@@ -1,0 +1,11 @@
+name = "sqdc"
+version = "0.1.0"
+defaultTargets = ["SQDC"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "master"
+
+[[lean_lib]]
+name = "SQDC"

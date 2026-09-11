@@ -1,0 +1,142 @@
+\section{Efficient, proper and succinct learners}\label{sec:learners}
+\subsection{Cap mixtures and computation from an explicit table}\label{sec:caps}
+The linear program in Lemma~\ref{lem:mixture} has exponentially many possible rectangles. A fixed-dimensional template makes a different sampler available. Exact radial isotropy determines the geometric constant; a rational approximation and a finite direction net yield the finite-bit algorithm.
+
+
+\begin{theorem}[Pointwise cap mixture and table-polynomial implementation]\label{thm:caps}
+Fix $d\ge1$. Let $F$ have a strict rank-$d$ representation and no negative $2\times2$, and let $A$ be any monotone flip of its negative entries. Perturb the row vectors once into linear general position without changing $F$. At any nonempty survivor set, use the uniform row prior $\nu$. There is a cap sampler, depending on the surviving rows but not on the unknown marginal, such that
+\begin{equation}\label{eq:capcoverage}
+ \forall x\in U,\qquad \E[\1_S(x)\nu(T)]\ge\frac{c_d}{8d},
+ \quad c_d=\Pr_{u\sim\mathrm{Unif}(S^{d-1})}
+ [u_1\ge\sqrt{1-1/(2d)}].
+\end{equation}
+Here $c_1=1/2$. Thus Theorem~\ref{thm:main} applies with $\rho=8d/c_d$ in the ideal real-arithmetic model.
+
+For each fixed $d$, given the explicit table of $A$ and rational template vectors of bit length at most $b$, there are randomized and deterministic implementations, polynomial in $|X|,|H|,b,1/\epsilon$, for every $0<\epsilon<1/4$, with
+\[
+ m=O_d(\log|H|+\log(1/\epsilon)),\qquad
+ \tau=\Omega_d(\epsilon/\log(1/\epsilon)).
+\]
+Queries are intersections of stored cap tests, or such tests split by one row label or one point's row labels. The running time is polynomial in the supplied table size.
+\end{theorem}
+
+
+\begin{algorithm}[t]
+\caption{Cap sampler from a strict template}\label{alg:caps}
+\KwIn{Unpeeled points $U$, surviving rows $V$, and the uniform prior $\nu$ on $V$.}
+Use the fixed general-position perturbation and place $V$ in radial-isotropic position in effective dimension $j$\;
+Set $\alpha=(2j)^{-1/2}$, $\beta=\sqrt{1-\alpha^2}$; draw $u$ uniformly on $S^{j-1}$\;
+Set $S\gets U\cap\{x:\langle u,z_x\rangle\ge\beta\}$ and $T^\pm\gets\{h:\pm\langle u,v_h\rangle>\alpha\}$\;
+Choose the larger of $T^+,T^-$ under $\nu$\;
+\If{the positive side is chosen}{\Return $(S,T^+,+1)$\;}
+The negative rectangle has a singleton side. Split the opposite side according to its labels in $A$, choose either color with probability $1/2$, and return that monochromatic rectangle\;
+\end{algorithm}
+\paragraph{Proof idea.}
+Isotropy forces a constant amount of row mass beyond the two thresholds $\pm\alpha$. The cap geometry in \cref{fig:cap} makes the selected product monochromatic in the template. A negative product has a singleton side, and random color splitting preserves half its expected coverage after flips. A rational transform and a finite direction net give the finite-bit implementation.
+\input{figures/cap_geometry.tex}
+\noindent Proof: see \cref{proof:caps}.\par
+
+
+For $d=6$, $c_6\approx0.0003509774$ and $8d/c_d\approx136760.93$. These numerical values describe the ideal sampler. The rational-net construction has worse, dimension-dependent constants but the same stated asymptotics. A low-rank template alone is insufficient: the no-negative-$2\times2$ condition is used exactly at the splitting step.
+
+\subsection{Proper learning without a dual-plane search}\label{sec:proper}
+Every grid family contains the all-positive row: take intercept $b=2N^2$. Proper learning therefore does not require testing random lines when the total negative mass is small. The first substantial negative rectangle supplies the missing localization information.
+
+
+\begin{theorem}[Proper RECTIFY]\label{thm:proper}
+For every finite nonempty class $H$ and $0<\epsilon<1/4$, suppose $H$ contains the all-positive hypothesis and has no negative $2\times2$. Given a rectangle sampler of coverage $r$, it has a distribution-independent proper SQ learner of expected error at most $\epsilon$, using
+\begin{equation}\label{eq:propercomplexity}
+ m_{\rm proper}\le m_{\rm RECTIFY}(\epsilon/4)
+ +\lceil\log_2|X|\rceil+\lceil\log_2K\rceil
+ +\lceil8/\epsilon\rceil+4
+\end{equation}
+queries at the tolerance of RECTIFY with accuracy $\epsilon/4$. For the incidence flips,
+\[
+ m_{\rm proper}=O(\log M+\epsilon^{-1}+\log(1/\epsilon)),\qquad
+ \tau=\Omega(\epsilon/\log(1/\epsilon)).
+\]
+The cap implementation is polynomial-time in the explicit table. Its finite-net deterministic variant is also proper and has the same asymptotic query bound, with constants depending on the template dimension.
+\end{theorem}
+
+
+\begin{algorithm}[t]
+\caption{Proper RECTIFY}\label{alg:proper}
+Run RECTIFY at accuracy $\epsilon/4$, interrupting it at the first negative peel\;
+\If{no negative peel occurs}{\Return the all-positive member\;}
+Use the rectangle's singleton point, or test its singleton row at loss threshold $\epsilon/2$\;
+\If{the row passes}{\Return that row\;}
+Otherwise locate the unique heavy negative target point $p$ in the rectangle by binary search\;
+Query negative mass outside $p$\;
+\eIf{the answer exceeds $\epsilon/4$}{Binary-search the rows through $p$ using negative-union queries; return the target\;}
+{Test at most $\lceil8/\epsilon\rceil+1$ rows negative at $p$; return a row whose loss answer is at most $\epsilon/2$\;}
+\end{algorithm}
+\paragraph{Proof idea.}
+At the first negative peel, a rejected singleton row intersects the target's negative support in one heavy point. The other rows through that point have disjoint negative supports away from it. A large remaining negative mass identifies the target; a small one makes one of a short list of tested rows accurate.
+
+\noindent Proof: see \cref{proof:proper}.\par
+
+
+The all-light case requires no aspect-ratio argument. At the first negative peel, either the singleton candidate is already good, or its intersection with the target contains one heavy negative atom. The other members of the star at that atom have disjoint negative supports. 
+
+\subsection{Succinct learning by order medians}\label{sec:fast}
+The real-grid structure permits a learner that does not construct the truth table, its cap mixture, or a radial-isotropic transform. Its negative labeled measure is supported on one unknown affine line. Integer order, rather than pairwise sampling, identifies that line unless one negative point already carries enough mass for a star reduction. This resolves the all-light case with a quadratic, rather than linear, logarithmic query bound.
+
+Write $\mu^-(E)=\Pr_D[p\in E,\ h^*(p)=-1]$, $\beta=\mu^-(X)$, and $\zeta=\epsilon/4096$. We analyze answers of error at most $\zeta$. In a finite-bit implementation request raw SQ tolerance $\zeta/2$ and round each response with additional error at most $\zeta/2$, using $O(\log(1/\epsilon))$ bits after the binary point. This makes the algorithm a finite-bit computation without assuming exact real arithmetic. Points have coordinates $(x,y)$; the label in an SQ is a separate variable.
+
+
+\begin{lemma}[Noisy integer medians]\label{lem:median}
+Suppose $\beta>0$, $|\widehat\beta-\beta|\le\zeta$, and $\beta\ge512\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\mu^-\{f\le t\}$ and threshold $\widehat\beta/2$ returns $v\in[L,H]$ with
+\[
+ \mu^-\{f\le v\}\ge\beta/2-3\zeta/2,
+ \qquad
+ \mu^-\{f<v\}<\beta/2+3\zeta/2.
+\]
+If the answer $\widehat m$ to $m=\mu^-\{f=v\}$ is at most $\widehat\beta/8$, then
+\begin{equation}\label{eq:balancedmedian}
+ \beta/2-3\zeta/2\le\mu^-\{f\le v\}
+ <5\beta/8+21\zeta/8.
+\end{equation}
+Otherwise $m>\beta/9$.
+\end{lemma}
+
+\noindent Proof: see \cref{proof:median}.\par
+
+
+For a point $p=(p_x,p_y)$, its template star contains the slopes
+\[
+ 1\le a\le t(p):=\min\{N,\lfloor(p_y-1)/p_x\rfloor\},
+ \qquad b=p_y-ap_x.
+\]
+The upper intercept bound is automatic. Distinct star lines intersect only at $p$. Say that a flip matrix is \emph{star-regular} if for every point with $t(p)\ge64\lceil\log_2(2N^3)\rceil$, at least $t(p)/4$ of these rows are negative at $p$.
+
+
+\begin{theorem}[Succinct median learner]\label{thm:fast}
+Let $0<\epsilon<1/4$. Suppose entries of a real-grid incidence flip $A$ can be evaluated in time $E(n)$, where $n=\log_2(2N^3)$. There is a deterministic improper distribution-independent SQ learner of error at most $\epsilon$, using $O(n^2)$ queries at raw tolerance $\epsilon/8192$, with total computation polynomial in $(n,1/\epsilon,E(n))$ and an efficiently evaluable output. If $A$ is star-regular, there is a proper randomized learner with
+\[
+ m=O(n^2+1/\epsilon+\log(1/\epsilon)),\qquad
+ \tau=\epsilon/8192,
+\]
+with the same polynomial-time property and expected error at most $\epsilon$ against every valid oracle.
+\end{theorem}
+
+
+\begin{algorithm}[t]
+\caption{Order-median learner}\label{alg:median}
+\KwIn{An entry evaluator for $A$, the scale $N$, and $0<\epsilon<1/4$.}
+Set $\zeta=\epsilon/4096$. Query the total negative mass $\beta$\;
+\If{$\widehat\beta\le\epsilon/4$}{\Return the all-positive row\;}
+Find a noisy median of the negative $x$-marginal\;
+\If{its atom is heavy}{Locate its negative point and use the star completion\;}
+Fix the balanced prefix $P$ at the light median; maintain a slope interval containing $a^*$\;
+\While{the slope interval has more than one element}{
+ At its midpoint $a$, find a noisy median $v$ of $f_a(x,y)=y-ax$\;
+ \If{the median atom is heavy}{Its intersections with $P$ and $P^c$ either identify $(a^*,b^*)=(a,v)$ or locate one negative point for the star completion\;}
+ Query $\mu^-(P\cap\{f_a\le v\})$\;
+ Compare its answer to $3\widehat\beta/8$ and retain the correct strict half of the slope interval\;
+}
+Find the constant residual $b^*$ and return $h_{a^*,b^*}$\;
+\end{algorithm}
+\paragraph{Proof idea.}
+For a proposed slope $a$, the residual $y-ax$ increases along the target line when $a<a^*$ and decreases when $a>a^*$. Balanced prefix and residual-median sets are therefore nested or oppositely ordered. Their intersection masses differ by a constant fraction of the total negative mass, as illustrated in \cref{fig:order}. Heavy atoms lead to the same star reduction as proper RECTIFY.
+\input{figures/order_median.tex}
+\noindent Proof: see \cref{proof:fast}.\par

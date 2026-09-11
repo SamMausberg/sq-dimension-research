@@ -1,0 +1,172 @@
+[
+  {
+    "file": "sections/01_introduction.tex",
+    "reason": "A1: primary-source OQ2 quotation, repository PDF page 3.",
+    "old": "\\citet{FKS26} ask: ``We ask whether distribution-independent SQ learning implies low dimension complexity''. The answer is negative. One learner can serve every input distribution with few statistical queries while every common linear representation requires exponentially many dimensions in the domain's encoding length.",
+    "new": "\\citet[Open Question 2]{FKS26} ask:\n\\begin{quote}\\small\n\\textbf{Open Question 2 (SQ Learning vs. Dimension Complexity)}\nIs there a constant $C$ such that for every class $\\mathcal H\\subseteq\\{\\pm1\\}^{\\mathcal X}$, over any domain $\\mathcal X$, and any $\\epsilon<1/4$, if there exists an $(m,\\tau)$-SQ algorithm s.t. for every input distribution $\\mathcal D$ and every $h^\\star\\in\\mathcal H$, the algorithm returns a predictor $\\hat h$ with $\\E\\mathcal L_{\\mathcal D,h^\\star}(\\hat h)\\le\\epsilon$ (expectation over the randomness of the algorithm), then $\\dc(\\mathcal H)\\le C\\cdot m/\\tau^2$.\n\\end{quote}\nThe answer is negative. One learner can serve every input distribution with few statistical queries while every common linear representation requires exponentially many dimensions in the domain's encoding length."
+  },
+  {
+    "file": "sections/01_introduction.tex",
+    "reason": "D: remove duplicate theorem title.",
+    "old": "\\begin{maintheorem}[Main result]",
+    "new": "\\begin{maintheorem}"
+  },
+  {
+    "file": "sections/01_introduction.tex",
+    "reason": "R1.4: explicit order of accuracy and family selection.",
+    "old": "For infinitely many $M$, there are classes on $2M$ points with $\\rect(H)\\ge2^{-15}$ and",
+    "new": "For every prescribed fixed $0\\le\\eta<1/2$ and infinitely many $M$, there are classes on $2M$ points with $\\rect(H)\\ge2^{-15}$ and"
+  },
+  {
+    "file": "sections/01_introduction.tex",
+    "reason": "R1.4: avoid ambiguous simultaneous-in-eta assertion.",
+    "old": "for every prescribed fixed $0\\le\\eta<1/2$. They have proper deterministic learners",
+    "new": "with constants allowed to depend on $\\eta$. They have proper deterministic learners"
+  },
+  {
+    "file": "abstract.tex",
+    "reason": "D: required mass qualifier.",
+    "old": "monochromatic rectangle of mass $1/\\rho$",
+    "new": "monochromatic rectangle of mass at least $1/\\rho$"
+  },
+  {
+    "file": "sections/02_preliminaries.tex",
+    "reason": "R1.1: full public history and nonanticipation.",
+    "old": "An oracle policy may choose its answers using the entire public query-answer history. We use the strongest adaptive-policy reading of arbitrary valid responses.",
+    "new": "An oracle policy may choose its answers using the entire public query-answer history, including earlier queries that reveal previous random choices and the current query. This is the strongest nonanticipating adaptive-policy reading of the source\\textquotesingle s arbitrary valid responses; the policy is not given unrevealed future private coins."
+  },
+  {
+    "file": "sections/02_preliminaries.tex",
+    "reason": "R2.5/R3.5: distinguish real-response query model from bit-cost model.",
+    "old": "Randomized oracle policies can be handled by conditioning on their randomness.",
+    "new": "Randomized oracle policies can be handled by conditioning on their randomness. For computational statements, the oracle returns a finite binary encoding at the stated precision; reserving half the tolerance for rounding gives this interface from a finer-precision answer. Query-complexity statements permit arbitrary real responses and charge no answer-reading cost."
+  },
+  {
+    "file": "sections/02_preliminaries.tex",
+    "reason": "A1/R1.7: attribute verified literal definitional issue.",
+    "old": "The literal raw-score loss $\\Pr[h(x)\\langle w,\\phi(x)\\rangle<0]$ would assign zero loss to $w=0$ for every class.",
+    "new": "The raw-score formulas in \\citet[Section~4]{FKS26}, read together with their strictly negative-product loss, assign zero loss to $w=0$ for every class. In particular, $\\Pr[h(x)\\langle w,\\phi(x)\\rangle<0]=0$ when $w=0$."
+  },
+  {
+    "file": "sections/03_rectangle.tex",
+    "reason": "R1.1: make conditioning sigma-field explicit.",
+    "old": "Conditional on the pre-proposal history, $0\\le G\\le1$.",
+    "new": "Condition on all public history through the current stopping answer $\\widehat u$, but before the fresh rectangle draw. This includes every earlier query and response; conditional on that history the next rectangle has the prescribed mixture law. Always $0\\le G\\le1$."
+  },
+  {
+    "file": "sections/03_rectangle.tex",
+    "reason": "R1.2: no expectation/supremum exchange.",
+    "old": "This uses no favorable distributional assumption and holds for either oracle-induced action on every accepted rectangle.",
+    "new": "This holds for either oracle-induced action on every accepted rectangle. The oracle policy was fixed at the start of the proof and may react to each query; no supremum over policies is moved inside an expectation."
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.5: state local accuracy/guarantee in Theorem 7.1.",
+    "old": "In particular, if $\\mathrm{AC}_{\\times}(H)\\le c$, one distribution-independent SQ learner uses",
+    "new": "In particular, for every $0<\\epsilon<1/4$, if $\\mathrm{AC}_{\\times}(H)\\le c$, one distribution-independent SQ learner satisfies \\eqref{eq:guarantee} using"
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.6: close transcript theorem hypotheses locally.",
+    "old": "Let $B=\\lceil2/\\tau\\rceil+1$, with $0<\\tau\\leq1$. For a deterministic learner satisfying \\eqref{eq:guarantee}, decompose each query as",
+    "new": "Let $H\\subseteq\\{-1,+1\\}^X$ be finite and nonempty, $m\\ge1$ an integer, $0<\\tau\\le1$, and $0<\\epsilon<1/4$. Put $B=\\lceil2/\\tau\\rceil+1$. Suppose a depth-at-most-$m$ deterministic $(m,\\tau)$-SQ learner satisfies \\eqref{eq:guarantee} for this $H$ and $\\epsilon$. Decompose each query as"
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.6: randomized depth also local.",
+    "old": "For an arbitrary randomized learner satisfying \\eqref{eq:guarantee},",
+    "new": "For an arbitrary randomized $(m,\\tau)$-SQ learner with worst-case query budget $m$ satisfying \\eqref{eq:guarantee} under the same hypotheses,"
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.5: local halfspace accuracy and deterministic guarantee.",
+    "old": "Then $\\dc(H_n)\\le n$, $\\rect(H_n)\\le e^{-n/4}$, and there is one distribution-independent SQ learner with $m=O(n^3/\\epsilon^2)$ and $\\tau=\\epsilon/(8n)$.",
+    "new": "Then $\\dc(H_n)\\le n$ and $\\rect(H_n)\\le e^{-n/4}$. For every $0<\\epsilon<1/4$, one deterministic distribution-independent SQ learner satisfies \\eqref{eq:guarantee} with $m=O(n^3/\\epsilon^2)$ and $\\tau=\\epsilon/(8n)$."
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.6: common-learning and query-budget hypotheses in adaptation theorem.",
+    "old": "Any deterministic learner of a high-dimension flip class obeys",
+    "new": "Let $H_A$ be a flip class at scale $N$ with $M=N^3$, let $m\\ge1$ be an integer, and let $0<\\tau\\le1$ and $0<\\epsilon<1/4$. Every deterministic $(m,\\tau)$-SQ learner with worst-case query budget $m$ satisfying \\eqref{eq:guarantee} obeys"
+  },
+  {
+    "file": "sections/07_characterizations.tex",
+    "reason": "R1.6: quantified high-rank premise, maintain small-query requirement.",
+    "old": "In particular, for $m\\le(\\log M)^C$ and all sufficiently large $N$,",
+    "new": "In particular, if $\\dc(H_A)\\ge c_0N/\\log M$ for an absolute $c_0>0$, then for any fixed $C>0$, $m\\le(\\log M)^C$ and all sufficiently large $N$,"
+  },
+  {
+    "file": "sections/06_explicit.tex",
+    "reason": "R3.2: repair threshold drift; existing proof establishes stronger epsilon-independent definition.",
+    "old": "Fix $0<\\epsilon<1/4$ and define star-regularity with the threshold $C_0=\\max\\{64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil\\}$ from \\cref{thm:fast}.",
+    "new": "Use the star-regularity definition in \\cref{sec:fast}: every template star with at least $64\\lceil n\\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\\epsilon$; the algorithm tests it only for stars larger than $C_0=\\max\\{64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil\\}$."
+  },
+  {
+    "file": "appendices/cap_proper_proofs.tex",
+    "reason": "R2.4: avoid unnecessary/unsupported small-K ambient perturbation.",
+    "old": "When $K<d$, perturb all subsets of size at most $K$ to independence instead, or work directly in their span. The same perturbation works for every later survivor set.",
+    "new": "When $K<d$, no perturbation is needed: use the evaluation-coordinate construction below for every survivor set. For $K\\ge d$, the same perturbation works for every later survivor set."
+  },
+  {
+    "file": "appendices/cap_proper_proofs.tex",
+    "reason": "R2.4: explicit exact small-survivor covariance and sign preservation.",
+    "old": "If $k\\le d$, retain \\emph{all} rows and reduce to their common span: the map $x\\mapsto (\\langle v_h,u_x\\rangle)_{h\\in V}$ and the row vectors $e_h\\in\\R^k$ give the same strict signs and exact isotropy in dimension $k$. No target is discarded by a subspace restriction.",
+    "new": "If $k\\le d$, retain \\emph{all} rows and replace the factorization by evaluation coordinates: let $\\widetilde z_x=(\\langle v_h,u_x\\rangle)_{h\\in V}$ and use row vectors $e_h\\in\\R^k$. Every coordinate of $\\widetilde z_x$ is nonzero by strictness, so its normalization is defined and preserves every sign. For the uniform surviving-row prior, $k^{-1}\\sum_{h\\in V}e_he_h^\\top=I_k/k$. This is a new factorization, not an invertible map of the original ambient space. No target is discarded."
+  },
+  {
+    "file": "sections/08_sgd.tex",
+    "reason": "R3.3: remove reliance on natural-number convention at r=0.",
+    "old": "Apply \\eqref{eq:engineered-parameters} with $r=0$ and $\\delta=\\epsilon/16$.",
+    "new": "Give the deterministic source learner one ignored random bit and apply \\eqref{eq:engineered-parameters} with $r=1$ and $\\delta=\\epsilon/16$. Its initialization map may ignore this bit as well."
+  },
+  {
+    "file": "sections/08_sgd.tex",
+    "reason": "R1.2/R3.3: display imported stronger quantifier order.",
+    "old": "The guarantee takes the expectation over the sample and initialization after the supremum over all admissible rounded gradients.",
+    "new": "The guarantee is $\\E_{S,R}\\sup_{(g_t)\\ \\mathrm{admissible}}L(f_{\\theta_{T\\prime}})$: expectation over the reused sample and initialization follows the supremum over all admissible rounded-gradient sequences. The supremum may depend on that entire sample."
+  },
+  {
+    "file": "sections/08_sgd.tex",
+    "reason": "A1: exact SGD update, index endpoints, expectation and architecture quantifiers.",
+    "old": "Each layer-$i$ weight is initialized independently with law $N(0,1/n_{i-1})$. One fixed step size is used for $T$ online updates on fresh examples with logistic loss $\\log(1+e^{-yf_\\theta(x)})$. The output is the sign of the sum of the final half of the iterates. The architecture, step size and horizon are fixed for the class before the marginal and target. Open Question 1 asks whether a common expected-error guarantee at $\\epsilon<1/4$ forces $\\dc(H)\\le CTS$, or a polynomial bound in $(T,S)$. This question remains open here.",
+    "new": "Here $n_0=n$ and $n_L=1$. Each layer-$i$ weight is initialized independently with law $N(0,1/n_{i-1})$. With one fixed step size $\\eta$, for $t=0,\\ldots,T-1$ draw $x^{(t)}\\sim D$ independently and set\n\\[\n \\theta^{(t+1)}=\\theta^{(t)}-\\eta\\nabla_\\theta\n \\ell\\!\\left(h^*(x^{(t)})f_{\\theta^{(t)}}(x^{(t)})\\right),\n \\qquad \\ell(z)=\\log(1+e^{-z}).\n\\]\nThe returned predictor is\n\\[\n \\widehat h(x)=\\sign\\!\\left(\\sum_{t=\\lceil T/2\\rceil}^{T}f_{\\theta^{(t)}}(x)\\right).\n\\]\nThe architecture, step size and horizon are fixed for the class before $D$ and $h^*$. Open Question 1 of \\citet[Section~2]{FKS26} asks whether a guarantee $\\E L_{D,h^*}(\\widehat h)\\le\\epsilon<1/4$ for every $D,h^*$, with expectation over both initialization and online sampling, forces $\\dc(H)\\le CTS$. Their Section~4 also asks for a polynomial bound in $(T,S)$. This question remains open here."
+  },
+  {
+    "file": "appendices/explicit_proofs.tex",
+    "reason": "A3: identify checked secondary formulation of Renegar.",
+    "old": "The singly exponential existential-real decision theorem has bit complexity $(sd)^{O(v)}L^{O(1)}$ for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$ \\citep{Renegar92,Vorobjov21}.",
+    "new": "We use the singly exponential existential-real consistency bound in the formulation of \\citet{Vorobjov21}, attributed there to \\citet{Renegar92}: $(sd)^{O(v)}L^{O(1)}$ bit operations for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$."
+  },
+  {
+    "file": "appendices/certificate_proofs.tex",
+    "reason": "C1: 11 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "appendices/resource_proofs.tex",
+    "reason": "C1: 3 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "appendices/explicit_proofs.tex",
+    "reason": "C1: 5 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "appendices/network_proofs.tex",
+    "reason": "C1: 2 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "appendices/cap_proper_proofs.tex",
+    "reason": "C1: 2 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "appendices/median_proofs.tex",
+    "reason": "C1: 2 proof headings bind the sole canonical statement; no duplicate restatement."
+  },
+  {
+    "file": "paper.tex",
+    "reason": "D: appendix labels receive Appendix type when written to auxiliary file."
+  },
+  {
+    "file": "sections/09_related.tex",
+    "reason": "D: explicit Appendix reference/grammar correction."
+  }
+]

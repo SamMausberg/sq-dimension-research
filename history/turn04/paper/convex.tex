@@ -1,0 +1,81 @@
+\section{A finite-bit convex program for the cap implementation}\label{app:convex}
+This appendix proves the weakly polynomial implementation needed in Theorem~\ref{thm:caps}. It does not require a claim that an exact radial-isotropic matrix has rational entries. Approximate Forster computation is established prior work; see \citet{DKT22} for stronger algorithms. We verify the particular general-position convex program and the bit bounds needed here.
+
+Let $k>d$ and let $v_1,\ldots,v_k\in\mathbb Q^d$ be in linear general position. Assume the numerator and denominator of every coordinate have absolute value at most $2^b$, with nonzero denominators. Let $\Delta_I$ be the determinant of the rows indexed by a $d$-subset $I$. Every $\Delta_I$ is nonzero. Cauchy--Binet gives the convex function
+\begin{equation}\label{eq:barthe}
+ f(t)=\log\det\left(\sum_i e^{t_i}v_iv_i^\top\right)-\frac dk\sum_i t_i
+ =\log\sum_{|I|=d}\Delta_I^2e^{\sum_{i\in I}t_i}-\frac dk\sum_i t_i.
+\end{equation}
+The identity follows by applying the determinant expansion to the product of the $d\times k$ column matrix with entries $e^{t_i/2}v_i$ and its transpose; only distinct $d$-subsets remain. Differentiating the log-sum-exp expression shows that its Hessian is the covariance matrix of the incidence vector $\1_I$ under the displayed positive weights. It is positive semidefinite and has operator norm at most $\E\|\1_I\|^2=d$. Also $\|\nabla f\|\le2\sqrt d$. Thus $f$ is convex, $d$-smooth, and invariant under adding a constant to all coordinates.
+
+We give a polynomial radius bound on the zero-sum gauge. Write $a_- =\min_I\log\Delta_I^2$ and $a_+=\max_I\log\Delta_I^2$. For $t_1\ge\cdots\ge t_k$ with $\sum t_i=0$, put $s=t_1+\cdots+t_d$. The average of the largest $d-1$ of $t_2,\ldots,t_k$ is at least their overall average; hence
+\[
+ s\ge t_1\frac{k-d}{k-1}\ge\frac{t_1}{k-1}.
+\]
+Likewise the largest $d$ of $t_1,\ldots,t_{k-1}$ have average at least $-t_k/(k-1)$, giving $s\ge -dt_k/(k-1)$. Therefore $s\ge\|t\|_\infty/(k-1)$, and
+\[
+ f(t)\ge a_-+\frac{\|t\|_\infty}{k-1},\qquad
+ f(0)\le a_++\log\binom kd.
+\]
+Sublevel sets on the gauge are compact. A minimizer exists and has infinity norm at most $(k-1)(a_+-a_-+\log\binom kd)$.
+
+The determinant bounds are explicit. A common denominator for a $d\times d$ determinant is the product of its $d^2$ coordinate denominators, so
+\[
+ 2^{-bd^2}\le|\Delta_I|\le d!2^{bd}.
+\]
+Consequently the integer
+\[
+ R=1+(k-1)\bigl(2bd^2+2bd+2d\lceil\log_2(d+1)\rceil
+ +d\lceil\log_2(k+1)\rceil\bigr)
+\]
+exceeds the minimizer radius. Work on the rational polytope
+$Q=\{t:\sum t_i=0,\ |t_i|\le2R\}$.
+
+For completeness, a deliberately conservative projected-subgradient implementation suffices. Set
+\[
+ \delta=\frac{d}{512k^2},\quad a=\frac{\delta}{36d},\quad
+ \xi=\frac{\delta}{32Rk},\quad
+ T=\left\lceil\frac{4R^2k}{a\delta}\right\rceil.
+\]
+At each step compute a rational approximation $\widetilde g$ of $\nabla f$ with Euclidean error at most $\xi$, and project $t-a\widetilde g$ onto $Q$. The projection is rational and polynomial-time: it is $\operatorname{clip}(z_i-\lambda,-2R,2R)$ in each coordinate, with $\lambda$ chosen to make the sum zero. The sum is a continuous piecewise-linear decreasing function; sorting its $2k$ breakpoints and solving on the containing interval finds $\lambda$. The projection inequality follows directly from its normal-cone signs: for every $u\in Q$, $\langle z-\Pi_Qz,u-\Pi_Qz\rangle\le0$, so $\|\Pi_Qz-u\|\le\|z-u\|$.
+
+Let $t^*$ be a minimizer with $\|t^*\|\le R\sqrt k$, and start at zero. The standard distance expansion, supplied here to account for error, gives
+\[
+ \frac1T\sum_{s<T}(f(t_s)-f(t^*))
+ \le \frac{R^2k}{2aT}
+ +\frac a2(2\sqrt d+\xi)^2+4R\sqrt k\,\xi.
+\]
+Indeed convexity bounds $f(t_s)-f(t^*)$ by $\langle\nabla f(t_s),t_s-t^*\rangle$, the gradient error contributes at most $4R\sqrt k\,\xi$, and squared distances telescope. Since $\xi\le\sqrt d$, each of the three terms is at most $\delta/8$. Convexity gives $f(\bar t)-\min f<\delta$ for the rational average $\bar t$.
+
+Smoothness on the full space implies
+\[
+ \|\nabla f(\bar t)\|^2\le2d\bigl(f(\bar t)-\min f\bigr)
+ <\frac{d^2}{256k^2}:
+\]
+apply the quadratic upper bound to $\bar t-\nabla f(\bar t)/d$ and compare with the global minimum. Put $S=\sum_i e^{\bar t_i}v_iv_i^\top$. Differentiating the first expression in \eqref{eq:barthe} yields
+\[
+ \frac{15d}{16k}<\ell_i:=e^{\bar t_i}v_i^\top S^{-1}v_i<\frac{17d}{16k}.
+\]
+For any factor $T_0$ with $T_0ST_0^\top=I$, the normalized row covariance satisfies
+\[
+ \frac{16}{17d}I\preceq
+ \frac1k\sum_i\frac{T_0v_i v_i^\top T_0^\top}{\|T_0v_i\|^2}
+ \preceq\frac{16}{15d}I.
+\]
+To see this, write each summand as $e^{\bar t_i}T_0v_iv_i^\top T_0^\top/\ell_i$ and use the preceding bounds together with their unnormalized sum $I$.
+
+All calculations can be performed to the required accuracy with polynomially many bits, rather than an unspecified exact-real oracle. For fixed $d$, the number of terms $\binom kd$ in \eqref{eq:barthe} is polynomial. The gradient is a ratio of sums of the nonnegative numbers $\Delta_I^2\exp(\sum_{i\in I}t_i)$. Their exponent arguments have absolute value at most $2dR$, and their rational coefficients have polynomial bit length by the determinant bounds. Exponentials on this bounded range admit rational interval approximations with bit complexity polynomial in $R,b,k,\log(1/\xi)$: for nonnegative arguments use the Taylor series and its positive tail bound, and for negative arguments take reciprocals. The elementary inequality $j!\ge(j/e)^j$, obtained by integrating $\log x$, bounds the number of Taylor terms by a polynomial in the argument bound and requested precision. Positive sums have no cancellation; the denominator has the explicit lower bound $2^{-2bd^2}e^{-2dR}$. Computing each gradient coordinate to error at most $\xi/k$ gives the required Euclidean error. Exact rational projection and averaging increase bit lengths by only a polynomial over the polynomial number of iterations. Thus the preceding inexact-gradient implementation has a polynomial bit-operation bound for fixed $d$.
+
+Finally, approximate $T_0$ by an invertible rational matrix $T$. This also requires only polynomial precision. The bounds
+\[
+ \lambda_{\max}(V^\top V)\le kd\,2^{2b},\qquad
+ \lambda_{\min}(V^\top V)\ge
+ \frac{2^{-2bd^2}}{(kd\,2^{2b})^{d-1}}
+\]
+follow from trace, determinant, and Cauchy--Binet. Since $|\bar t_i|\le2R$, multiplying these bounds by $e^{\pm2R}$ bounds the eigenvalues of $S$. Their logarithms have polynomial size. Interval Cholesky factorization followed by inversion, approximating each square root by rational bisection, consequently computes $T_0$ to $2^{-q(k,b,R)}$ operator error in polynomial time for a sufficiently large fixed polynomial $q$. This last assertion can also be checked directly: Cholesky pivots are bounded below by the smallest eigenvalue, all divisions have polynomial logarithmic conditioning, and there are only $O(d^3)$ operations. If $\|a-b\|\le\|a\|/2$, then
+\[
+ \left\|a/\|a\|-b/\|b\|\right\|\le2\|a-b\|/\|a\|.
+\]
+The displayed eigenvalue bounds and the nonzero rational input coordinates therefore give an explicit polynomial precision at which the normalized covariance changes by less than $1/(8d)$. Its lower eigenvalue remains above $3/(4d)$. For rational $T$, this final statement is independently decidable by rational arithmetic: the covariance is the sum of $Tv_iv_i^\top T^\top/(v_i^\top T^\top Tv_i)$, and positivity above $3I/(4d)$ is checked using leading principal minors. This completes the finite-bit construction.
+
+SQ replies themselves need no unlimited precision in the computational corollary. Request half the advertised tolerance and round the reply to a rational grid of spacing at most that tolerance. The effective error remains within the advertised tolerance. This changes only an absolute constant and uses $O(\log(1/\tau))$ reply bits. Each cap test is a fixed-degree rational inequality; the unpeeled set is represented by the negations of earlier peeling tests. No table-dependent advice beyond the stated input is hidden in this computation.

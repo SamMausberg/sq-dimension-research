@@ -1,0 +1,218 @@
+{
+  "seed": 20260911,
+  "isotropy_checks": [
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 0,
+      "iterations": 92,
+      "max_isotropy_error": 1.280462707109756e-12,
+      "min_determinant": 0.013627551206796028,
+      "spectral_lower": 0.38739749610084917,
+      "weighted_lower": 1.18959174586809
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 1,
+      "iterations": 68,
+      "max_isotropy_error": 1.8514517938818684e-12,
+      "min_determinant": 0.041824220317349406,
+      "spectral_lower": 0.49145679534214326,
+      "weighted_lower": 1.4044415083343533
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 2,
+      "iterations": 53,
+      "max_isotropy_error": 5.281103971170632e-13,
+      "min_determinant": 0.09704722674167064,
+      "spectral_lower": 0.3876857841525248,
+      "weighted_lower": 1.2219085283698001
+    },
+    {
+      "d": 2,
+      "K": 8,
+      "trial": 3,
+      "iterations": 46,
+      "max_isotropy_error": 9.196100562935572e-13,
+      "min_determinant": 0.035305572593842184,
+      "spectral_lower": 0.41827428991690585,
+      "weighted_lower": 1.1958389582202686
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 0,
+      "iterations": 56,
+      "max_isotropy_error": 2.383139371932279e-12,
+      "min_determinant": 0.005978056942531925,
+      "spectral_lower": 0.37979793489904756,
+      "weighted_lower": 1.276259790779645
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 1,
+      "iterations": 58,
+      "max_isotropy_error": 1.1848128660149216e-12,
+      "min_determinant": 0.006378444535706548,
+      "spectral_lower": 0.46142231035560466,
+      "weighted_lower": 1.2089700337907041
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 2,
+      "iterations": 94,
+      "max_isotropy_error": 1.3455361831387035e-12,
+      "min_determinant": 0.03530173312205312,
+      "spectral_lower": 0.48572320691798876,
+      "weighted_lower": 1.5065790275017286
+    },
+    {
+      "d": 3,
+      "K": 11,
+      "trial": 3,
+      "iterations": 53,
+      "max_isotropy_error": 1.2720879156457377e-12,
+      "min_determinant": 0.0009731028411196401,
+      "spectral_lower": 0.4851272419293971,
+      "weighted_lower": 1.2485598445669133
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 0,
+      "iterations": 64,
+      "max_isotropy_error": 1.2106182654303497e-12,
+      "min_determinant": 0.0012327299913603845,
+      "spectral_lower": 0.5870130575306846,
+      "weighted_lower": 1.224927700528087
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 1,
+      "iterations": 75,
+      "max_isotropy_error": 1.7314535943261308e-12,
+      "min_determinant": 0.0024790527131768815,
+      "spectral_lower": 0.448599161042438,
+      "weighted_lower": 1.4277379861321304
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 2,
+      "iterations": 75,
+      "max_isotropy_error": 1.3321786237951293e-12,
+      "min_determinant": 0.0011775442881393026,
+      "spectral_lower": 0.5193149715366705,
+      "weighted_lower": 1.4978201481424156
+    },
+    {
+      "d": 4,
+      "K": 14,
+      "trial": 3,
+      "iterations": 50,
+      "max_isotropy_error": 9.172704291180347e-13,
+      "min_determinant": 0.0007995653589730754,
+      "spectral_lower": 0.5478378997805985,
+      "weighted_lower": 1.764647961037467
+    }
+  ],
+  "maximum_isotropy_residual": 2.383139371932279e-12,
+  "minimax_checks": 100,
+  "maximum_minimax_gap": 8.604228440844963e-16,
+  "algebra_gradient_checks": 1000,
+  "prior_probability": "1/100",
+  "replaced_prior_probability": "1",
+  "parity_linear_program_status": 2,
+  "relu_odd_part_checks": 100,
+  "certificate_dimension_checks": 100,
+  "fixed_distribution_cover_checks": [
+    {
+      "q": 2,
+      "trial": 0,
+      "sample_length": 49,
+      "cover_size": 7,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 2,
+      "trial": 1,
+      "sample_length": 49,
+      "cover_size": 7,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 3,
+      "trial": 0,
+      "sample_length": 62,
+      "cover_size": 13,
+      "maximum_cover_distance": 0.0,
+      "attempts": 1
+    },
+    {
+      "q": 3,
+      "trial": 1,
+      "sample_length": 62,
+      "cover_size": 13,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 5,
+      "trial": 0,
+      "sample_length": 79,
+      "cover_size": 31,
+      "maximum_cover_distance": 1.1102230246251565e-16,
+      "attempts": 1
+    },
+    {
+      "q": 5,
+      "trial": 1,
+      "sample_length": 79,
+      "cover_size": 31,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 7,
+      "trial": 0,
+      "sample_length": 91,
+      "cover_size": 57,
+      "maximum_cover_distance": 1.1102230246251565e-16,
+      "attempts": 1
+    },
+    {
+      "q": 7,
+      "trial": 1,
+      "sample_length": 91,
+      "cover_size": 57,
+      "maximum_cover_distance": 2.220446049250313e-16,
+      "attempts": 1
+    },
+    {
+      "q": 11,
+      "trial": 0,
+      "sample_length": 108,
+      "cover_size": 133,
+      "maximum_cover_distance": 5.551115123125783e-17,
+      "attempts": 1
+    },
+    {
+      "q": 11,
+      "trial": 1,
+      "sample_length": 108,
+      "cover_size": 133,
+      "maximum_cover_distance": -2.220446049250313e-16,
+      "attempts": 1
+    }
+  ],
+  "all_assertions_passed": true,
+  "limits": "Isotropy iteration and LP tests are finite numerical checks, not formal certificates of the universal theorems."
+}

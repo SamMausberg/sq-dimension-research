@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "runtime_absolute_dependencies": [],
+  "rejection_checks": [
+    {
+      "path": "tools/package_submission.py",
+      "line": 46,
+      "text": "            if '/mnt/data/' in text or '/home/oai/' in text or '\\\\write18' in text:",
+      "classification": "reject-list check, not a runtime file dependency"
+    }
+  ],
+  "initial_text_scan": "A broad substring scan flagged the packaging reject-list itself; the source review separates validation literals from runtime dependencies."
+}

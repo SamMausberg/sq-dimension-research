@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "stage": "Pre-release import check; final release hashes are in RELEASE_MANIFEST.json outside the repository.",
+  "tested_commit": "ff7af52e6785ecb37bac10c02500c41e71d081e2",
+  "complete_history": true,
+  "clone_succeeded": true,
+  "git_fsck_exit_code": 0,
+  "clean_worktree": true,
+  "commands": [
+    "git bundle verify sq-dimension-research.bundle",
+    "git clone sq-dimension-research.bundle test-clone",
+    "git -C test-clone fsck --full",
+    "git -C test-clone status --porcelain"
+  ]
+}

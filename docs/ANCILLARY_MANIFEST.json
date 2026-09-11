@@ -1,8 +1,8 @@
 {
   "format_version": 1,
-  "file_count": 829,
+  "file_count": 831,
   "groups": {
-    "audits": 89,
+    "audits": 91,
     "docs": 9,
     "experiments": 41,
     "formalization": 7,
@@ -323,6 +323,12 @@
       "group": "audits"
     },
     {
+      "path": "audits/current/git_bundle_verification.json",
+      "bytes": 520,
+      "sha256": "f3319ad20e6b545ba97031dee15ec4dfc2bb60fa16b2217314bedbc1126a0c9f",
+      "group": "audits"
+    },
+    {
       "path": "audits/current/independent_derivations.md",
       "bytes": 2431,
       "sha256": "39845ecad820dfe6b5ad3dc4881c8c78bc76814035ec23d089dd3fed2482f552",
@@ -422,6 +428,12 @@
       "path": "audits/current/new_result_ledger.json",
       "bytes": 22106,
       "sha256": "d4002d1989f97b1c152e9ef4d0cc1b0b99fa71443dbdbbfd18471f53b7ef3766",
+      "group": "audits"
+    },
+    {
+      "path": "audits/current/path_portability.json",
+      "bytes": 510,
+      "sha256": "3f911c26ffcde02835aacf97953b4008febda1a88fd26c107b5cc994a3b4df70",
       "group": "audits"
     },
     {

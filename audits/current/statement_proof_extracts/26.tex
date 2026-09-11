@@ -1,0 +1,50 @@
+% appendices/comparisons.tex:49-67
+\begin{theorem}[Joint-distribution SQ barrier]\label{thm:barrier}
+Let $\mu$ be a full-support distribution on $X$ and let $P_0=\mu\otimes\mathrm{Unif}\{-1,+1\}$. For $j\in[K]$, let $P_j$ be the labeled distribution arising from some $D_j$ and $h_j\in\cH$. Put
+\[
+ r_j=\frac{P_j}{P_0}-1,\qquad
+ \Gamma_{ij}=\E_{P_0}r_i r_j,\qquad
+ \Lambda=\|\Gamma\|_\op,\qquad R=K/\Lambda.
+\]
+Any randomized adaptive $(m,\tau)$-SQ learner satisfying \eqref{eq:guarantee} obeys
+\begin{equation}\label{eq:joint}
+ 1-2\epsilon\leq\sqrt{\frac\Lambda K}+
+ \frac{m\Lambda}{K\tau^2},
+ \quad\text{equivalently}\quad
+ \frac m{\tau^2}\geq(1-2\epsilon)R-\sqrt R.
+\end{equation}
+Consequently, for $\epsilon<1/4$,
+\begin{equation}\label{eq:Rbound}
+ R\leq4+4m/\tau^2.
+\end{equation}
+\end{theorem}
+
+% appendices/certificate_proofs.tex:23-50
+\begin{proof}[Proof of \cref{thm:barrier}]
+First $\Lambda>0$. Indeed, with $a_j(x,y)=y h_j(x)$ we have $\|a_j\|_{L^2(P_0)}=1$ and
+$\langle r_j,a_j\rangle=\E_{P_j}a_j-\E_{P_0}a_j=1$. Thus $\|r_j\|_2\geq1$ and $\Lambda\geq\Gamma_{jj}\geq1$.
+
+For a fixed private seed, run the learner on the reference responses $\E_{P_0}q$. Write the resulting queries as $q_1,\ldots,q_m$ and the leaf output as $g_0$. This is a counterfactual tree path; the reference need not be realizable. For target $j$, choose the following memoryless oracle, which does not know the private seed:
+\[
+ O_j(q)=
+ \begin{cases}
+ \E_{P_0}q,&|\E_{P_j}q-\E_{P_0}q|\leq\tau,\\
+ \E_{P_j}q,&\text{otherwise}.
+ \end{cases}
+\]
+It is valid for $P_j$ on every query. If its run first departs from the reference transcript, that departure occurs at one of the reference queries with $|\langle r_j,q_t\rangle|>\tau$. Lemma~\ref{thm:energy} and a union bound give, for this fixed seed,
+\[
+ \frac1K\bigl|\{j:\text{the transcript departs from the reference}\}\bigr|
+ \leq\frac{m\Lambda}{K\tau^2}.
+\]
+For the reference leaf, define $c_j=\E_{P_j}[y g_0(x)]$. Since $\E_{P_0}[y g_0(x)]=0$, Lemma~\ref{thm:energy} gives
+\[
+ \frac1K\sum_j|c_j|\leq
+ \sqrt{\frac1K\sum_jc_j^2}\leq\sqrt{\Lambda/K}.
+\]
+Let $s_j$ be the correlation of the actual output under $O_j$. On a nondeparting transcript it equals $c_j$; on a departing transcript it is at most $1$. Therefore
+$s_j\leq|c_j|+\1_{\text{departure for }j}$.
+Average this inequality over $j$ and then over the private seed. The learner's guarantee gives an average correlation at least $1-2\epsilon$. This proves \eqref{eq:joint}. Notice that we did not choose a different oracle after seeing the seed.
+
+Finally write $M=m/\tau^2$. From \eqref{eq:joint}, $R/2\leq\sqrt R+M$. The square $(\sqrt R-2)^2\geq0$ gives $\sqrt R\leq R/4+1$. Combining yields \eqref{eq:Rbound}.
+\end{proof}

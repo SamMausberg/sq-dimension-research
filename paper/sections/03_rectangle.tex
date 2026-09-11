@@ -1,0 +1,57 @@
+\section{The rectangle theorem and RECTIFY}\label{sec:rectangle}
+\begin{theorem}[Distribution-independent rectangle learner]\label{thm:main}
+Let $X,H$ be finite and nonempty, $K=|H|$, and suppose $\rho\ge1$ and $\rect(H)\ge1/\rho$. For every $0<\epsilon<1/4$, one randomized algorithm satisfies \eqref{eq:guarantee} with
+\[
+ m=O\!\left(\rho(\log K+\log(1/\epsilon))\right),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{\rho\log(1/\epsilon)}\right).
+\]
+Query count is a worst-case bound. The learner is explicit from the truth table and a valid lower bound on $\rect(H)$; the general implementation may solve exponential-size linear programs.
+\end{theorem}
+\begin{lemma}[Exact parameters]\label{lem:params}
+For a finite nonempty $H$, $\rho\ge1$, $\rect(H)\ge1/\rho$, and $0<\epsilon<1/4$, \cref{thm:main} holds with
+\begin{align}
+ r&=1/\rho,&P&=1+\lceil4\rho\ln(8/\epsilon)\rceil,&\tau&=\epsilon/(24P),\label{eq:params1}\\
+ B&=\ln K+\ln(8/\epsilon)+1,&R&=\lceil8\rho(B+\ln(2/\epsilon))\rceil,&m&=3R+1.\label{eq:params2}
+\end{align}
+\end{lemma}
+\begin{lemma}[A marginal-free rectangle mixture]\label{lem:mixture}
+Assume $H$ is finite, $0<r\le\rect(H)$, and fix nonempty $U\subseteq X$, nonempty $V\subseteq H$, and a distribution $\nu$ on $V$. There is a distribution $\lambda$ over monochromatic rectangles $S_R\times T_R\subseteq U\times V$ such that
+\begin{equation}\label{eq:coverage}
+ \forall x\in U,\qquad
+ \E_{R\sim\lambda}\bigl[\1_{S_R}(x)\nu(T_R)\bigr]\ge r.
+\end{equation}
+This distribution can be computed from $(H,U,V,\nu)$ without a query about $D$.
+\end{lemma}
+
+\begin{proof}[Proof of \cref{lem:mixture}]
+For each rectangle $R$, let $z_R(x)=\mathbf1_{S_R}(x)\nu(T_R)$. The rectangle hypothesis gives $\max_R\langle\mu,z_R\rangle\ge r$ for every $\mu\in\Delta(U)$. The finite separation lemma, \cref{lem:finite-minimax}, gives a convex combination with every coordinate at least $r$. This is the required law. Rational inputs admit a rational feasible point.
+\end{proof}
+\begin{algorithm}[t]
+\caption{RECTIFY: rectangle peeling and elimination}\label{alg:rectify}
+\KwIn{A table $H$, a bound $r\le\rect(H)$, and $0<\epsilon<1/4$.}
+Set $U\gets X$, $V\gets H$, and use $P,\tau,R$ from \cref{lem:params}\;
+\For{$t=1,\ldots,R$}{
+  \If{$U=\varnothing$}{\Return the partial predictor\;}
+  Query $\widehat u\approx D(U)$\;
+  \If{$\widehat u\le\epsilon/4$}{\Return the partial predictor, extended by $+1$ on $U$\;}
+  With $\nu$ uniform on $V$, draw $(S,T,c)$ from \cref{lem:mixture}\;
+  Query $\widehat s\approx D(S)$\;
+  \If{$\widehat s<(r/2)\widehat u$}{Reject this proposal and continue\;}
+  Query $\widehat w\approx D(S\cap\{h^*\ne c\})$\;
+  \eIf{$\widehat w\le2\tau$}{Set the predictor to $c$ on $S$; $U\gets U\setminus S$\;}
+  {$V\gets V\setminus T$\;}
+}
+\Return the partial predictor, extended by $+1$ on $U$\;
+\end{algorithm}
+
+\paragraph{Proof of the query bound.}
+Fix the instance and an arbitrary valid oracle policy. At a nonstopping round, $u=D(U)\ge\epsilon/8$. Write $a=D(S)/u$ and $b=\nu(T)$. Acceptance forces $a\ge r/4$, and $a\ge3r/4$ guarantees acceptance at both adverse answer endpoints. A peel has wrong-color mass at most $3\tau$. An elimination retains the target and increases its normalized weight by $1/(1-b)$.
+
+The cumulative eliminated $b$-mass is at most $\ln K$. There are at most $P$ peels, and their cumulative $a$-mass is at most $\ln(8/\epsilon)+1$. Set $G=a$ for a peel, $G=b$ for an elimination, and $G=0$ on rejection. Pointwise coverage and the acceptance thresholds give
+\[
+ \E[G\mid\text{public history}]\ge r/4,\qquad
+ \sum G\le B
+\]
+until termination. The exponential potential bounds budget exhaustion by $e^{B-rR/8}\le\epsilon/2$. Normal termination has loss at most $\epsilon/2$. The complete argument, including the oracle endpoints and the final peel of mass one, is in \cref{proof:main,app:oracle}.
+
+The same theorem gives $m=O(\rho^2\log(e|X|)+\rho\log(1/\epsilon))$: the rectangle condition bounds VC dimension by $\rho/2$, and the finite trace count bounds $\log K$. The proof is in \cref{proof:main}. \Cref{fig:rectify} depicts the two updates.

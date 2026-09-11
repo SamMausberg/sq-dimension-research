@@ -1,0 +1,25 @@
+\section{Description length and classical certificates}\label{app:resources}
+\begin{theorem}[Source-description length alone does not repair the implication]\label{thm:description}
+Fix $0<\epsilon<1/4$. Interpret $\ell$ as the bit length of a finite learner program, including literal hard-coded constants and data, but do not charge running time or generated workspace. There is a computable sequence of incidence-flip classes and learners with
+\[
+ n,\ell,m=O(\log N),\qquad 1/\tau=O_\epsilon(1),\qquad
+ \dc(H)=\Omega(N/\log N).
+\]
+Consequently no universal bound $\dc(H)\le\operatorname{poly}(m,1/\tau,n,\ell)$ holds in this interpretation.
+\end{theorem}
+\noindent The proof is in \cref{proof:description}.
+
+\begin{proposition}[The classical certificate barrier]\label{thm:classicalbarrier}
+For the orientation in which rows are hypotheses, let
+\[
+ m_{\rm avg}(A)=\inf_{\mu\in\Delta(X)}\ 
+ \sup_{\substack{\text{strict unit-vector}\text{representations of }A}}
+ \min_h\E_{x\sim\mu}|\langle v_h,u_x\rangle|.
+\]
+Then
+\[
+ \sqrt{\operatorname{VC}(H)}\le m_{\rm avg}(A)^{-1}\le\rect(A)^{-1}.
+\]
+In particular, if $\rect(A)^{-1}\le\operatorname{poly}(n)$, these three classical lower-bound parameters cannot certify superpolynomial sign-rank. The bound concerns the three displayed certificates; actual sign-rank can be larger.
+\end{proposition}
+\noindent The proof is in \cref{proof:classicalbarrier}.

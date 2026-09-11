@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript; an arXiv identifier has not yet been assigned."
+title: "Distribution-independent SQ learning does not imply low dimension complexity"
+type: article
+authors:
+  - family-names: Mausberg
+    given-names: Samuel
+version: "revision-8"
+date-released: "2026-09-11"

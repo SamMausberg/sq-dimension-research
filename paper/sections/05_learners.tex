@@ -1,0 +1,78 @@
+\section{Efficient, proper and succinct learners}\label{sec:learners}
+\subsection{Caps and proper learning}\label{sec:caps}
+A strict low-rank template supplies geometric rectangles without enumerating every rectangle. The no-negative-$2\times2$ condition ensures that any negative template rectangle has a singleton side.
+\begin{theorem}[Pointwise cap mixture and table-polynomial implementation]\label{thm:caps}
+Fix $d\ge1$. Let $F$ have a strict rank-$d$ representation and no negative $2\times2$, and let $A$ be any monotone flip of its negative entries. Perturb the row vectors once into linear general position without changing $F$. At any nonempty survivor set, use the uniform row prior $\nu$. There is a cap sampler, depending on the surviving rows but not on the unknown marginal, such that
+\begin{equation}\label{eq:capcoverage}
+ \forall x\in U,\qquad \E[\1_S(x)\nu(T)]\ge\frac{c_d}{8d},
+ \quad c_d=\Pr_{u\sim\mathrm{Unif}(S^{d-1})}
+ [u_1\ge\sqrt{1-1/(2d)}].
+\end{equation}
+Here $c_1=1/2$. Thus Theorem~\ref{thm:main} applies with $\rho=8d/c_d$ in the ideal real-arithmetic model.
+
+For each fixed $d$, given the explicit table of $A$ and rational template vectors of bit length at most $b$, there are randomized and deterministic implementations, polynomial in $|X|,|H|,b,1/\epsilon$, for every $0<\epsilon<1/4$, with
+\[
+ m=O_d(\log|H|+\log(1/\epsilon)),\qquad
+ \tau=\Omega_d(\epsilon/\log(1/\epsilon)).
+\]
+Queries are intersections of stored cap tests, or such tests split by one row label or one point's row labels. The running time is polynomial in the supplied table size.
+\end{theorem}
+\noindent The proof is in \cref{proof:caps}.
+
+The sampler perturbs the template once, uses radial isotropy for the uniform surviving-row prior, and selects the heavier of two threshold sides. A negative rectangle is split by its singleton side's labels in $A$. The finite net enumerates a constant number of outcomes for fixed dimension. The complete procedure and geometric figure are in \cref{app:capprocedures}.
+\subsection{Proper completion}\label{sec:proper}
+\begin{theorem}[Proper RECTIFY]\label{thm:proper}
+For every finite nonempty class $H$ and $0<\epsilon<1/4$, suppose $H$ contains the all-positive hypothesis and has no negative $2\times2$. Given a rectangle sampler of coverage $r$, it has a distribution-independent proper SQ learner of expected error at most $\epsilon$, using
+\begin{equation}\label{eq:propercomplexity}
+ m_{\rm proper}\le m_{\rm RECTIFY}(\epsilon/4)
+ +\lceil\log_2|X|\rceil+\lceil\log_2K\rceil
+ +\lceil8/\epsilon\rceil+4
+\end{equation}
+queries at the tolerance of RECTIFY with accuracy $\epsilon/4$. For the incidence flips,
+\[
+ m_{\rm proper}=O(\log M+\epsilon^{-1}+\log(1/\epsilon)),\qquad
+ \tau=\Omega(\epsilon/\log(1/\epsilon)).
+\]
+The cap implementation is polynomial-time in the explicit table. Its finite-net deterministic variant is also proper and has the same asymptotic query bound, with constants depending on the template dimension.
+\end{theorem}
+
+\begin{algorithm}[t]
+\caption{Proper RECTIFY}\label{alg:proper}
+Run RECTIFY at accuracy $\epsilon/4$; interrupt at the first negative peel\;
+\If{none occurs}{\Return the all-positive member\;}
+Use the singleton point, or test the singleton row at loss threshold $\epsilon/2$\;
+\If{the row passes}{\Return that row\;}
+Locate its unique heavy negative target point $p$ by binary search\;
+Query negative target mass outside $p$\;
+\eIf{the answer exceeds $\epsilon/4$}{Binary-search the rows negative at $p$ by their disjoint outside negative supports\;}{Test up to $\lceil8/\epsilon\rceil+1$ distinct such rows and return one whose loss answer is at most $\epsilon/2$\;}
+\end{algorithm}
+A failed test of a negative rectangle's singleton row forces its target-negative mass onto the unique intersection point. Outside that point, the surviving rows' negative supports are disjoint. This gives \cref{thm:proper}; see \cref{proof:proper}.
+\subsection{The succinct order-median learner}\label{sec:fast}
+For every query, reserve half the raw tolerance for a finite answer encoding. With raw tolerance $\epsilon/8192$ and $\zeta=\epsilon/4096$, effective error is at most $\zeta$. Let $\mu^-(S)=D(S\cap\{h^*=-1\})$ and $\beta=\mu^-(X)$.
+\begin{lemma}[Noisy integer medians]\label{lem:median}
+Suppose $\zeta\ge0$, $\beta>0$, $|\widehat\beta-\beta|\le\zeta$, and $\beta\ge512\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\mu^-\{f\le t\}$ and threshold $\widehat\beta/2$ returns $v\in[L,H]$ with
+\[
+ \mu^-\{f\le v\}\ge\beta/2-3\zeta/2,
+ \qquad
+ \mu^-\{f<v\}<\beta/2+3\zeta/2.
+\]
+If the answer $\widehat m$ to $m=\mu^-\{f=v\}$ is at most $\widehat\beta/8$, then
+\begin{equation}\label{eq:balancedmedian}
+ \beta/2-3\zeta/2\le\mu^-\{f\le v\}
+ <5\beta/8+21\zeta/8.
+\end{equation}
+Otherwise $m>\beta/9$.
+\end{lemma}
+\noindent The proof is in \cref{proof:median}.
+
+For $p=(p_x,p_y)$ the template star has slopes $1\le a\le t(p):=\min\{N,\lfloor(p_y-1)/p_x\rfloor\}$ and intercept $p_y-ap_x$. Call $A$ \emph{star-regular} when every star of size at least $64\lceil n\rceil$ has at least one quarter of its rows negative at its center.
+\begin{theorem}[Succinct median learner]\label{thm:fast}
+Let $0<\epsilon<1/4$. Suppose entries of a real-grid incidence flip $A$ can be evaluated in time $E(n)$, where $n=\log_2(2N^3)$. There is a deterministic improper distribution-independent SQ learner of error at most $\epsilon$, using $O(n^2)$ queries at raw tolerance $\epsilon/8192$, with total computation polynomial in $(n,1/\epsilon,E(n))$ and an efficiently evaluable output. If $A$ is star-regular, there is a proper randomized learner with
+\[
+ m=O(n^2+1/\epsilon+\log(1/\epsilon)),\qquad
+ \tau=\epsilon/8192,
+\]
+with the same polynomial-time property and expected error at most $\epsilon$ against every valid oracle.
+\end{theorem}
+
+At a trial slope $a$, the residual $y-ax=(a^*-a)x+b^*$ increases or decreases along the target. A fixed balanced prefix and a residual-median set therefore have intersection mass near at least $\beta/2$ or at most $\beta/4$. Their oracle answers distinguish the two cases at threshold $3\widehat\beta/8$. A heavy residual atom instead identifies the line or one negative point. Each slope stage uses $O(\log N)$ median queries; there are $O(\log N)$ stages. The full procedure and proof are in \cref{app:proofs-C}.

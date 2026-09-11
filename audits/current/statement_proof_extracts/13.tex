@@ -1,0 +1,32 @@
+% sections/06_explicit.tex:14-25
+\begin{lemma}[Small subgrid counting and decision cost]\label{lem:subgrid}
+At grid scale $k\ge2$, put $K_k=2k^3$ and
+\[
+ I_k=2k^4-\left(\frac{k(k+1)}2\right)^2,
+ \qquad D_k=\left\lfloor\frac{k}{24\log_2 k}\right\rfloor.
+\]
+Under independent fair flips,
+\[
+ \Pr[\sr(A)\le D_k]\le2^{-k^4/2}.
+\]
+Whether $\sr(A)\le D_k$ can be decided after reading at most $I_k\le2k^4$ oracle bits, in time $2^{O(k^3D_k\log k)}=2^{O(k^4)}$ when $D_k\ge1$. When $D_k=0$, the event is empty and is decided immediately.
+\end{lemma}
+
+% appendices/explicit_proofs.tex:4-20
+\begin{proof}[Proof of \cref{lem:subgrid}]
+When $D_k\ge1$, we have $k\ge32$ and $1\le D_k\le k\le K_k/2$, so the range condition in \eqref{eq:warren} holds. The implication $D_k\ge1\Rightarrow k\ge32$ supplies the logarithmic estimate below. Thus
+\[
+ \log_2(4eK_k/D_k)\le\log_2(8e k^3)\le4\log_2k.
+\]
+The strict-pattern bound \eqref{eq:warren} therefore gives at most
+\[
+ 2^{2K_kD_k\cdot4\log_2k}\le2^{(2/3)k^4}
+\]
+low-rank tables. For $k\ge3$, $(k+1)^2/(4k^2)\le4/9<1/2$, so $I_k\ge(3/2)k^4$. Dividing the preceding count by $2^{I_k}$ gives at most $2^{-5k^4/6}\le2^{-k^4/2}$. If $D_k=0$, no nonempty strict sign matrix has that rank.
+
+For the decision algorithm, query the incidence bits and fill the known off-incidence entries. The condition is equivalent to feasibility of
+\[
+ A_{ij}\sum_{s=1}^{D_k}U_{is}V_{sj}\ge1\quad(i,j\in[K_k]).
+\]
+Indeed a strict factorization can be scaled to have all signed scores at least one, since there are finitely many positive signed scores. The converse is immediate. There are $2K_kD_k$ real variables and $K_k^2$ degree-two polynomial inequalities with bounded integer coefficients. We use the singly exponential existential-real consistency bound in the formulation of \citet{Vorobjov21}, attributed there to \citet{Renegar92}: $(sd)^{O(v)}L^{O(1)}$ bit operations for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$. Substitution gives $2^{O(k^3D_k\log k)}$. The resulting decision procedure is applied only to the polynomial-size subgrid.
+\end{proof}

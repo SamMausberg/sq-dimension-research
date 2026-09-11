@@ -1,0 +1,65 @@
+\section{Proofs for the explicit families}\label{app:proofs-D}
+
+\subsection[Proof of result subgrid]{Proof of \cref{lem:subgrid}}\label{proof:subgrid}
+\begin{proof}[Proof of \cref{lem:subgrid}]
+When $D_k\ge1$, we have $k\ge32$ and $1\le D_k\le k\le K_k/2$, so the range condition in \eqref{eq:warren} holds. The implication $D_k\ge1\Rightarrow k\ge32$ supplies the logarithmic estimate below. Thus
+\[
+ \log_2(4eK_k/D_k)\le\log_2(8e k^3)\le4\log_2k.
+\]
+The strict-pattern bound \eqref{eq:warren} therefore gives at most
+\[
+ 2^{2K_kD_k\cdot4\log_2k}\le2^{(2/3)k^4}
+\]
+low-rank tables. For $k\ge3$, $(k+1)^2/(4k^2)\le4/9<1/2$, so $I_k\ge(3/2)k^4$. Dividing the preceding count by $2^{I_k}$ gives at most $2^{-5k^4/6}\le2^{-k^4/2}$. If $D_k=0$, no nonempty strict sign matrix has that rank.
+
+For the decision algorithm, query the incidence bits and fill the known off-incidence entries. The condition is equivalent to feasibility of
+\[
+ A_{ij}\sum_{s=1}^{D_k}U_{is}V_{sj}\ge1\quad(i,j\in[K_k]).
+\]
+Indeed a strict factorization can be scaled to have all signed scores at least one, since there are finitely many positive signed scores. The converse is immediate. There are $2K_kD_k$ real variables and $K_k^2$ degree-two polynomial inequalities with bounded integer coefficients. We use the singly exponential existential-real consistency bound in the formulation of \citet{Vorobjov21}, attributed there to \citet{Renegar92}: $(sd)^{O(v)}L^{O(1)}$ bit operations for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$. Substitution gives $2^{O(k^3D_k\log k)}$. The resulting decision procedure is applied only to the polynomial-size subgrid.
+\end{proof}
+
+\subsection[Proof of result prf]{Proof of \cref{thm:prf}}\label{proof:prf}
+\begin{proof}[Proof of \cref{thm:prf}]
+The evaluation claim follows from integer arithmetic and one PRF evaluation. The rectangle and proper-learning bounds hold for every monotone flip, without any randomness assumption on its entries.
+
+Take the subgrid scale $k=\lceil c n^c\rceil$, which is at most $N$ for sufficiently large $n$. Restrict both the full row set and point set to $[k]\times[2k^2]$. The restricted template is the scale-$k$ construction. Each queried bit is evaluated at the ambient encoding $E_b$ defined in Section~\ref{sec:explicit}; the restriction never re-encodes an input at scale $k$. A uniform oracle assigns independent fair values to these distinct strings. An oracle distinguisher reads its incidence bits and accepts precisely when its sign-rank is at most $D_k$. Its time is
+\[
+ 2^{O_c(n^{4c})}\le2^{n^{4c+2}}\le2^{\sigma^\delta}
+\]
+for sufficiently large $n$. Under a uniform function its acceptance probability is at most $2^{-k^4/2}$ by Lemma~\ref{lem:subgrid}. Under the PRF it is therefore at most $2^{-k^4/2}+\operatorname{negl}(\sigma)$, which is negligible in $n$: for $p=\lceil(4c+2)/\delta\rceil$ and any $q>0$, a bound smaller than $\sigma^{-q/p}$ is smaller than $n^{-q}$. Equivalently, a nonnegligible bad-key probability along admissible $n$ would give nonnegligible advantage along the key lengths $\sigma=n^p$. Restricting a sign realization cannot increase its rank. Consequently, except on that event, the full dimension is at least $D_k+1>k/(24\log_2k)$.
+
+For large $n$, $k\ge c n^c$ and $\log_2k\le c\log_2n+\log_2(2c)\le(5/4)c\log_2n$. Hence
+\[
+ D_k+1>\frac{k}{24\log_2k}\ge\frac{n^c}{30\log_2n}.
+\]
+This proves the displayed constant. The choice $k=n^c$ alone would instead give $n^c/(24c\log_2n)$; its factor $c$ cannot be discarded. Also $N=2^{(n-1)/3}$, rather than $2^{n/3}$, respects the fixed definition $n=\log_2|X|$.
+\end{proof}
+
+\subsection[Proof of result regularstars]{Proof of \cref{lem:regularstars}}\label{proof:regularstars}
+\begin{proof}[Proof of \cref{lem:regularstars}]
+At a fixed point with $t$ incident rows, the number of negatives is a sum of $t$ independent fair bits. For $\lambda=\ln3$,
+\[
+ \Pr[Z<t/4]\le e^{\lambda t/4}\left(\frac{1+e^{-\lambda}}2\right)^t
+ =\left(\frac{2}{3^{3/4}}\right)^t\le e^{-t/16}.
+\]
+For the last elementary inequality, $\ln(3^{3/4}/2)>1/16$; for example $3^3/2^4=27/16>e^{1/4}$, since $e^{1/4}\le(1-1/4)^{-1}=4/3<27/16$. If $t\ge64\lceil n\rceil$, the failure probability is at most $e^{-4n}$. There are at most $2^n$ points, so a union bound gives $e^{-(4-\ln2)n}\le e^{-3n}$.
+
+A distinguisher can read every incidence bit and test all stars in time $2^{O(n)}$. This is below $2^{\sigma^\delta}$ for the stated key length. The random-function bound plus PRF indistinguishability proves the claim. Polynomial growth of $\sigma$ in $n$ makes $e^{-3n}$ negligible in the key length as well.
+\end{proof}
+
+\subsection[Proof of result fastprf]{Proof of \cref{cor:fastprf}}\label{proof:fastprf}
+\begin{proof}[Proof of \cref{cor:fastprf}]
+Intersect the high-rank key event from Theorem~\ref{thm:prf} with the star-regular event from Lemma~\ref{lem:regularstars}. Their two negligible exceptional probabilities have negligible sum. Apply Theorem~\ref{thm:fast} and the polynomial-time entry evaluator.
+\end{proof}
+
+\subsection[Polynomial advice]{Proof of \cref{prop:advice}}\label{proof:advice}
+\begin{proof}[Proof of \cref{prop:advice}]
+
+Take $k=\lceil cn^c\rceil$ and store the $I_k$ independent incidence bits of the scale-$k$ subgrid. Set every other template incidence positive. The proof of \cref{thm:prf}, with independent bits in place of the PRF, gives the lower bound and exceptional probability from \cref{lem:subgrid}. Entry evaluation checks subgrid membership and, only there, reads the relevant advice bit.
+
+Collapse all points outside the subgrid into one positive point. The effective domain has $2k^3+1$ points and the effective class at most $2k^3+1$ rows; every row outside the subgrid is all-positive. A strict template representation in dimension seven is obtained from the original six coordinates by adjoining a coordinate that is zero on old points, one on the added point, and one on all row vectors. The added point vector has its other coordinates zero. An all-positive row already occurs in the subgrid, so the collapsed rows require no additional row sign pattern. Adding it preserves the no-negative-$2\times2$ property.
+
+Apply the deterministic cap and proper constructions to this polynomial-size effective table. Every effective SQ is simulated by composing its query with the known collapsing map, so its expectation under an arbitrary original marginal is exactly the expectation under the pushforward marginal. The proper output extends by $+1$ outside the subgrid and belongs to the original class. The query count is $O_\epsilon(\log k)=O_{c,\epsilon}(\log n)$, and the table computation is polynomial in $n$ for fixed $c$.
+
+\end{proof}

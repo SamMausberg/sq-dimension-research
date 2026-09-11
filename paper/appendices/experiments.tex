@@ -1,0 +1,79 @@
+\section{Experiments and reproducibility}\label{app:experiments}
+All experiments use CPU computation. The public key is
+\begin{center}\small\ttfamily
+8959fe4a6b404807275400d0a95800e62d0b\\
+119c2f8e0061d0ff5d241b229c78
+\end{center}
+with the two lines concatenated. The experimental flip bit is the low bit of the first byte of HMAC-SHA256 on the key and the message consisting of \texttt{SQDC4}, a zero byte, and the unsigned 64-bit big-endian tuple $(N,a,b,x,y)$. Off-incidence entries remain positive. The random-search seed is $202609104$. This specifies the experimental keyed-hash instantiation. The cryptographic theorems separately use the family and ambient encoding in Section~\ref{sec:explicit}.
+
+\paragraph{Oracle and distribution access.}
+The learners receive only the entry evaluator and SQ answers; the simulator alone knows the chosen target and rational distribution. Every query records its support mask, exact expectation, returned rational answer and public control state. The adversarial policy chooses a tolerance endpoint using the complete public transcript and the current query. For threshold decisions it chooses an endpoint that favors premature stopping, ambiguous median comparisons, a high-error candidate acceptance, or continued search when available, according to the explicit priority rules in the scripts. The cap marginal policy cannot inspect a private row side or color not revealed by the query. The policy is the explicit public-history endpoint adversary implemented in the scripts. Exact-oracle runs are reported separately in the raw outputs.
+
+Structured distributions include uniform template points, actual negative points, one heavy negative point with a small tail, and mixed positive/negative supports. The searches use random restarts followed by coordinate changes of rational weights, with support at most 20. The order-median sweep uses three restarts and four mutations; the cap sweep uses two restarts and three mutations. Reporting uses fresh learner seeds. Every recorded error is recomputed against the actual target, and every recorded proper output is checked for class membership.
+
+\paragraph{Succinct order-median learner.}
+The script \texttt{seeded\_fast.py} executes the proper algorithm of Theorem~\ref{thm:fast} for $N=2,\ldots,8,16,32$. It does not construct a truth table or enumerate all domain points inside the learner. The simulator represents $D$ by its finite support. The stated accuracy is $\epsilon=1/10$, and the exact-rational experiments use effective tolerance $\zeta=\epsilon/4096=1/40960$. The finite-bit theorem requests raw tolerance $\zeta/2$ to reserve the other half for response rounding; these runs have no additional rounding error.
+
+\begin{center}\small
+\begin{tabular}{rrrrrr}
+\toprule
+$N$&Runs&Largest error&Most queries&Max. wall (ms)&Slope-search runs\\
+\midrule
+2&16&0.0010000000&8&0.235&0\\
+3&36&0.0010000000&11&0.425&0\\
+4&36&0.0143149285&12&0.168&0\\
+5&36&0.0243217961&14&0.394&0\\
+6&36&0.0010000000&28&0.393&2\\
+7&36&0.0010000000&15&0.252&0\\
+8&36&0.0010000000&16&2.993&0\\
+16&36&0.0010000000&52&0.915&12\\
+32&36&0.0010000000&89&1.368&16\\
+\bottomrule
+\end{tabular}
+\end{center}
+Error and wall-time entries are rounded upward. Wall time includes the exact finite-support oracle, not the cost of a physical statistical oracle. Raw output also records simulator time separately. The entries are maxima from the fresh median sweep archived under \texttt{audits/current/rerun\_results/fast}. All 304 runs passed 4,798 exact query-answer checks; all 304 outputs were proper. The 30 slope-search runs specifically exercise the order comparison used to resolve the all-light case.
+
+The small grid sweep cannot reach the large-star sampling branch because its conservative threshold is at least $128/\epsilon=1280$. A separate unit test therefore uses $N=4096$ and the point $p=(1,N+1)$, whose star has 4096 lines. Exactly 1968 of these keyed rows are negative at $p$, exceeding the required local quarter fraction. On 20 learner seeds, a distribution putting mass $.7$ at $p$ and $.3$ at a positive outside point produced a proper zero-error answer. Full transcripts are saved. The test generates and verifies this star without constructing the full $N=4096$ table.
+
+\paragraph{Keyed Proper RECTIFY.}
+The script \texttt{run\_keyed\_caps.py} runs the proper cap learner on the same keyed family for $N=2,\ldots,8$, using only the public-history endpoint oracle. It uses outer accuracy $1/10$, rectangle-phase accuracy $1/40$, $\rho=2^{20}$, and tolerance $1/23226329280$. A numerical radial-isotropic optimizer proposes a finite catalog of directions and rectangles. Before that catalog is used, the integer truth table verifies every rectangle and the exact pointwise coverage of the discrete mixture. Thus the implemented coverage guarantee does not rely on rounding a numerical covariance residual in the favorable direction.
+
+\begin{center}\small
+\begin{tabular}{rrrrrr}
+\toprule
+$N$&Runs&Largest error&Most rounds&Most queries&Max. wall (s)\\
+\midrule
+2&8&.0062500001&63&133&.010\\
+3&8&.0062500001&75&159&.031\\
+4&8&.0085570466&198&409&.105\\
+5&8&.0062500001&393&798&.203\\
+6&8&.0062500001&645&1308&.462\\
+7&8&.0062500001&2881&5779&1.446\\
+8&8&.0062500001&749&1521&3.838\\
+\bottomrule
+\end{tabular}
+\end{center}
+The 56 recorded runs passed 28,262 exact query-answer checks. Their 499 catalogs passed 231,150 monochromatic-rectangle checks and 228,684 exact pointwise coverage checks. Every returned hypothesis belonged to the class. The entire keyed-cap experiment, including search, took 63.35 seconds in the recorded environment. Query types and the peel, elimination and rejection counts appear in the aggregate CSV and full transcripts. The much smaller query count of the order-median method is expected: it uses the grid order rather than sampling from a conservative generic rectangle law.
+
+\paragraph{Subgrid counts and elementary checks.}
+The following exact counts enumerate the independent incidence positions. The rank threshold from Lemma~\ref{lem:subgrid} is zero at all these small scales, so its low-rank event is empty. The table records finite construction counts and the zero rank threshold at these scales.
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$k$&$K_k=2k^3$&$I_k$&$D_k$&$k^4/2$\\
+\midrule
+2&16&23&0&8\\
+3&54&126&0&40.5\\
+4&128&412&0&128\\
+5&250&1025&0&312.5\\
+6&432&2151&0&648\\
+\bottomrule
+\end{tabular}
+\end{center}
+The script \texttt{algebra\_and\_stress.py} passed 280 exact rational endpoint checks for the new median, split and orientation inequalities. It also exhausts all label patterns and all sample-index sequences for $N\in\{2,3,4\}$ and $T\in\{0,1,2,3\}$: memorization with a constant fallback on unseen points achieves exactly $\tfrac12(1-1/N)^T$ on average in each of the 12 cases. The affine certificate script additionally checks the incidence and Gram identities over five prime fields and the corresponding success-probability substitution. The experiments concern statistical-query algorithms.
+
+
+\paragraph{Later-result checks.}
+The electronic ledger for \cref{app:newaudit} contains 77 rows across the nine rechecked results. The fresh exact checks cover 162 endpoint inequalities, 4,080 nonmonotone median paths, 1,000 prefix--suffix identities, 1,000 fixed-bit star samplers, 3,487 ambient-encoding comparisons, 5,000 response-grid cases, 17,476 halfspace color reductions and 720 unseen-label bounds. Separate floating-point checks cover the logarithmic Warren exponents, PRF parameter arithmetic, packing exponents and hinge constants. For $N=2,\ldots,8$, the same-slope construction in \cref{proof:query-lower} is checked to fit $N^2$ target rows exactly.
+
+The median sweep, endpoint, unseen-label, large-star, affine and parameter scripts were rerun from fresh directories for this release. The keyed-cap table records the preserved cap sweep. The repository keeps both datasets under distinct paths. Run \texttt{python tools/run\_checks.py} from the repository root for the fresh checks and median sweep; add \texttt{--caps} to repeat the keyed-cap sweep. The exact commands, dependency versions and output manifests are supplied with the source.

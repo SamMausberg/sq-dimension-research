@@ -1,0 +1,8 @@
+{
+  "key_hex": "8959fe4a6b404807275400d0a95800e62d0b119c2f8e0061d0ff5d241b229c78",
+  "random_seed": 202609104,
+  "epsilon": "1/10",
+  "tau": "1/40960",
+  "runs": 304,
+  "note": "HMAC-SHA256 experimental keyed hash; no security claim. Public-query endpoint adversary; finite search, not global worst case."
+}

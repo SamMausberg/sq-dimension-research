@@ -1,0 +1,527 @@
+[
+  {
+    "old": "5.3",
+    "label": "lem:median",
+    "title": "Integer medians",
+    "rows": [
+      {
+        "id": "5.3-1",
+        "inequality": "$\\zeta\\ge0,\\ \\beta>0,\\ \\beta\\ge512\\zeta$.",
+        "adversary": "Explicit parameter domain; no answer used.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.3-2",
+        "inequality": "$\\widehat F(t)\\ge\\widehat\\beta/2\\Rightarrow F(t)\\ge\\beta/2-3\\zeta/2$.",
+        "adversary": "$\\widehat F=F+\\zeta$, $\\widehat\\beta=\\beta-\\zeta$ minimize the certified mass.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.3-3",
+        "inequality": "$\\widehat F(t)<\\widehat\\beta/2\\Rightarrow F(t)<\\beta/2+3\\zeta/2$.",
+        "adversary": "$\\widehat F=F-\\zeta$, $\\widehat\\beta=\\beta+\\zeta$ maximize it.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.3-4",
+        "inequality": "$F(v)\\ge\\beta/2-3\\zeta/2$, $F(v-1)<\\beta/2+3\\zeta/2$.",
+        "adversary": "Binary search retains a certified lower and upper endpoint; replies need not be monotone.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.3-5",
+        "inequality": "$\\widehat m\\le\\widehat\\beta/8\\Rightarrow m\\le\\beta/8+9\\zeta/8$.",
+        "adversary": "$\\widehat m=m-\\zeta$, $\\widehat\\beta=\\beta+\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.3-6",
+        "inequality": "$F(v)<5\\beta/8+21\\zeta/8$.",
+        "adversary": "Add the preceding atom bound to $F(v-1)<\\beta/2+3\\zeta/2$.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.3-7",
+        "inequality": "$\\widehat m>\\widehat\\beta/8\\Rightarrow m>\\beta/8-9\\zeta/8>\\beta/9$.",
+        "adversary": "$\\widehat m=m+\\zeta$, $\\widehat\\beta=\\beta-\\zeta$; the last step uses $\\beta>81\\zeta$.",
+        "randomness": "Pathwise."
+      }
+    ]
+  },
+  {
+    "old": "5.4",
+    "label": "thm:fast",
+    "title": "Succinct learner",
+    "rows": [
+      {
+        "id": "5.4-1",
+        "inequality": "$\\zeta=\\epsilon/4096$; raw and rounding errors are at most $\\zeta/2$ each.",
+        "adversary": "Triangle inequality; finite answer representation is part of the computational interface.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-2",
+        "inequality": "$\\widehat\\beta\\le\\epsilon/4\\Rightarrow\\beta\\le\\epsilon/4+\\zeta$.",
+        "adversary": "$\\widehat\\beta=\\beta-\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-3",
+        "inequality": "$\\widehat\\beta>\\epsilon/4\\Rightarrow\\beta>1023\\zeta>512\\zeta$.",
+        "adversary": "$\\widehat\\beta=\\beta+\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-4",
+        "inequality": "$\\mu^-(P\\cap Q)\\ge\\beta/2-3\\zeta/2$ for two prefixes.",
+        "adversary": "Intersection is the smaller prefix; apply both median lower bounds.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-5",
+        "inequality": "$\\mu^-(P\\cap Q)\\le\\beta/4+21\\zeta/4$ for a prefix and a suffix.",
+        "adversary": "Their intersection mass is $\\max(0,\\mu^-(P)+\\mu^-(Q)-\\beta)$.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-6",
+        "inequality": "$\\widehat{\\mu^-(P\\cap Q)}-3\\widehat\\beta/8\\ge(\\beta-23\\zeta)/8>0$ in the prefix case.",
+        "adversary": "Intersection answer minus $\\zeta$; total answer plus $\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-7",
+        "inequality": "$3\\widehat\\beta/8-\\widehat{\\mu^-(P\\cap Q)}\\ge(\\beta-53\\zeta)/8>0$ in the suffix case.",
+        "adversary": "Intersection answer plus $\\zeta$; total answer minus $\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-8",
+        "inequality": "$\\widehat{\\mu^-(P)}>\\widehat\\beta/8$ for the constant residual.",
+        "adversary": "Lower observed mass is $\\beta/2-5\\zeta/2$; compare with $(\\beta+\\zeta)/8$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-9",
+        "inequality": "$\\widehat{\\mu^-(Q\\setminus P)}>\\widehat\\beta/8$ for the constant residual.",
+        "adversary": "Even a difference of two answers is at least $3\\beta/8-37\\zeta/8$; $\\beta>19\\zeta$ suffices.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-10",
+        "inequality": "A wrong-slope residual atom is a singleton; one split answer is at most $2\\zeta<\\widehat\\beta/8$.",
+        "adversary": "Allow two endpoint errors if the split is obtained by subtraction; $\\beta>17\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-11",
+        "inequality": "$\\zeta<\\widehat\\beta/32<\\beta/9-\\zeta$.",
+        "adversary": "Use $\\widehat\\beta\\in[\\beta-\\zeta,\\beta+\\zeta]$ and $\\beta\\ge512\\zeta$; separates zero from a heavy atom.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-12",
+        "inequality": "Large outside negative mass is $>\\epsilon/4-\\zeta$; star-half queries are zero or that mass.",
+        "adversary": "Every other line through the known point misses the target away from it; threshold $\\epsilon/8$ remains separated by $\\zeta$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-13",
+        "inequality": "Small outside negative mass is $\\le\\epsilon/4+\\zeta$.",
+        "adversary": "The answer can underestimate by $\\zeta$; the one-point predictor has this error.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "5.4-14",
+        "inequality": "$C_0=\\max(64\\lceil n\\rceil,\\lceil128/\\epsilon\\rceil)$; a smaller enumerated star contains the target.",
+        "adversary": "Target loss answer is at most $\\zeta<\\epsilon/2$.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-15",
+        "inequality": "At most $8/\\epsilon$ star rows have outside negative mass $>\\epsilon/8$.",
+        "adversary": "Their outside negative supports are disjoint and total mass is at most one.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-16",
+        "inequality": "At least $t/4-8/\\epsilon\\ge t/8$ rows pass; their loss is at most $3\\epsilon/8+\\zeta$.",
+        "adversary": "On a regular star with $t>C_0$; answer at most $3\\epsilon/8+2\\zeta<\\epsilon/2$.",
+        "randomness": "None."
+      },
+      {
+        "id": "5.4-17",
+        "inequality": "Each row has sampling probability $\\ge1/(2t)$; success per trial is $\\ge1/16$.",
+        "adversary": "Use $\\lceil\\log_2t\\rceil$ bits reduced modulo $t$; the good-row count is pathwise.",
+        "randomness": "Fresh learner bits."
+      },
+      {
+        "id": "5.4-18",
+        "inequality": "$J=\\lceil16\\ln(4/\\epsilon)\\rceil$; failure $\\le(15/16)^J\\le\\epsilon/4$.",
+        "adversary": "Independent trials; every good row passes every permitted loss answer.",
+        "randomness": "Learner bits."
+      },
+      {
+        "id": "5.4-19",
+        "inequality": "$\\E L\\le\\epsilon/2+\\zeta+\\epsilon/4<\\epsilon$.",
+        "adversary": "Any passed test certifies loss $\\le\\epsilon/2+\\zeta$; failure output loss is at most one.",
+        "randomness": "Learner bits only."
+      },
+      {
+        "id": "5.4-20",
+        "inequality": "$m=O(n^2+1/\\epsilon+\\log(1/\\epsilon))$.",
+        "adversary": "At most $O(n)$ slope stages and $O(n)$ binary queries per median; all integer tests use $O(n)$-bit coordinates.",
+        "randomness": "None."
+      }
+    ]
+  },
+  {
+    "old": "6.1",
+    "label": "lem:subgrid",
+    "title": "Counting on a subgrid",
+    "rows": [
+      {
+        "id": "6.1-1",
+        "inequality": "$K_k=2k^3$, $I_k=2k^4-[k(k+1)/2]^2$.",
+        "adversary": "Sum $2k^2-ax$ over $a,x\\in[k]$; no oracle.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-2",
+        "inequality": "$D_k=\\lfloor k/(24\\log_2k)\\rfloor\\le K_k/2$.",
+        "adversary": "For $D_k=0$ the nonpositive-rank event is empty.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-3",
+        "inequality": "$D_k\\ge1\\Rightarrow k\\ge32\\Rightarrow\\log_2(8ek^3)\\le4\\log_2k$.",
+        "adversary": "The implication is only a sufficient range check; it does not locate the first positive $D_k$.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-4",
+        "inequality": "$\\log_2\\#\\{\\sr\\le D_k\\}\\le2K_kD_k\\,4\\log_2k\\le2k^4/3$.",
+        "adversary": "Warren applies to strict patterns of degree two in $2K_kD_k$ variables.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-5",
+        "inequality": "$k\\ge3\\Rightarrow I_k\\ge3k^4/2$.",
+        "adversary": "$(k+1)^2/(4k^2)\\le1/2$ for $k\\ge3$.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-6",
+        "inequality": "$\\Pr[\\sr\\le D_k]\\le2^{2k^4/3-I_k}\\le2^{-5k^4/6}\\le2^{-k^4/2}$.",
+        "adversary": "All $I_k$ free positions are independent uniform bits.",
+        "randomness": "Random flips."
+      },
+      {
+        "id": "6.1-7",
+        "inequality": "$\\sr(A)\\le D_k\\iff\\exists U,V:\\ A_{ij}\\sum_sU_{is}V_{sj}\\ge1$.",
+        "adversary": "Scale a strict factorization by its finite minimum signed score; coefficients are $-1,0,1$.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.1-8",
+        "inequality": "$(K_k^2)^{O(K_kD_k)}=2^{O(k^3D_k\\log k)}=2^{O(k^4)}$.",
+        "adversary": "Use the cited singly exponential existential-real decision bound with degree two and bounded coefficient length.",
+        "randomness": "None."
+      }
+    ]
+  },
+  {
+    "old": "6.2",
+    "label": "thm:prf",
+    "title": "Pseudorandom restriction",
+    "rows": [
+      {
+        "id": "6.2-1",
+        "inequality": "$n=3b+1$, $N=2^b$, $k=\\lceil c n^c\\rceil\\le N$ eventually.",
+        "adversary": "Fix $c,\\delta$ before the asymptotic limit.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.2-2",
+        "inequality": "$E_b(a,b_0,x,y)$ has $6b+2=2n$ bits and is injective.",
+        "adversary": "Concatenate zero-based coordinates in widths $b,2b+1,b,2b+1$; keep this ambient encoding in every restriction.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.2-3",
+        "inequality": "Exactly $I_k\\le2k^4$ function values determine the restricted matrix.",
+        "adversary": "Query only incidences. Uniform oracle values at these distinct ambient inputs are independent fair bits.",
+        "randomness": "Function oracle, not SQ."
+      },
+      {
+        "id": "6.2-4",
+        "inequality": "$2^{C_c n^{4c}}\\le2^{n^{4c+2}}\\le2^{\\sigma^\\delta}$ eventually.",
+        "adversary": "$\\sigma=n^p$, $p=\\lceil(4c+2)/\\delta\\rceil$; the $n^2$ slack absorbs the fixed decision-procedure constant and reading cost.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.2-5",
+        "inequality": "$\\Pr_s[\\sr(A_s|_k)\\le D_k]\\le2^{-k^4/2}+\\operatorname{negl}(\\sigma)$.",
+        "adversary": "Use the low-rank decision as the acceptance event; nonnegligible excess would distinguish from a random function.",
+        "randomness": "Uniform key / random function."
+      },
+      {
+        "id": "6.2-6",
+        "inequality": "$\\operatorname{negl}(n^p)=\\operatorname{negl}(n)$.",
+        "adversary": "For each desired exponent $q$, use the security estimate with exponent $q/p$; $p$ is fixed.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.2-7",
+        "inequality": "$\\dc(H_{A_s})\\ge D_k+1>k/(24\\log_2k)$.",
+        "adversary": "Restriction cannot increase sign-rank; use the complement of the low-rank event.",
+        "randomness": "Good-key event."
+      },
+      {
+        "id": "6.2-8",
+        "inequality": "$\\log_2k\\le c\\log_2n+\\log_2(2c)\\le(5/4)c\\log_2n$.",
+        "adversary": "For all sufficiently large $n$; the extra factor $c$ in $k$ is retained.",
+        "randomness": "None."
+      },
+      {
+        "id": "6.2-9",
+        "inequality": "$k/(24\\log_2k)\\ge n^c/(30\\log_2n)$.",
+        "adversary": "Substitute $k\\ge c n^c$ and the preceding logarithmic estimate.",
+        "randomness": "None."
+      }
+    ]
+  },
+  {
+    "old": "6.5",
+    "label": "cor:fastprf",
+    "title": "Joint good-key event",
+    "rows": [
+      {
+        "id": "6.5-1",
+        "inequality": "$\\Pr[\\operatorname{Bin}(t,1/2)<t/4]\\le e^{-t/16}$.",
+        "adversary": "Multiplicative Chernoff with mean $t/2$ and relative deviation $1/2$.",
+        "randomness": "Random incidence bits."
+      },
+      {
+        "id": "6.5-2",
+        "inequality": "$t\\ge64\\lceil n\\rceil\\Rightarrow2^ne^{-t/16}\\le e^{-3n}$.",
+        "adversary": "Union bound over all points; the regularity event is independent of $\\epsilon$.",
+        "randomness": "Random flips."
+      },
+      {
+        "id": "6.5-3",
+        "inequality": "Star-regularity is decidable in $2^{O(n)}\\le2^{\\sigma^\\delta}$ time eventually.",
+        "adversary": "Enumerate incidences using the same ambient encoding; transfer the bad-star event by PRF security.",
+        "randomness": "Uniform key / function."
+      },
+      {
+        "id": "6.5-4",
+        "inequality": "$\\Pr_s[\\text{bad rank or bad stars}]=\\operatorname{negl}(n)$.",
+        "adversary": "Union bound, not independence of the events.",
+        "randomness": "Uniform key."
+      },
+      {
+        "id": "6.5-5",
+        "inequality": "$m=O_\\epsilon(n^2)$, $1/\\tau=O_\\epsilon(1)$, $\\mathrm{TIME}=\\operatorname{poly}_{c,\\epsilon}(n)$.",
+        "adversary": "Apply the proper succinct algorithm on regular keys; its deterministic improper version works for every key.",
+        "randomness": "Learner bits for proper output."
+      }
+    ]
+  },
+  {
+    "old": "7.1",
+    "label": "thm:communication",
+    "title": "Product-average communication",
+    "rows": [
+      {
+        "id": "7.1-1",
+        "inequality": "$\\Pr[L\\le2c]\\ge1/2$.",
+        "adversary": "Markov on the cost of an exact deterministic protocol under the chosen product measure.",
+        "randomness": "Product-distributed inputs."
+      },
+      {
+        "id": "7.1-2",
+        "inequality": "$\\#\\{\\text{leaves of depth}\\le2c\\}\\le2^{\\lfloor2c\\rfloor}$.",
+        "adversary": "Prefix-free transcripts can be injected into strings of length $\\lfloor2c\\rfloor$.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.1-3",
+        "inequality": "$\\max_Q(\\mu\\times\\nu)(Q)\\ge2^{-\\lfloor2c\\rfloor-1}\\ge2^{-2c-1}$.",
+        "adversary": "One shallow monochromatic leaf carries the average shallow mass. At $c=0$, all positive-mass inputs reach a zero-cost leaf.",
+        "randomness": "Product inputs."
+      },
+      {
+        "id": "7.1-4",
+        "inequality": "$\\Pr[\\text{continue after }j\\text{ stages}]\\le(1-r)^j$.",
+        "adversary": "Conditioning a product measure on a protocol cell preserves product form; each selected rectangle has conditional mass $\\ge r$.",
+        "randomness": "Product inputs."
+      },
+      {
+        "id": "7.1-5",
+        "inequality": "$\\E[\\text{bits}]\\le2\\sum_{j\\ge0}(1-r)^j=2/r$.",
+        "adversary": "Two membership bits per stage; complete zero-mass cells by a finite exact protocol.",
+        "randomness": "Product inputs."
+      },
+      {
+        "id": "7.1-6",
+        "inequality": "$\\rho=2^{2c+1}=2\\cdot4^c$.",
+        "adversary": "Substitute into the rectangle learner; its arbitrary-policy guarantee is unchanged.",
+        "randomness": "RECTIFY draws."
+      }
+    ]
+  },
+  {
+    "old": "7.9",
+    "label": "thm:halfspaces",
+    "title": "Cube halfspaces",
+    "rows": [
+      {
+        "id": "7.9-1",
+        "inequality": "$\\dc(H_n)\\le n$ for odd $n$.",
+        "adversary": "Identity embedding; dot products are odd integers and nonzero.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.9-2",
+        "inequality": "$\\langle w,x\\rangle<0\\Rightarrow d_H(w,x)\\ge(n+1)/2$.",
+        "adversary": "Use $\\langle w,x\\rangle=n-2d_H(w,x)$.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.9-3",
+        "inequality": "$\\langle w,x\\rangle>0\\Rightarrow d_H(-w,x)\\ge(n+1)/2$.",
+        "adversary": "Negate one side only; it is a measure-preserving bijection of the uniform cube.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.9-4",
+        "inequality": "$\\alpha\\le e^{-2s^2/n}$, with $s=\\E d_H(Z,A)$.",
+        "adversary": "Distance to $A$ changes by at most one per coordinate. Apply the lower bounded-differences tail at $s$.",
+        "randomness": "Independent uniform cube coordinates."
+      },
+      {
+        "id": "7.9-5",
+        "inequality": "$s\\le t\\Rightarrow\\beta\\le e^{-2(t-s)^2/n}$.",
+        "adversary": "Every point of the other set has distance at least $t$; apply the upper tail.",
+        "randomness": "Uniform cube."
+      },
+      {
+        "id": "7.9-6",
+        "inequality": "$\\alpha\\beta\\le e^{-2[s^2+(t-s)^2]/n}\\le e^{-t^2/n}\\le e^{-n/4}$.",
+        "adversary": "$s^2+(t-s)^2\\ge t^2/2$ and $t=(n+1)/2$. If $s\\ge t$, use $\\alpha\\le e^{-2t^2/n}$ instead.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.9-7",
+        "inequality": "$F(v^*)=0$, $\\|g\\|\\le1$, $\\|\\widehat g-g\\|\\le\\tau$.",
+        "adversary": "$\\gamma=1/n$; coordinate query errors at either endpoint are divided by $\\sqrt n$.",
+        "randomness": "Pathwise SQ answers."
+      },
+      {
+        "id": "7.9-8",
+        "inequality": "$F(\\bar v)\\le1/(2aT)+a(1+\\tau)^2/2+2\\tau$.",
+        "adversary": "Projected subgradient distance telescope; perturbation inner product is at most $2\\tau$.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "7.9-9",
+        "inequality": "$T\\ge100/(\\epsilon^2\\gamma^2)$, $a=T^{-1/2}$, $\\tau=\\epsilon\\gamma/8$.",
+        "adversary": "$(1+\\tau)^2<4$ implies $F(\\bar v)\\le5/(2\\sqrt T)+2\\tau\\le\\epsilon\\gamma/2$.",
+        "randomness": "None."
+      },
+      {
+        "id": "7.9-10",
+        "inequality": "$L\\le F(\\bar v)/\\gamma\\le\\epsilon/2$, $m=nT=O(n^3/\\epsilon^2)$.",
+        "adversary": "Every thresholding error incurs hinge cost at least $\\gamma$.",
+        "randomness": "Deterministic learner."
+      }
+    ]
+  },
+  {
+    "old": "8.1",
+    "label": "cor:engineered",
+    "title": "Engineered full-batch simulation",
+    "rows": [
+      {
+        "id": "8.1-1",
+        "inequality": "$\\sup_O L_{01}(A^O)\\le\\epsilon/8$.",
+        "adversary": "Use the deterministic improper learner, valid for every key. No expected-to-pathwise conversion is made.",
+        "randomness": "None."
+      },
+      {
+        "id": "8.1-2",
+        "inequality": "$L_{\\rm square}(A)\\le\\epsilon/16$.",
+        "adversary": "For Boolean labels and predictions, half squared error is half classification error.",
+        "randomness": "Pathwise."
+      },
+      {
+        "id": "8.1-3",
+        "inequality": "$\\lambda=\\tau_0/16$, $T^{\\prime}=2k$, $m_s\\lambda^2>C(k\\log(1/\\lambda)+\\log(1/\\delta))$.",
+        "adversary": "Imported full-batch Theorem 3d: one sample is reused, with $\\lambda$-grid gradients within $3\\lambda/4$ of the clipped empirical gradient.",
+        "randomness": "Sample and initialization."
+      },
+      {
+        "id": "8.1-4",
+        "inequality": "$p=\\operatorname{poly}(k,1/\\tau_0,r,\\mathrm{TIME},1/\\delta)$.",
+        "adversary": "TIME includes the succinct learner and query evaluations. Set $r=1$ with an ignored bit, not an assumed $r=0$ case.",
+        "randomness": "Ignored initialization bit."
+      },
+      {
+        "id": "8.1-5",
+        "inequality": "$\\E_{S,R}\\sup_{g_1,\\ldots,g_{T\\prime}}L_{\\rm square}\\le\\epsilon/16+\\delta=\\epsilon/8$.",
+        "adversary": "$\\delta=\\epsilon/16$. Retain the imported supremum inside the expectation, including its dependence on the whole sample.",
+        "randomness": "Sample / initialization; arbitrary admissible gradients."
+      },
+      {
+        "id": "8.1-6",
+        "inequality": "$L_{01}(\\1_{f\\ge1/2})\\le8L_{\\rm square}(f)$.",
+        "adversary": "A threshold error gives $|f-y|\\ge1/2$ and half squared error at least $1/8$.",
+        "randomness": "Pointwise."
+      },
+      {
+        "id": "8.1-7",
+        "inequality": "$\\E L_{01}\\le\\epsilon$, $p,m_s=\\operatorname{poly}_{c,\\epsilon}(n)$, $T^{\\prime}=O(n^2)$.",
+        "adversary": "Only the time bound of the succinct learner and the imported polynomial are used; no polynomial in query count alone is substituted.",
+        "randomness": "Sample / initialization."
+      }
+    ]
+  },
+  {
+    "old": "10.3",
+    "label": "prop:unseen",
+    "title": "Unseen independent labels",
+    "rows": [
+      {
+        "id": "10.3-1",
+        "inequality": "$\\Pr[x\\text{ unseen}]=(1-1/N)^T$.",
+        "adversary": "The sample indices are iid uniform on a full template line.",
+        "randomness": "Sample indices."
+      },
+      {
+        "id": "10.3-2",
+        "inequality": "$\\E[L\\mid\\text{indices, observed labels, learner coins}]\\ge\\#\\{\\text{unseen}\\}/(2N)$.",
+        "adversary": "Each unseen label remains a fair independent bit because the learner was fixed independently of the table.",
+        "randomness": "Unseen random flip bits."
+      },
+      {
+        "id": "10.3-3",
+        "inequality": "$\\E L\\ge\\tfrac12(1-1/N)^T\\ge\\tfrac12(1-T/N)$.",
+        "adversary": "Average the preceding identity; Bernoulli inequality.",
+        "randomness": "Table, samples, learner coins."
+      },
+      {
+        "id": "10.3-4",
+        "inequality": "$\\E L\\le\\epsilon\\Rightarrow T\\ge(1-2\\epsilon)N$.",
+        "adversary": "This is a uniform-over-tables or average-table premise, not a claim for each individually selected table.",
+        "randomness": "None."
+      },
+      {
+        "id": "10.3-5",
+        "inequality": "$\\epsilon<1/4,\\ S\\ge2\\Rightarrow TS\\ge N\\ge\\dc(H_A)/3$.",
+        "adversary": "$\\dc(H_A)\\le2N+1\\le3N$. Keep the table-independent learner premise.",
+        "randomness": "None."
+      }
+    ]
+  }
+]

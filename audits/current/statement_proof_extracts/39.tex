@@ -1,0 +1,21 @@
+% appendices/geometric_bounds.tex:3-5
+\begin{proposition}[Independent constant rectangle bound]\label{prop:cap-bound}
+Let $c_d$ be the normalized surface measure of the cap of Section~\ref{sec:caps} on $S^{d-1}$, $d\ge2$. Every matrix $F$ of sign-rank at most $d$ satisfies $\rect(F)\ge c_d/(4d)$. If $F$ has no negative $2\times2$, every monotone flip $A$ satisfies $\rect(A)\ge c_d/(8d)$. In particular, for $d=6$ this is greater than $2^{-18}$.
+\end{proposition}
+
+% appendices/geometric_bounds.tex:7-21
+\begin{proof}
+First take a uniform prior on $k>d$ row copies. Perturb their representing vectors, if necessary, so every $d$ are independent while preserving the finitely many strict signs. The full minimization argument in Theorem~\ref{thm:forster} produces an invertible transform whose normalized row vectors are isotropic. Apply the inverse transpose to the point vectors and normalize; all signs persist.
+
+For each uniform random direction $u$, the two sets $T_+(u)=\{v:\langle u,v\rangle>\alpha\}$ and $T_-(u)=\{v:\langle u,v\rangle<-\alpha\}$ have combined prior mass at least $1/(2d)$. The rectangles $C_u\times T_+(u)$ and $C_u\times T_-(u)$ have constant signs. For any fixed point marginal $\mu$, rotational invariance gives $\E_u\mu(C_u)=c_d$, because each unit point lies in a random cap with probability $c_d$. Therefore the expected sum of their product masses is at least $c_d/(2d)$, and some single rectangle has mass at least $c_d/(4d)$.
+
+Apply \cref{lem:product-weights}, repeating all row copies further so their number exceeds $d$. Representations of identical copies may differ, but their signs agree with the original entries; projection therefore preserves monochromaticity. A negative rectangle has a singleton side under the additional assumption on $F$. Split its other side according to the new signs in $A$; one color retains at least half its product mass. Positive rectangles survive unchanged. This proves the second assertion.
+
+For the numerical estimate at $d=6$, project the cap onto its last five coordinates. Its image is the five-dimensional ball of radius $\alpha=1/\sqrt{12}$, and the surface-area Jacobian is at least one. The volume of the unit five-ball is $8\pi^2/15$ and the area of $S^5$ is $\pi^3$, obtained by polar integration of the Gaussian integral. Thus
+\[
+ c_6\ge\frac8{15\pi\,12^{5/2}}>
+ \frac8{15\cdot4\cdot576}=\frac1{4320},
+ \qquad \frac{c_6}{48}>\frac1{207360}>2^{-18}.
+\]
+This independent constant, rather than the sharper imported one, is already sufficient for Theorems~\ref{thm:main}--\ref{thm:prob} to refute every polynomial dimension implication.
+\end{proof}

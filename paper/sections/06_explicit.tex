@@ -1,0 +1,61 @@
+\section{Conditional explicit families}\label{sec:explicit}\label{sec:prf}
+\paragraph{Cryptographic assumption.}
+Fix a constant $\delta>0$, decreasing it to be less than one if necessary. Assume a polynomial-time bit-output pseudorandom function family $\{f_s\}_{s\in\{0,1\}^\sigma}$, defined on inputs long enough to encode a grid row and point, such that every oracle algorithm running in time at most $2^{\sigma^\delta}$ has negligible distinguishing advantage between $f_s$ for uniform $s$ and a uniform random function. Negligibility is in $\sigma$. We use this assumption directly. The one-way-function, pseudorandom-generator and pseudorandom-function constructions of \citet{HILL99,GGM86} provide background for this assumption. The quantitative security hypothesis above is assumed directly; the lower bounds below do not require a separate quantitative reduction from one-way functions.
+
+For $n=3b+1$ and $N=2^b$, encode a row--point pair by
+\[
+ E_b(a,b',x,y)=\operatorname{bin}_{b}(a-1)\Vert
+ \operatorname{bin}_{2b+1}(b'-1)\Vert
+ \operatorname{bin}_{b}(x-1)\Vert
+ \operatorname{bin}_{2b+1}(y-1).
+\]
+This injection has length $6b+2=2n$; append zero padding to the prescribed PRF input length. Every subgrid query uses this same ambient encoding $E_b$, rather than an encoding at the smaller scale. Off incidences set $A_s=+1$; on incidences set $A_s=2f_s(E_b(a,b',x,y))-1$.
+
+\begin{lemma}[Small subgrid counting and decision cost]\label{lem:subgrid}
+At grid scale $k\ge2$, put $K_k=2k^3$ and
+\[
+ I_k=2k^4-\left(\frac{k(k+1)}2\right)^2,
+ \qquad D_k=\left\lfloor\frac{k}{24\log_2 k}\right\rfloor.
+\]
+Under independent fair flips,
+\[
+ \Pr[\sr(A)\le D_k]\le2^{-k^4/2}.
+\]
+Whether $\sr(A)\le D_k$ can be decided after reading at most $I_k\le2k^4$ oracle bits, in time $2^{O(k^3D_k\log k)}=2^{O(k^4)}$ when $D_k\ge1$. When $D_k=0$, the event is empty and is decided immediately.
+\end{lemma}
+\noindent The proof is in \cref{proof:subgrid}.
+\begin{theorem}[Conditional almost-every-key explicit lower bounds]\label{thm:prf}
+Assume the stated PRF security for a fixed $\delta>0$. Fix $c\ge1$, $0<\epsilon<1/4$, $n=3b+1$, and put
+\[
+ \sigma=n^{\lceil(4c+2)/\delta\rceil}.
+\]
+For every key, entries of $A_s$ and hypotheses in $H_{A_s}$ are evaluable in $\operatorname{poly}_c(n)$ time. Every key has RECTIFY and proper learners with $O_\epsilon(n)$ queries and tolerance $\Omega_\epsilon(1)$. For all sufficiently large admissible $n$, outside a negligible fraction of keys,
+\[
+ \boxed{\dc(H_{A_s})\ge\frac{n^c}{30\log_2n}.}
+\]
+Here the learner with $O(n)$ queries may use table-polynomial computation. A succinct polynomial-time implementation with $O(n^2)$ queries is established in Section~\ref{sec:fast}.
+\end{theorem}
+\noindent The proof is in \cref{proof:prf}.
+\begin{proposition}[Unconditional polynomial advice]\label{prop:advice}
+Fix $c\ge1$ and $0<\epsilon<1/4$. For all sufficiently large $n=3b+1$, there is a family of incidence-flip classes on $2^n$ points indexed by advice strings of length $O_c(n^{4c})$. Every entry is evaluable in $\operatorname{poly}_c(n)$ time. For all but a $2^{-\Omega_c(n^{4c})}$ fraction of advice strings,
+\[
+ \dc(H)\ge\frac{n^c}{30\log_2 n}.
+\]
+Every advice string admits a proper deterministic learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $O_{c,\epsilon}(\log n)$ queries at tolerance $\Omega_\epsilon(1)$.
+\end{proposition}
+\noindent The proof is in \cref{proof:advice}.
+\begin{lemma}[Regular stars for almost every key]\label{lem:regularstars}
+Use the star-regularity definition in \cref{sec:fast}: every template star with at least $64\lceil n\rceil$ rows has at least one quarter of its rows negative at its center. This property is independent of $\epsilon$; the algorithm tests it only for stars larger than $C_0=\max\{64\lceil n\rceil,\lceil128/\epsilon\rceil\}$. For independent fair incidence flips, the probability of failure of star-regularity is at most $e^{-3n}$, where $n=\log_2(2N^3)$. Under the PRF assumption and parameters of Theorem~\ref{thm:prf}, failure occurs for only a negligible fraction of keys.
+\end{lemma}
+\noindent The proof is in \cref{proof:regularstars}.
+\begin{corollary}[Conditional polynomial-time, seed-known separation]\label{cor:fastprf}
+Under the PRF assumption, for every fixed $c\ge1$ and $0<\epsilon<1/4$, all but a negligible fraction of keys in Theorem~\ref{thm:prf} define classes with
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2n},\qquad
+ m=O_\epsilon(n^2),\qquad\tau=\Omega_\epsilon(1),
+\]
+and a proper learner running in $\operatorname{poly}_{c,\epsilon}(n)$ time given the key. Every key has the corresponding deterministic improper polynomial-time learner, independently of star-regularity.
+\end{corollary}
+\noindent The proof is in \cref{proof:fastprf}.
+
+For the $O_\epsilon(n)$-query table learner, choosing $c$ above a prescribed polynomial degree refutes that degree in $(m,1/\tau,n)$. For the succinct $O_\epsilon(n^2)$-query learner, choose $c$ above twice the degree. Taking $k=n^{\log_2n}$ and $\sigma=\lceil k^{6/\delta}\rceil$ gives superpolynomial dimension with quasipolynomial descriptions by the same reduction.

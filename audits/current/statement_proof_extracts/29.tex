@@ -1,0 +1,37 @@
+% appendices/comparisons.tex:133-149
+\begin{theorem}[Marginal-branching and approximate probabilistic bounds]\label{thm:tree}
+Let $H\subseteq\{-1,+1\}^X$ be finite and nonempty, $m\ge1$ an integer, $0<\tau\le1$, and $0<\epsilon<1/4$. Put $B=\lceil2/\tau\rceil+1$. Suppose a depth-at-most-$m$ deterministic $(m,\tau)$-SQ learner satisfies \eqref{eq:guarantee} for this $H$ and $\epsilon$. Decompose each query as
+\[
+ q(x,y)=a(x)+yb(x),\quad
+ a(x)=\tfrac12(q(x,+1)+q(x,-1)),\quad
+ b(x)=\tfrac12(q(x,+1)-q(x,-1)).
+\]
+Construct its marginal-response tree as follows. If $a$ is constant, retain only the answer equal to that constant. Otherwise retain the $B$ equally spaced answers in $[-1,1]$. Let $u$ be the maximum number of nonconstant-$a$ nodes on a retained root-to-leaf path. Then
+\begin{equation}\label{eq:tree}
+ \dc(\cH)\leq(m+1)B^u.
+\end{equation}
+In particular, a deterministic correlational-only learner has $\dc(\cH)\leq m+1$.
+For an arbitrary randomized $(m,\tau)$-SQ learner with worst-case query budget $m$ satisfying \eqref{eq:guarantee} under the same hypotheses,
+\begin{equation}\label{eq:approx}
+ \dc^{\epsilon}(\cH)\leq B^m.
+\end{equation}
+\end{theorem}
+
+% appendices/certificate_proofs.tex:166-182
+\begin{proof}[Proof of \cref{thm:tree}]
+The grid has spacing $2/(B-1)\leq\tau$, so nearest-grid rounding errs by at most $\tau/2$. The marginal tree has at most $B^u$ leaves: suppress unary nodes and use induction on the number of remaining branching nodes per path. It has at most $(m+1)B^u$ nodes, because every node has a descendant leaf and a depth between zero and $m$, and assigning each node one such pair is injective when the depth is fixed along a leaf's path.
+Collect the function $b$ at every internal node and the Boolean output at every leaf. These are the common features $f_1,\ldots,f_s$, where $s\leq(m+1)B^u$ and each feature has absolute value at most one.
+
+Fix $D,h$. Follow the tree by giving the exact constant response or rounding $\E_Da$ to the grid. If at some node $|\E_D hb|>\tau/2$, one of the signed features $b,-b$ has correlation greater than $\tau/2$. Otherwise every answer is a valid SQ response: the difference from the true expectation $\E_Da+\E_D hb$ is at most $\tau/2+\tau/2$. A valid policy realizing this finite transcript extends to all other histories by exact answers. The deterministic guarantee then gives leaf correlation at least $1-2\epsilon>1/2\geq\tau/2$. We have proved
+\begin{equation}\label{eq:minimaxpremise}
+ \forall D,\qquad \max_{i,\ s_i\in\{-1,+1\}}\E_D[h(x)s_if_i(x)]\geq\tau/2.
+\end{equation}
+Apply \cref{lem:finite-minimax} with instance set $X$ and actions the signed features $(i,s_i)$. Equation \eqref{eq:minimaxpremise} gives a convex combination whose coordinate at every $x$ is at least $\tau/2$. Its coefficients therefore define a common-feature linear representation with strict target product at every point. This proves \eqref{eq:tree}. For correlational-only queries $a=0$, hence $u=0$.
+
+For a randomized learner, fix a seed and instead retain all grid answers to each full query. There are at most $B^m$ leaves. Use all leaf outputs as coordinates of an embedding, padding when needed. This distribution over embeddings depends only on the learner's seed, not on $D,h$. For fixed $D,h$, the policy rounding each true expectation to the grid is valid. Its output is one of the leaf features. Selecting that coordinate as $w$ gives
+\[
+ \inf_w L_{D,h}(\sign\langle w,\phi_\omega\rangle)
+ \leq L_{D,h}(A_\omega^{O_{D,h}}).
+\]
+Averaging over the seed proves \eqref{eq:approx}. No seed is selected after observing $D$ or $h$.
+\end{proof}

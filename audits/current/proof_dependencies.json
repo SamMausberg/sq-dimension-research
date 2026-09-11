@@ -1,0 +1,207 @@
+{
+  "edges_statement_to_dependencies": {
+    "lem:finite-minimax": [],
+    "lem:product-weights": [],
+    "lem:ties": [],
+    "lem:params": [
+      "lem:mixture"
+    ],
+    "lem:mixture": [
+      "lem:finite-minimax"
+    ],
+    "thm:main": [
+      "lem:mixture"
+    ],
+    "thm:construction": [
+      "lem:product-weights",
+      "thm:main",
+      "import:Warren-AMY",
+      "import:APP-HHPTZ",
+      "prop:cap-bound"
+    ],
+    "thm:prob": [
+      "thm:construction",
+      "lem:ties",
+      "import:Warren-AMY",
+      "lem:exact-prob"
+    ],
+    "lem:exact-prob": [
+      "lem:ties"
+    ],
+    "cor:negative-answer": [
+      "thm:construction",
+      "thm:prob",
+      "lem:exact-prob",
+      "thm:caps",
+      "thm:proper"
+    ],
+    "thm:caps": [
+      "thm:forster",
+      "aux:convex-bit",
+      "thm:main"
+    ],
+    "thm:proper": [
+      "thm:caps",
+      "thm:main"
+    ],
+    "lem:median": [],
+    "thm:fast": [
+      "lem:median"
+    ],
+    "lem:subgrid": [
+      "import:Warren-AMY",
+      "import:ETR-Vorobjov"
+    ],
+    "thm:prf": [
+      "lem:subgrid",
+      "thm:construction",
+      "thm:proper",
+      "assumption:PRF"
+    ],
+    "prop:advice": [
+      "lem:subgrid",
+      "thm:caps",
+      "thm:proper"
+    ],
+    "lem:regularstars": [
+      "assumption:PRF"
+    ],
+    "cor:fastprf": [
+      "thm:prf",
+      "lem:regularstars",
+      "thm:fast"
+    ],
+    "thm:communication": [
+      "thm:main"
+    ],
+    "thm:energy": [],
+    "thm:barrier": [
+      "thm:energy"
+    ],
+    "thm:forster": [],
+    "thm:plane": [
+      "thm:forster",
+      "thm:barrier"
+    ],
+    "thm:tree": [
+      "lem:finite-minimax"
+    ],
+    "prop:affine": [
+      "thm:energy",
+      "thm:barrier"
+    ],
+    "thm:pgglobal": [],
+    "thm:halfspaces": [
+      "aux:cube-concentration"
+    ],
+    "thm:adapt": [
+      "thm:tree",
+      "thm:caps"
+    ],
+    "cor:approxrect": [
+      "lem:product-weights",
+      "thm:main",
+      "import:BHKR26"
+    ],
+    "cor:engineered": [
+      "thm:fast",
+      "thm:prf",
+      "import:AKMSS21"
+    ],
+    "thm:network": [],
+    "prop:hiddenkey": [
+      "assumption:PRF"
+    ],
+    "thm:description": [
+      "thm:construction",
+      "thm:main",
+      "import:RCF-MC12"
+    ],
+    "thm:classicalbarrier": [
+      "lem:finite-minimax"
+    ],
+    "prop:unseen": [],
+    "thm:rsd": [
+      "lem:finite-minimax",
+      "import:Feldman17-definition"
+    ],
+    "prop:cap-bound": [
+      "thm:forster",
+      "lem:product-weights"
+    ],
+    "prop:pg-rect": [
+      "thm:plane"
+    ],
+    "aux:convex-bit": [],
+    "aux:cube-concentration": [],
+    "import:Warren-AMY": [],
+    "import:APP-HHPTZ": [],
+    "import:ETR-Vorobjov": [],
+    "import:Feldman17-definition": [],
+    "import:BHKR26": [],
+    "import:AKMSS21": [],
+    "import:RCF-MC12": [],
+    "assumption:PRF": [],
+    "thm:query-lower": [
+      "aux:entropy-ball",
+      "aux:cube-concentration",
+      "thm:caps",
+      "thm:proper"
+    ],
+    "aux:entropy-ball": []
+  },
+  "topological_order": [
+    "lem:finite-minimax",
+    "lem:product-weights",
+    "lem:ties",
+    "import:Warren-AMY",
+    "import:APP-HHPTZ",
+    "thm:forster",
+    "aux:convex-bit",
+    "lem:median",
+    "import:ETR-Vorobjov",
+    "assumption:PRF",
+    "thm:energy",
+    "thm:pgglobal",
+    "aux:cube-concentration",
+    "import:BHKR26",
+    "import:AKMSS21",
+    "thm:network",
+    "import:RCF-MC12",
+    "prop:unseen",
+    "import:Feldman17-definition",
+    "aux:entropy-ball",
+    "lem:mixture",
+    "thm:tree",
+    "thm:classicalbarrier",
+    "lem:exact-prob",
+    "prop:cap-bound",
+    "thm:fast",
+    "lem:subgrid",
+    "lem:regularstars",
+    "prop:hiddenkey",
+    "thm:barrier",
+    "thm:halfspaces",
+    "thm:rsd",
+    "lem:params",
+    "thm:main",
+    "thm:plane",
+    "prop:affine",
+    "thm:construction",
+    "thm:caps",
+    "thm:communication",
+    "cor:approxrect",
+    "prop:pg-rect",
+    "thm:prob",
+    "thm:description",
+    "thm:proper",
+    "thm:adapt",
+    "cor:negative-answer",
+    "thm:prf",
+    "prop:advice",
+    "thm:query-lower",
+    "cor:fastprf",
+    "cor:engineered"
+  ],
+  "acyclic": true
+}

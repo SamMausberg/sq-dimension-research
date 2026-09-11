@@ -1,0 +1,13 @@
+% sections/04_family.tex:37-43
+\begin{corollary}[Negative answers to the dimension implications]\label{cor:negative-answer}
+For every fixed $0<\epsilon<1/4$, none of (L), (P) and (Pn) holds universally with $\dc(H)$ or $\dc_{1/2}(H)$ on the left. For every fixed $C>0$, choose
+\[
+ 0<\epsilon<\min\{1/4,1/(2C)\},\qquad\eta=C\epsilon.
+\]
+The same three conclusions fail with $\dc^{C\epsilon}(H)$ on the left, under each nondegenerate tie convention of \cref{lem:ties}. The counterexamples have proper deterministic, table-polynomial learners with $m=O_\epsilon(\log M)$ and $\tau=\Omega_\epsilon(1)$.
+\end{corollary}
+
+% appendices/family_proof.tex:66-68
+\begin{proof}[Proof of \cref{cor:negative-answer}]
+Fix the required constant accuracies and intersect the high-probability events of \cref{thm:construction,thm:prob}. Their failure probability is at most $2^{-I/2}+2^{-(1-h_2(\eta))I/2}<1$ for all sufficiently large $N$. Thus one matrix satisfies the two lower bounds simultaneously. Apply \cref{lem:exact-prob} for exact probabilistic dimension, and \cref{thm:caps,thm:proper} for the proper deterministic learner. Since $M=N^3$ and $n=\log_2(2M)$, the dimension lower bounds grow exponentially in $n$, up to powers of $\log M$, whereas $m=O_\epsilon(n)$ and $1/\tau=O_\epsilon(1)$. No fixed polynomial in the proposed variables can dominate these lower bounds.
+\end{proof}

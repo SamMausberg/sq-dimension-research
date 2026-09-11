@@ -1,0 +1,23 @@
+% appendices/comparisons.tex:7-19
+\begin{theorem}[Communication as a sufficient condition]\label{thm:communication}
+For every finite class,
+\[
+ \rect(H)\ge2^{-2\mathrm{AC}_{\times}(H)-1},
+ \qquad
+ \mathrm{AC}_{\times}(H)\le2\rect(H)^{-1}.
+\]
+In particular, for every $0<\epsilon<1/4$, if $\mathrm{AC}_{\times}(H)\le c$, one distribution-independent SQ learner satisfies \eqref{eq:guarantee} using
+\[
+ m=O\bigl(4^c(\log|H|+\log(1/\epsilon))\bigr),\qquad
+ \tau=\Omega\!\left(\frac{\epsilon}{4^c\log(1/\epsilon)}\right).
+\]
+\end{theorem}
+
+% appendices/certificate_proofs.tex:4-10
+\begin{proof}[Proof of \cref{thm:communication}]
+Fix a product distribution and a protocol of expected cost at most $c>0$. Markov's inequality gives probability at least $1/2$ to leaves of depth at most $2c$. There are at most $2^{\lfloor2c\rfloor}$ such leaves: their transcript words are prefix-free, and each can be extended to a distinct word of length $\lfloor2c\rfloor$. One of their rectangles has mass at least $2^{-\lfloor2c\rfloor-1}\ge2^{-2c-1}$. A zero-cost protocol has a monochromatic support rectangle of mass one, so the same claimed weaker bound holds. Taking the infimum over product distributions proves the first inequality. The finite domain permits a minimum expected-cost exact protocol: redundant repeated-state branches can be removed, bounding depth by a finite function of the domain sizes. Alternatively, use costs within arbitrarily small additive slack and pass to the limit.
+
+For the converse put $r=\rect(H)$. At any current rectangular cell, condition the original product distribution on that cell. Its positive-mass conditional law is still product, and the restricted matrix still has rectangle ratio at least $r$. Fix a monochromatic rectangle of conditional mass at least $r$. The parties exchange their two membership bits. If both are one, output its color. Otherwise continue in the indicated one of the three remaining rectangular cells. Every nonempty continuing cell is a proper subcell: a positive-mass rectangle has both sides nonempty, and either a row or point has been excluded. Thus this exact protocol terminates after finitely many stages on every positive-support pair. Zero-mass cells can be completed by any finite exact protocol, without expected cost.
+
+Conditional on reaching a stage with positive probability, its termination probability is at least $r$. By induction its survival probability after $t$ stages is at most $(1-r)^t$. Summing the tail probabilities, the expected number of stages is at most $1/r$, and each costs at most two bits. This proves the second inequality. This converse is the protocol of \citet[Proposition~3.14]{HHPTZ22}, included here with the conditioning and termination details. Substitute $\rho=2^{2c+1}$ into Theorem~\ref{thm:main} for the SQ bounds.
+\end{proof}

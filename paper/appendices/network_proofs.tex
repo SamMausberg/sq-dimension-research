@@ -1,0 +1,15 @@
+\section{Proofs for differentiable-learning comparisons}\label{app:proofs-F}
+
+\subsection[Proof of result network]{Proof of \cref{thm:network}}\label{proof:network}
+\begin{proof}[Proof of \cref{thm:network}]
+The first hidden layer computes $\sigma(x_i),\sigma(-x_i)$ for every coordinate. These give $x_i$ by subtraction and the constant $c=\sigma(x_1)+\sigma(-x_1)=1$ on the cube. For every negative point $p$, a second-layer unit computes
+\[
+ \sigma\left(\sum_i p_ix_i-(n-1)c\right).
+\]
+At $x=p$ its value is one; at every other cube point the sum is at most $n-2$ and the unit is zero. Pass $c$ through one additional unit and output $c$ minus twice the sum of the negative-point units. Pad unused units by zero weights. There are at most $N$ negative points, and counting all fully connected weights gives the claimed $S$. The moment-curve proof in Theorem~\ref{thm:construction} still applies to the padded domain. Padding preserves every dimension lower bound by restriction; it preserves a rectangle lower bound up to a factor two, because either padding carries at least half the point mass or the original domain does.
+\end{proof}
+
+\subsection[Proof of result hiddenkey]{Proof of \cref{prop:hiddenkey}}\label{proof:hiddenkey}
+\begin{proof}[Proof of \cref{prop:hiddenkey}]
+Given an oracle function, generate the learner's independent uniform point samples on $\ell_0$ and label them by its oracle values at the corresponding incidence encodings. Run the learner without giving it a key. Draw an independent uniform test point on $\ell_0$, query its label, and output one if the predictor agrees. In the PRF case acceptance is at least $1/2+\gamma(n)$. In the random-function case, conditional on the training transcript, a previously unqueried point has an independent fair label. A fresh test point repeats a training point with probability at most $q(n)/N$. Acceptance is therefore at most $1/2+q(n)/(2N)$. The simulation and one output evaluation are polynomial-time. Since $N=2^{(n-1)/3}$, the collision term is negligible, contradicting PRF security for inverse-polynomial $\gamma$.
+\end{proof}

@@ -1,0 +1,53 @@
+\section{Definitions and notation}\label{sec:preliminaries}
+Let $X$ be finite and nonempty and let $H=\{h_1,\ldots,h_K\}\subseteq\{-1,+1\}^X$ be a nonempty indexed class. Repeated rows are permitted. Write
+\[
+ L_{D,h}(g)=\Pr_{x\sim D}[g(x)\ne h(x)],\qquad
+ \E_D[hg]=1-2L_{D,h}(g).
+\]
+All predictors are Boolean unless a score and its threshold rule are specified. Unsubscripted logarithms in asymptotic bounds may use either base.
+
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}\toprule
+Symbol & Meaning\\\midrule
+$n$ & $\log_2|X|$, the domain encoding length\\
+$N,M,K$ & Grid scale, $M=N^3$, and $K=2M$ rows and points for incidence flips\\
+$\rho,r$ & Inverse rectangle parameter and $r=1/\rho$\\
+$\tau$ & SQ tolerance\\
+$\epsilon$ & Target classification error, $0<\epsilon<1/4$\\
+$\eta$ & Approximation level in probabilistic dimension, $0\le\eta<1/2$\\
+$\zeta$ & Effective median-query error, $\epsilon/4096$\\\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Oracle and learner.}
+A query $q:X\times\{-1,+1\}\to[-1,1]$ receives any $v$ with $|v-\E_Dq(x,h(x))|\le\tau$ \citep{Kearns98}. A valid policy may use the full public query-answer history, including queries that reveal past private choices, but not unrevealed future coins. A depth-$m$ learner makes at most $m$ adaptive queries and satisfies
+\begin{equation}\label{eq:guarantee}
+ \forall D\ \forall h\in H\ \forall\text{ valid policies }O,
+ \qquad \E_\omega L_{D,h}(A^O_\omega)\le\epsilon.
+\end{equation}
+The seed is independent of the instance. Early stopping can be padded by zero queries. Randomized policies are handled by conditioning on their randomness. Our finite-state algorithms are measurable. Computation is uncharged unless stated; computational results use finite binary answers and reserve half the tolerance for rounding. Deterministic guarantees are pathwise.
+
+\paragraph{Dimension.}
+The dimension complexity $\dc(H)$ is the least $d$ for which one $\phi:X\to\R^d$ and row weights $w_h$ satisfy
+\begin{equation}\label{eq:strict}
+ h(x)\langle w_h,\phi(x)\rangle>0\qquad(x\in X,h\in H).
+\end{equation}
+It is the sign-rank of the truth table: a rank factorization and a common feature representation are the same object \citep{BDES02}.
+
+For probabilistic dimension fix $\sign(0)=+1$. A single embedding law, independent of $D,h$, witnesses $\dc_{1/2}(H)\le d$ when
+\[
+ \forall D,h,\quad \Pr_\phi[\exists w:L_{D,h}(\sign\langle w,\phi\rangle)=0]\ge1/2.
+\]
+It witnesses $\dc^\eta(H)\le d$ when
+\[
+ \forall D,h,\quad \E_\phi\inf_w L_{D,h}(\sign\langle w,\phi\rangle)\le\eta.
+\]
+The source attributes these variants to \citet{CMW25} and \citet{KMS20}. Its literal raw-score loss assigns zero loss to $w=0$; the definitions above fix a Boolean tie rule. Finiteness makes the infimum a minimum. \Cref{lem:ties} gives the same lower bounds for the opposite fixed tie rule and when zero scores count as errors.
+
+\paragraph{Rectangles.}
+A rectangle $S\times T\subseteq X\times H$ has color $c$ when $h(x)=c$ on it. Define
+\[
+ \rect(H)=\inf_{\mu\in\Delta(X),\nu\in\Delta(H)}
+ \max_{S\times T\text{ monochromatic}}\mu(S)\nu(T).
+\]
+Restricting a matrix cannot decrease this ratio, by extending weights by zero. \Cref{lem:finite-minimax,lem:product-weights} record the finite separation and rational-weight reductions used below.

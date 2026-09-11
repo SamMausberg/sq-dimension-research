@@ -1,0 +1,12 @@
+\section{Cap sampler and geometry}\label{app:capprocedures}
+\begin{algorithm}[t]
+\caption{Cap sampler from a strict template}\label{alg:caps}
+\KwIn{Unpeeled points $U$, surviving rows $V$, and the uniform prior $\nu$ on $V$.}
+Use the fixed general-position perturbation and place $V$ in radial-isotropic position in effective dimension $j$\;
+Set $\alpha=(2j)^{-1/2}$, $\beta=\sqrt{1-\alpha^2}$; draw $u$ uniformly on $S^{j-1}$\;
+Set $S\gets U\cap\{x:\langle u,z_x\rangle\ge\beta\}$ and $T^\pm\gets\{h:\pm\langle u,v_h\rangle>\alpha\}$\;
+Choose the larger of $T^+,T^-$ under $\nu$\;
+\If{the positive side is chosen}{\Return $(S,T^+,+1)$\;}
+The negative rectangle has a singleton side. Split the opposite side according to its labels in $A$, choose either color with probability $1/2$, and return that monochromatic rectangle\;
+\end{algorithm}
+\input{figures/cap_geometry}

@@ -1,0 +1,36 @@
+\section{Finite separation, product weights and tie conventions}\label{app:foundations}
+\begin{lemma}[Finite minimax and pointwise coverage]\label{lem:finite-minimax}
+Let $\mathcal A$ be a nonempty finite action set and $Z$ a nonempty finite set of instance types. Let $g_a\in\R^Z$ and $r\in\R$. The following statements are equivalent:
+\[
+ \forall\mu\in\Delta(Z),\ \max_{a\in\mathcal A}\E_\mu g_a\ge r;
+ \qquad
+ \exists\lambda\in\Delta(\mathcal A),\ \forall z\in Z,\ \E_\lambda g_a(z)\ge r.
+\]
+The result also applies when an arbitrary instance set induces only finitely many payoff vectors $(g_a(z))_{a\in\mathcal A}$.
+\end{lemma}
+\begin{proof}
+The reverse implication follows by averaging. For the forward direction, let $C=\operatorname{conv}\{g_a:a\in\mathcal A\}$ and $Q=r\1+\R_{\ge0}^Z$. If disjoint, their minimum distance is positive and attained: $C$ is compact, and a bounded-distance minimizing sequence has bounded $Q$-components. Let $(c,z)$ attain it and put $v=z-c\ne0$. Differentiation along feasible segments gives
+\[
+ \langle v,c'-c\rangle\le0\quad(c'\in C),\qquad
+ \langle v,z'-z\rangle\ge0\quad(z'\in Q).
+\]
+Taking $z'=z+te_x$ yields $v_x\ge0$. Moreover,
+\[
+ \max_{c'\in C}\langle v,c'\rangle
+ \le\langle v,c\rangle<\langle v,z\rangle
+ =\min_{z'\in Q}\langle v,z'\rangle=r\sum_xv_x.
+\]
+Normalize $v$ to a probability distribution, contradicting the first condition. Hence $C\cap Q\ne\varnothing$, and its convex coefficients give $\lambda$. For finitely many payoff types, retain one representative of each type and apply the finite result.
+\end{proof}
+
+\begin{lemma}[From uniform rectangles to product weights]\label{lem:product-weights}
+Suppose a property of finite matrices is preserved by repeating rows and columns. Suppose every matrix with that property has a monochromatic rectangle with row fraction at least $a$ and column fraction at least $b$. Then every such matrix has rectangle ratio at least $ab$ under arbitrary product distributions.
+\end{lemma}
+\begin{proof}
+For strictly positive rational weights, repeat rows and columns according to common-denominator multiplicities. Projecting a monochromatic rectangle back to the original indices preserves its signs and can only increase its weighted side masses. For arbitrary weights, approximate by strictly positive rational distributions. The largest rectangle mass is the maximum of finitely many continuous products of linear functions of the weights, hence is continuous. Passing to the limit gives the assertion.
+\end{proof}
+
+\begin{lemma}[Tie conventions and strict realization]\label{lem:ties}
+For any finite family of predictions obtained from a $d$-dimensional embedding with the convention $\sign(0)=+1$ or $-1$, the same Boolean prediction matrix has a strict realization in dimension at most $d+1$. If all zero scores are counted as errors, replacing their predictions by $+1$ cannot increase loss, for any marginal and target.
+\end{lemma}
+\noindent The proof, including the attained-infimum and zero-incidence cases, appears in \cref{app:oracle}.

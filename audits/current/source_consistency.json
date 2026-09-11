@@ -1,0 +1,674 @@
+{
+  "status": "PASS",
+  "numbered_statements": 40,
+  "baseline_statements": 39,
+  "retained_baseline_labels": 39,
+  "bound_proofs": 40,
+  "global_consecutive_numbers": true,
+  "undefined_labels": [],
+  "dependency_nodes": 51,
+  "acyclic": true,
+  "statement_rows": [
+    {
+      "label": "thm:main",
+      "kind": "theorem",
+      "title": "Distribution-independent rectangle learner",
+      "file": "sections/03_rectangle.tex",
+      "line": 2,
+      "end_line": 9,
+      "number": "1",
+      "old_number": "3.1",
+      "sha256": "fa4ac9e3b5aaa667a99b9f95470d182179384804466c6e3bf6175adb1a5b61ca",
+      "proof": {
+        "file": "appendices/rectangle_proof.tex",
+        "line": 2,
+        "end_line": 63
+      }
+    },
+    {
+      "label": "lem:params",
+      "kind": "lemma",
+      "title": "Exact parameters",
+      "file": "sections/03_rectangle.tex",
+      "line": 10,
+      "end_line": 16,
+      "number": "2",
+      "old_number": "3.2",
+      "sha256": "4d9c1ad6b6697cccbc7c3887f1edb972d893666855ce8137f5c82fc9355ef686",
+      "proof": {
+        "file": "appendices/rectangle_proof.tex",
+        "line": 2,
+        "end_line": 63
+      }
+    },
+    {
+      "label": "lem:mixture",
+      "kind": "lemma",
+      "title": "A marginal-free rectangle mixture",
+      "file": "sections/03_rectangle.tex",
+      "line": 17,
+      "end_line": 24,
+      "number": "3",
+      "old_number": "3.3",
+      "sha256": "aed191f3ae073d124b81e14e252d69b6ed6ed7de031aa234b1d803279a861225",
+      "proof": {
+        "file": "sections/03_rectangle.tex",
+        "line": 26,
+        "end_line": 28
+      }
+    },
+    {
+      "label": "thm:construction",
+      "kind": "theorem",
+      "title": "Construction and ordinary dimension",
+      "file": "sections/04_family.tex",
+      "line": 3,
+      "end_line": 13,
+      "number": "4",
+      "old_number": "4.1",
+      "sha256": "d8d15f7beb3c893d318d20bfcd554505e2893a4821a28b8542151b216468c623",
+      "proof": {
+        "file": "appendices/family_proof.tex",
+        "line": 4,
+        "end_line": 32
+      }
+    },
+    {
+      "label": "thm:prob",
+      "kind": "theorem",
+      "title": "Approximate counting and exact probabilistic dimension",
+      "file": "sections/04_family.tex",
+      "line": 15,
+      "end_line": 28,
+      "number": "5",
+      "old_number": "4.2",
+      "sha256": "5e9ba5ba6bd5a49ee88a9673f790d908ce61cf4ee305da70152c7c8469402466",
+      "proof": {
+        "file": "appendices/family_proof.tex",
+        "line": 34,
+        "end_line": 58
+      }
+    },
+    {
+      "label": "lem:exact-prob",
+      "kind": "lemma",
+      "title": "From exact probabilistic to strict dimension",
+      "file": "sections/04_family.tex",
+      "line": 30,
+      "end_line": 35,
+      "number": "6",
+      "old_number": "4.3",
+      "sha256": "deb9b25435afc3b2ffb3a62fe514b0ab1a2770ff5e9d37d7dbac95d0e521092f",
+      "proof": {
+        "file": "appendices/family_proof.tex",
+        "line": 61,
+        "end_line": 63
+      }
+    },
+    {
+      "label": "cor:negative-answer",
+      "kind": "corollary",
+      "title": "Negative answers to the dimension implications",
+      "file": "sections/04_family.tex",
+      "line": 37,
+      "end_line": 43,
+      "number": "7",
+      "old_number": "4.4",
+      "sha256": "f802e9d406b96dd3fa4a400d19dbd774a22746b2cf6911a47ab2a8e098e95eb9",
+      "proof": {
+        "file": "appendices/family_proof.tex",
+        "line": 66,
+        "end_line": 68
+      }
+    },
+    {
+      "label": "thm:query-lower",
+      "kind": "theorem",
+      "title": "Optimal query order for random incidence flips",
+      "file": "sections/04_family.tex",
+      "line": 47,
+      "end_line": 59,
+      "number": "8",
+      "old_number": "new",
+      "sha256": "c2fbe67e645a8ad3f6a1169eb74e096818b1548b5aa383afac92b00d23561411",
+      "proof": {
+        "file": "appendices/query_lower_bound.tex",
+        "line": 2,
+        "end_line": 41
+      }
+    },
+    {
+      "label": "thm:caps",
+      "kind": "theorem",
+      "title": "Pointwise cap mixture and table-polynomial implementation",
+      "file": "sections/05_learners.tex",
+      "line": 4,
+      "end_line": 19,
+      "number": "9",
+      "old_number": "5.1",
+      "sha256": "3677a5929c274c27f66b2ec48c2a85a3a63a4b5c872e4967f6a35b7ec5eee9c2",
+      "proof": {
+        "file": "appendices/cap_proper_proofs.tex",
+        "line": 4,
+        "end_line": 57
+      }
+    },
+    {
+      "label": "thm:proper",
+      "kind": "theorem",
+      "title": "Proper RECTIFY",
+      "file": "sections/05_learners.tex",
+      "line": 24,
+      "end_line": 37,
+      "number": "10",
+      "old_number": "5.2",
+      "sha256": "c950dc8565391029e7c68826b95c1ea0268ad2a0ef0044b519cceef29a91d296",
+      "proof": {
+        "file": "appendices/cap_proper_proofs.tex",
+        "line": 60,
+        "end_line": 103
+      }
+    },
+    {
+      "label": "lem:median",
+      "kind": "lemma",
+      "title": "Noisy integer medians",
+      "file": "sections/05_learners.tex",
+      "line": 52,
+      "end_line": 65,
+      "number": "11",
+      "old_number": "5.3",
+      "sha256": "3592aa29b442bd870934ef50bca7942e94e6facc1948bf09a8de767df7d9216d",
+      "proof": {
+        "file": "appendices/median_proofs.tex",
+        "line": 22,
+        "end_line": 26
+      }
+    },
+    {
+      "label": "thm:fast",
+      "kind": "theorem",
+      "title": "Succinct median learner",
+      "file": "sections/05_learners.tex",
+      "line": 69,
+      "end_line": 76,
+      "number": "12",
+      "old_number": "5.4",
+      "sha256": "755843b4ce37c8651669f6a137fa2a4d8af3766e02e914752d8531e2610a8c91",
+      "proof": {
+        "file": "appendices/median_proofs.tex",
+        "line": 29,
+        "end_line": 86
+      }
+    },
+    {
+      "label": "lem:subgrid",
+      "kind": "lemma",
+      "title": "Small subgrid counting and decision cost",
+      "file": "sections/06_explicit.tex",
+      "line": 14,
+      "end_line": 25,
+      "number": "13",
+      "old_number": "6.1",
+      "sha256": "5dc8a83ccf648af2b9a8d36a4014f9589356a51d3e2402d2e86d33a32d093745",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "line": 4,
+        "end_line": 20
+      }
+    },
+    {
+      "label": "thm:prf",
+      "kind": "theorem",
+      "title": "Conditional almost-every-key explicit lower bounds",
+      "file": "sections/06_explicit.tex",
+      "line": 27,
+      "end_line": 37,
+      "number": "14",
+      "old_number": "6.2",
+      "sha256": "38ee31f01a5b7f93fa5f45ec58a3b0eeece7191e2b4b3270fcaa92cc0412f3b8",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "line": 23,
+        "end_line": 37
+      }
+    },
+    {
+      "label": "prop:advice",
+      "kind": "proposition",
+      "title": "Unconditional polynomial advice",
+      "file": "sections/06_explicit.tex",
+      "line": 39,
+      "end_line": 45,
+      "number": "15",
+      "old_number": "6.3",
+      "sha256": "fe1b6e6dc214810de9b4873434eb8dcabac507169274ecd8e488839d2d5ed2b6",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "line": 57,
+        "end_line": 65
+      }
+    },
+    {
+      "label": "lem:regularstars",
+      "kind": "lemma",
+      "title": "Regular stars for almost every key",
+      "file": "sections/06_explicit.tex",
+      "line": 47,
+      "end_line": 49,
+      "number": "16",
+      "old_number": "6.4",
+      "sha256": "cf35c92de6bf406791a3c02efa43671d76c388c3dfce604540878bbcc863f5b7",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "line": 40,
+        "end_line": 49
+      }
+    },
+    {
+      "label": "cor:fastprf",
+      "kind": "corollary",
+      "title": "Conditional polynomial-time, seed-known separation",
+      "file": "sections/06_explicit.tex",
+      "line": 51,
+      "end_line": 58,
+      "number": "17",
+      "old_number": "6.5",
+      "sha256": "15257554c0fefdd03e23bae35088b042c53c6ae06b7723b75b033a1619d9ffa3",
+      "proof": {
+        "file": "appendices/explicit_proofs.tex",
+        "line": 52,
+        "end_line": 54
+      }
+    },
+    {
+      "label": "cor:engineered",
+      "kind": "corollary",
+      "title": "Engineered differentiable learning with high dimension",
+      "file": "sections/07_gradient.tex",
+      "line": 3,
+      "end_line": 9,
+      "number": "18",
+      "old_number": "8.1",
+      "sha256": "6b283022b82b000c5a3dae91689ff98fbe9f695bdaec1f38a9a835dff4e6cff0",
+      "proof": {
+        "file": "appendices/engineered_simulation.tex",
+        "line": 28,
+        "end_line": 32
+      }
+    },
+    {
+      "label": "prop:unseen",
+      "kind": "proposition",
+      "title": "Unseen independent labels",
+      "file": "sections/07_gradient.tex",
+      "line": 18,
+      "end_line": 26,
+      "number": "19",
+      "old_number": "10.3",
+      "sha256": "404ec7348c8ff4f298d29a78e8e1c7408bd781a1268c174ba1480d1cf98668c0",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "line": 39,
+        "end_line": 41
+      }
+    },
+    {
+      "label": "prop:hiddenkey",
+      "kind": "proposition",
+      "title": "Hidden-key computational hardness",
+      "file": "sections/07_gradient.tex",
+      "line": 28,
+      "end_line": 33,
+      "number": "20",
+      "old_number": "8.3",
+      "sha256": "65996637800a7a1c0eaef9b22a7d6421ca11a5b2f6756501768e67d210f6e105",
+      "proof": {
+        "file": "appendices/network_proofs.tex",
+        "line": 13,
+        "end_line": 15
+      }
+    },
+    {
+      "label": "lem:finite-minimax",
+      "kind": "lemma",
+      "title": "Finite minimax and pointwise coverage",
+      "file": "appendices/foundations.tex",
+      "line": 2,
+      "end_line": 10,
+      "number": "21",
+      "old_number": "2.1",
+      "sha256": "ac8dfb84c4d16b26a8f52fd9abd53f78a96c4b2954cb066963a158338d1a9608",
+      "proof": {
+        "file": "appendices/foundations.tex",
+        "line": 11,
+        "end_line": 24
+      }
+    },
+    {
+      "label": "lem:product-weights",
+      "kind": "lemma",
+      "title": "From uniform rectangles to product weights",
+      "file": "appendices/foundations.tex",
+      "line": 26,
+      "end_line": 28,
+      "number": "22",
+      "old_number": "2.2",
+      "sha256": "1538b28f1b090abc1fcc71062120984851dc7a6f4b195e29cc63360e0721a877",
+      "proof": {
+        "file": "appendices/foundations.tex",
+        "line": 29,
+        "end_line": 31
+      }
+    },
+    {
+      "label": "lem:ties",
+      "kind": "lemma",
+      "title": "Tie conventions and strict realization",
+      "file": "appendices/foundations.tex",
+      "line": 33,
+      "end_line": 35,
+      "number": "23",
+      "old_number": "2.3",
+      "sha256": "948e090c32db7eb15c09ca71db49920d0f820488c4868f01e264fa156c058c51",
+      "proof": {
+        "file": "appendices/oracle_bounds.tex",
+        "line": 36,
+        "end_line": 40
+      }
+    },
+    {
+      "label": "thm:communication",
+      "kind": "theorem",
+      "title": "Communication as a sufficient condition",
+      "file": "appendices/comparisons.tex",
+      "line": 7,
+      "end_line": 19,
+      "number": "24",
+      "old_number": "7.1",
+      "sha256": "c8d1e02aff036dd3cde355df349fa95d324c9361e89f75eca04e1f15edbf2e7f",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 4,
+        "end_line": 10
+      }
+    },
+    {
+      "label": "thm:energy",
+      "kind": "lemma",
+      "title": "Finite energy and threshold counting",
+      "file": "appendices/comparisons.tex",
+      "line": 28,
+      "end_line": 43,
+      "number": "25",
+      "old_number": "7.2",
+      "sha256": "187b24e80eec7fd1ea27adec0884187adf694b1c97bd42512721c04bc3b81979",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 13,
+        "end_line": 20
+      }
+    },
+    {
+      "label": "thm:barrier",
+      "kind": "theorem",
+      "title": "Joint-distribution SQ barrier",
+      "file": "appendices/comparisons.tex",
+      "line": 49,
+      "end_line": 67,
+      "number": "26",
+      "old_number": "7.3",
+      "sha256": "10cb2b53ea819fdd821bb4bf4ec33f41f8f99fe938d061997a16f3aef3e6c6bc",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 23,
+        "end_line": 50
+      }
+    },
+    {
+      "label": "thm:forster",
+      "kind": "theorem",
+      "title": "Spectral sign-rank bounds",
+      "file": "appendices/comparisons.tex",
+      "line": 87,
+      "end_line": 96,
+      "number": "27",
+      "old_number": "7.4",
+      "sha256": "a172dff389ef61d399add3a261b8e52828c2712e32a6edaae42886a44afb5353",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 53,
+        "end_line": 102
+      }
+    },
+    {
+      "label": "thm:plane",
+      "kind": "theorem",
+      "title": "Projective-plane incidence classes",
+      "file": "appendices/comparisons.tex",
+      "line": 105,
+      "end_line": 123,
+      "number": "28",
+      "old_number": "7.5",
+      "sha256": "a9d2a49bd926bba5b7cdc2b24e4060ccd435a83aa076bfb956ceefd7e1413236",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 105,
+        "end_line": 163
+      }
+    },
+    {
+      "label": "thm:tree",
+      "kind": "theorem",
+      "title": "Marginal-branching and approximate probabilistic bounds",
+      "file": "appendices/comparisons.tex",
+      "line": 133,
+      "end_line": 149,
+      "number": "29",
+      "old_number": "7.6",
+      "sha256": "011402cb10a550e37d4a6466da22233e497dfd3b4e7c549d680b9955f2c72b27",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 166,
+        "end_line": 182
+      }
+    },
+    {
+      "label": "prop:affine",
+      "kind": "proposition",
+      "title": "Affine-line quantitative comparison",
+      "file": "appendices/comparisons.tex",
+      "line": 158,
+      "end_line": 168,
+      "number": "30",
+      "old_number": "7.7",
+      "sha256": "a19e6b60c01a057496e3f5373244e5b3ed97d58e048977c10a8e9c2fc44cee49",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 185,
+        "end_line": 202
+      }
+    },
+    {
+      "label": "thm:pgglobal",
+      "kind": "theorem",
+      "title": "Global projective-plane rectangle ratio",
+      "file": "appendices/comparisons.tex",
+      "line": 175,
+      "end_line": 181,
+      "number": "31",
+      "old_number": "7.8",
+      "sha256": "9ebc183919de2413e303ad388cc20303923509ed2b086bf9591bd3c1ec271c81",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 205,
+        "end_line": 220
+      }
+    },
+    {
+      "label": "thm:halfspaces",
+      "kind": "theorem",
+      "title": "Small rectangle ratio does not prevent SQ learning",
+      "file": "appendices/comparisons.tex",
+      "line": 190,
+      "end_line": 197,
+      "number": "32",
+      "old_number": "7.9",
+      "sha256": "4456df2ad905aa485da780d13c6bad54abbd1ba280f13f20db5c6526a574a517",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 223,
+        "end_line": 263
+      }
+    },
+    {
+      "label": "thm:adapt",
+      "kind": "theorem",
+      "title": "Marginal adaptation, under a small-query budget",
+      "file": "appendices/comparisons.tex",
+      "line": 217,
+      "end_line": 228,
+      "number": "33",
+      "old_number": "7.10",
+      "sha256": "896677b3fd3a7672b9b177dedbe8ce594a711da711010a8573d8071f0f1a8aa6",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 266,
+        "end_line": 268
+      }
+    },
+    {
+      "label": "cor:approxrect",
+      "kind": "corollary",
+      "title": "Published approximate rank as an SQ sufficient condition",
+      "file": "appendices/comparisons.tex",
+      "line": 236,
+      "end_line": 248,
+      "number": "34",
+      "old_number": "7.11",
+      "sha256": "a131a3347e97e986ffbededa2e203961d3225ba171430c757d23785616acc107",
+      "proof": {
+        "file": "appendices/certificate_proofs.tex",
+        "line": 271,
+        "end_line": 273
+      }
+    },
+    {
+      "label": "thm:network",
+      "kind": "proposition",
+      "title": "A bias-free ReLU representation",
+      "file": "appendices/sgd_models.tex",
+      "line": 25,
+      "end_line": 31,
+      "number": "35",
+      "old_number": "8.2",
+      "sha256": "e88231142e798087c91af46aeadb53401e0462b388b0933281c8fc7ff62aea7f",
+      "proof": {
+        "file": "appendices/network_proofs.tex",
+        "line": 4,
+        "end_line": 10
+      }
+    },
+    {
+      "label": "thm:description",
+      "kind": "theorem",
+      "title": "Source-description length alone does not repair the implication",
+      "file": "appendices/resources.tex",
+      "line": 2,
+      "end_line": 9,
+      "number": "36",
+      "old_number": "10.1",
+      "sha256": "5fc8928045aa82de0261a06cea78e8da2ce90da3e57c3d31184c0e6297542a31",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "line": 3,
+        "end_line": 16
+      }
+    },
+    {
+      "label": "thm:classicalbarrier",
+      "kind": "proposition",
+      "title": "The classical certificate barrier",
+      "file": "appendices/resources.tex",
+      "line": 12,
+      "end_line": 24,
+      "number": "37",
+      "old_number": "10.2",
+      "sha256": "76f2b4744de02304ce374522cd043285a232b8470d3f5b6639d72646edcf1e19",
+      "proof": {
+        "file": "appendices/resource_proofs.tex",
+        "line": 18,
+        "end_line": 37
+      }
+    },
+    {
+      "label": "thm:rsd",
+      "kind": "theorem",
+      "title": "Rectangle bound for randomized statistical dimension",
+      "file": "appendices/statistical_dimension.tex",
+      "line": 10,
+      "end_line": 16,
+      "number": "38",
+      "old_number": "I.1",
+      "sha256": "5646afb2f9006c274771faea6c47947786404a08edda1bb65f731298796975a4",
+      "proof": {
+        "file": "appendices/statistical_dimension.tex",
+        "line": 18,
+        "end_line": 46
+      }
+    },
+    {
+      "label": "prop:cap-bound",
+      "kind": "proposition",
+      "title": "Independent constant rectangle bound",
+      "file": "appendices/geometric_bounds.tex",
+      "line": 3,
+      "end_line": 5,
+      "number": "39",
+      "old_number": "L.1",
+      "sha256": "88b22c38cefc9e7ad748554185648fb1f6680f61807138d0ddf854c94ed85232",
+      "proof": {
+        "file": "appendices/geometric_bounds.tex",
+        "line": 7,
+        "end_line": 21
+      }
+    },
+    {
+      "label": "prop:pg-rect",
+      "kind": "proposition",
+      "title": "Uniform-product rectangles in a projective plane",
+      "file": "appendices/geometric_bounds.tex",
+      "line": 23,
+      "end_line": 29,
+      "number": "40",
+      "old_number": "L.2",
+      "sha256": "4747b1289ca946941bedc182e2ae5f089e261a6a2f047460f5c5d7a9c4f96c25",
+      "proof": {
+        "file": "appendices/geometric_bounds.tex",
+        "line": 31,
+        "end_line": 39
+      }
+    }
+  ],
+  "statement_changes": [
+    {
+      "label": "thm:query-lower",
+      "old_number": "new",
+      "new_number": "8",
+      "diff": "NEW STATEMENT\n\\begin{theorem}[Optimal query order for random incidence flips]\\label{thm:query-lower}\nPut $\\chi=1-h_2(3/8)>0$. Suppose $N\\ge25$ and $\\chi N\\ge6\\log_2N$. With probability at least $1-2^{-2N^3}-N^3e^{-N/32}$ over independent fair flips, the following holds simultaneously for all $0<\\epsilon<1/4$ and $0<\\tau<1$. Every randomized depth-$m$ SQ learner with expected error at most $\\epsilon$ on every target-line instance $(D_\\ell,h_\\ell)$, $\\ell\\in[N]\\times[N^2]$, obeys\n\\[\n m\\ge\\frac{\\log_2N+\\log_2\\!\\bigl(\\chi(1-8\\epsilon/3)/8\\bigr)}\n {\\log_2\\lceil1/\\tau\\rceil}.\n\\]\nHere $D_\\ell$ is uniform on the line's $N$ template points, and the guarantee must hold against every valid oracle. If the learner is proper, then\n\\[\n m\\ge\\frac{\\log_2(2M)-1+\\log_2(1-3\\epsilon)}\n {\\log_2\\lceil1/\\tau\\rceil}.\n\\]\nFor every fixed $\\epsilon$, there is a fixed tolerance $\\tau_\\epsilon>0$ at which both proper and unrestricted query complexity are $\\Theta_\\epsilon(n)$ for matrices in this event. The $O_\\epsilon(n^2)$ succinct learner is within a factor $n$ in query order.\n\\end{theorem}"
+    },
+    {
+      "label": "lem:median",
+      "old_number": "5.3",
+      "new_number": "11",
+      "diff": "--- release7:lem:median\n+++ current:lem:median\n@@ -1,5 +1,5 @@\n \\begin{lemma}[Noisy integer medians]\\label{lem:median}\n-Suppose $\\beta>0$, $|\\widehat\\beta-\\beta|\\le\\zeta$, and $\\beta\\ge512\\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\\mu^-\\{f\\le t\\}$ and threshold $\\widehat\\beta/2$ returns $v\\in[L,H]$ with\n+Suppose $\\zeta\\ge0$, $\\beta>0$, $|\\widehat\\beta-\\beta|\\le\\zeta$, and $\\beta\\ge512\\zeta$. Let $f$ be integer-valued in $[L,H]$ on the negative support. Binary search using the query $\\mu^-\\{f\\le t\\}$ and threshold $\\widehat\\beta/2$ returns $v\\in[L,H]$ with\n \\[\n  \\mu^-\\{f\\le v\\}\\ge\\beta/2-3\\zeta/2,\n  \\qquad\n"
+    },
+    {
+      "label": "cor:engineered",
+      "old_number": "8.1",
+      "new_number": "18",
+      "diff": "--- release7:cor:engineered\n+++ current:cor:engineered\n@@ -1,5 +1,5 @@\n \\begin{corollary}[Engineered differentiable learning with high dimension]\\label{cor:engineered}\n-Assume the PRF hypothesis of \\cref{thm:prf}. Fix $c\\ge1$ and $0<\\epsilon<1/4$. For every sufficiently large admissible encoding length $n$ and every key $s$, the class $H_{A_s}$, encoded on $\\{0,1\\}^n$, has an engineered neural network and initialization of the form above, each describable and evaluable in $\\operatorname{poly}_{c,\\epsilon}(n)$ time, with $\\operatorname{poly}_{c,\\epsilon}(n)$ parameters. After $O(n^2)$ full-batch updates using $\\operatorname{poly}_{c,\\epsilon}(n)$ examples and the finite-precision gradient rule \\eqref{eq:engineered-gradient}, thresholding the final output at $1/2$ has expected classification error at most $\\epsilon$ for every marginal and every target in $H_{A_s}$. For all but a negligible fraction of keys,\n+Assume the PRF hypothesis of \\cref{thm:prf}. Fix $c\\ge1$ and $0<\\epsilon<1/4$. For every sufficiently large admissible encoding length $n$ and every key $s$, the class $H_{A_s}$, encoded on $\\{0,1\\}^n$, has an engineered neural network and initialization of the form specified in \\cref{app:engineered}, each describable and evaluable in $\\operatorname{poly}_{c,\\epsilon}(n)$ time, with $\\operatorname{poly}_{c,\\epsilon}(n)$ parameters. After $O(n^2)$ full-batch updates using $\\operatorname{poly}_{c,\\epsilon}(n)$ examples and the finite-precision gradient rule \\eqref{eq:engineered-gradient}, thresholding the final output at $1/2$ has expected classification error at most $\\epsilon$ for every marginal and every target in $H_{A_s}$. For all but a negligible fraction of keys,\n \\[\n  \\dc(H_{A_s})\\ge\\frac{n^c}{30\\log_2 n}.\n \\]\n"
+    }
+  ],
+  "scope": "Source consistency plus a reviewed proof-dependency graph; mathematical validity is assessed in the proof ledger."
+}

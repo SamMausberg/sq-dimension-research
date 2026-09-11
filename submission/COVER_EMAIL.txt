@@ -1,0 +1,19 @@
+Subject: Statistical-query learning and dimension complexity
+
+Dear Professors Feldman, Kamath and Srebro,
+
+I share a manuscript addressing Open Question 2 in your note.
+
+A product-distribution rectangle bound of 1/rho yields one distribution-independent SQ learner.
+It uses O(rho(log|H| + log(1/epsilon))) queries at tolerance Omega(epsilon/(rho log(1/epsilon))).
+Incidence-flip classes separate this complexity from ordinary and both nondegenerate probabilistic dimensions.
+
+The construction randomly flips grid-line incidences while preserving large monochromatic rectangles. The learner queries marginal masses and alternates between labeling regions and eliminating hypotheses.
+
+The incidence construction and minimax ingredient are due to Hatami, Hatami, Pires, Tao and Zhao; the counting uses Warren's theorem. The manuscript includes proper learners, computational implementations, and a matching query-order lower bound for typical flips. VALG v2 proves a dimension bound under an additional polynomial mean-response-rank assumption; the comparison is stated separately. OQ1 remains open.
+
+Manuscript: [arXiv link after submission]
+
+I would appreciate comments on definitions, proof interfaces, and relation to your question.
+
+Samuel Mausberg

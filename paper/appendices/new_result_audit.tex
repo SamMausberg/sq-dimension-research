@@ -1,0 +1,124 @@
+\section{Endpoint and randomness ledgers for the later results}\label{app:newaudit}
+Every row below is pathwise unless its randomness column says otherwise. Endpoint pairs may be mutually incompatible across rows; using them separately only strengthens each bound. Bounds involving imported simulation randomness retain the supremum inside the expectation. The first column uses local row identifiers; the electronic ledger also records the previous statement numbers.
+\subsection{\texorpdfstring{\Cref{lem:median}: Integer medians}{Integer medians}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\zeta\ge0,\ \beta>0,\ \beta\ge512\zeta$. & Explicit parameter domain; no answer used. & None.\\
+2 & $\widehat F(t)\ge\widehat\beta/2\Rightarrow F(t)\ge\beta/2-3\zeta/2$. & $\widehat F=F+\zeta$, $\widehat\beta=\beta-\zeta$ minimize the certified mass. & Pathwise.\\
+3 & $\widehat F(t)<\widehat\beta/2\Rightarrow F(t)<\beta/2+3\zeta/2$. & $\widehat F=F-\zeta$, $\widehat\beta=\beta+\zeta$ maximize it. & Pathwise.\\
+4 & $F(v)\ge\beta/2-3\zeta/2$, $F(v-1)<\beta/2+3\zeta/2$. & Binary search retains a certified lower and upper endpoint; replies need not be monotone. & Pathwise.\\
+5 & $\widehat m\le\widehat\beta/8\Rightarrow m\le\beta/8+9\zeta/8$. & $\widehat m=m-\zeta$, $\widehat\beta=\beta+\zeta$. & Pathwise.\\
+6 & $F(v)<5\beta/8+21\zeta/8$. & Add the preceding atom bound to $F(v-1)<\beta/2+3\zeta/2$. & None.\\
+7 & $\widehat m>\widehat\beta/8\Rightarrow m>\beta/8-9\zeta/8>\beta/9$. & $\widehat m=m+\zeta$, $\widehat\beta=\beta-\zeta$; the last step uses $\beta>81\zeta$. & Pathwise.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{thm:fast}: Succinct learner}{Succinct learner}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\zeta=\epsilon/4096$; raw and rounding errors are at most $\zeta/2$ each. & Triangle inequality; finite answer representation is part of the computational interface. & None.\\
+2 & $\widehat\beta\le\epsilon/4\Rightarrow\beta\le\epsilon/4+\zeta$. & $\widehat\beta=\beta-\zeta$. & Pathwise.\\
+3 & $\widehat\beta>\epsilon/4\Rightarrow\beta>1023\zeta>512\zeta$. & $\widehat\beta=\beta+\zeta$. & Pathwise.\\
+4 & $\mu^-(P\cap Q)\ge\beta/2-3\zeta/2$ for two prefixes. & Intersection is the smaller prefix; apply both median lower bounds. & None.\\
+5 & $\mu^-(P\cap Q)\le\beta/4+21\zeta/4$ for a prefix and a suffix. & Their intersection mass is $\max(0,\mu^-(P)+\mu^-(Q)-\beta)$. & None.\\
+6 & $\widehat{\mu^-(P\cap Q)}-3\widehat\beta/8\ge(\beta-23\zeta)/8>0$ in the prefix case. & Intersection answer minus $\zeta$; total answer plus $\zeta$. & Pathwise.\\
+7 & $3\widehat\beta/8-\widehat{\mu^-(P\cap Q)}\ge(\beta-53\zeta)/8>0$ in the suffix case. & Intersection answer plus $\zeta$; total answer minus $\zeta$. & Pathwise.\\
+8 & $\widehat{\mu^-(P)}>\widehat\beta/8$ for the constant residual. & Lower observed mass is $\beta/2-5\zeta/2$; compare with $(\beta+\zeta)/8$. & Pathwise.\\
+9 & $\widehat{\mu^-(Q\setminus P)}>\widehat\beta/8$ for the constant residual. & Even a difference of two answers is at least $3\beta/8-37\zeta/8$; $\beta>19\zeta$ suffices. & Pathwise.\\
+10 & A wrong-slope residual atom is a singleton; one split answer is at most $2\zeta<\widehat\beta/8$. & Allow two endpoint errors if the split is obtained by subtraction; $\beta>17\zeta$. & Pathwise.\\
+11 & $\zeta<\widehat\beta/32<\beta/9-\zeta$. & Use $\widehat\beta\in[\beta-\zeta,\beta+\zeta]$ and $\beta\ge512\zeta$; separates zero from a heavy atom. & Pathwise.\\
+12 & Large outside negative mass is $>\epsilon/4-\zeta$; star-half queries are zero or that mass. & Every other line through the known point misses the target away from it; threshold $\epsilon/8$ remains separated by $\zeta$. & Pathwise.\\
+13 & Small outside negative mass is $\le\epsilon/4+\zeta$. & The answer can underestimate by $\zeta$; the one-point predictor has this error. & Pathwise.\\
+14 & $C_0=\max(64\lceil n\rceil,\lceil128/\epsilon\rceil)$; a smaller enumerated star contains the target. & Target loss answer is at most $\zeta<\epsilon/2$. & None.\\
+15 & At most $8/\epsilon$ star rows have outside negative mass $>\epsilon/8$. & Their outside negative supports are disjoint and total mass is at most one. & None.\\
+16 & At least $t/4-8/\epsilon\ge t/8$ rows pass; their loss is at most $3\epsilon/8+\zeta$. & On a regular star with $t>C_0$; answer at most $3\epsilon/8+2\zeta<\epsilon/2$. & None.\\
+17 & Each row has sampling probability $\ge1/(2t)$; success per trial is $\ge1/16$. & Use $\lceil\log_2t\rceil$ bits reduced modulo $t$; the good-row count is pathwise. & Fresh learner bits.\\
+18 & $J=\lceil16\ln(4/\epsilon)\rceil$; failure $\le(15/16)^J\le\epsilon/4$. & Independent trials; every good row passes every permitted loss answer. & Learner bits.\\
+19 & $\E L\le\epsilon/2+\zeta+\epsilon/4<\epsilon$. & Any passed test certifies loss $\le\epsilon/2+\zeta$; failure output loss is at most one. & Learner bits only.\\
+20 & $m=O(n^2+1/\epsilon+\log(1/\epsilon))$. & At most $O(n)$ slope stages and $O(n)$ binary queries per median; all integer tests use $O(n)$-bit coordinates. & None.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{lem:subgrid}: Counting on a subgrid}{Counting on a subgrid}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $K_k=2k^3$, $I_k=2k^4-[k(k+1)/2]^2$. & Sum $2k^2-ax$ over $a,x\in[k]$; no oracle. & None.\\
+2 & $D_k=\lfloor k/(24\log_2k)\rfloor\le K_k/2$. & For $D_k=0$ the nonpositive-rank event is empty. & None.\\
+3 & $D_k\ge1\Rightarrow k\ge32\Rightarrow\log_2(8ek^3)\le4\log_2k$. & The implication is only a sufficient range check; it does not locate the first positive $D_k$. & None.\\
+4 & $\log_2\#\{\sr\le D_k\}\le2K_kD_k\,4\log_2k\le2k^4/3$. & Warren applies to strict patterns of degree two in $2K_kD_k$ variables. & None.\\
+5 & $k\ge3\Rightarrow I_k\ge3k^4/2$. & $(k+1)^2/(4k^2)\le1/2$ for $k\ge3$. & None.\\
+6 & $\Pr[\sr\le D_k]\le2^{2k^4/3-I_k}\le2^{-5k^4/6}\le2^{-k^4/2}$. & All $I_k$ free positions are independent uniform bits. & Random flips.\\
+7 & $\sr(A)\le D_k\iff\exists U,V:\ A_{ij}\sum_sU_{is}V_{sj}\ge1$. & Scale a strict factorization by its finite minimum signed score; coefficients are $-1,0,1$. & None.\\
+8 & $(K_k^2)^{O(K_kD_k)}=2^{O(k^3D_k\log k)}=2^{O(k^4)}$. & Use the cited singly exponential existential-real decision bound with degree two and bounded coefficient length. & None.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{thm:prf}: Pseudorandom restriction}{Pseudorandom restriction}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $n=3b+1$, $N=2^b$, $k=\lceil c n^c\rceil\le N$ eventually. & Fix $c,\delta$ before the asymptotic limit. & None.\\
+2 & $E_b(a,b_0,x,y)$ has $6b+2=2n$ bits and is injective. & Concatenate zero-based coordinates in widths $b,2b+1,b,2b+1$; keep this ambient encoding in every restriction. & None.\\
+3 & Exactly $I_k\le2k^4$ function values determine the restricted matrix. & Query only incidences. Uniform oracle values at these distinct ambient inputs are independent fair bits. & Function oracle, not SQ.\\
+4 & $2^{C_c n^{4c}}\le2^{n^{4c+2}}\le2^{\sigma^\delta}$ eventually. & $\sigma=n^p$, $p=\lceil(4c+2)/\delta\rceil$; the $n^2$ slack absorbs the fixed decision-procedure constant and reading cost. & None.\\
+5 & $\Pr_s[\sr(A_s|_k)\le D_k]\le2^{-k^4/2}+\operatorname{negl}(\sigma)$. & Use the low-rank decision as the acceptance event; nonnegligible excess would distinguish from a random function. & Uniform key / random function.\\
+6 & $\operatorname{negl}(n^p)=\operatorname{negl}(n)$. & For each desired exponent $q$, use the security estimate with exponent $q/p$; $p$ is fixed. & None.\\
+7 & $\dc(H_{A_s})\ge D_k+1>k/(24\log_2k)$. & Restriction cannot increase sign-rank; use the complement of the low-rank event. & Good-key event.\\
+8 & $\log_2k\le c\log_2n+\log_2(2c)\le(5/4)c\log_2n$. & For all sufficiently large $n$; the extra factor $c$ in $k$ is retained. & None.\\
+9 & $k/(24\log_2k)\ge n^c/(30\log_2n)$. & Substitute $k\ge c n^c$ and the preceding logarithmic estimate. & None.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{cor:fastprf}: Joint good-key event}{Joint good-key event}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\Pr[\operatorname{Bin}(t,1/2)<t/4]\le e^{-t/16}$. & Multiplicative Chernoff with mean $t/2$ and relative deviation $1/2$. & Random incidence bits.\\
+2 & $t\ge64\lceil n\rceil\Rightarrow2^ne^{-t/16}\le e^{-3n}$. & Union bound over all points; the regularity event is independent of $\epsilon$. & Random flips.\\
+3 & Star-regularity is decidable in $2^{O(n)}\le2^{\sigma^\delta}$ time eventually. & Enumerate incidences using the same ambient encoding; transfer the bad-star event by PRF security. & Uniform key / function.\\
+4 & $\Pr_s[\text{bad rank or bad stars}]=\operatorname{negl}(n)$. & Union bound, not independence of the events. & Uniform key.\\
+5 & $m=O_\epsilon(n^2)$, $1/\tau=O_\epsilon(1)$, $\mathrm{TIME}=\operatorname{poly}_{c,\epsilon}(n)$. & Apply the proper succinct algorithm on regular keys; its deterministic improper version works for every key. & Learner bits for proper output.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{thm:communication}: Product-average communication}{Product-average communication}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\Pr[L\le2c]\ge1/2$. & Markov on the cost of an exact deterministic protocol under the chosen product measure. & Product-distributed inputs.\\
+2 & $\#\{\text{leaves of depth}\le2c\}\le2^{\lfloor2c\rfloor}$. & Prefix-free transcripts can be injected into strings of length $\lfloor2c\rfloor$. & None.\\
+3 & $\max_Q(\mu\times\nu)(Q)\ge2^{-\lfloor2c\rfloor-1}\ge2^{-2c-1}$. & One shallow monochromatic leaf carries the average shallow mass. At $c=0$, all positive-mass inputs reach a zero-cost leaf. & Product inputs.\\
+4 & $\Pr[\text{continue after }j\text{ stages}]\le(1-r)^j$. & Conditioning a product measure on a protocol cell preserves product form; each selected rectangle has conditional mass $\ge r$. & Product inputs.\\
+5 & $\E[\text{bits}]\le2\sum_{j\ge0}(1-r)^j=2/r$. & Two membership bits per stage; complete zero-mass cells by a finite exact protocol. & Product inputs.\\
+6 & $\rho=2^{2c+1}=2\cdot4^c$. & Substitute into the rectangle learner; its arbitrary-policy guarantee is unchanged. & RECTIFY draws.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{thm:halfspaces}: Cube halfspaces}{Cube halfspaces}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\dc(H_n)\le n$ for odd $n$. & Identity embedding; dot products are odd integers and nonzero. & None.\\
+2 & $\langle w,x\rangle<0\Rightarrow d_H(w,x)\ge(n+1)/2$. & Use $\langle w,x\rangle=n-2d_H(w,x)$. & None.\\
+3 & $\langle w,x\rangle>0\Rightarrow d_H(-w,x)\ge(n+1)/2$. & Negate one side only; it is a measure-preserving bijection of the uniform cube. & None.\\
+4 & $\alpha\le e^{-2s^2/n}$, with $s=\E d_H(Z,A)$. & Distance to $A$ changes by at most one per coordinate. Apply the lower bounded-differences tail at $s$. & Independent uniform cube coordinates.\\
+5 & $s\le t\Rightarrow\beta\le e^{-2(t-s)^2/n}$. & Every point of the other set has distance at least $t$; apply the upper tail. & Uniform cube.\\
+6 & $\alpha\beta\le e^{-2[s^2+(t-s)^2]/n}\le e^{-t^2/n}\le e^{-n/4}$. & $s^2+(t-s)^2\ge t^2/2$ and $t=(n+1)/2$. If $s\ge t$, use $\alpha\le e^{-2t^2/n}$ instead. & None.\\
+7 & $F(v^*)=0$, $\|g\|\le1$, $\|\widehat g-g\|\le\tau$. & $\gamma=1/n$; coordinate query errors at either endpoint are divided by $\sqrt n$. & Pathwise SQ answers.\\
+8 & $F(\bar v)\le1/(2aT)+a(1+\tau)^2/2+2\tau$. & Projected subgradient distance telescope; perturbation inner product is at most $2\tau$. & Pathwise.\\
+9 & $T\ge100/(\epsilon^2\gamma^2)$, $a=T^{-1/2}$, $\tau=\epsilon\gamma/8$. & $(1+\tau)^2<4$ implies $F(\bar v)\le5/(2\sqrt T)+2\tau\le\epsilon\gamma/2$. & None.\\
+10 & $L\le F(\bar v)/\gamma\le\epsilon/2$, $m=nT=O(n^3/\epsilon^2)$. & Every thresholding error incurs hinge cost at least $\gamma$. & Deterministic learner.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{cor:engineered}: Engineered full-batch simulation}{Engineered full-batch simulation}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\sup_O L_{01}(A^O)\le\epsilon/8$. & Use the deterministic improper learner, valid for every key. No expected-to-pathwise conversion is made. & None.\\
+2 & $L_{\rm square}(A)\le\epsilon/16$. & For Boolean labels and predictions, half squared error is half classification error. & Pathwise.\\
+3 & $\lambda=\tau_0/16$, $T^{\prime}=2k$, $m_s\lambda^2>C(k\log(1/\lambda)+\log(1/\delta))$. & Imported full-batch Theorem 3d: one sample is reused, with $\lambda$-grid gradients within $3\lambda/4$ of the clipped empirical gradient. & Sample and initialization.\\
+4 & $p=\operatorname{poly}(k,1/\tau_0,r,\mathrm{TIME},1/\delta)$. & TIME includes the succinct learner and query evaluations. Set $r=1$ with an ignored bit, not an assumed $r=0$ case. & Ignored initialization bit.\\
+5 & $\E_{S,R}\sup_{g_1,\ldots,g_{T\prime}}L_{\rm square}\le\epsilon/16+\delta=\epsilon/8$. & $\delta=\epsilon/16$. Retain the imported supremum inside the expectation, including its dependence on the whole sample. & Sample / initialization; arbitrary admissible gradients.\\
+6 & $L_{01}(\1_{f\ge1/2})\le8L_{\rm square}(f)$. & A threshold error gives $|f-y|\ge1/2$ and half squared error at least $1/8$. & Pointwise.\\
+7 & $\E L_{01}\le\epsilon$, $p,m_s=\operatorname{poly}_{c,\epsilon}(n)$, $T^{\prime}=O(n^2)$. & Only the time bound of the succinct learner and the imported polynomial are used; no polynomial in query count alone is substituted. & Sample / initialization.\\
+\bottomrule\end{longtable}\endgroup
+\subsection{\texorpdfstring{\Cref{prop:unseen}: Unseen independent labels}{Unseen independent labels}}
+\begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{.045\linewidth}p{.40\linewidth}p{.35\linewidth}p{.15\linewidth}@{}}
+\toprule ID & Inequality & Adverse answer or justification & Randomness\\\midrule\endhead
+1 & $\Pr[x\text{ unseen}]=(1-1/N)^T$. & The sample indices are iid uniform on a full template line. & Sample indices.\\
+2 & $\E[L\mid\text{indices, observed labels, learner coins}]\ge\#\{\text{unseen}\}/(2N)$. & Each unseen label remains a fair independent bit because the learner was fixed independently of the table. & Unseen random flip bits.\\
+3 & $\E L\ge\tfrac12(1-1/N)^T\ge\tfrac12(1-T/N)$. & Average the preceding identity; Bernoulli inequality. & Table, samples, learner coins.\\
+4 & $\E L\le\epsilon\Rightarrow T\ge(1-2\epsilon)N$. & This is a uniform-over-tables or average-table premise, not a claim for each individually selected table. & None.\\
+5 & $\epsilon<1/4,\ S\ge2\Rightarrow TS\ge N\ge\dc(H_A)/3$. & $\dc(H_A)\le2N+1\le3N$. Keep the table-independent learner premise. & None.\\
+\bottomrule\end{longtable}\endgroup

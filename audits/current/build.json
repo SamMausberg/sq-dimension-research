@@ -1,0 +1,17 @@
+{
+  "errors": 0,
+  "undefined_references": 0,
+  "undefined_citations": 0,
+  "overfull_boxes": 0,
+  "duplicate_anchors": 0,
+  "pages": 64,
+  "main_pages": 13,
+  "shell_escape": false,
+  "command": [
+    "pdflatex",
+    "-no-shell-escape",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "paper.tex"
+  ]
+}

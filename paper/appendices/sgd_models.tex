@@ -1,0 +1,34 @@
+\section{Gradient models and the prescribed online process}\label{app:sgdmodels}
+For comparison, the remaining question fixes $X=\{-1,+1\}^n$ and a fully connected bias-free ReLU network
+\[
+ f_\theta(x)=\theta_L\sigma\bigl(\theta_{L-1}\sigma(\cdots\sigma(\theta_1x))\bigr),
+ \qquad S=\sum_{i=1}^L n_i n_{i-1}.
+\]
+Here $n_0=n$ and $n_L=1$. Each layer-$i$ weight is initialized independently with law $N(0,1/n_{i-1})$. With one fixed step size $\eta$, for $t=0,\ldots,T-1$ draw $x^{(t)}\sim D$ independently and set
+\[
+ \theta^{(t+1)}=\theta^{(t)}-\eta\nabla_\theta
+ \ell\!\left(h^*(x^{(t)})f_{\theta^{(t)}}(x^{(t)})\right),
+ \qquad \ell(z)=\log(1+e^{-z}).
+\]
+The returned predictor is
+\[
+ \widehat h(x)=\sign\!\left(\sum_{t=\lceil T/2\rceil}^{T}f_{\theta^{(t)}}(x)\right).
+\]
+The architecture, step size and horizon are fixed for the class before $D$ and $h^*$. Open Question 1 of \citet[Section~2]{FKS26} asks whether a guarantee $\E L_{D,h^*}(\widehat h)\le\epsilon<1/4$ for every $D,h^*$, with expectation over both initialization and online sampling, forces $\dc(H)\le CTS$. Their Section~4 also asks for a polynomial bound in $(T,S)$. The open question is restated in Section~\ref{sec:open}.
+
+A population-gradient method with $S$ coordinates, $T$ calls, per-example coordinate bound $B_g$ and adversarial Euclidean tolerance $\delta$ has an SQ simulation with
+\[
+ m=TS,\qquad\tau=\delta/(B_g\sqrt S).
+\]
+Query each gradient coordinate divided by $B_g$. After rescaling, each error is at most $\delta/\sqrt S$, so the total squared error is at most $\delta^2$. Induction over the calls proves the simulation. Conversely, the adaptive objective $J_q(t;x,y)=tq(x,y)$ has derivative $\E q$. These observations concern gradient-oracle models. A sampled online gradient need not lie in a prescribed small ball about the population gradient, and its sampling-law guarantee does not imply success against every perturbation in that ball; see also \citet{FGV21,AKMSS21}.
+
+\begin{proposition}[A bias-free ReLU representation]\label{thm:network}
+Pad the grid domain to a cube of dimension $n=\lceil\log_2(2N^3)\rceil$, giving every padding point label $+1$. Every member is represented exactly by a bias-free ReLU network with widths $(n,2n,N+1,1)$ and at most
+\[
+ S=2n^2+2n(N+1)+(N+1)
+\]
+weights. Its common dimension complexity is at most $2N+1$. This proposition is an upper bound, not a claim that $S$ parameters are necessary.
+\end{proposition}
+\noindent The proof is in \cref{proof:network}.
+
+A fixed $b$-bit-per-weight architecture has at most $2^{bS}$ parameter choices. Representing all $2^N$ independent labelings of one line requires $bS\ge N$.

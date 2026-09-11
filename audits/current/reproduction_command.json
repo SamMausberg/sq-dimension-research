@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/sq-dimension-research/experiments/current/check_late_results.py",
+        "--output",
+        "/mnt/data/sq_revision8/command_reproduction/late_results.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "checks/recompute_constants.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "experiments/algebra_and_stress.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "experiments/affine_checks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "experiments/seeded_fast.py",
+        "--N",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "16",
+        "32"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "results_policy": "Fresh reproduction outputs are separate from preserved historical data. The paper timing table uses audits/current/rerun_results/fast."
+}

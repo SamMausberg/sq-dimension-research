@@ -1,0 +1,42 @@
+\section{Introduction}\label{sec:introduction}
+Feldman, Kamath and Srebro \citep[Open Question~2]{FKS26} ask:
+\begin{quote}\small
+\textbf{Open Question 2 (SQ Learning vs. Dimension Complexity)} Is there a constant $C$ such that for every class $H\subseteq\{\pm1\}^{\mathcal X}$, over any domain $\mathcal X$, and any $\epsilon<1/4$, if there exists an $(m,\tau)$-SQ algorithm s.t. for every input distribution $D$ and every $h^\star\in H$, the algorithm returns a predictor $\widehat h$ with $\E L_{D,h^\star}(\widehat h)\le\epsilon$ (expectation over the randomness of the algorithm), then $\dc(H)\le C\cdot m/\tau^2$.
+\end{quote}
+The answer is negative for finite domains, including the proposed relaxations
+\begin{equation}\label{eq:forms}
+ \dc(H)\le Cm/\tau^2\ \text{(L)},\quad
+ \dc(H)\le p(m,1/\tau)\ \text{(P)},\quad
+ \dc(H)\le p(m,1/\tau,n)\ \text{(Pn)},
+\end{equation}
+where $n=\log_2|X|$ and $C,p$ are universal. The two nondegenerate probabilistic variants fail as well.
+
+A fixed linear representation must realize every target's signs simultaneously. A learner can first ask where the marginal places mass and then label an agreed region or eliminate inconsistent targets. Large monochromatic rectangles under every product distribution yield a marginal-free mixture with pointwise coverage. RECTIFY charges either update to the product of the rectangle's two masses. Random incidence flips preserve the required rectangles while counting forces large sign-rank.
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item A common SQ learner with $O(\rho(\log K+\log(1/\epsilon)))$ queries at tolerance $\Omega(\epsilon/(\rho\log(1/\epsilon)))$ whenever $\rect(H)\ge1/\rho$.
+\item A refutation of (L), (P), and (Pn) for ordinary and probabilistic dimension, with proper deterministic table-polynomial learners.
+\item A succinct $O(n^2)$-query learner and almost-every-key polynomial-time separations under the stated PRF hypothesis.
+\item Matching $\Theta_\epsilon(n)$ query order for typical flips, including a sharper proper-output lower bound.
+\item Communication sufficient conditions, spectral and information barriers, and an engineered gradient-learning consequence.
+\end{itemize}
+
+\begin{table}[H]\small\centering
+\begin{tabularx}{\linewidth}{@{}p{.34\linewidth}X@{}}\toprule
+Imported ingredient & Role\\\midrule
+Incidence construction and minimax \citep{HHPTZ22} & Large rectangles with many independently variable signs; the mixture device.\\
+Warren's theorem \citep{Warren68,AMY16} & Counting strict low-rank sign patterns.\\
+Homogeneous rectangles \citep{APP05,HHPTZ22} & The constant $2^{-15}$; \cref{prop:cap-bound} supplies the independent $2^{-18}$ fallback.\\
+SQ and gradient simulations \citep{Feldman17,AKMSS21} & Separate comparisons; the main rectangle learner is proved directly.\\\bottomrule
+\end{tabularx}
+\caption{Imported ingredients. The oracle analysis, proper and succinct learners, probabilistic reductions, and query lower bounds are proved here.}
+\end{table}
+
+\paragraph{Concurrent work.}
+VALG, arXiv:2608.13060v2 (10 September 2026), defines the span of seed-averaged outputs over deterministic complete response rules. Its Assumption~4.42 bounds that dimension by $B(1+m/\tau^2)^k$; Theorem~4.9 derives a common strict representation under Assumptions~4.39--4.42 \citep{VALG26}. Our separating family shows that this additional polynomial response-rank condition cannot follow from the unrestricted common-learning guarantee. The results have different hypotheses.
+
+\paragraph{Scope.}
+All probabilistic-dimension conclusions use a nondegenerate Boolean tie convention. Table-polynomial time is distinguished from polynomial time in $n$ given a key. High-probability key and advice statements do not select a deterministic good description. The PRF results assume the stated security; model-size exponents may depend on the prescribed degree $c$. The gradient simulation uses engineered architecture and initialization and charges the simulated computation. Exact-arithmetic tests cover finite identities, endpoint conditions and recorded experiments, not every infinite-instance theorem. Archived formalization drafts are not machine-checked proofs. The uniform hidden-table bounds do not restrict class-dependent architecture choices in OQ1. All remaining research questions are collected in Section~\ref{sec:open}.
+
+Sections 3--6 give the separation and implementations; Section 7 gives the gradient and information consequences. The communication, spectral, geometric, halfspace and statistical-dimension comparisons, full proofs, and experiments follow in the appendices.

@@ -1,0 +1,81 @@
+% appendices/comparisons.tex:105-123
+\begin{theorem}[Projective-plane incidence classes]\label{thm:plane}
+For each prime $q\geq2$, let $X_q$ be the points of the projective plane over $\mathbb F_q$, and let $\cH_q$ have one hypothesis per line, positive on that line and negative elsewhere. Set $N=q^2+q+1$ and $k=q+1$. Then:
+\begin{align}
+ \frac{q+1}{\sqrt q}&\leq\dc(\cH_q)\leq2q+3,\label{eq:planedc}\\
+ \frac{|J|}{\|[\E_\mu h_i h_j]_{i,j\in J}\|_\op}&\leq16
+ \quad\text{for every distribution $\mu$ and nonempty $J\subseteq\cH_q$}.
+ \label{eq:planeplain}
+\end{align}
+There is a distribution-independent $N$-query tolerance-$\tau$ learner of loss at most $\tau$. For each \emph{fixed} $D$ and $0<\epsilon<1/4$, there is a learner allowed to depend on $D$, with tolerance $\epsilon/2$ and
+\[
+ m_D\leq1+s+\binom{s}{2},\qquad
+ s=\left\lceil\frac{4\log N+2}{\epsilon}\right\rceil,
+\]
+that has loss at most $\epsilon$ for every target. Here $\log$ is natural.
+Nevertheless every \emph{single} learner satisfying \eqref{eq:guarantee}, with $m\geq1$, $0<\tau\leq1$, and $\epsilon<1/4$, satisfies
+\begin{equation}\label{eq:plane19}
+ \dc(\cH_q)\leq19m/\tau^2.
+\end{equation}
+\end{theorem}
+
+% appendices/certificate_proofs.tex:105-163
+\begin{proof}[Proof of \cref{thm:plane}]
+Points are one-dimensional subspaces of $\mathbb F_q^3$; lines are kernels of nonzero linear functionals, modulo nonzero scalar multiples. There are $(q^3-1)/(q-1)=N$ of each. A line contains $(q^2-1)/(q-1)=k$ points. Two distinct points span a unique two-dimensional subspace, hence lie on one common line. Two distinct kernels intersect in one one-dimensional subspace. These facts also show each point lies on $k$ lines.
+
+Let $P$ be the $N\times N$ incidence matrix. Then
+\[
+ P\1=k\1,\qquad P^\top P=qI+\1\1^\top.
+\]
+Define $A=(N/k)P-\1\1^\top$. Its positive entries equal $N/k-1=q^2/(q+1)\geq1$, and its negative entries equal $-1$. Direct multiplication gives
+\[
+ A\1=0,\qquad
+ A^\top A=(N/k)^2q\left(I-\frac{\1\1^\top}{N}\right).
+\]
+Indeed, the coefficient of $\1\1^\top$ before simplification is $N^2/k^2-N=-Nq/k^2$, since $k^2=N+q$. Thus $\|A\|_\op=(N/k)\sqrt q$, and Theorem~\ref{thm:forster} gives the lower bound in \eqref{eq:planedc}.
+
+For the upper bound, enumerate the points by distinct integers $1,\ldots,N$ and use the common embedding
+$\phi(t)=(1,t,\ldots,t^{2k})$. For a positive set $S$ of size $k$, the polynomial
+\[
+ p_S(t)=\tfrac12-\prod_{a\in S}(t-a)^2
+\]
+is positive on $S$ and negative on all other domain points: away from $S$ the product is a positive integer. Its coefficient vector is the required weight vector. Hence $\dc\leq2k+1$.
+
+Now prove \eqref{eq:planeplain}. Write $K=|J|$, and restrict $P$ to the selected columns. If $K<16$, the Gram matrix has diagonal entries one, so its norm is at least one and the result follows. Suppose $K\geq16$ and let $r_x$ be the number of selected lines containing point $x$.
+If $r_x<K/4$ for every $x$, take the unit vector $a=\1/\sqrt K$. At each point,
+\[
+ |\textstyle\sum_{j\in J}a_jh_j(x)|=|2r_x-K|/\sqrt K>\sqrt K/2.
+\]
+Its Gram Rayleigh quotient is at least $K/4$. Otherwise choose $x_0$ incident with $r\geq K/4$ selected lines and let $S$ be those $r$ lines. At $x_0$ all these labels are positive; at any other point at most one is positive, since two points have a unique common line. For the unit vector $a=\1_S/\sqrt r$,
+\[
+ |\textstyle\sum_j a_jh_j(x)|\geq(r-2)/\sqrt r\geq\sqrt r/2
+ \quad\text{for all }x,
+\]
+since $r\geq4$. Its Rayleigh quotient is at least $r/4\geq K/16$, for every $\mu$. This proves \eqref{eq:planeplain}, including marginals concentrated on a single point.
+
+The claimed learner queries $q_j(x,y)=y h_j(x)$ for every line and outputs a hypothesis with maximum answer. The true target has correlation one, hence receives answer at least $1-\tau$. A maximizing hypothesis has true correlation at least $1-2\tau$, and loss at most $\tau$, regardless of the marginal and the oracle. Thus it is one distribution-independent learner.
+
+We prove the fixed-$D$ claim before excluding a common efficient learner. Let $\delta=\epsilon/2$ and sample a length-$s$ sequence from the known $D$. For any pair of hypotheses at $D$-distance greater than $\delta$, the probability of identical labels on the sequence is at most $(1-\delta)^s\leq e^{-\delta s}$. A union bound over fewer than $N^2$ pairs is at most $N^2e^{-\delta s}\leq e^{-1}<1$. Consequently some sequence has the property that hypotheses with identical traces are within $D$-distance $\delta$. Hardwire one such sequence and one representative hypothesis per trace into the learner. On at most $s$ distinct sampled points there are at most $1+s+\binom{s}{2}$ traces: the empty trace, at most $s$ singleton traces, and at most one line through each pair of distinct sampled points. Every trace of size at least two is determined by one such pair. The representatives therefore form a $D$-cover of the claimed size. Query their label correlations and select the largest answer. A representative within $\delta$ of the true target has correlation at least $1-2\delta$. With tolerance $\tau=\epsilon/2$, the selected output has correlation at least $1-2\delta-2\tau$ and error at most $\delta+\tau=\epsilon$. The hardwired cover depends on $D$, so the algorithm is distribution-specific.
+
+To rule out a much cheaper common learner, choose for target line $j$ the distribution
+\[
+ D_j(x)=\begin{cases}(2k)^{-1},&P_{xj}=1,\\[1mm]
+ (2(N-k))^{-1},&P_{xj}=0.
+ \end{cases}
+\]
+Take the reference $P_0$ to be uniform on $X_q\times\{-1,+1\}$. With $c=k/(N-k)$, its residual likelihood ratios satisfy
+\[
+ r_j(x,+1)=A_{xj},\qquad r_j(x,-1)=-cA_{xj}.
+\]
+For example the first formula is $2N D_j(x)-1=N/k-1$ on the line and $-1$ elsewhere; the second is $-1$ on the line and $N/(N-k)-1=c$ elsewhere. Consequently
+\begin{align*}
+ \Gamma&=\frac{1+c^2}{2N}A^\top A,\\
+ \Lambda&=\frac{qN}{2}\left(\frac1{(q+1)^2}+\frac1{q^4}\right),\\
+ R&=\frac{2}{q((q+1)^{-2}+q^{-4})}\geq\frac{(q+1)^2}{q}\geq q.
+\end{align*}
+The penultimate inequality uses $q^4\geq(q+1)^2$ for $q\geq2$, which follows from $q^2\geq q+1$. By Theorem~\ref{thm:barrier}, $R\leq4+4M$ for $M=m/\tau^2$. Therefore
+\[
+ \dc(\cH_q)\leq2q+3\leq2R+3\leq11+8M\leq19M,
+\]
+where the final inequality uses $M\geq1$.
+\end{proof}

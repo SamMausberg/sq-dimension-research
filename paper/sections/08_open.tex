@@ -1,0 +1,12 @@
+\section{Open problems}\label{sec:open}\label{sec:discussion}
+\paragraph{Explicit selection.}
+Find one efficiently entry-computable family with polynomial-length descriptions, polynomial inverse rectangle ratio, and dimension exceeding every polynomial in $n$. The existing key and advice families give each prescribed degree separately. Efficient deterministic selection follows the direction of Hatami, Hatami, Pires, Tao and Zhao's Problem~4.1 \citep{HHPTZ22}. The classical certificate limitation and the source-length counterexample are retained in \cref{app:resources}.
+
+\paragraph{Benign online SGD and charged resources.}
+Determine whether the exact Gaussian-initialized, bias-free logistic-loss process in \cref{app:sgdmodels}, with class-dependent architecture and hyperparameters, implies $\dc(H)\le CTS$ or a polynomial bound. A negative answer requires both a small compatible network and a distribution-independent analysis of these dynamics for a class of high dimension. Separately, determine what dimension bound follows when preprocessing, query evaluation, generated memory and expanded description are charged in a finite-bit model.
+
+\paragraph{A characterization beyond rectangle size.}
+Identify a resource characterizing distribution-independent SQ learning. Cube halfspaces and parities both have exponentially small rectangles, but only the latter have an exponential SQ lower bound. The communication and RSD sufficient conditions are in \cref{sec:characterizations,sec:rsd}.
+
+\paragraph{Query and tolerance tradeoffs.}
+Projective planes satisfy $\rho=\Theta(q)$ and $m/\tau^2=\Omega(\rho)$, whereas the rectangle theorem gives $O_\epsilon(\rho^3\log K)$. Determine the optimal tradeoff. For succinct incidence evaluation, close the remaining query gap between the $\Theta_\epsilon(n)$ order in \cref{thm:query-lower} and the $O_\epsilon(n^2)$ order-median learner, including the possible reuse of residual medians across slope stages.

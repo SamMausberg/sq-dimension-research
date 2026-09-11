@@ -1,0 +1,42 @@
+% sections/04_family.tex:15-28
+\begin{theorem}[Approximate counting and exact probabilistic dimension]\label{thm:prob}
+Fix $0\le\eta<1/2$ and write
+\[
+ h_2(\eta)=-\eta\log_2\eta-(1-\eta)\log_2(1-\eta),\quad
+ c_\eta=1-h_2(\eta)>0,
+ \quad s_\eta=\left\lfloor\frac{c_\eta I}{4KB_0}\right\rfloor,
+\]
+with $0\log 0=0$. For the random incidence-flip matrix,
+\begin{equation}\label{eq:approx-prob}
+ \Pr[\dc^\eta(H_A)<s_\eta]\le2^{-c_\eta I/2}.
+\end{equation}
+
+Consequently most $A$ have $\dc_{1/2}(H_A)=\Omega(N/\log^2M)$ and $\dc^\eta(H_A)=\Omega_\eta(N/\log M)$.
+\end{theorem}
+
+% appendices/family_proof.tex:34-58
+\begin{proof}[Proof of \cref{thm:prob}]
+Let $J_\ell$ be the set of template incidences in row $\ell$, with $k_\ell=|J_\ell|$. For each nonempty $J_\ell$, take $D_\ell$ uniform on it. If a law on $d$-dimensional embeddings witnesses $\dc^\eta(H_A)\le d$, then
+\[
+ \E_\phi\sum_{\ell:k_\ell>0}\frac{k_\ell}{I}
+       \min_w L_{D_\ell,h_\ell}(\sign\langle w,\phi\rangle)\le\eta.
+\]
+For a fixed embedding, only finitely many Boolean predictions are possible, so each infimum is attained as a minimum of finitely many loss values. There exists one embedding with the displayed weighted sum at most $\eta$. Otherwise its positive excess over $\eta$ would have strictly positive expectation. Choose one minimizing weight vector for each row. Their prediction matrix makes at most $\eta I$ mistakes on the incidence positions.
+
+With $\sign(0)=+1$, this prediction matrix has strict sign-rank at most $d+1$, not necessarily at most $d$. Add the constant feature one. In each row add a strictly positive bias smaller than the absolute value of every negative score in that row, if there are negative scores. This retains all signs and turns every zero into a positive score. Finiteness makes the bias choice possible. Rows with no incidence may use any weight vector.
+
+For any fixed sign matrix $B$, the number of possible incidence flip patterns within $\eta I$ mistakes is at most
+\[
+ \sum_{j=0}^{\lfloor\eta I\rfloor}\binom Ij\le2^{h_2(\eta)I}.
+\]
+For $0<\eta<1/2$, this follows from
+\[
+ 1\ge\sum_{j\le\eta I}\binom Ij\eta^j(1-\eta)^{I-j}
+ \ge2^{-h_2(\eta)I}\sum_{j\le\eta I}\binom Ij;
+\]
+the second inequality uses $j\le\eta I$ and $\eta/(1-\eta)<1$. For $\eta=0$ the sum is one. Combining with \eqref{eq:warren}, the probability that any rank-at-most-$s_\eta$ sign matrix makes at most $\eta I$ incidence errors is at most
+\[
+ 2^{2Ks_\eta B_0+h_2(\eta)I-I}\le2^{-c_\eta I/2}.
+\]
+An embedding of dimension below $s_\eta$ would produce just such a strict sign matrix after adding the constant coordinate. If $s_\eta=0$, the event in question is empty. This proves \eqref{eq:approx-prob}. Combining it with \cref{thm:construction,lem:exact-prob} gives the two asymptotic dimension bounds in the statement; the sum of the two exceptional probabilities tends to zero.
+\end{proof}

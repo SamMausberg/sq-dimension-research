@@ -1,0 +1,43 @@
+% sections/04_family.tex:3-13
+\begin{theorem}[Construction and ordinary dimension]\label{thm:construction}
+Every monotone flip $A$ satisfies $\operatorname{VC}(A)\le2$ and $\rect(A)\ge2^{-15}$. The template has $\sr(F)\le6$ and exactly
+\begin{equation}\label{eq:I}
+ I=2N^4-\left(\frac{N(N+1)}2\right)^2\ge N^4
+\end{equation}
+independent flip positions. Set $B_0=\log_2(4eK)$ and $s_0=\lfloor I/(4KB_0)\rfloor$. A random $A$ satisfies
+\[
+ \Pr[\dc(H_A)\le s_0]\le2^{-I/2}.
+\]
+Every member also satisfies $\dc(H_A)\le2N+1$. In particular most matrices have $\dc(H_A)=\Omega(N/\log M)$. For every $0<\epsilon<1/4$, all members have a learner with $m=O_\epsilon(\log M)$ and $\tau=\Omega_\epsilon(1)$, by \cref{thm:main} with $\rho=2^{15}$. Independently of the sharp rectangle input, the self-contained cap proof in Appendix~\ref{app:oldgeometry} supplies $\rho=2^{18}$ and the same asymptotic learning bound.
+\end{theorem}
+
+% appendices/family_proof.tex:4-32
+\begin{proof}[Proof of \cref{thm:construction}]
+
+Define
+\[
+ u_p=(x^2,xy,y^2,x,y,1),\quad
+ v_\ell=(a^2,-2a,1,2ab,-2b,b^2-1/2).
+\]
+Their dot product is $(ax+b-y)^2-1/2$. It is negative on incidences and positive on nonincidences because all coordinates are integers. Thus the six-dimensional strict factorization proves $\sr(F)\le6$. Both vectors are nonzero and may be normalized to unit vectors. Every row of $A$ has at most $N$ negative points. Enumerate all domain points by $t\in[K]$ and use $(1,t,\ldots,t^{2N})$. For a row with negative index set $S$, the polynomial $\prod_{a\in S}(t-a)^2-1/2$ is negative exactly on $S$ and positive at every other integer domain point. The empty product is one. This proves $\dc(H_A)\le2N+1$ for every member.
+
+For fixed $a,x$, exactly $2N^2-ax$ values of $b\in[2N^2]$ give an incidence with $y\in[2N^2]$. Summing proves \eqref{eq:I}. The lower bound uses $(N+1)/2\le N$. If two distinct affine lines share points $(x,y)$ and $(x',y')$, subtraction gives $(a-c)(x-x')=0$. If $a=c$, their shared point forces equal intercepts, a contradiction. Otherwise $x=x'$ and then $y=y'$. Hence $F$, and therefore $A$, has no all-negative $2\times2$. Shattering three columns would require one row negative on all three and a distinct row negative on two of them, which creates such a submatrix. Therefore $\operatorname{VC}(A)\le2$.
+
+The homogeneous-rectangle theorem of \citet{APP05}, in the formulation checked in \citet[Theorem 1.9]{HHPTZ22}, states that an $a\times b$ sign matrix of sign-rank at most $d$ contains a monochromatic rectangle with each side at least the corresponding side length divided by $2^{d+1}$. Apply \cref{lem:product-weights}, since sign-rank is unchanged by repetition. It follows that
+\begin{equation}\label{eq:sharp-rect}
+ \rect(F)\ge2^{-2d-2}.
+\end{equation}
+Fix a product distribution and such a rectangle of $F$. If its color is positive, it survives every monotone flip. If its color is negative, one side is a singleton, by the absence of a negative $2\times2$. Partition the other side according to its sign in $A$; one part retains at least half its mass. Thus
+\begin{equation}\label{eq:structural}
+ \sr(F)\le d,\quad F\text{ has no negative }2\times2
+ \quad\Longrightarrow\quad \rect(A)\ge2^{-(2d+3)}.
+\end{equation}
+For $d=6$ this is $2^{-15}$. 
+
+For the counting bound, we use the strict-pattern formulation of Warren\textquotesingle s theorem \citep{Warren68} given in \citet[Theorem 21 and Lemma 22]{AMY16}: $s\ge v$ real polynomials of degree at most $k$ in $v$ variables have at most $(4eks/v)^v$ strict sign patterns. A rank-at-most-$d$ $K\times K$ matrix factors as a $K\times d$ matrix times a $d\times K$ matrix. Its $K^2$ entries are degree-two polynomials in $2Kd$ variables. Therefore, for $1\le d\le K/2$,
+\begin{equation}\label{eq:warren}
+ \#\{B\in\{-1,+1\}^{K\times K}:\sr(B)\le d\}
+ \le(4eK/d)^{2Kd}\le2^{2KdB_0}.
+\end{equation}
+The random family has exactly $2^I$ equiprobable matrices. Taking $d=s_0$ bounds the probability by $2^{2Ks_0B_0-I}\le2^{-I/2}$. The range $s_0\le K/2$ follows from $I\le K^2$ and $B_0>1$; when $s_0=0$ the event is empty. Finally $I\ge N^4$ and $K=2N^3$ give the asymptotic lower bound. Apply Theorem~\ref{thm:main} for the learner.
+\end{proof}

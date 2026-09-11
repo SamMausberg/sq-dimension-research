@@ -1,0 +1,8 @@
+Title: Distribution-independent SQ learning does not imply low dimension complexity
+Authors: Samuel Mausberg
+Primary category: cs.LG
+Cross-lists: cs.CC cs.DS
+Comments: 64 pages, including 13 pages of main text and front matter; developed with AI assistance; see Disclosure.
+License: Author decision required before submission.
+Abstract:
+Open Question 2 of Feldman, Kamath and Srebro has a negative answer in all three proposed forms and both nondegenerate probabilistic variants. If every product distribution has a monochromatic rectangle of mass at least $1/\rho$, a common statistical-query learner uses $O(\rho(\log|H|+\log(1/\epsilon)))$ queries at tolerance $\Omega(\epsilon/(\rho\log(1/\epsilon)))$. Incidence flips on $2M$ points have $O_\epsilon(\log M)$-query learners but ordinary dimension $\Omega(M^{1/3}/\log M)$, exact probabilistic dimension $\Omega(M^{1/3}/\log^2 M)$, and averaged probabilistic dimension $\Omega_\eta(M^{1/3}/\log M)$ for fixed $\eta<1/2$. The learners can be proper, deterministic and polynomial-time in the table; under subexponential PRF security, key-known polynomial-time learners use $O_\epsilon(n^2)$ queries while almost every key has dimension at least $n^c/(30\log_2 n)$ for any prescribed fixed $c$. Typical flips require $\Theta_\epsilon(n)$ queries at an accuracy-dependent fixed tolerance, with a sharper lower bound for proper outputs. The benign online-SGD question remains open because the SQ-to-gradient simulation engineers the architecture and initialization and charges the simulated computation, while hidden-table lower bounds concern class-independent learners.

@@ -1,0 +1,60 @@
+\section{The separating family}\label{sec:family}
+Let $N\ge2$, $M=N^3$ and $K=2M$. Points and lines are indexed by $[N]\times[2N^2]$. The template $F$ is negative exactly when $y=ax+b$. A monotone flip changes any subset of these incidences to $+1$, leaving all other signs positive. Write $H_A$ for the row class. The two panels in \cref{fig:template} show this operation at $N=2$.
+\begin{theorem}[Construction and ordinary dimension]\label{thm:construction}
+Every monotone flip $A$ satisfies $\operatorname{VC}(A)\le2$ and $\rect(A)\ge2^{-15}$. The template has $\sr(F)\le6$ and exactly
+\begin{equation}\label{eq:I}
+ I=2N^4-\left(\frac{N(N+1)}2\right)^2\ge N^4
+\end{equation}
+independent flip positions. Set $B_0=\log_2(4eK)$ and $s_0=\lfloor I/(4KB_0)\rfloor$. A random $A$ satisfies
+\[
+ \Pr[\dc(H_A)\le s_0]\le2^{-I/2}.
+\]
+Every member also satisfies $\dc(H_A)\le2N+1$. In particular most matrices have $\dc(H_A)=\Omega(N/\log M)$. For every $0<\epsilon<1/4$, all members have a learner with $m=O_\epsilon(\log M)$ and $\tau=\Omega_\epsilon(1)$, by \cref{thm:main} with $\rho=2^{15}$. Independently of the sharp rectangle input, the self-contained cap proof in Appendix~\ref{app:oldgeometry} supplies $\rho=2^{18}$ and the same asymptotic learning bound.
+\end{theorem}
+\noindent The proof is in \cref{proof:construction}.
+\begin{theorem}[Approximate counting and exact probabilistic dimension]\label{thm:prob}
+Fix $0\le\eta<1/2$ and write
+\[
+ h_2(\eta)=-\eta\log_2\eta-(1-\eta)\log_2(1-\eta),\quad
+ c_\eta=1-h_2(\eta)>0,
+ \quad s_\eta=\left\lfloor\frac{c_\eta I}{4KB_0}\right\rfloor,
+\]
+with $0\log 0=0$. For the random incidence-flip matrix,
+\begin{equation}\label{eq:approx-prob}
+ \Pr[\dc^\eta(H_A)<s_\eta]\le2^{-c_\eta I/2}.
+\end{equation}
+
+Consequently most $A$ have $\dc_{1/2}(H_A)=\Omega(N/\log^2M)$ and $\dc^\eta(H_A)=\Omega_\eta(N/\log M)$.
+\end{theorem}
+\noindent The proof is in \cref{proof:prob}.
+\begin{lemma}[From exact probabilistic to strict dimension]\label{lem:exact-prob}
+For every finite nonempty class $H$ with $K=|H|$,
+\begin{equation}\label{eq:exact-prob}
+ \dc(H)\le(\lceil\log_2K\rceil+1)\dc_{1/2}(H)+1.
+\end{equation}
+\end{lemma}
+\noindent The proof is in \cref{proof:exact-prob}.
+\begin{corollary}[Negative answers to the dimension implications]\label{cor:negative-answer}
+For every fixed $0<\epsilon<1/4$, none of (L), (P) and (Pn) holds universally with $\dc(H)$ or $\dc_{1/2}(H)$ on the left. For every fixed $C>0$, choose
+\[
+ 0<\epsilon<\min\{1/4,1/(2C)\},\qquad\eta=C\epsilon.
+\]
+The same three conclusions fail with $\dc^{C\epsilon}(H)$ on the left, under each nondegenerate tie convention of \cref{lem:ties}. The counterexamples have proper deterministic, table-polynomial learners with $m=O_\epsilon(\log M)$ and $\tau=\Omega_\epsilon(1)$.
+\end{corollary}
+
+\noindent The corollary follows by fixing $\eta=C\epsilon<1/2$ and intersecting the counting events; see \cref{proof:negative-answer}. The template has six features, but its $I$ independent incidence bits survive the monotone operation. For averaged probabilistic dimension, the counting proof weights each nonempty row by its number of template incidences and tests it on that support. A uniform loss over all entries would hide these sparse bits.
+
+\begin{theorem}[Optimal query order for random incidence flips]\label{thm:query-lower}
+Put $\chi=1-h_2(3/8)>0$. Suppose $N\ge25$ and $\chi N\ge6\log_2N$. With probability at least $1-2^{-2N^3}-N^3e^{-N/32}$ over independent fair flips, the following holds simultaneously for all $0<\epsilon<1/4$ and $0<\tau<1$. Every randomized depth-$m$ SQ learner with expected error at most $\epsilon$ on every target-line instance $(D_\ell,h_\ell)$, $\ell\in[N]\times[N^2]$, obeys
+\[
+ m\ge\frac{\log_2N+\log_2\!\bigl(\chi(1-8\epsilon/3)/8\bigr)}
+ {\log_2\lceil1/\tau\rceil}.
+\]
+Here $D_\ell$ is uniform on the line's $N$ template points, and the guarantee must hold against every valid oracle. If the learner is proper, then
+\[
+ m\ge\frac{\log_2(2M)-1+\log_2(1-3\epsilon)}
+ {\log_2\lceil1/\tau\rceil}.
+\]
+For every fixed $\epsilon$, there is a fixed tolerance $\tau_\epsilon>0$ at which both proper and unrestricted query complexity are $\Theta_\epsilon(n)$ for matrices in this event. The $O_\epsilon(n^2)$ succinct learner is within a factor $n$ in query order.
+\end{theorem}
+\noindent The proof is in \cref{proof:query-lower}. It counts outputs that fit multiple target-line instances before applying the response-grid bound. The lower bound concerns typical random flips; the all-positive member has a zero-query learner.

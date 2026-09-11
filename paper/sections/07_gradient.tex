@@ -1,0 +1,36 @@
+\section{Gradient learning and class information}\label{sec:resources}\label{sec:secret}
+The full-batch simulation of Abbe, Kamath, Malach, Sandon and Srebro \citep[Theorem~3d]{AKMSS21} converts a time-bounded SQ learner into an engineered network. It uses their two-stage-ramp activation, a prescribed initialization map, square loss, one reused sample, and coordinatewise clipped, rounded gradients. Its guarantee places a supremum over admissible gradient sequences inside the expectation over the sample and initialization. \Cref{app:engineered} states the imported model and every parameter used below.
+\begin{corollary}[Engineered differentiable learning with high dimension]\label{cor:engineered}
+Assume the PRF hypothesis of \cref{thm:prf}. Fix $c\ge1$ and $0<\epsilon<1/4$. For every sufficiently large admissible encoding length $n$ and every key $s$, the class $H_{A_s}$, encoded on $\{0,1\}^n$, has an engineered neural network and initialization of the form specified in \cref{app:engineered}, each describable and evaluable in $\operatorname{poly}_{c,\epsilon}(n)$ time, with $\operatorname{poly}_{c,\epsilon}(n)$ parameters. After $O(n^2)$ full-batch updates using $\operatorname{poly}_{c,\epsilon}(n)$ examples and the finite-precision gradient rule \eqref{eq:engineered-gradient}, thresholding the final output at $1/2$ has expected classification error at most $\epsilon$ for every marginal and every target in $H_{A_s}$. For all but a negligible fraction of keys,
+\[
+ \dc(H_{A_s})\ge\frac{n^c}{30\log_2 n}.
+\]
+The model and initialization may depend on $s$, but are fixed before the marginal and target.
+\end{corollary}
+\noindent The proof is in \cref{proof:engineered}.
+
+The source learner is the deterministic improper algorithm of \cref{thm:fast} at accuracy $\epsilon/8$. Its polynomial query-evaluation time, rather than table enumeration, enters the model-size bound. After recoding to $\{0,1\}$, square loss is half classification loss. Simulation slack $\epsilon/16$ gives square loss at most $\epsilon/8$; threshold errors cost at least $1/8$ each.
+
+\paragraph{The prescribed online process.}
+Open Question 1 fixes a fully connected bias-free ReLU network, independent layer-$i$ Gaussian weights of variance $1/n_{i-1}$, logistic loss, one step size, $T$ fresh-sample updates, and the sign of the tail-sum output. The architecture, step size and horizon may depend on the class. Its expectation includes initialization and sampling. The full definition is retained in \cref{app:sgdmodels}; the remaining question is listed in Section~\ref{sec:open}.
+
+\paragraph{Information about the class.}
+\begin{proposition}[Unseen independent labels]\label{prop:unseen}
+Fix the full-length template line $\ell_0:y=x+1$ and the uniform distribution on its $N$ points. Choose $A$ by independent fair incidence flips. Let a single learner, chosen independently of $A$, receive $T$ independent labeled samples from $(D,h_{\ell_0})$ and no further information about $A$. Then
+\[
+ \E_{A,\mathrm{sample},\mathrm{coins}}L_{D,h_{\ell_0}}(\widehat h)
+ \ge\frac12(1-1/N)^T
+ \ge\frac12(1-T/N).
+\]
+Thus a guarantee of average error at most $\epsilon$, or a guarantee for every flip table, requires $T\ge(1-2\epsilon)N$. If $\epsilon<1/4$ and $S\ge2$, such a uniformly successful $S$-parameter learner satisfies $TS\ge\dc(H_A)/3$ for every member of the flip family.
+\end{proposition}
+\noindent The proof is in \cref{proof:unseen}.
+\begin{proposition}[Hidden-key computational hardness]\label{prop:hiddenkey}
+Under the PRF assumption of Theorem~\ref{thm:prf}, no probabilistic polynomial-time learner independent of $s$, with a polynomial-time evaluable output and only polynomially many labeled samples from the uniform distribution on $\ell_0$, has average error at most $1/2-\gamma(n)$ for uniform $s$, where $\gamma(n)\ge1/\operatorname{poly}(n)$. More precisely, a learner with $q(n)$ samples and advantage $\gamma(n)$ gives a PRF distinguisher of advantage at least
+\[
+ \gamma(n)-\frac{q(n)}{2N}.
+\]
+\end{proposition}
+\noindent The proof is in \cref{proof:hiddenkey}.
+
+The unseen-label bound conditions on the sample indices and observed labels; every unseen incidence bit remains fair. The PRF reduction adds one fresh test point, whose training collision probability is at most $q(n)/N$. Both propositions fix the learner independently of the table or key. Class-dependent architecture choices in OQ1 have a different quantifier.

@@ -1,0 +1,933 @@
+{
+  "audit_date": "2026-09-11",
+  "audit_type": "Fresh primary-source exact-title and bibliographic-field audit",
+  "scope": "All nine assigned references. Fresh primary retrievals; exact titles and author names compared. No repository edits.",
+  "rendering_note": "The manuscript uses plainnat. It may convert unprotected title text to sentence case. Such capitalization changes are style, not fabricated wording. To reproduce publisher title capitalization literally, use one additional brace layer around each whole title. Preserve acronyms and personal-name spelling regardless of style.",
+  "entries": [
+    {
+      "key": "FKS26",
+      "status": "verified; exact venue wording differs",
+      "canonical_title": "Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?",
+      "title_bibtex": "Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?",
+      "authors": [
+        {
+          "given": "Vitaly",
+          "family": "Feldman"
+        },
+        {
+          "given": "Pritish",
+          "family": "Kamath"
+        },
+        {
+          "given": "Nathan",
+          "family": "Srebro"
+        }
+      ],
+      "validated_fields": {
+        "entry_type": "inproceedings",
+        "booktitle": "Proceedings of Thirty Ninth Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "336",
+        "pages": "7117--7122",
+        "year": "2026",
+        "publisher": "PMLR",
+        "editor": "Hanneke, Steve and Lattimore, Tor",
+        "month": "29 Jun--03 Jul",
+        "url": "https://proceedings.mlr.press/v336/feldman26a.html",
+        "pdf": "https://raw.githubusercontent.com/mlresearch/v336/main/assets/feldman26a/feldman26a.pdf",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v336/feldman26a.html",
+        "https://raw.githubusercontent.com/mlresearch/v336/main/assets/feldman26a/feldman26a.pdf"
+      ],
+      "fresh_retrieval": "Publisher HTML and linked PDF downloaded again during this second audit; first-page title and all three author names read from the PDF.",
+      "discrepancies": [
+        {
+          "field": "booktitle",
+          "current": "Proceedings of the Thirty-Ninth Conference on Learning Theory",
+          "canonical": "Proceedings of Thirty Ninth Conference on Learning Theory",
+          "classification": "Exact transcription difference; current wording still identifies the right event",
+          "correction_for_exactness": "Use the publisher's exact booktitle."
+        }
+      ],
+      "required_factual_corrections": [],
+      "title_comparison": "Exact wording, colon, terminal question mark, capitalization and no hyphen in Distribution Dependent all match.",
+      "confidence": "high",
+      "access_limits": "None for title, names or supplied metadata. The linked PDF uses local pages 1-6 and an unfilled volume slot in its running header; official published volume/pages come from PMLR's record. DOI absent from that record, not asserted nonexistent.",
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "evidence_files": [
+        {
+          "path": "work\\citation-title-audit\\FKS26.html",
+          "sha256": "d5a01818074181362d1152bfeb3bc72d438fdfe104a990a4c71fe7630c6378b2"
+        },
+        {
+          "path": "work\\citation-title-audit\\FKS26.pdf",
+          "sha256": "4ffb9efc67addb7e3cade9b73f8d4f0441c5d3538ddca07643c331be876b6d70"
+        }
+      ]
+    },
+    {
+      "key": "HHPTZ22",
+      "status": "verified; capitalization-only title difference",
+      "canonical_title": "Lower Bound Methods for Sign-rank and their Limitations",
+      "title_bibtex": "Lower Bound Methods for Sign-rank and their Limitations",
+      "authors": [
+        {
+          "given": "Hamed",
+          "family": "Hatami"
+        },
+        {
+          "given": "Pooya",
+          "family": "Hatami"
+        },
+        {
+          "given": "William",
+          "family": "Pires"
+        },
+        {
+          "given": "Ran",
+          "family": "Tao"
+        },
+        {
+          "given": "Rosie",
+          "family": "Zhao"
+        }
+      ],
+      "validated_fields": {
+        "entry_type": "misc",
+        "howpublished": "Electronic Colloquium on Computational Complexity, TR22-079",
+        "report_number": "TR22-079",
+        "year": "2022",
+        "report_date": "2022-05-25",
+        "url": "https://eccc.weizmann.ac.il/report/2022/079/",
+        "pdf": "https://eccc.weizmann.ac.il/report/2022/079/download",
+        "version": "No numbered revision shown on the cited ECCC report page",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://eccc.weizmann.ac.il/report/2022/079/",
+        "https://eccc.weizmann.ac.il/report/2022/079/download"
+      ],
+      "fresh_retrieval": "ECCC HTML and PDF downloaded again; titlepage and five author names independently re-read.",
+      "discrepancies": [
+        {
+          "field": "title",
+          "current": "Lower bound methods for sign-rank and their limitations",
+          "canonical": "Lower Bound Methods for Sign-rank and their Limitations",
+          "classification": "Capitalization only; words and hyphenation agree",
+          "correction_for_exactness": "Use the canonical title above if literal publisher case is wanted; keep lowercase r in Sign-rank and lowercase their."
+        }
+      ],
+      "required_factual_corrections": [],
+      "confidence": "high",
+      "access_limits": "None for the cited preprint's identity or title. This entry intentionally cites the ECCC report; this audit does not replace it with any later publication.",
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "evidence_files": [
+        {
+          "path": "work\\citation-title-audit\\HHPTZ22.html",
+          "sha256": "e7e32541a45eebcc2ef50bf4b81c86cd7b644780bbad29a9a9f1385b19c8f642"
+        },
+        {
+          "path": "work\\citation-title-audit\\HHPTZ22.pdf",
+          "sha256": "efb48caf025440ea61e0817347308af09494e03466823f05352a8c5ae5ca323c"
+        }
+      ]
+    },
+    {
+      "key": "APP05",
+      "status": "verified",
+      "checked_at_utc": "2026-09-11T15:54:14.049846+00:00",
+      "canonical_title": "Crossing patterns of semi-algebraic sets",
+      "title_bibtex": "Crossing patterns of semi-algebraic sets",
+      "authors": [
+        {
+          "given": "Noga",
+          "family": "Alon"
+        },
+        {
+          "given": "János",
+          "family": "Pach"
+        },
+        {
+          "given": "Rom",
+          "family": "Pinchasi"
+        },
+        {
+          "given": "Radoš",
+          "family": "Radoičić"
+        },
+        {
+          "given": "Micha",
+          "family": "Sharir"
+        }
+      ],
+      "validated_fields": {
+        "journal": "Journal of Combinatorial Theory, Series A",
+        "year": "2005",
+        "volume": "111",
+        "number": "2",
+        "pages": "310--326",
+        "doi": "10.1016/j.jcta.2004.12.008",
+        "url": "https://doi.org/10.1016/j.jcta.2004.12.008",
+        "publisher": "Elsevier BV",
+        "publication_date_parts": [
+          2005,
+          8
+        ],
+        "entry_type": "article"
+      },
+      "canonical_authors": [
+        {
+          "given": "Noga",
+          "family": "Alon"
+        },
+        {
+          "given": "János",
+          "family": "Pach"
+        },
+        {
+          "given": "Rom",
+          "family": "Pinchasi"
+        },
+        {
+          "given": "Radoš",
+          "family": "Radoičić"
+        },
+        {
+          "given": "Micha",
+          "family": "Sharir"
+        }
+      ],
+      "canonical_fields": {
+        "title": "Crossing patterns of semi-algebraic sets",
+        "authors": [
+          {
+            "given": "Noga",
+            "family": "Alon"
+          },
+          {
+            "given": "János",
+            "family": "Pach"
+          },
+          {
+            "given": "Rom",
+            "family": "Pinchasi"
+          },
+          {
+            "given": "Radoš",
+            "family": "Radoičić"
+          },
+          {
+            "given": "Micha",
+            "family": "Sharir"
+          }
+        ],
+        "journal": "Journal of Combinatorial Theory, Series A",
+        "year": 2005,
+        "volume": "111",
+        "number": "2",
+        "pages": "310-326",
+        "doi": "10.1016/j.jcta.2004.12.008",
+        "url": "https://doi.org/10.1016/j.jcta.2004.12.008",
+        "publisher": "Elsevier BV",
+        "publication_date_parts": [
+          2005,
+          8
+        ]
+      },
+      "current_bibtex_fields": {
+        "author": "Alon, Noga and Pach, J{\\'a}nos and Pinchasi, Rom and Radoi{\\v c}i{\\'c}, Rado{\\v s} and Sharir, Micha",
+        "title": "Crossing patterns of semi-algebraic sets",
+        "journal": "Journal of Combinatorial Theory, Series A",
+        "volume": "111",
+        "number": "2",
+        "pages": "310--326",
+        "year": "2005",
+        "doi": "10.1016/j.jcta.2004.12.008",
+        "url": "https://doi.org/10.1016/j.jcta.2004.12.008"
+      },
+      "current_decoded_authors": [
+        {
+          "given": "Noga",
+          "family": "Alon"
+        },
+        {
+          "given": "János",
+          "family": "Pach"
+        },
+        {
+          "given": "Rom",
+          "family": "Pinchasi"
+        },
+        {
+          "given": "Radoš",
+          "family": "Radoičić"
+        },
+        {
+          "given": "Micha",
+          "family": "Sharir"
+        }
+      ],
+      "field_comparison": {
+        "title_exact_decoded": true,
+        "authors_exact_unicode_and_order": true,
+        "venue_exact": true,
+        "year": true,
+        "pages": true,
+        "doi_case_insensitive": true,
+        "volume": true,
+        "number": true
+      },
+      "discrepancies": [],
+      "required_factual_corrections": [],
+      "recommended_bibtex_field_values": {},
+      "sources": [
+        "https://api.crossref.org/works/10.1016/j.jcta.2004.12.008",
+        "https://www.sciencedirect.com/science/article/pii/S0097316505000063",
+        "https://web.math.princeton.edu/~nalon/PDFS/apprs8.pdf"
+      ],
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1016/j.jcta.2004.12.008",
+        "https://www.sciencedirect.com/science/article/pii/S0097316505000063",
+        "https://web.math.princeton.edu/~nalon/PDFS/apprs8.pdf"
+      ],
+      "fresh_retrieval": "Publisher-deposited Crossref JSON fetched successfully. Publisher page freshly corroborated by indexed web result. Author-hosted PDF downloaded afresh; complete title page visually inspected, including János and Radoš Radoičić. PDF title case differs from publisher record only as capitalization style. The title footnote asterisk is not part of the canonical bibliographic title.",
+      "confidence": "high for exact metadata; original PDF access limits specified separately",
+      "access_limits": "Publisher-deposited Crossref JSON fetched successfully. Publisher page freshly corroborated by indexed web result. Author-hosted PDF downloaded afresh; complete title page visually inspected, including János and Radoš Radoičić. PDF title case differs from publisher record only as capitalization style. The title footnote asterisk is not part of the canonical bibliographic title.",
+      "evidence_files": [
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\APP05-crossref.json",
+          "sha256": "a089a47dce7f346e513c6bfa255d992d1cd68a241408fc87b7082de58727af89"
+        },
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\APP05-author.pdf",
+          "sha256": "9449a03d78930f65a8be0484831658374e114995945bb1cf01da464e5c4a9cf9"
+        }
+      ],
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "scope": "Fresh exact bibliographic audit only. No repository edits; no mathematical claim changes."
+    },
+    {
+      "key": "Warren68",
+      "status": "verified",
+      "checked_at_utc": "2026-09-11T15:54:14.050846+00:00",
+      "canonical_title": "Lower bounds for approximation by nonlinear manifolds",
+      "title_bibtex": "Lower bounds for approximation by nonlinear manifolds",
+      "authors": [
+        {
+          "given": "Hugh E.",
+          "family": "Warren"
+        }
+      ],
+      "validated_fields": {
+        "journal": "Transactions of the American Mathematical Society",
+        "year": "1968",
+        "volume": "133",
+        "number": "1",
+        "pages": "167--178",
+        "doi": "10.1090/s0002-9947-1968-0226281-1",
+        "url": "https://doi.org/10.1090/s0002-9947-1968-0226281-1",
+        "publisher": "American Mathematical Society (AMS)",
+        "publication_date_parts": [
+          1968
+        ],
+        "entry_type": "article"
+      },
+      "canonical_authors": [
+        {
+          "given": "Hugh E.",
+          "family": "Warren"
+        }
+      ],
+      "canonical_fields": {
+        "title": "Lower bounds for approximation by nonlinear manifolds",
+        "authors": [
+          {
+            "given": "Hugh E.",
+            "family": "Warren"
+          }
+        ],
+        "journal": "Transactions of the American Mathematical Society",
+        "year": 1968,
+        "volume": "133",
+        "number": "1",
+        "pages": "167-178",
+        "doi": "10.1090/s0002-9947-1968-0226281-1",
+        "url": "https://doi.org/10.1090/s0002-9947-1968-0226281-1",
+        "publisher": "American Mathematical Society (AMS)",
+        "publication_date_parts": [
+          1968
+        ]
+      },
+      "current_bibtex_fields": {
+        "author": "Warren, Hugh E.",
+        "title": "Lower bounds for approximation by nonlinear manifolds",
+        "journal": "Transactions of the American Mathematical Society",
+        "volume": "133",
+        "pages": "167--178",
+        "year": "1968",
+        "number": "1",
+        "doi": "10.1090/S0002-9947-1968-0226281-1",
+        "url": "https://doi.org/10.1090/S0002-9947-1968-0226281-1"
+      },
+      "current_decoded_authors": [
+        {
+          "given": "Hugh E.",
+          "family": "Warren"
+        }
+      ],
+      "field_comparison": {
+        "title_exact_decoded": true,
+        "authors_exact_unicode_and_order": true,
+        "venue_exact": true,
+        "year": true,
+        "pages": true,
+        "doi_case_insensitive": true,
+        "volume": true,
+        "number": true
+      },
+      "discrepancies": [],
+      "required_factual_corrections": [],
+      "recommended_bibtex_field_values": {},
+      "sources": [
+        "https://api.crossref.org/works/10.1090/s0002-9947-1968-0226281-1",
+        "https://www.ams.org/tran/1968-133-01/S0002-9947-1968-0226281-1/S0002-9947-1968-0226281-1.pdf"
+      ],
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1090/s0002-9947-1968-0226281-1",
+        "https://www.ams.org/tran/1968-133-01/S0002-9947-1968-0226281-1/S0002-9947-1968-0226281-1.pdf"
+      ],
+      "fresh_retrieval": "AMS-deposited Crossref JSON freshly fetched and all current fields verified, including issue 1 and DOI. Exact publisher-linked original PDF returned HTTP 403; original printed title page not inspected. This supersedes the earlier metadata access limitation: metadata itself is now directly verified through the publisher deposit.",
+      "confidence": "high for exact metadata; original PDF access limits specified separately",
+      "access_limits": "AMS-deposited Crossref JSON freshly fetched and all current fields verified, including issue 1 and DOI. Exact publisher-linked original PDF returned HTTP 403; original printed title page not inspected. This supersedes the earlier metadata access limitation: metadata itself is now directly verified through the publisher deposit.",
+      "evidence_files": [
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\Warren68-crossref.json",
+          "sha256": "207011027c98f3eee30af4e1dd210eff5ffe36781d3769dbc33aa7890f994bbc"
+        }
+      ],
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "scope": "Fresh exact bibliographic audit only. No repository edits; no mathematical claim changes."
+    },
+    {
+      "key": "AMY16",
+      "status": "verified; exact venue wording differs",
+      "canonical_title": "Sign rank versus VC dimension",
+      "title_bibtex": "Sign rank versus {VC} dimension",
+      "authors": [
+        {
+          "given": "Noga",
+          "family": "Alon"
+        },
+        {
+          "given": "Shay",
+          "family": "Moran"
+        },
+        {
+          "given": "Amir",
+          "family": "Yehudayoff"
+        }
+      ],
+      "validated_fields": {
+        "entry_type": "inproceedings",
+        "booktitle": "29th Annual Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "49",
+        "pages": "47--80",
+        "year": "2016",
+        "publisher": "PMLR",
+        "editor": "Feldman, Vitaly and Rakhlin, Alexander and Shamir, Ohad",
+        "address": "Columbia University, New York, New York, USA",
+        "month": "23--26 Jun",
+        "publication_url": "https://proceedings.mlr.press/v49/alon16.html",
+        "publication_pdf": "https://proceedings.mlr.press/v49/alon16.pdf",
+        "full_version_url": "https://arxiv.org/abs/1503.07648v2",
+        "full_version_submitted": "2016-07-08",
+        "note": "Full version: arXiv:1503.07648v2; theorem numbering refers to that version",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v49/alon16.html",
+        "https://proceedings.mlr.press/v49/alon16.pdf",
+        "https://arxiv.org/abs/1503.07648v2",
+        "https://arxiv.org/pdf/1503.07648v2"
+      ],
+      "fresh_retrieval": "Publisher HTML, conference PDF and arXiv v2 PDF freshly downloaded; both PDF titlepages/author orders independently re-read; version-specific arXiv landing page reopened.",
+      "discrepancies": [
+        {
+          "field": "booktitle",
+          "current": "Conference on Learning Theory",
+          "canonical": "29th Annual Conference on Learning Theory",
+          "classification": "Incomplete exact event title; no wrong event",
+          "correction_for_exactness": "Use the publisher's complete booktitle."
+        }
+      ],
+      "required_factual_corrections": [],
+      "title_comparison": "Exact match after BibTeX brace normalization. Do not insert a hyphen in Sign rank or change versus to vs. The current v2 URL and theorem-numbering note are correct.",
+      "confidence": "high",
+      "access_limits": "None for title or supplied metadata. ArXiv first submission is 2015, but 2016 is the correct conference year. The full-version titlepage date is July 11, 2016; arXiv v2 deposit date is July 8, 2016.",
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "evidence_files": [
+        {
+          "path": "work\\citation-title-audit\\AMY16.html",
+          "sha256": "cf96227d1e57a10a28939914571b070bb20bda7632fabce5093d6e5a97583c6c"
+        },
+        {
+          "path": "work\\citation-title-audit\\AMY16-conference.pdf",
+          "sha256": "c8527a27e939b782bcff5092c893b2eb78e901d5081da59add0e6c382c34b7b9"
+        },
+        {
+          "path": "work\\citation-title-audit\\AMY16-full-v2.pdf",
+          "sha256": "a206422e805493f783be310208bed34dab6f45e8f95bbb6e2033aece83017c41"
+        }
+      ]
+    },
+    {
+      "key": "Feldman17",
+      "status": "verified; title case and exact venue wording differ",
+      "canonical_title": "A General Characterization of the Statistical Query Complexity",
+      "title_bibtex": "A General Characterization of the Statistical Query Complexity",
+      "authors": [
+        {
+          "given": "Vitaly",
+          "family": "Feldman"
+        }
+      ],
+      "validated_fields": {
+        "entry_type": "inproceedings",
+        "booktitle": "Proceedings of the 2017 Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "65",
+        "pages": "785--830",
+        "year": "2017",
+        "publisher": "PMLR",
+        "editor": "Kale, Satyen and Shamir, Ohad",
+        "month": "07--10 Jul",
+        "url": "https://proceedings.mlr.press/v65/feldman17c.html",
+        "pdf": "https://proceedings.mlr.press/v65/feldman17c/feldman17c.pdf",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v65/feldman17c.html",
+        "https://proceedings.mlr.press/v65/feldman17c/feldman17c.pdf"
+      ],
+      "fresh_retrieval": "Publisher HTML and PDF freshly downloaded and independently re-read.",
+      "discrepancies": [
+        {
+          "field": "title",
+          "current": "A general characterization of the statistical query complexity",
+          "canonical": "A General Characterization of the Statistical Query Complexity",
+          "classification": "Capitalization only; exact wording matches",
+          "correction_for_exactness": "Use publisher title case if literal case is requested."
+        },
+        {
+          "field": "booktitle",
+          "current": "Conference on Learning Theory",
+          "canonical": "Proceedings of the 2017 Conference on Learning Theory",
+          "classification": "Incomplete exact event title; correct conference",
+          "correction_for_exactness": "Use the publisher's complete booktitle."
+        }
+      ],
+      "required_factual_corrections": [],
+      "confidence": "high",
+      "access_limits": "None for title or supplied metadata. PDF internal pages are 1-46; the publisher record supplies published pages 785-830.",
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "evidence_files": [
+        {
+          "path": "work\\citation-title-audit\\Feldman17.html",
+          "sha256": "b936f2d2b7e85acc2f0e7deac3fef2b4a61265f073e6728d7a08e0ed184148b9"
+        },
+        {
+          "path": "work\\citation-title-audit\\Feldman17.pdf",
+          "sha256": "1d23b8f30a326b0ef0981d01d6435142ca31af56d07bf8dcc702143c15d0acc3"
+        }
+      ]
+    },
+    {
+      "key": "Forster02",
+      "status": "verified",
+      "checked_at_utc": "2026-09-11T15:54:14.050846+00:00",
+      "canonical_title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+      "title_bibtex": "A linear lower bound on the unbounded error probabilistic communication complexity",
+      "authors": [
+        {
+          "given": "Jürgen",
+          "family": "Forster"
+        }
+      ],
+      "validated_fields": {
+        "journal": "Journal of Computer and System Sciences",
+        "year": "2002",
+        "volume": "65",
+        "number": "4",
+        "pages": "612--625",
+        "doi": "10.1016/s0022-0000(02)00019-3",
+        "url": "https://doi.org/10.1016/s0022-0000(02)00019-3",
+        "publisher": "Elsevier BV",
+        "publication_date_parts": [
+          2002,
+          12
+        ],
+        "entry_type": "article"
+      },
+      "canonical_authors": [
+        {
+          "given": "Jürgen",
+          "family": "Forster"
+        }
+      ],
+      "canonical_fields": {
+        "title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+        "authors": [
+          {
+            "given": "Jürgen",
+            "family": "Forster"
+          }
+        ],
+        "journal": "Journal of Computer and System Sciences",
+        "year": 2002,
+        "volume": "65",
+        "number": "4",
+        "pages": "612-625",
+        "doi": "10.1016/s0022-0000(02)00019-3",
+        "url": "https://doi.org/10.1016/s0022-0000(02)00019-3",
+        "publisher": "Elsevier BV",
+        "publication_date_parts": [
+          2002,
+          12
+        ]
+      },
+      "current_bibtex_fields": {
+        "author": "Forster, J{\\\"u}rgen",
+        "title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+        "journal": "Journal of Computer and System Sciences",
+        "volume": "65",
+        "number": "4",
+        "pages": "612--625",
+        "year": "2002",
+        "doi": "10.1016/S0022-0000(02)00019-3",
+        "url": "https://doi.org/10.1016/S0022-0000(02)00019-3"
+      },
+      "current_decoded_authors": [
+        {
+          "given": "Jürgen",
+          "family": "Forster"
+        }
+      ],
+      "field_comparison": {
+        "title_exact_decoded": true,
+        "authors_exact_unicode_and_order": true,
+        "venue_exact": true,
+        "year": true,
+        "pages": true,
+        "doi_case_insensitive": true,
+        "volume": true,
+        "number": true
+      },
+      "discrepancies": [],
+      "required_factual_corrections": [],
+      "recommended_bibtex_field_values": {},
+      "sources": [
+        "https://api.crossref.org/works/10.1016/s0022-0000(02)00019-3",
+        "https://www.sciencedirect.com/science/article/pii/S0022000002000193",
+        "https://api.elsevier.com/content/article/PII:S0022000002000193?httpAccept=text/plain"
+      ],
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1016/s0022-0000(02)00019-3",
+        "https://www.sciencedirect.com/science/article/pii/S0022000002000193",
+        "https://api.elsevier.com/content/article/PII:S0022000002000193?httpAccept=text/plain"
+      ],
+      "fresh_retrieval": "Elsevier-deposited Crossref JSON freshly fetched; live indexed publisher page agrees on exact title and Jürgen Forster. Publisher full-text API request returned HTTP 400; original printed title page not inspected. Title does not hyphenate unbounded error; preserve that exact wording.",
+      "confidence": "high for exact metadata; original PDF access limits specified separately",
+      "access_limits": "Elsevier-deposited Crossref JSON freshly fetched; live indexed publisher page agrees on exact title and Jürgen Forster. Publisher full-text API request returned HTTP 400; original printed title page not inspected. Title does not hyphenate unbounded error; preserve that exact wording.",
+      "evidence_files": [
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\Forster02-crossref.json",
+          "sha256": "a7364fab9aed9377ce26ae274d1b1f008576bedd0a2d020ac766e61ca7c69a62"
+        }
+      ],
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "scope": "Fresh exact bibliographic audit only. No repository edits; no mathematical claim changes."
+    },
+    {
+      "key": "AKMSS21",
+      "status": "verified; capitalization-only title difference",
+      "canonical_title": "On the Power of Differentiable Learning versus PAC and SQ Learning",
+      "title_bibtex": "On the Power of Differentiable Learning versus {PAC} and {SQ} Learning",
+      "authors": [
+        {
+          "given": "Emmanuel",
+          "family": "Abbe"
+        },
+        {
+          "given": "Pritish",
+          "family": "Kamath"
+        },
+        {
+          "given": "Eran",
+          "family": "Malach"
+        },
+        {
+          "given": "Colin",
+          "family": "Sandon"
+        },
+        {
+          "given": "Nathan",
+          "family": "Srebro"
+        }
+      ],
+      "validated_fields": {
+        "entry_type": "inproceedings",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "34",
+        "pages": "24340--24351",
+        "year": "2021",
+        "publisher": "Curran Associates, Inc.",
+        "editor": "M. Ranzato and A. Beygelzimer and Y. Dauphin and P.S. Liang and J. Wortman Vaughan",
+        "publication_url": "https://proceedings.neurips.cc/paper/2021/hash/cc225865b743ecc91c4743259813f604-Abstract.html",
+        "publication_pdf": "https://proceedings.neurips.cc/paper_files/paper/2021/file/cc225865b743ecc91c4743259813f604-Paper.pdf",
+        "full_version_url": "https://arxiv.org/abs/2108.04190v2",
+        "full_version_submitted": "2022-02-06",
+        "note": "Full version: arXiv:2108.04190v2",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper/2021/hash/cc225865b743ecc91c4743259813f604-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/13486-/bibtex",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/cc225865b743ecc91c4743259813f604-Paper.pdf",
+        "https://arxiv.org/abs/2108.04190v2",
+        "https://arxiv.org/pdf/2108.04190v2"
+      ],
+      "fresh_retrieval": "Publisher landing and versioned arXiv landing reopened; official BibTeX, conference PDF and arXiv v2 PDF freshly downloaded. Both PDF titlepages/all five author names independently re-read.",
+      "discrepancies": [
+        {
+          "field": "title",
+          "current": "On the power of differentiable learning versus {PAC} and {SQ} learning",
+          "canonical": "On the Power of Differentiable Learning versus PAC and SQ Learning",
+          "classification": "Capitalization only; wording and both acronyms are correct",
+          "correction_for_exactness": "Use publisher title case if literal case is requested; keep versus lowercase and PAC/SQ protected."
+        }
+      ],
+      "required_factual_corrections": [],
+      "confidence": "high",
+      "access_limits": "None for title or supplied metadata. Conference year 2021 and full-version deposit year 2022 legitimately differ. Current version pin is correct.",
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "evidence_files": [
+        {
+          "path": "work\\citation-title-audit\\AKMSS21.bib",
+          "sha256": "5d9560dc10ca91d879558c6187d99b4085ad683615dd21852ac7ae9279173c6f"
+        },
+        {
+          "path": "work\\citation-title-audit\\AKMSS21-conference.pdf",
+          "sha256": "b0adc52dfc096302a6ee4f2a603d0637d1d9380c32d5827e43860ecb3d8adf9b"
+        },
+        {
+          "path": "work\\citation-title-audit\\AKMSS21-full-v2.pdf",
+          "sha256": "f810a34dfcd68896dfd6a7c733d155395cc45e95cad0ce88605dfb1cf56d7f94"
+        }
+      ]
+    },
+    {
+      "key": "HHM23",
+      "status": "correction-needed",
+      "checked_at_utc": "2026-09-11T15:54:14.051845+00:00",
+      "canonical_title": "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications",
+      "title_bibtex": "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications",
+      "authors": [
+        {
+          "given": "Hamed",
+          "family": "Hatami"
+        },
+        {
+          "given": "Kaave",
+          "family": "Hosseini"
+        },
+        {
+          "given": "Xiang",
+          "family": "Meng"
+        }
+      ],
+      "validated_fields": {
+        "booktitle": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing",
+        "year": "2023",
+        "volume": null,
+        "number": null,
+        "pages": "463--471",
+        "doi": "10.1145/3564246.3585210",
+        "url": "https://doi.org/10.1145/3564246.3585210",
+        "publisher": "ACM",
+        "publication_date_parts": [
+          2023,
+          6,
+          2
+        ],
+        "preprint": {
+          "title": "A Borsuk-Ulam lower bound for sign-rank and its applications",
+          "report": "ECCC TR22-130",
+          "date": "2022-09-15",
+          "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+          "version": "original unnumbered report; no revision listed"
+        },
+        "entry_type": "inproceedings"
+      },
+      "canonical_authors": [
+        {
+          "given": "Hamed",
+          "family": "Hatami"
+        },
+        {
+          "given": "Kaave",
+          "family": "Hosseini"
+        },
+        {
+          "given": "Xiang",
+          "family": "Meng"
+        }
+      ],
+      "canonical_fields": {
+        "title": "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications",
+        "authors": [
+          {
+            "given": "Hamed",
+            "family": "Hatami"
+          },
+          {
+            "given": "Kaave",
+            "family": "Hosseini"
+          },
+          {
+            "given": "Xiang",
+            "family": "Meng"
+          }
+        ],
+        "booktitle": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing",
+        "year": 2023,
+        "volume": null,
+        "number": null,
+        "pages": "463-471",
+        "doi": "10.1145/3564246.3585210",
+        "url": "https://doi.org/10.1145/3564246.3585210",
+        "publisher": "ACM",
+        "publication_date_parts": [
+          2023,
+          6,
+          2
+        ],
+        "preprint": {
+          "title": "A Borsuk-Ulam lower bound for sign-rank and its applications",
+          "report": "ECCC TR22-130",
+          "date": "2022-09-15",
+          "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+          "version": "original unnumbered report; no revision listed"
+        }
+      },
+      "current_bibtex_fields": {
+        "author": "Hatami, Hamed and Hosseini, Kaave and Meng, Xiang",
+        "title": "A {Borsuk--Ulam} lower bound for sign-rank and its applications",
+        "booktitle": "Proceedings of the ACM Symposium on Theory of Computing",
+        "pages": "463--471",
+        "year": "2023",
+        "note": "Preprint: ECCC TR22-130",
+        "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+        "doi": "10.1145/3564246.3585210"
+      },
+      "current_decoded_authors": [
+        {
+          "given": "Hamed",
+          "family": "Hatami"
+        },
+        {
+          "given": "Kaave",
+          "family": "Hosseini"
+        },
+        {
+          "given": "Xiang",
+          "family": "Meng"
+        }
+      ],
+      "field_comparison": {
+        "title_exact_decoded": false,
+        "authors_exact_unicode_and_order": true,
+        "venue_exact": false,
+        "year": true,
+        "pages": true,
+        "doi_case_insensitive": true
+      },
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "punctuation",
+          "classification": "Typographic exactness difference; work identity and scientific wording unchanged",
+          "current": "A {Borsuk--Ulam} lower bound for sign-rank and its applications",
+          "canonical": "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications",
+          "finding": "TeX Borsuk--Ulam renders an en dash; ACM canonical metadata, official conference TOC and original ECCC title page all use Borsuk-Ulam with a single hyphen. Change to one hyphen for exact title punctuation."
+        },
+        {
+          "field": "title",
+          "kind": "capitalization_style",
+          "classification": "Capitalization style only",
+          "finding": "Current sentence case agrees with ECCC preprint casing but ACM canonical conference title is title case. This is bibliographic style rather than a changed scientific claim. To satisfy literal canonical-title equality, use the ACM title case and brace it against BibTeX sentence-case conversion."
+        },
+        {
+          "field": "booktitle",
+          "kind": "incomplete_canonical_venue",
+          "classification": "Exact transcription difference; existing abbreviated wording identifies the right event",
+          "current": "Proceedings of the ACM Symposium on Theory of Computing",
+          "canonical": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing",
+          "finding": "Current venue omits 55th Annual. Expand to the exact proceedings name."
+        }
+      ],
+      "required_factual_corrections": [],
+      "recommended_bibtex_field_values": {
+        "title": "{A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications}",
+        "booktitle": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing"
+      },
+      "sources": [
+        "https://api.crossref.org/works/10.1145/3564246.3585210",
+        "https://dl.acm.org/doi/10.1145/3564246.3585210",
+        "https://acm-stoc.org/stoc2023/toc.html",
+        "https://eccc.weizmann.ac.il/report/2022/130/",
+        "https://eccc.weizmann.ac.il/report/2022/130/download/"
+      ],
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/3564246.3585210",
+        "https://dl.acm.org/doi/10.1145/3564246.3585210",
+        "https://acm-stoc.org/stoc2023/toc.html",
+        "https://eccc.weizmann.ac.il/report/2022/130/",
+        "https://eccc.weizmann.ac.il/report/2022/130/download/"
+      ],
+      "fresh_retrieval": "ACM-deposited Crossref JSON freshly fetched and all canonical publication fields verified, including pages 463-471. Official conference TOC corroborates title/authors. ACM full PDF returned HTTP 403; ECCC original preprint downloaded afresh and entire title page visually inspected. Preprint has sentence-case title but uses the same single-hyphen Borsuk-Ulam and sign-rank wording. Report date is September 15, 2022; conference publication is 2023. No revision suffix appears on the ECCC report.",
+      "confidence": "high for exact metadata; original PDF access limits specified separately",
+      "access_limits": "ACM-deposited Crossref JSON freshly fetched and all canonical publication fields verified, including pages 463-471. Official conference TOC corroborates title/authors. ACM full PDF returned HTTP 403; ECCC original preprint downloaded afresh and entire title page visually inspected. Preprint has sentence-case title but uses the same single-hyphen Borsuk-Ulam and sign-rank wording. Report date is September 15, 2022; conference publication is 2023. No revision suffix appears on the ECCC report.",
+      "evidence_files": [
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\HHM23-crossref.json",
+          "sha256": "26f6e5ecaeca11ff9a67987ae55b985532aa7844de012ff5eb67067f5e8b798c"
+        },
+        {
+          "path": "C:\\Users\\Sam\\Documents\\Codex\\2026-09-11\\as\\work\\citation-title-audit\\HHM23-eccc.pdf",
+          "sha256": "5a20485ba238ca7ecfe95fdfaa28e3a192d3222935c9f6cdfe7c2498fdca5bbe"
+        }
+      ],
+      "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+      "scope": "Fresh exact bibliographic audit only. No repository edits; no mathematical claim changes."
+    }
+  ],
+  "completed_at_utc": "2026-09-11T15:54:42.973888+00:00",
+  "audited_bib_sha256": "97d36e416b8215b6e9c27b767cd5d480dbcb4f0c8e8561469ca1a513cbc9361f",
+  "summary": {
+    "assigned_count": 9,
+    "reviewed_count": 9,
+    "fabricated_references_found": 0,
+    "required_factual_corrections": 0,
+    "literal_typography_or_venue_adjustment_keys": [
+      "FKS26",
+      "HHPTZ22",
+      "AMY16",
+      "Feldman17",
+      "AKMSS21",
+      "HHM23"
+    ]
+  }
+}

@@ -1,0 +1,465 @@
+{
+  "audit_date": "2026-09-11",
+  "scope": "Fresh independent exact-title and metadata recheck against live primary landing pages and PDF title-page text for GHIS25, FHV26, DKT22, MC12, GGM86, HILL99, Renegar92, Vorobjov21, BHKR26. This is a new check, not a copy of the earlier existence audit. No repository edits.",
+  "source_snapshot": "Compared against paper/references.bib read at the start of this recheck. The parent may apply concurrent fixes after that read.",
+  "result_summary": {
+    "bibliography_keys_checked": 9,
+    "underlying_works_checked": 11,
+    "nonexistent_work_found": false,
+    "title_wording_errors": [
+      "Renegar92 combines the titles of a three-article series into a shorthand title that is not the actual full title of any single article."
+    ],
+    "author_order_conflicts": [
+      "MC12's actual cited arXiv v2 PDF and publisher PDF put Cyril Cohen before Assia Mahboubi; arXiv/LMCS landing metadata put Mahboubi first."
+    ],
+    "capitalization_protection_needed": [
+      "GHIS25: protect Hamming in BibTeX, as root's rendered-bibliography check found it lowercased."
+    ],
+    "ordinary_sentence_case": "Sentence-case bibliography styling is not treated as an error for ordinary words. Proper names, mathematical notation and Roman part labels must preserve their capitalization.",
+    "no_mathematical_changes_recommended": true
+  },
+  "access_limits": [
+    "PDF evidence here is first-page text returned from direct primary PDF URLs. Visual screenshot calls failed with web screenshot not enabled; a local download attempt failed because the configured proxy was unreachable. Do not describe this as visual pixel inspection.",
+    "GGM86 actual article PDF title page was available through a targeted search result from the author's primary PDF URL, while direct PDF open failed.",
+    "HILL99 publisher PDF URL redirected to publisher abstract. An author-hosted full manuscript PDF supplied the title page; published metadata comes from SIAM.",
+    "Renegar metadata was independently checked by a delegated agent against full ScienceDirect primary search records. Direct PDF/HTML access failed; printed typography was not inspected."
+  ],
+  "entries": [
+    {
+      "key": "GHIS25",
+      "status": "verified_title_with_required_proper_name_protection",
+      "exact_canonical_title": "Sign-Rank of $k$-Hamming Distance is Constant",
+      "canonical_title_source": "arXiv v2 landing title and v2 PDF title page agree.",
+      "suggested_sentence_case_bibtex_title": "Sign-rank of {$k$}-{Hamming} distance is constant",
+      "validated_fields": {
+        "authors_in_order": [
+          "Mika Göös",
+          "Nathaniel Harms",
+          "Valentin Imbach",
+          "Dmitry Sokolov"
+        ],
+        "year": 2025,
+        "publication_type": "arXiv preprint",
+        "arxiv_id": "2506.12022",
+        "cited_version": "v2",
+        "version_date": "2025-09-15",
+        "pdf_title_date": "2025-09-16",
+        "doi": "10.48550/arXiv.2506.12022"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/2506.12022v2",
+          "evidence": "Full exact title, all authors/order, version, 2025 and arXiv DOI re-opened."
+        },
+        {
+          "url": "https://arxiv.org/pdf/2506.12022v2",
+          "evidence": "PDF first page title, all four authors in same order, title date and v2 stamp; 24-page PDF."
+        }
+      ],
+      "precise_discrepancies": [
+        "Current wording matches; Sign-rank/Sign-Rank, distance/Distance and constant/Constant differ only by title case.",
+        "Hamming is a proper name; source BibTeX lacks case protection, and root independently observed lowercase hamming in BBL.",
+        "Landing comment says 19 pages, 6 figures, while actual v2 PDF has 24 pages. Existing bibliography has no page-count field, so no erroneous field to correct."
+      ],
+      "recommended_action": "Protect {Hamming}. Preserve the current v2 pin and author order. Do not add the stale landing-comment page count.",
+      "access_limit": "Title-page text inspected; no image rendering available."
+    },
+    {
+      "key": "FHV26",
+      "status": "verified",
+      "exact_canonical_title": "A $\\mathbb{Z}_2$-Topological Framework for Sign-rank Lower Bounds",
+      "pdf_title_variant": "A Z₂–Topological Framework for Sign-rank Lower Bounds",
+      "canonical_title_source": "arXiv v2 landing metadata; PDF title page corroborates all words with an en dash between Z₂ and Topological.",
+      "suggested_sentence_case_bibtex_title": "A {$\\mathbb{Z}_2$}-topological framework for sign-rank lower bounds",
+      "validated_fields": {
+        "authors_in_order": [
+          "Florian Frick",
+          "Kaave Hosseini",
+          "Aliaksei Vasileuski"
+        ],
+        "year": 2026,
+        "publication_type": "arXiv preprint",
+        "arxiv_id": "2604.01510",
+        "cited_version": "v2",
+        "version_date": "2026-04-10",
+        "pdf_title_date": "2026-04-14",
+        "pdf_page_count": 38,
+        "doi": "10.48550/arXiv.2604.01510"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/2604.01510v2",
+          "evidence": "Exact title, author order and v2 metadata."
+        },
+        {
+          "url": "https://arxiv.org/pdf/2604.01510v2",
+          "evidence": "First-page wording, authors/order, date and v2 stamp."
+        }
+      ],
+      "precise_discrepancies": [
+        "No missing/extra words or incorrect sign-rank hyphen.",
+        "Ordinary titlecase is normalized in current bibliography; this is harmless.",
+        "Source PDF uses an en dash after Z₂ while source metadata uses a hyphen. Both are primary-source variants, not a fabricated title.",
+        "Existing $\\mathbb Z_2$ and canonical $\\mathbb{Z}_2$ denote the same symbol."
+      ],
+      "recommended_action": "No substantive correction required. Retain sign-rank hyphen and protected mathematical symbol; use one consistent metadata variant.",
+      "access_limit": "Title-page text inspected; no image rendering available."
+    },
+    {
+      "key": "DKT22",
+      "status": "verified",
+      "exact_canonical_title": "A Strongly Polynomial Algorithm for Approximate Forster Transforms and its Application to Halfspace Learning",
+      "canonical_title_source": "arXiv v1 landing and PDF agree; its is lowercase even in the title-case source.",
+      "suggested_sentence_case_bibtex_title": "A strongly polynomial algorithm for approximate {Forster} transforms and its application to halfspace learning",
+      "validated_fields": {
+        "authors_in_order": [
+          "Ilias Diakonikolas",
+          "Christos Tzamos",
+          "Daniel M. Kane"
+        ],
+        "author_order_note": "Title-page footnote explicitly says author names are randomized.",
+        "year": 2022,
+        "publication_type": "arXiv preprint",
+        "arxiv_id": "2212.03008",
+        "cited_version": "v1",
+        "version_date": "2022-12-06",
+        "pdf_title_date": "2022-12-07",
+        "pdf_page_count": 54,
+        "doi": "10.48550/arXiv.2212.03008"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/2212.03008v1",
+          "evidence": "Exact title, authors/order and only listed version."
+        },
+        {
+          "url": "https://arxiv.org/pdf/2212.03008v1",
+          "evidence": "First-page title, author order and randomized-order footnote."
+        }
+      ],
+      "precise_discrepancies": [
+        "None beyond ordinary titlecase; Forster is already correctly protected.",
+        "Title really has application singular, halfspace one word, and no hyphen between strongly and polynomial.",
+        "Do not alphabetically reorder Tzamos and Kane."
+      ],
+      "recommended_action": "Keep title and authors. Optionally pin currently unversioned arXiv locator to v1 for reproducibility; existing year remains 2022.",
+      "access_limit": "No later conference record was substituted for the explicitly cited preprint."
+    },
+    {
+      "key": "MC12",
+      "status": "verified_work_and_title_with_author_order_conflict_resolved_by_pdf",
+      "exact_canonical_title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+      "pdf_title_variant": "FORMAL PROOFS IN REAL ALGEBRAIC GEOMETRY: FROM ORDERED FIELDS TO QUANTIFIER ELIMINATION",
+      "canonical_title_source": "Both primary landing records agree with current exact sentence-case wording; both the cited arXiv PDF and publisher PDF print all caps.",
+      "validated_fields": {
+        "authors_selected_from_actual_pdf": [
+          "Cyril Cohen",
+          "Assia Mahboubi"
+        ],
+        "authors_arxiv_landing": [
+          "Assia Mahboubi",
+          "Cyril Cohen"
+        ],
+        "authors_publisher_landing": [
+          "Assia Mahboubi",
+          "Cyril Cohen"
+        ],
+        "year": 2012,
+        "journal": "Logical Methods in Computer Science",
+        "volume": "8",
+        "issue": "1",
+        "article_number": "2",
+        "printed_issue_article": "1:02",
+        "pages": "1–40",
+        "publication_date": "2012-02-16",
+        "arxiv_id": "1201.3731",
+        "arxiv_version": "v2",
+        "arxiv_version_date": "2012-02-15",
+        "doi": "10.2168/LMCS-8(1:2)2012",
+        "pdf_printed_doi": "10.2168/LMCS-8 (1:02) 2012"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/1201.3731v2",
+          "evidence": "Title and reversed landing-page order."
+        },
+        {
+          "url": "https://arxiv.org/pdf/1201.3731v2",
+          "evidence": "Actual cited v2 PDF first page: Cyril Cohen before Assia Mahboubi; journal volume/article, pages and date."
+        },
+        {
+          "url": "https://lmcs.episciences.org/844",
+          "evidence": "Publisher title, reversed landing order, journal metadata and resolving DOI spelling."
+        },
+        {
+          "url": "https://lmcs.episciences.org/844/pdf",
+          "evidence": "Actual publisher PDF first page matches arXiv v2 PDF: Cohen before Mahboubi; 8(1:02), 1–40, Feb.16 2012."
+        }
+      ],
+      "precise_discrepancies": [
+        "Title wording is already exactly correct; no title hallucination.",
+        "Existing author field follows landing metadata but disagrees with both actual source PDFs.",
+        "This is a documented primary-source metadata inconsistency, not evidence the authors or work are fabricated.",
+        "The current @misc preprint citation omits existing published journal metadata; upgrading is appropriate for the final exact bibliography."
+      ],
+      "recommended_action": "Use @article with author={Cohen, Cyril and Mahboubi, Assia}, same exact title, journal={Logical Methods in Computer Science}, volume={8}, number={1}, pages={1--40}, year={2012}, doi={10.2168/LMCS-8(1:2)2012}, url={https://lmcs.episciences.org/844}; optionally note Article 2 and arXiv:1201.3731v2. Keep citation key MC12 if desired. Explain the PDF-priority author normalization in audit log.",
+      "access_limit": "No pixel view, but two primary PDFs independently returned identical first-page author order and journal metadata."
+    },
+    {
+      "key": "GGM86",
+      "status": "verified",
+      "exact_canonical_title": "How to construct random functions",
+      "pdf_title_variant": "How to Construct Random Functions",
+      "canonical_title_source": "ACM landing title; author-hosted original article PDF uses ordinary title case.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Oded Goldreich",
+          "Shafi Goldwasser",
+          "Silvio Micali"
+        ],
+        "journal": "Journal of the ACM",
+        "volume": "33",
+        "issue": "4",
+        "pages": "792–807",
+        "year": 1986,
+        "issue_month": "October",
+        "publisher_article_date": "1986-08-10",
+        "doi": "10.1145/6490.6503"
+      },
+      "primary_urls": [
+        {
+          "url": "https://doi.org/10.1145/6490.6503",
+          "evidence": "Fresh targeted primary publisher search returned exact title, all authors/order, volume, issue, pages and DOI."
+        },
+        {
+          "url": "https://www.wisdom.weizmann.ac.il/~oded/X/ggm-jacm.pdf",
+          "evidence": "Fresh targeted search of this primary author PDF returned first-page title/authors and original Oct.1986, 33(4),792–807 footer."
+        },
+        {
+          "url": "https://www.wisdom.weizmann.ac.il/~oded/annot/node13.html",
+          "evidence": "Author's own annotated publication page confirms journal version and distinguishes FOCS1984 precursor."
+        }
+      ],
+      "precise_discrepancies": [
+        "No discrepancy in existing fields. Title matches publisher exactly.",
+        "Original PDF titlecase vs publisher sentencecase is benign.",
+        "Publisher history says August10 while issue/PDF say October; existing bibliography states year only and is correct.",
+        "Do not replace year1986 with precursor conference year1984."
+      ],
+      "recommended_action": "Keep existing journal citation.",
+      "access_limit": "Primary PDF direct open failed, but first-page content was returned from its indexed primary URL; no visual inspection."
+    },
+    {
+      "key": "HILL99",
+      "status": "verified",
+      "exact_canonical_title": "A Pseudorandom Generator from any One-way Function",
+      "canonical_title_source": "SIAM landing page and first author's PDF title page agree including any and One-way hyphen.",
+      "suggested_sentence_case_bibtex_title": "A pseudorandom generator from any one-way function",
+      "validated_fields": {
+        "authors_in_order": [
+          "Johan Håstad",
+          "Russell Impagliazzo",
+          "Leonid A. Levin",
+          "Michael Luby"
+        ],
+        "journal": "SIAM Journal on Computing",
+        "volume": "28",
+        "issue": "4",
+        "pages": "1364–1396",
+        "year": 1999,
+        "publisher_issue_month": "January",
+        "archive_online_date": "2006-07-28",
+        "doi": "10.1137/S0097539793244708"
+      },
+      "primary_urls": [
+        {
+          "url": "https://epubs.siam.org/doi/10.1137/S0097539793244708",
+          "evidence": "Fresh publisher landing and information section verify title, all four authors/order,1999 volume28 issue4 pages1364–1396 DOI."
+        },
+        {
+          "url": "https://www.csc.kth.se/~johanh/prgfromowf.pdf",
+          "evidence": "Author-hosted46-page manuscript PDF first page corroborates exact title words and authors; not used for journal pagination."
+        },
+        {
+          "url": "https://www.csc.kth.se/~johanh/papers.html",
+          "evidence": "First author's publication list identifies SIAM1999 journal version."
+        }
+      ],
+      "precise_discrepancies": [
+        "Only titlecase differs from existing sentencecase, benign.",
+        "pseudorandom is one word and one-way is hyphenated; existing spelling is correct.",
+        "SIAM rendering HÅstad is a casing artifact; existing H{\\aa}stad is the correctly accented name.",
+        "The archive online date2006 does not supersede original issue year1999."
+      ],
+      "recommended_action": "No correction required.",
+      "access_limit": "Publisher PDF URL redirected to abstract. Author manuscript title page plus publisher record used; no claim of viewing final journal PDF."
+    },
+    {
+      "key": "Renegar92",
+      "status": "replace_series_shorthand_with_three_exact_records",
+      "exact_canonical_title": null,
+      "explanation": "There is no single article with the combined I–III full title used by this entry. It is a real three-part series; exact titles require three records.",
+      "validated_records": [
+        {
+          "suggested_key": "Renegar92I",
+          "author": "James Renegar",
+          "title": "On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals",
+          "journal": "Journal of Symbolic Computation",
+          "volume": "13",
+          "issue": "3",
+          "publication_date": "March 1992",
+          "year": "1992",
+          "month": "March",
+          "pages": "255-299",
+          "doi": "10.1016/S0747-7171(10)80003-3",
+          "doi_url": "https://doi.org/10.1016/S0747-7171(10)80003-3",
+          "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800033",
+          "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 255-299, and the stated DOI.",
+          "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part I}: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals"
+        },
+        {
+          "suggested_key": "Renegar92II",
+          "author": "James Renegar",
+          "title": "On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination",
+          "journal": "Journal of Symbolic Computation",
+          "volume": "13",
+          "issue": "3",
+          "publication_date": "March 1992",
+          "year": "1992",
+          "month": "March",
+          "pages": "301-327",
+          "doi": "10.1016/S0747-7171(10)80004-5",
+          "doi_url": "https://doi.org/10.1016/S0747-7171(10)80004-5",
+          "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800045",
+          "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 301-327, and the stated DOI.",
+          "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part II}: The general decision problem. Preliminaries for quantifier elimination"
+        },
+        {
+          "suggested_key": "Renegar92III",
+          "author": "James Renegar",
+          "title": "On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination",
+          "journal": "Journal of Symbolic Computation",
+          "volume": "13",
+          "issue": "3",
+          "publication_date": "March 1992",
+          "year": "1992",
+          "month": "March",
+          "pages": "329-352",
+          "doi": "10.1016/S0747-7171(10)80005-7",
+          "doi_url": "https://doi.org/10.1016/S0747-7171(10)80005-7",
+          "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800057",
+          "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 329-352, and the stated DOI.",
+          "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part III}: Quantifier elimination"
+        }
+      ],
+      "primary_urls": [
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800033",
+          "evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 255-299, and the stated DOI."
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800045",
+          "evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 301-327, and the stated DOI."
+        },
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0747717110800057",
+          "evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 329-352, and the stated DOI."
+        }
+      ],
+      "precise_discrepancies": [
+        "Current synthetic I–III title omits the individual parts' subtitles.",
+        "Current separate page ranges are accurate to the publisher records, but a single @article cannot precisely identify all three individual articles.",
+        "DBLP has different I/II terminal pages; do not override publisher255–299 and301–327. Actual blanks were not inspected, so do not invent an explanation."
+      ],
+      "recommended_action": "Replace with Renegar92I, Renegar92II and Renegar92III full-title @article records. Expand the manuscript's series citation to these three keys, changing only citation markup. Protect Roman part designators against BibTeX lowercasing.",
+      "attribution_detail": {
+        "manuscript_location": "paper/appendices/explicit_proofs.tex:19",
+        "direct_bound_source": "Vorobjov21 Section5.12 (printed p18), also Section2.1",
+        "source_references": "Vorobjov21 introduction attributes approach to Renegar[7]; its reference[7] cites I–III as a whole.",
+        "primary_url": "https://arxiv.org/html/2112.00456",
+        "pdf_url": "https://arxiv.org/pdf/2112.00456v1",
+        "only_part_I_sufficient": "Not established by this metadata audit. PartI's subject is existential decision, but its actual result was not inspected; expanding to all3 preserves the cited source's attribution and avoids guessing."
+      },
+      "access_limit": [
+        "Direct web opens of all three ScienceDirect article HTML pages and their /pdf URLs returned Internal Error. The full primary metadata was nevertheless available in live publisher-domain search results.",
+        "Crossref API web open returned Internal Error. Direct shell HTTPS calls to api.crossref.org failed because the configured local network proxy refused the connection; Crossref deposits were not inspected.",
+        "Cornell's Part I technical report replacement file states that original Technical Report TR00853 is missing and directs readers to ScienceDirect. It does not establish printed published title typography and was not used as the final metadata authority."
+      ]
+    },
+    {
+      "key": "Vorobjov21",
+      "status": "verified",
+      "exact_canonical_title": "Lecture notes on complexity of quantifier elimination over the reals",
+      "pdf_title_variant": "LECTURE NOTES ON COMPLEXITY OF QUANTIFIER ELIMINATION OVER THE REALS",
+      "canonical_title_source": "arXiv landing metadata; actual v1 PDF titlepage has identical words in all caps.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Nicolai Vorobjov"
+        ],
+        "year": 2021,
+        "publication_type": "arXiv lecture notes",
+        "arxiv_id": "2112.00456",
+        "cited_version": "v1",
+        "version_date": "2021-12-01",
+        "pdf_page_count": 21,
+        "doi": "10.48550/arXiv.2112.00456"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/2112.00456v1",
+          "evidence": "Fresh exact title/author/year/v1/DOI."
+        },
+        {
+          "url": "https://arxiv.org/pdf/2112.00456v1",
+          "evidence": "First-page title/author/versionstamp; Section5.12 at printedp18 exactbitcomplexitybound."
+        }
+      ],
+      "precise_discrepancies": [
+        "None. Existing exact sentence-case title matches landing record.",
+        "Course dates from mid1990s but upload is2021, correctly cited; do not substitute a speculative mid1990s publication year.",
+        "No numbered theorem is associated with the complexity sentence in Section5.12; use section/page locator if adding one."
+      ],
+      "recommended_action": "Keep title, author and year. Optionally pin v1 in bibliography URL and identifier.",
+      "access_limit": "PDF text inspected; no visual image."
+    },
+    {
+      "key": "BHKR26",
+      "status": "verified",
+      "exact_canonical_title": "Lower Bounds for Approximate Sign Rank",
+      "canonical_title_source": "arXiv v2 landing and actual PDF first page agree exactly.",
+      "suggested_sentence_case_bibtex_title": "Lower bounds for approximate sign rank",
+      "validated_fields": {
+        "authors_in_order": [
+          "Riju Bindua",
+          "Hamed Hatami",
+          "Hasti Karimi",
+          "Robert Robere"
+        ],
+        "year": 2026,
+        "publication_type": "arXiv preprint",
+        "arxiv_id": "2605.01038",
+        "cited_version": "v2",
+        "version_date": "2026-05-25",
+        "pdf_title_date": "2026-05-26",
+        "pdf_page_count": 21,
+        "doi": "10.48550/arXiv.2605.01038"
+      },
+      "primary_urls": [
+        {
+          "url": "https://arxiv.org/abs/2605.01038v2",
+          "evidence": "Fresh exact title/authors/year/version/DOI."
+        },
+        {
+          "url": "https://arxiv.org/pdf/2605.01038v2",
+          "evidence": "PDF first-page title/authors/date/versionstamp."
+        }
+      ],
+      "precise_discrepancies": [
+        "Only ordinary titlecase differs from current bibliography.",
+        "Title Sign Rank has NO hyphen even though body terminology often uses sign-rank; current bibliography correctly preserves the unhyphenated title."
+      ],
+      "recommended_action": "Keep existing wording, unhyphenated sign rank, author order and v2 pin.",
+      "access_limit": "PDF text inspected; no visual image."
+    }
+  ]
+}

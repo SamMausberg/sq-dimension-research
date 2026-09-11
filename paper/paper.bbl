@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -32,8 +32,8 @@ Emmanuel Abbe, Enric Boix-Adser{\`a}, and Theodor Misiakiewicz.
 \newblock The merged-staircase property: a necessary and nearly sufficient
   condition for {SGD} learning of sparse functions on two-layer neural
   networks.
-\newblock In \emph{Proceedings of the Thirty-Fifth Conference on Learning
-  Theory}, volume 178 of \emph{Proceedings of Machine Learning Research}, pages
+\newblock In \emph{Proceedings of Thirty Fifth Conference on Learning Theory},
+  volume 178 of \emph{Proceedings of Machine Learning Research}, pages
   4782--4887, 2022.
 \newblock URL \url{https://proceedings.mlr.press/v178/abbe22a.html}.
 \newblock Preprint: arXiv:2202.08658.
@@ -51,7 +51,7 @@ Noga Alon, J{\'a}nos Pach, Rom Pinchasi, Rado{\v s} Radoi{\v c}i{\'c}, and
 \bibitem[Alon et~al.(2016)Alon, Moran, and Yehudayoff]{AMY16}
 Noga Alon, Shay Moran, and Amir Yehudayoff.
 \newblock Sign rank versus {VC} dimension.
-\newblock In \emph{Conference on Learning Theory}, volume~49 of
+\newblock In \emph{29th Annual Conference on Learning Theory}, volume~49 of
   \emph{Proceedings of Machine Learning Research}, pages 47--80, 2016.
 \newblock URL \url{https://arxiv.org/abs/1503.07648v2}.
 \newblock Full version: arXiv:1503.07648v2; theorem numbering refers to that
@@ -69,7 +69,7 @@ Maria-Florina Balcan and Vitaly Feldman.
 
 \bibitem[Ben-David et~al.(2002)Ben-David, Eiron, and Simon]{BDES02}
 Shai Ben-David, Nadav Eiron, and Hans~Ulrich Simon.
-\newblock Limitations of learning via embeddings in euclidean half spaces.
+\newblock Limitations of learning via embeddings in {Euclidean} half spaces.
 \newblock \emph{Journal of Machine Learning Research}, 3:\penalty0 441--461,
   2002.
 \newblock URL \url{https://www.jmlr.org/papers/v3/bendavid02a.html}.
@@ -90,13 +90,23 @@ Ari Blondal, Hamed Hatami, Pooya Hatami, Chavdar Lalov, and Sivan Tretiak.
 
 \bibitem[Chornomaz et~al.(2025)Chornomaz, Moran, and Waknine]{CMW25}
 Bogdan Chornomaz, Shay Moran, and Tom Waknine.
-\newblock On reductions and representations of learning problems in euclidean
+\newblock On reductions and representations of learning problems in {Euclidean}
   spaces.
 \newblock In \emph{Proceedings of the 57th Annual ACM Symposium on Theory of
   Computing}, pages 2043--2054, 2025.
 \newblock \doi{10.1145/3717823.3718213}.
 \newblock URL \url{https://doi.org/10.1145/3717823.3718213}.
 \newblock Preprint: arXiv:2411.10784v1.
+
+\bibitem[Cohen and Mahboubi(2012)]{MC12}
+Cyril Cohen and Assia Mahboubi.
+\newblock Formal proofs in real algebraic geometry: from ordered fields to
+  quantifier elimination.
+\newblock \emph{Logical Methods in Computer Science}, 8\penalty0
+  (1:2):\penalty0 1--40, 2012.
+\newblock \doi{10.2168/LMCS-8(1:2)2012}.
+\newblock URL \url{https://doi.org/10.2168/LMCS-8(1:2)2012}.
+\newblock Preprint: arXiv:1201.3731v2.
 
 \bibitem[Diakonikolas et~al.(2022)Diakonikolas, Tzamos, and Kane]{DKT22}
 Ilias Diakonikolas, Christos Tzamos, and Daniel~M. Kane.
@@ -109,31 +119,33 @@ Ilias Diakonikolas, Christos Tzamos, and Daniel~M. Kane.
 John Dunagan and Santosh Vempala.
 \newblock A simple polynomial-time rescaling algorithm for solving linear
   programs.
-\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
-  pages 315--320, 2004.
+\newblock In \emph{Proceedings of the thirty-sixth annual ACM symposium on
+  Theory of computing}, pages 315--320, 2004.
 \newblock \doi{10.1145/1007352.1007404}.
 \newblock URL \url{https://doi.org/10.1145/1007352.1007404}.
 
 \bibitem[Feldman(2008)]{Feldman08}
 Vitaly Feldman.
 \newblock Evolvability from learning algorithms.
-\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
-  pages 619--628, 2008.
+\newblock In \emph{Proceedings of the fortieth annual ACM symposium on Theory
+  of computing}, pages 619--628, 2008.
 \newblock \doi{10.1145/1374376.1374465}.
 \newblock URL \url{https://doi.org/10.1145/1374376.1374465}.
 
 \bibitem[Feldman(2011)]{Feldman11}
 Vitaly Feldman.
 \newblock Distribution-independent evolvability of linear threshold functions.
-\newblock In \emph{Conference on Learning Theory}, volume~19 of
-  \emph{Proceedings of Machine Learning Research}, pages 253--272, 2011.
+\newblock In \emph{Proceedings of the 24th Annual Conference on Learning
+  Theory}, volume~19 of \emph{Proceedings of Machine Learning Research}, pages
+  253--272, 2011.
 \newblock URL \url{https://proceedings.mlr.press/v19/feldman11b.html}.
 
 \bibitem[Feldman(2017)]{Feldman17}
 Vitaly Feldman.
 \newblock A general characterization of the statistical query complexity.
-\newblock In \emph{Conference on Learning Theory}, volume~65 of
-  \emph{Proceedings of Machine Learning Research}, pages 785--830, 2017.
+\newblock In \emph{Proceedings of the 2017 Conference on Learning Theory},
+  volume~65 of \emph{Proceedings of Machine Learning Research}, pages 785--830,
+  2017.
 \newblock URL \url{https://proceedings.mlr.press/v65/feldman17c.html}.
 
 \bibitem[Feldman et~al.(2021)Feldman, Guzm{\'a}n, and Vempala]{FGV21}
@@ -150,8 +162,8 @@ Vitaly Feldman, Crist{\'o}bal Guzm{\'a}n, and Santosh Vempala.
 Vitaly Feldman, Pritish Kamath, and Nathan Srebro.
 \newblock Invited open problem: Is the power of deep learning over linear
   models inherently distribution dependent?
-\newblock In \emph{Proceedings of the Thirty-Ninth Conference on Learning
-  Theory}, volume 336 of \emph{Proceedings of Machine Learning Research}, pages
+\newblock In \emph{Proceedings of Thirty Ninth Conference on Learning Theory},
+  volume 336 of \emph{Proceedings of Machine Learning Research}, pages
   7117--7122, 2026.
 \newblock URL \url{https://proceedings.mlr.press/v336/feldman26a.html}.
 
@@ -187,7 +199,7 @@ Alon Gonen, Sivan Sabato, and Shai Shalev-Shwartz.
 \bibitem[G{\"o}{\"o}s et~al.(2025)G{\"o}{\"o}s, Harms, Imbach, and
   Sokolov]{GHIS25}
 Mika G{\"o}{\"o}s, Nathaniel Harms, Valentin Imbach, and Dmitry Sokolov.
-\newblock Sign-rank of {$k$}-hamming distance is constant.
+\newblock Sign-rank of {$k$}-{Hamming} distance is constant.
 \newblock arXiv:2506.12022v2, 2025.
 \newblock URL \url{https://arxiv.org/abs/2506.12022v2}.
 
@@ -208,9 +220,9 @@ Hamed Hatami, Pooya Hatami, William Pires, Ran Tao, and Rosie Zhao.
 
 \bibitem[Hatami et~al.(2023)Hatami, Hosseini, and Meng]{HHM23}
 Hamed Hatami, Kaave Hosseini, and Xiang Meng.
-\newblock A {Borsuk--Ulam} lower bound for sign-rank and its applications.
-\newblock In \emph{Proceedings of the ACM Symposium on Theory of Computing},
-  pages 463--471, 2023.
+\newblock A {Borsuk-Ulam} lower bound for sign-rank and its applications.
+\newblock In \emph{Proceedings of the 55th Annual ACM Symposium on Theory of
+  Computing}, pages 463--471, 2023.
 \newblock \doi{10.1145/3564246.3585210}.
 \newblock URL \url{https://eccc.weizmann.ac.il/report/2022/130/}.
 \newblock Preprint: ECCC TR22-130.
@@ -219,16 +231,18 @@ Hamed Hatami, Kaave Hosseini, and Xiang Meng.
 Pritish Kamath, Omar Montasser, and Nathan Srebro.
 \newblock Approximate is good enough: probabilistic variants of dimensional and
   margin complexity.
-\newblock In \emph{Conference on Learning Theory}, volume 125 of
-  \emph{Proceedings of Machine Learning Research}, pages 2236--2262, 2020.
+\newblock In \emph{Proceedings of Thirty Third Conference on Learning Theory},
+  volume 125 of \emph{Proceedings of Machine Learning Research}, pages
+  2236--2262, 2020.
 \newblock URL \url{https://proceedings.mlr.press/v125/kamath20b.html}.
 
 \bibitem[Karchmer and Malach(2025)]{KM25}
 Ari Karchmer and Eran Malach.
 \newblock The power of random features and the limits of distribution-free
   gradient descent.
-\newblock In \emph{International Conference on Machine Learning}, volume 267 of
-  \emph{Proceedings of Machine Learning Research}, pages 29078--29097, 2025.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine
+  Learning}, volume 267 of \emph{Proceedings of Machine Learning Research},
+  pages 29078--29097, 2025.
 \newblock URL \url{https://proceedings.mlr.press/v267/karchmer25a.html}.
 
 \bibitem[Kearns(1998)]{Kearns98}
@@ -238,31 +252,44 @@ Michael Kearns.
 \newblock \doi{10.1145/293347.293351}.
 \newblock URL \url{https://doi.org/10.1145/293347.293351}.
 
-\bibitem[Mahboubi and Cohen(2012)]{MC12}
-Assia Mahboubi and Cyril Cohen.
-\newblock Formal proofs in real algebraic geometry: from ordered fields to
-  quantifier elimination.
-\newblock arXiv:1201.3731, 2012.
-\newblock URL \url{https://arxiv.org/abs/1201.3731}.
-
 \bibitem[Malach et~al.(2021)Malach, Kamath, Abbe, and Srebro]{MKAS21}
 Eran Malach, Pritish Kamath, Emmanuel Abbe, and Nathan Srebro.
 \newblock Quantifying the benefit of using differentiable learning over tangent
   kernels.
-\newblock In \emph{International Conference on Machine Learning}, volume 139 of
-  \emph{Proceedings of Machine Learning Research}, pages 7379--7389, 2021.
+\newblock In \emph{Proceedings of the 38th International Conference on Machine
+  Learning}, volume 139 of \emph{Proceedings of Machine Learning Research},
+  pages 7379--7389, 2021.
 \newblock URL \url{https://proceedings.mlr.press/v139/malach21a.html}.
 
-\bibitem[Renegar(1992)]{Renegar92}
+\bibitem[Renegar(1992{\natexlab{a}})]{Renegar92}
 James Renegar.
-\newblock On the computational complexity and geometry of the first-order
-  theory of the reals. {I--III}.
+\newblock {On the computational complexity and geometry of the first-order
+  theory of the reals. Part I: Introduction. Preliminaries. The geometry of
+  semi-algebraic sets. The decision problem for the existential theory of the
+  reals}.
 \newblock \emph{Journal of Symbolic Computation}, 13\penalty0 (3):\penalty0
-  255--299, 301--327, 329--352, 1992.
-\newblock Three-part series. Part I:
-  \url{https://doi.org/10.1016/S0747-7171(10)80003-3}; Part II:
-  \url{https://doi.org/10.1016/S0747-7171(10)80004-5}; Part III:
-  \url{https://doi.org/10.1016/S0747-7171(10)80005-7}.
+  255--299, 1992{\natexlab{a}}.
+\newblock \doi{10.1016/S0747-7171(10)80003-3}.
+\newblock URL \url{https://doi.org/10.1016/S0747-7171(10)80003-3}.
+
+\bibitem[Renegar(1992{\natexlab{b}})]{Renegar92II}
+James Renegar.
+\newblock {On the computational complexity and geometry of the first-order
+  theory of the reals. Part II: The general decision problem. Preliminaries for
+  quantifier elimination}.
+\newblock \emph{Journal of Symbolic Computation}, 13\penalty0 (3):\penalty0
+  301--327, 1992{\natexlab{b}}.
+\newblock \doi{10.1016/S0747-7171(10)80004-5}.
+\newblock URL \url{https://doi.org/10.1016/S0747-7171(10)80004-5}.
+
+\bibitem[Renegar(1992{\natexlab{c}})]{Renegar92III}
+James Renegar.
+\newblock {On the computational complexity and geometry of the first-order
+  theory of the reals. Part III: Quantifier elimination}.
+\newblock \emph{Journal of Symbolic Computation}, 13\penalty0 (3):\penalty0
+  329--352, 1992{\natexlab{c}}.
+\newblock \doi{10.1016/S0747-7171(10)80005-7}.
+\newblock URL \url{https://doi.org/10.1016/S0747-7171(10)80005-7}.
 
 \bibitem[Vorobjov(2021)]{Vorobjov21}
 Nicolai Vorobjov.

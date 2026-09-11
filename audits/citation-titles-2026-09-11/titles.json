@@ -1,0 +1,976 @@
+{
+  "status": "PASS",
+  "audit_date": "2026-09-11",
+  "baseline_commit": "58b258762351f7bc5d3be95a91e06700e1fae63f",
+  "original_entries": 34,
+  "original_underlying_individual_papers": 36,
+  "final_entries": 36,
+  "all_final_title_wording_and_punctuation_match_primary_sources": true,
+  "fabricated_works_found": 0,
+  "bibliography_sha256": "4b43d969705b5ed9d9692737c679486b598e49075b43d12b35b119b26c0caa40",
+  "records": [
+    {
+      "key": "FKS26",
+      "canonical_source_title": "Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?",
+      "final_bibtex_title": "Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Feldman, Vitaly and Kamath, Pritish and Srebro, Nathan",
+        "title": "Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent?",
+        "booktitle": "Proceedings of Thirty Ninth Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "336",
+        "pages": "7117--7122",
+        "year": "2026",
+        "url": "https://proceedings.mlr.press/v336/feldman26a.html"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v336/feldman26a.html",
+        "https://raw.githubusercontent.com/mlresearch/v336/main/assets/feldman26a/feldman26a.pdf"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "None for title, names or supplied metadata. The linked PDF uses local pages 1-6 and an unfilled volume slot in its running header; official published volume/pages come from PMLR's record. DOI absent from that record, not asserted nonexistent.",
+      "rendered_bbl_title": "Invited open problem: Is the power of deep learning over linear\n  models inherently distribution dependent?",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "HHPTZ22",
+      "canonical_source_title": "Lower Bound Methods for Sign-rank and their Limitations",
+      "final_bibtex_title": "Lower bound methods for sign-rank and their limitations",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Hatami, Hamed and Hatami, Pooya and Pires, William and Tao, Ran and Zhao, Rosie",
+        "title": "Lower bound methods for sign-rank and their limitations",
+        "howpublished": "Electronic Colloquium on Computational Complexity, TR22-079",
+        "year": "2022",
+        "url": "https://eccc.weizmann.ac.il/report/2022/079/"
+      },
+      "primary_urls": [
+        "https://eccc.weizmann.ac.il/report/2022/079/",
+        "https://eccc.weizmann.ac.il/report/2022/079/download"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "None for the cited preprint's identity or title. This entry intentionally cites the ECCC report; this audit does not replace it with any later publication.",
+      "rendered_bbl_title": "Lower bound methods for sign-rank and their limitations.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "APP05",
+      "canonical_source_title": "Crossing patterns of semi-algebraic sets",
+      "final_bibtex_title": "Crossing patterns of semi-algebraic sets",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Alon, Noga and Pach, J{\\'a}nos and Pinchasi, Rom and Radoi{\\v c}i{\\'c}, Rado{\\v s} and Sharir, Micha",
+        "title": "Crossing patterns of semi-algebraic sets",
+        "journal": "Journal of Combinatorial Theory, Series A",
+        "volume": "111",
+        "number": "2",
+        "pages": "310--326",
+        "year": "2005",
+        "doi": "10.1016/j.jcta.2004.12.008",
+        "url": "https://doi.org/10.1016/j.jcta.2004.12.008"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1016/j.jcta.2004.12.008",
+        "https://www.sciencedirect.com/science/article/pii/S0097316505000063",
+        "https://web.math.princeton.edu/~nalon/PDFS/apprs8.pdf"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "Publisher-deposited Crossref JSON fetched successfully. Publisher page freshly corroborated by indexed web result. Author-hosted PDF downloaded afresh; complete title page visually inspected, including János and Radoš Radoičić. PDF title case differs from publisher record only as capitalization style. The title footnote asterisk is not part of the canonical bibliographic title.",
+      "rendered_bbl_title": "Crossing patterns of semi-algebraic sets.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Warren68",
+      "canonical_source_title": "Lower bounds for approximation by nonlinear manifolds",
+      "final_bibtex_title": "Lower bounds for approximation by nonlinear manifolds",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Warren, Hugh E.",
+        "title": "Lower bounds for approximation by nonlinear manifolds",
+        "journal": "Transactions of the American Mathematical Society",
+        "volume": "133",
+        "pages": "167--178",
+        "year": "1968",
+        "number": "1",
+        "doi": "10.1090/S0002-9947-1968-0226281-1",
+        "url": "https://doi.org/10.1090/S0002-9947-1968-0226281-1"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1090/s0002-9947-1968-0226281-1",
+        "https://www.ams.org/tran/1968-133-01/S0002-9947-1968-0226281-1/S0002-9947-1968-0226281-1.pdf"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "AMS-deposited Crossref JSON freshly fetched and all current fields verified, including issue 1 and DOI. Exact publisher-linked original PDF returned HTTP 403; original printed title page not inspected. This supersedes the earlier metadata access limitation: metadata itself is now directly verified through the publisher deposit.",
+      "rendered_bbl_title": "Lower bounds for approximation by nonlinear manifolds.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "AMY16",
+      "canonical_source_title": "Sign rank versus VC dimension",
+      "final_bibtex_title": "Sign rank versus {VC} dimension",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Alon, Noga and Moran, Shay and Yehudayoff, Amir",
+        "title": "Sign rank versus {VC} dimension",
+        "booktitle": "29th Annual Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "49",
+        "pages": "47--80",
+        "year": "2016",
+        "note": "Full version: arXiv:1503.07648v2; theorem numbering refers to that version",
+        "url": "https://arxiv.org/abs/1503.07648v2"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v49/alon16.html",
+        "https://proceedings.mlr.press/v49/alon16.pdf",
+        "https://arxiv.org/abs/1503.07648v2",
+        "https://arxiv.org/pdf/1503.07648v2"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "None for title or supplied metadata. ArXiv first submission is 2015, but 2016 is the correct conference year. The full-version titlepage date is July 11, 2016; arXiv v2 deposit date is July 8, 2016.",
+      "rendered_bbl_title": "Sign rank versus {VC} dimension.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Feldman17",
+      "canonical_source_title": "A General Characterization of the Statistical Query Complexity",
+      "final_bibtex_title": "A general characterization of the statistical query complexity",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Feldman, Vitaly",
+        "title": "A general characterization of the statistical query complexity",
+        "booktitle": "Proceedings of the 2017 Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "65",
+        "pages": "785--830",
+        "year": "2017",
+        "url": "https://proceedings.mlr.press/v65/feldman17c.html"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v65/feldman17c.html",
+        "https://proceedings.mlr.press/v65/feldman17c/feldman17c.pdf"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "None for title or supplied metadata. PDF internal pages are 1-46; the publisher record supplies published pages 785-830.",
+      "rendered_bbl_title": "A general characterization of the statistical query complexity.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Forster02",
+      "canonical_source_title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+      "final_bibtex_title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Forster, J{\\\"u}rgen",
+        "title": "A linear lower bound on the unbounded error probabilistic communication complexity",
+        "journal": "Journal of Computer and System Sciences",
+        "volume": "65",
+        "number": "4",
+        "pages": "612--625",
+        "year": "2002",
+        "doi": "10.1016/S0022-0000(02)00019-3",
+        "url": "https://doi.org/10.1016/S0022-0000(02)00019-3"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1016/s0022-0000(02)00019-3",
+        "https://www.sciencedirect.com/science/article/pii/S0022000002000193",
+        "https://api.elsevier.com/content/article/PII:S0022000002000193?httpAccept=text/plain"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "Elsevier-deposited Crossref JSON freshly fetched; live indexed publisher page agrees on exact title and Jürgen Forster. Publisher full-text API request returned HTTP 400; original printed title page not inspected. Title does not hyphenate unbounded error; preserve that exact wording.",
+      "rendered_bbl_title": "A linear lower bound on the unbounded error probabilistic\n  communication complexity.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "AKMSS21",
+      "canonical_source_title": "On the Power of Differentiable Learning versus PAC and SQ Learning",
+      "final_bibtex_title": "On the power of differentiable learning versus {PAC} and {SQ} learning",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Abbe, Emmanuel and Kamath, Pritish and Malach, Eran and Sandon, Colin and Srebro, Nathan",
+        "title": "On the power of differentiable learning versus {PAC} and {SQ} learning",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "34",
+        "pages": "24340--24351",
+        "year": "2021",
+        "note": "Full version: arXiv:2108.04190v2",
+        "url": "https://arxiv.org/abs/2108.04190v2"
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper/2021/hash/cc225865b743ecc91c4743259813f604-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/13486-/bibtex",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/cc225865b743ecc91c4743259813f604-Paper.pdf",
+        "https://arxiv.org/abs/2108.04190v2",
+        "https://arxiv.org/pdf/2108.04190v2"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "None for title or supplied metadata. Conference year 2021 and full-version deposit year 2022 legitimately differ. Current version pin is correct.",
+      "rendered_bbl_title": "On the power of differentiable learning versus {PAC} and {SQ}\n  learning.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "HHM23",
+      "canonical_source_title": "A Borsuk-Ulam Lower Bound for Sign-Rank and Its Applications",
+      "final_bibtex_title": "A {Borsuk-Ulam} lower bound for sign-rank and its applications",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Hatami, Hamed and Hosseini, Kaave and Meng, Xiang",
+        "title": "A {Borsuk-Ulam} lower bound for sign-rank and its applications",
+        "booktitle": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing",
+        "pages": "463--471",
+        "year": "2023",
+        "note": "Preprint: ECCC TR22-130",
+        "url": "https://eccc.weizmann.ac.il/report/2022/130/",
+        "doi": "10.1145/3564246.3585210"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/3564246.3585210",
+        "https://dl.acm.org/doi/10.1145/3564246.3585210",
+        "https://acm-stoc.org/stoc2023/toc.html",
+        "https://eccc.weizmann.ac.il/report/2022/130/",
+        "https://eccc.weizmann.ac.il/report/2022/130/download/"
+      ],
+      "detailed_audit": "primary/early.json",
+      "access_limits": "ACM-deposited Crossref JSON freshly fetched and all canonical publication fields verified, including pages 463-471. Official conference TOC corroborates title/authors. ACM full PDF returned HTTP 403; ECCC original preprint downloaded afresh and entire title page visually inspected. Preprint has sentence-case title but uses the same single-hyphen Borsuk-Ulam and sign-rank wording. Report date is September 15, 2022; conference publication is 2023. No revision suffix appears on the ECCC report.",
+      "rendered_bbl_title": "A {Borsuk-Ulam} lower bound for sign-rank and its applications.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "GHIS25",
+      "canonical_source_title": "Sign-Rank of $k$-Hamming Distance is Constant",
+      "final_bibtex_title": "Sign-rank of {$k$}-{Hamming} distance is constant",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "G{\\\"o}{\\\"o}s, Mika and Harms, Nathaniel and Imbach, Valentin and Sokolov, Dmitry",
+        "title": "Sign-rank of {$k$}-{Hamming} distance is constant",
+        "year": "2025",
+        "howpublished": "arXiv:2506.12022v2",
+        "url": "https://arxiv.org/abs/2506.12022v2"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2506.12022v2",
+        "https://arxiv.org/pdf/2506.12022v2"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "Sign-rank of {$k$}-{Hamming} distance is constant.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "FHV26",
+      "canonical_source_title": "A $\\mathbb{Z}_2$-Topological Framework for Sign-rank Lower Bounds",
+      "final_bibtex_title": "A {$\\mathbb Z_2$}-topological framework for sign-rank lower bounds",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Frick, Florian and Hosseini, Kaave and Vasileuski, Aliaksei",
+        "title": "A {$\\mathbb Z_2$}-topological framework for sign-rank lower bounds",
+        "year": "2026",
+        "howpublished": "arXiv:2604.01510v2",
+        "url": "https://arxiv.org/abs/2604.01510v2"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2604.01510v2",
+        "https://arxiv.org/pdf/2604.01510v2"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "A {$\\mathbb Z_2$}-topological framework for sign-rank lower bounds.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "DKT22",
+      "canonical_source_title": "A Strongly Polynomial Algorithm for Approximate Forster Transforms and its Application to Halfspace Learning",
+      "final_bibtex_title": "A strongly polynomial algorithm for approximate {Forster} transforms and its application to halfspace learning",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Diakonikolas, Ilias and Tzamos, Christos and Kane, Daniel M.",
+        "title": "A strongly polynomial algorithm for approximate {Forster} transforms and its application to halfspace learning",
+        "year": "2022",
+        "howpublished": "arXiv:2212.03008",
+        "url": "https://arxiv.org/abs/2212.03008"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2212.03008v1",
+        "https://arxiv.org/pdf/2212.03008v1"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "A strongly polynomial algorithm for approximate {Forster} transforms\n  and its application to halfspace learning.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "MC12",
+      "canonical_source_title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+      "final_bibtex_title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Cohen, Cyril and Mahboubi, Assia",
+        "title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination",
+        "journal": "Logical Methods in Computer Science",
+        "volume": "8",
+        "number": "1:2",
+        "pages": "1--40",
+        "year": "2012",
+        "doi": "10.2168/LMCS-8(1:2)2012",
+        "url": "https://doi.org/10.2168/LMCS-8(1:2)2012",
+        "note": "Preprint: arXiv:1201.3731v2"
+      },
+      "primary_urls": [
+        "https://lmcs.episciences.org/844/pdf",
+        "https://arxiv.org/abs/1201.3731v2",
+        "https://arxiv.org/pdf/1201.3731v2",
+        "https://lmcs.episciences.org/844"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "Formal proofs in real algebraic geometry: from ordered fields to\n  quantifier elimination.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "GGM86",
+      "canonical_source_title": "How to construct random functions",
+      "final_bibtex_title": "How to construct random functions",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Goldreich, Oded and Goldwasser, Shafi and Micali, Silvio",
+        "title": "How to construct random functions",
+        "journal": "Journal of the ACM",
+        "volume": "33",
+        "number": "4",
+        "pages": "792--807",
+        "year": "1986",
+        "doi": "10.1145/6490.6503",
+        "url": "https://doi.org/10.1145/6490.6503"
+      },
+      "primary_urls": [
+        "https://doi.org/10.1145/6490.6503",
+        "https://www.wisdom.weizmann.ac.il/~oded/X/ggm-jacm.pdf",
+        "https://www.wisdom.weizmann.ac.il/~oded/annot/node13.html"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "How to construct random functions.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "HILL99",
+      "canonical_source_title": "A Pseudorandom Generator from any One-way Function",
+      "final_bibtex_title": "A pseudorandom generator from any one-way function",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "H{\\aa}stad, Johan and Impagliazzo, Russell and Levin, Leonid A. and Luby, Michael",
+        "title": "A pseudorandom generator from any one-way function",
+        "journal": "SIAM Journal on Computing",
+        "volume": "28",
+        "number": "4",
+        "pages": "1364--1396",
+        "year": "1999",
+        "doi": "10.1137/S0097539793244708",
+        "url": "https://doi.org/10.1137/S0097539793244708"
+      },
+      "primary_urls": [
+        "https://epubs.siam.org/doi/10.1137/S0097539793244708",
+        "https://www.csc.kth.se/~johanh/prgfromowf.pdf",
+        "https://www.csc.kth.se/~johanh/papers.html"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "A pseudorandom generator from any one-way function.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Renegar92",
+      "canonical_source_title": "On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals",
+      "final_bibtex_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals}",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Renegar, James",
+        "title": "{On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals}",
+        "journal": "Journal of Symbolic Computation",
+        "volume": "13",
+        "number": "3",
+        "pages": "255--299",
+        "year": "1992",
+        "doi": "10.1016/S0747-7171(10)80003-3",
+        "url": "https://doi.org/10.1016/S0747-7171(10)80003-3"
+      },
+      "primary_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0747717110800033",
+        "https://doi.org/10.1016/S0747-7171(10)80003-3"
+      ],
+      "detailed_audit": "primary/renegar-detail.json",
+      "access_limits": [
+        "Direct web opens of all three ScienceDirect article HTML pages and their /pdf URLs returned Internal Error. The full primary metadata was nevertheless available in live publisher-domain search results.",
+        "Crossref API web open returned Internal Error. Direct shell HTTPS calls to api.crossref.org failed because the configured local network proxy refused the connection; Crossref deposits were not inspected.",
+        "Cornell's Part I technical report replacement file states that original Technical Report TR00853 is missing and directs readers to ScienceDirect. It does not establish printed published title typography and was not used as the final metadata authority."
+      ],
+      "rendered_bbl_title": "{On the computational complexity and geometry of the first-order\n  theory of the reals. Part I: Introduction. Preliminaries. The geometry of\n  semi-algebraic sets. The decision problem for the existential theory of the\n  reals}.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Renegar92II",
+      "canonical_source_title": "On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination",
+      "final_bibtex_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination}",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Renegar, James",
+        "title": "{On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination}",
+        "journal": "Journal of Symbolic Computation",
+        "volume": "13",
+        "number": "3",
+        "pages": "301--327",
+        "year": "1992",
+        "doi": "10.1016/S0747-7171(10)80004-5",
+        "url": "https://doi.org/10.1016/S0747-7171(10)80004-5"
+      },
+      "primary_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0747717110800045",
+        "https://doi.org/10.1016/S0747-7171(10)80004-5"
+      ],
+      "detailed_audit": "primary/renegar-detail.json",
+      "access_limits": [
+        "Direct web opens of all three ScienceDirect article HTML pages and their /pdf URLs returned Internal Error. The full primary metadata was nevertheless available in live publisher-domain search results.",
+        "Crossref API web open returned Internal Error. Direct shell HTTPS calls to api.crossref.org failed because the configured local network proxy refused the connection; Crossref deposits were not inspected.",
+        "Cornell's Part I technical report replacement file states that original Technical Report TR00853 is missing and directs readers to ScienceDirect. It does not establish printed published title typography and was not used as the final metadata authority."
+      ],
+      "rendered_bbl_title": "{On the computational complexity and geometry of the first-order\n  theory of the reals. Part II: The general decision problem. Preliminaries for\n  quantifier elimination}.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Renegar92III",
+      "canonical_source_title": "On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination",
+      "final_bibtex_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination}",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Renegar, James",
+        "title": "{On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination}",
+        "journal": "Journal of Symbolic Computation",
+        "volume": "13",
+        "number": "3",
+        "pages": "329--352",
+        "year": "1992",
+        "doi": "10.1016/S0747-7171(10)80005-7",
+        "url": "https://doi.org/10.1016/S0747-7171(10)80005-7"
+      },
+      "primary_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0747717110800057",
+        "https://doi.org/10.1016/S0747-7171(10)80005-7"
+      ],
+      "detailed_audit": "primary/renegar-detail.json",
+      "access_limits": [
+        "Direct web opens of all three ScienceDirect article HTML pages and their /pdf URLs returned Internal Error. The full primary metadata was nevertheless available in live publisher-domain search results.",
+        "Crossref API web open returned Internal Error. Direct shell HTTPS calls to api.crossref.org failed because the configured local network proxy refused the connection; Crossref deposits were not inspected.",
+        "Cornell's Part I technical report replacement file states that original Technical Report TR00853 is missing and directs readers to ScienceDirect. It does not establish printed published title typography and was not used as the final metadata authority."
+      ],
+      "rendered_bbl_title": "{On the computational complexity and geometry of the first-order\n  theory of the reals. Part III: Quantifier elimination}.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Vorobjov21",
+      "canonical_source_title": "Lecture notes on complexity of quantifier elimination over the reals",
+      "final_bibtex_title": "Lecture notes on complexity of quantifier elimination over the reals",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Vorobjov, Nicolai",
+        "title": "Lecture notes on complexity of quantifier elimination over the reals",
+        "year": "2021",
+        "howpublished": "arXiv:2112.00456",
+        "url": "https://arxiv.org/abs/2112.00456"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2112.00456v1",
+        "https://arxiv.org/pdf/2112.00456v1"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "Lecture notes on complexity of quantifier elimination over the reals.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "BHKR26",
+      "canonical_source_title": "Lower Bounds for Approximate Sign Rank",
+      "final_bibtex_title": "Lower bounds for approximate sign rank",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Bindua, Riju and Hatami, Hamed and Karimi, Hasti and Robere, Robert",
+        "title": "Lower bounds for approximate sign rank",
+        "year": "2026",
+        "howpublished": "arXiv:2605.01038v2",
+        "url": "https://arxiv.org/abs/2605.01038v2"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2605.01038v2",
+        "https://arxiv.org/pdf/2605.01038v2"
+      ],
+      "detailed_audit": "primary/theory.json",
+      "access_limits": "See detailed primary-source audit.",
+      "rendered_bbl_title": "Lower bounds for approximate sign rank.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "BHHLT26",
+      "canonical_source_title": "Sign-Rank, Index, and List Replicability: Connections and Separations",
+      "final_bibtex_title": "Sign-rank, index, and list replicability: connections and separations",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Blondal, Ari and Hatami, Hamed and Hatami, Pooya and Lalov, Chavdar and Tretiak, Sivan",
+        "title": "Sign-rank, index, and list replicability: connections and separations",
+        "year": "2026",
+        "howpublished": "arXiv:2606.18236v1",
+        "url": "https://arxiv.org/abs/2606.18236v1"
+      },
+      "primary_urls": [
+        "https://arxiv.org/abs/2606.18236v1",
+        "https://arxiv.org/pdf/2606.18236v1"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "None for the explicitly cited v1. A later v2 exists; no substitution of versions was made.",
+      "rendered_bbl_title": "Sign-rank, index, and list replicability: connections and\n  separations.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "VALG26",
+      "canonical_source_title": "VALG: An Agentic System for ML Theory Research and Demonstrations on COLT 2026 Open Problems",
+      "final_bibtex_title": "{VALG}: An Agentic System for {ML} Theory Research and Demonstrations on {COLT} 2026 Open Problems",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "misc",
+        "author": "Zhang, Dechen and Tang, Xuan and Yin, Xinxiang and Chen, Xingwu and Qian, Jian and Zou, Difan",
+        "title": "{VALG}: An Agentic System for {ML} Theory Research and Demonstrations on {COLT} 2026 Open Problems",
+        "year": "2026",
+        "howpublished": "arXiv:2608.13060v2",
+        "note": "Version 2, 10 September 2026",
+        "url": "https://arxiv.org/abs/2608.13060v2"
+      },
+      "primary_urls": [
+        "https://arxiv.org/pdf/2608.13060v2",
+        "https://arxiv.org/abs/2608.13060v2",
+        "https://arxiv.org/html/2608.13060v2"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "Metadata and displayed PDF title/date differ. The exact v2 PDF was retrieved, rendered, and inspected; the version-specific comparison has direct PDF provenance.",
+      "rendered_bbl_title": "{VALG}: An agentic system for {ML} theory research and demonstrations\n  on {COLT} 2026 open problems.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "BDES02",
+      "canonical_source_title": "Limitations of Learning Via Embeddings in Euclidean Half Spaces",
+      "final_bibtex_title": "Limitations of learning via embeddings in {Euclidean} half spaces",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Ben-David, Shai and Eiron, Nadav and Simon, Hans Ulrich",
+        "title": "Limitations of learning via embeddings in {Euclidean} half spaces",
+        "journal": "Journal of Machine Learning Research",
+        "volume": "3",
+        "pages": "441--461",
+        "year": "2002",
+        "url": "https://www.jmlr.org/papers/v3/bendavid02a.html"
+      },
+      "primary_urls": [
+        "https://www.jmlr.org/papers/v3/bendavid02a.html",
+        "https://www.jmlr.org/papers/volume3/bendavid02a/bendavid02a.pdf"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "None; official landing page and official published PDF agree.",
+      "rendered_bbl_title": "Limitations of learning via embeddings in {Euclidean} half spaces.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "KMS20",
+      "canonical_source_title": "Approximate is Good Enough: Probabilistic Variants of Dimensional and Margin Complexity",
+      "final_bibtex_title": "Approximate is good enough: probabilistic variants of dimensional and margin complexity",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Kamath, Pritish and Montasser, Omar and Srebro, Nathan",
+        "title": "Approximate is good enough: probabilistic variants of dimensional and margin complexity",
+        "booktitle": "Proceedings of Thirty Third Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "125",
+        "pages": "2236--2262",
+        "year": "2020",
+        "url": "https://proceedings.mlr.press/v125/kamath20b.html"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v125/kamath20b.html",
+        "https://proceedings.mlr.press/v125/kamath20b/kamath20b.pdf"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "None; official landing and PDF inspected.",
+      "rendered_bbl_title": "Approximate is good enough: probabilistic variants of dimensional and\n  margin complexity.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "CMW25",
+      "canonical_source_title": "On Reductions and Representations of Learning Problems in Euclidean Spaces",
+      "final_bibtex_title": "On reductions and representations of learning problems in {Euclidean} spaces",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Chornomaz, Bogdan and Moran, Shay and Waknine, Tom",
+        "title": "On reductions and representations of learning problems in {Euclidean} spaces",
+        "year": "2025",
+        "note": "Preprint: arXiv:2411.10784v1",
+        "url": "https://doi.org/10.1145/3717823.3718213",
+        "booktitle": "Proceedings of the 57th Annual ACM Symposium on Theory of Computing",
+        "pages": "2043--2054",
+        "doi": "10.1145/3717823.3718213"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/3717823.3718213",
+        "https://doi.org/10.1145/3717823.3718213",
+        "https://arxiv.org/abs/2411.10784v1",
+        "https://arxiv.org/pdf/2411.10784v1"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "ACM publisher landing/PDF endpoints returned 403. Published metadata is freshly retrieved directly from ACM's Crossref deposit; original preprint PDF title page independently inspected. Do not describe the ACM proceedings PDF as inspected.",
+      "rendered_bbl_title": "On reductions and representations of learning problems in {Euclidean}\n  spaces.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Kearns98",
+      "canonical_source_title": "Efficient Noise-Tolerant Learning from Statistical Queries",
+      "final_bibtex_title": "Efficient noise-tolerant learning from statistical queries",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Kearns, Michael",
+        "title": "Efficient noise-tolerant learning from statistical queries",
+        "journal": "Journal of the ACM",
+        "volume": "45",
+        "number": "6",
+        "pages": "983--1006",
+        "year": "1998",
+        "doi": "10.1145/293347.293351",
+        "url": "https://doi.org/10.1145/293347.293351"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/293347.293351",
+        "https://doi.org/10.1145/293347.293351",
+        "https://homepages.math.uic.edu/~lreyzin/papers/kearns98.pdf",
+        "https://www.cis.upenn.edu/~mkearns/papers/cv01.pdf"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "ACM direct endpoints returned 403. Crossref deposit freshly retrieved. The title page inspected visually is the original journal article hosted on an academic UIC page, not a direct ACM download.",
+      "rendered_bbl_title": "Efficient noise-tolerant learning from statistical queries.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Feldman08",
+      "canonical_source_title": "Evolvability from Learning Algorithms",
+      "final_bibtex_title": "Evolvability from learning algorithms",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Feldman, Vitaly",
+        "title": "Evolvability from learning algorithms",
+        "booktitle": "Proceedings of the fortieth annual ACM symposium on Theory of computing",
+        "pages": "619--628",
+        "year": "2008",
+        "doi": "10.1145/1374376.1374465",
+        "url": "https://doi.org/10.1145/1374376.1374465"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/1374376.1374465",
+        "https://doi.org/10.1145/1374376.1374465",
+        "https://research.ibm.com/publications/evolvability-from-learning-algorithms",
+        "https://vtaly.net/papers/F_Evolve_full_08.pdf"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "ACM direct endpoints returned 403. No claim of visually inspecting the ACM conference PDF; the author's original full-version title page and fresh publisher-deposited metadata were inspected.",
+      "rendered_bbl_title": "Evolvability from learning algorithms.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "Feldman11",
+      "canonical_source_title": "Distribution-Independent Evolvability of Linear Threshold Functions",
+      "final_bibtex_title": "Distribution-independent evolvability of linear threshold functions",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Feldman, Vitaly",
+        "title": "Distribution-independent evolvability of linear threshold functions",
+        "booktitle": "Proceedings of the 24th Annual Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "19",
+        "pages": "253--272",
+        "year": "2011",
+        "url": "https://proceedings.mlr.press/v19/feldman11b.html"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v19/feldman11b.html",
+        "https://proceedings.mlr.press/v19/feldman11b/feldman11b.pdf"
+      ],
+      "detailed_audit": "primary/mid.json",
+      "access_limits": "None; official landing and published PDF agree on the material fields.",
+      "rendered_bbl_title": "Distribution-independent evolvability of linear threshold functions.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "DV04",
+      "canonical_source_title": "A simple polynomial-time rescaling algorithm for solving linear programs",
+      "final_bibtex_title": "A simple polynomial-time rescaling algorithm for solving linear programs",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Dunagan, John and Vempala, Santosh",
+        "title": "A simple polynomial-time rescaling algorithm for solving linear programs",
+        "booktitle": "Proceedings of the thirty-sixth annual ACM symposium on Theory of computing",
+        "pages": "315--320",
+        "year": "2004",
+        "doi": "10.1145/1007352.1007404",
+        "url": "https://doi.org/10.1145/1007352.1007404"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/1007352.1007404",
+        "https://dl.acm.org/doi/10.1145/1007352.1007404"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "ACM direct HTML still failed in the web tool; no original ACM PDF title page inspected. Exact identity, DOI, pages and title independently verified from fresh publisher-deposited metadata (publisher ACM; Crossref member 320).",
+      "rendered_bbl_title": "A simple polynomial-time rescaling algorithm for solving linear\n  programs.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "BF13",
+      "canonical_source_title": "Statistical Active Learning Algorithms",
+      "final_bibtex_title": "Statistical active learning algorithms",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Balcan, Maria-Florina and Feldman, Vitaly",
+        "title": "Statistical active learning algorithms",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "26",
+        "year": "2013",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html",
+        "note": "Extended version: arXiv:1307.3102v4; Appendix A refers to that version"
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/2013/file/84117275be999ff55a987b9381e01f96-Paper.pdf",
+        "https://proceedings.neurips.cc/paper_files/paper/2013/file/84117275be999ff55a987b9381e01f96-Bibtex.bib",
+        "https://arxiv.org/abs/1307.3102v4"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "No paper DOI or global page range was supplied in the inspected official record; absence from record does not prove none exists.",
+      "rendered_bbl_title": "Statistical active learning algorithms.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "GSS13",
+      "canonical_source_title": "Efficient Active Learning of Halfspaces: An Aggressive Approach",
+      "final_bibtex_title": "Efficient active learning of halfspaces: an aggressive approach",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Gonen, Alon and Sabato, Sivan and Shalev-Shwartz, Shai",
+        "title": "Efficient active learning of halfspaces: an aggressive approach",
+        "journal": "Journal of Machine Learning Research",
+        "volume": "14",
+        "pages": "2583--2615",
+        "year": "2013",
+        "url": "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf"
+      },
+      "primary_urls": [
+        "https://jmlr.org/papers/v14/gonen13a.html",
+        "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "DOI not provided on inspected official page; no DOI invented.",
+      "rendered_bbl_title": "Efficient active learning of halfspaces: an aggressive approach.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "FGV21",
+      "canonical_source_title": "Statistical Query Algorithms for Mean Vector Estimation and Stochastic Convex Optimization",
+      "final_bibtex_title": "Statistical query algorithms for mean vector estimation and stochastic convex optimization",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "article",
+        "author": "Feldman, Vitaly and Guzm{\\'a}n, Crist{\\'o}bal and Vempala, Santosh",
+        "title": "Statistical query algorithms for mean vector estimation and stochastic convex optimization",
+        "journal": "Mathematics of Operations Research",
+        "volume": "46",
+        "number": "3",
+        "pages": "912--945",
+        "year": "2021",
+        "doi": "10.1287/moor.2020.1111",
+        "url": "https://doi.org/10.1287/moor.2020.1111",
+        "note": "Preprint: arXiv:1512.09170"
+      },
+      "primary_urls": [
+        "https://pubsonline.informs.org/doi/10.1287/moor.2020.1111",
+        "https://api.crossref.org/works/10.1287/moor.2020.1111",
+        "https://arxiv.org/abs/1512.09170",
+        "https://arxiv.org/pdf/1512.09170"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "INFORMS View PDF redirected to an abstract page. Journal metadata was verified; PDF title-page corroboration is from the identified author preprint, not the final journal PDF.",
+      "rendered_bbl_title": "Statistical query algorithms for mean vector estimation and\n  stochastic convex optimization.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "KM25",
+      "canonical_source_title": "The Power of Random Features and the Limits of Distribution-Free Gradient Descent",
+      "final_bibtex_title": "The power of random features and the limits of distribution-free gradient descent",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Karchmer, Ari and Malach, Eran",
+        "title": "The power of random features and the limits of distribution-free gradient descent",
+        "booktitle": "Proceedings of the 42nd International Conference on Machine Learning",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "267",
+        "year": "2025",
+        "url": "https://proceedings.mlr.press/v267/karchmer25a.html",
+        "pages": "29078--29097"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v267/karchmer25a.html",
+        "https://raw.githubusercontent.com/mlresearch/v267/main/assets/karchmer25a/karchmer25a.pdf"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "Web tool could not parse the official GitHub PDF content type; native PowerShell downloaded it successfully. Its first page was read with pdftotext. The reader emitted a MiKTeX log-permission warning after extracting text; this does not alter the displayed source text.",
+      "rendered_bbl_title": "The power of random features and the limits of distribution-free\n  gradient descent.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "MKAS21",
+      "canonical_source_title": "Quantifying the Benefit of Using Differentiable Learning over Tangent Kernels",
+      "final_bibtex_title": "Quantifying the benefit of using differentiable learning over tangent kernels",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Malach, Eran and Kamath, Pritish and Abbe, Emmanuel and Srebro, Nathan",
+        "title": "Quantifying the benefit of using differentiable learning over tangent kernels",
+        "booktitle": "Proceedings of the 38th International Conference on Machine Learning",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "139",
+        "pages": "7379--7389",
+        "year": "2021",
+        "url": "https://proceedings.mlr.press/v139/malach21a.html"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v139/malach21a.html",
+        "https://proceedings.mlr.press/v139/malach21a/malach21a.pdf"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented.",
+      "rendered_bbl_title": "Quantifying the benefit of using differentiable learning over tangent\n  kernels.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "ABBBN21",
+      "canonical_source_title": "The staircase property: How hierarchical structure can guide deep learning",
+      "final_bibtex_title": "The staircase property: how hierarchical structure can guide deep learning",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Abbe, Emmanuel and Boix-Adser{\\`a}, Enric and Brennan, Matthew and Bresler, Guy and Nagaraj, Dheeraj",
+        "title": "The staircase property: how hierarchical structure can guide deep learning",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "year": "2021",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html",
+        "volume": "34",
+        "pages": "26989--27002",
+        "note": "Preprint: arXiv:2108.10573"
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/e2db7186375992e729165726762cb4c1-Bibtex.bib",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/e2db7186375992e729165726762cb4c1-Paper.pdf",
+        "https://arxiv.org/abs/2108.10573"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented.",
+      "rendered_bbl_title": "The staircase property: how hierarchical structure can guide deep\n  learning.",
+      "rendered_title_wording_and_punctuation_match": true
+    },
+    {
+      "key": "ABM22",
+      "canonical_source_title": "The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks",
+      "final_bibtex_title": "The merged-staircase property: a necessary and nearly sufficient condition for {SGD} learning of sparse functions on two-layer neural networks",
+      "title_wording_and_punctuation_match": true,
+      "comparison_policy": "Case-insensitive, whitespace-normalized; remove BibTeX grouping/protection and normalize TeX mathbb argument spacing only. No title words or punctuation discarded.",
+      "final_bibliographic_fields": {
+        "entry_type": "inproceedings",
+        "author": "Abbe, Emmanuel and Boix-Adser{\\`a}, Enric and Misiakiewicz, Theodor",
+        "title": "The merged-staircase property: a necessary and nearly sufficient condition for {SGD} learning of sparse functions on two-layer neural networks",
+        "booktitle": "Proceedings of Thirty Fifth Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "178",
+        "pages": "4782--4887",
+        "year": "2022",
+        "url": "https://proceedings.mlr.press/v178/abbe22a.html",
+        "note": "Preprint: arXiv:2202.08658"
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v178/abbe22a.html",
+        "https://proceedings.mlr.press/v178/abbe22a/abbe22a.pdf",
+        "https://arxiv.org/abs/2202.08658"
+      ],
+      "detailed_audit": "primary/learning.json",
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented.",
+      "rendered_bbl_title": "The merged-staircase property: a necessary and nearly sufficient\n  condition for {SGD} learning of sparse functions on two-layer neural\n  networks.",
+      "rendered_title_wording_and_punctuation_match": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "baseline_directory": "history/turn07/paper",
+  "numbering_source": "history/turn06/checks/statement_inventory.json",
+  "numbered_statements": 40,
+  "baseline_statements": 39,
+  "retained_baseline_labels": 39,
+  "bound_proofs": 40,
+  "global_consecutive_numbers": true,
+  "undefined_labels": [],
+  "dependency_nodes": 51,
+  "acyclic": true,
+  "scope": "Source consistency plus a reviewed proof-dependency graph; mathematical validity is assessed in the proof ledger.",
+  "bibliography_entries": 36
+}

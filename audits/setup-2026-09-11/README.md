@@ -1,5 +1,10 @@
 # Repository setup audit — 11 September 2026
 
+This is the setup snapshot before the subsequent
+[exact-title and citation audit](../citation-titles-2026-09-11/README.md).
+That follow-up supersedes the bibliography and reading-copy PDF results below;
+the compiled Lean and experiment evidence remains applicable to the unchanged code.
+
 The supplied Git bundle was imported from commit
 `c7fbd8c96c72a6b20ec75518f1a99531a155237c`. This audit records fresh checks of the
 organized repository and regenerated manuscript. Original revision 8 ledgers

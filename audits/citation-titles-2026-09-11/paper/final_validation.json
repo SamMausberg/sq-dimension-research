@@ -1,0 +1,263 @@
+{
+  "status": "PASS",
+  "baseline_commit": "58b258762351f7bc5d3be95a91e06700e1fae63f",
+  "build": {
+    "errors": 0,
+    "undefined_references": 0,
+    "undefined_citations": 0,
+    "overfull_boxes": 0,
+    "duplicate_anchors": 0,
+    "pages": 64,
+    "main_pages": 13,
+    "shell_escape": false,
+    "command": [
+      "pdflatex",
+      "-no-shell-escape",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "paper.tex"
+    ],
+    "status": "PASS"
+  },
+  "bibliography": {
+    "entries": 36,
+    "pages": [
+      14,
+      15,
+      16
+    ],
+    "all_generated_titles_match_bib_words_and_punctuation": true,
+    "comparison_normalization": "Case, TeX protection braces, whitespace and BibTeX-added terminal full stop normalized. No title words or internal punctuation removed.",
+    "proper_names_verified_in_pdf": [
+      "Euclidean",
+      "Hamming",
+      "Borsuk-Ulam"
+    ],
+    "MC12_published_author_order": "Cyril Cohen and Assia Mahboubi",
+    "Renegar_full_title_reference_numbers": {
+      "Part I": 31,
+      "Part II": 32,
+      "Part III": 33
+    },
+    "title_comparisons": [
+      {
+        "key": "FKS26",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Invited open problem: Is the power of deep learning over linear models inherently distribution dependent?"
+      },
+      {
+        "key": "HHPTZ22",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Lower bound methods for sign-rank and their limitations."
+      },
+      {
+        "key": "APP05",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Crossing patterns of semi-algebraic sets."
+      },
+      {
+        "key": "Warren68",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Lower bounds for approximation by nonlinear manifolds."
+      },
+      {
+        "key": "AMY16",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Sign rank versus {VC} dimension."
+      },
+      {
+        "key": "Feldman17",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A general characterization of the statistical query complexity."
+      },
+      {
+        "key": "Forster02",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A linear lower bound on the unbounded error probabilistic communication complexity."
+      },
+      {
+        "key": "AKMSS21",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "On the power of differentiable learning versus {PAC} and {SQ} learning."
+      },
+      {
+        "key": "HHM23",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A {Borsuk-Ulam} lower bound for sign-rank and its applications."
+      },
+      {
+        "key": "GHIS25",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Sign-rank of {$k$}-{Hamming} distance is constant."
+      },
+      {
+        "key": "FHV26",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A {$\\mathbb Z_2$}-topological framework for sign-rank lower bounds."
+      },
+      {
+        "key": "DKT22",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A strongly polynomial algorithm for approximate {Forster} transforms and its application to halfspace learning."
+      },
+      {
+        "key": "MC12",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Formal proofs in real algebraic geometry: from ordered fields to quantifier elimination."
+      },
+      {
+        "key": "GGM86",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "How to construct random functions."
+      },
+      {
+        "key": "HILL99",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A pseudorandom generator from any one-way function."
+      },
+      {
+        "key": "Renegar92",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals}."
+      },
+      {
+        "key": "Renegar92II",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination}."
+      },
+      {
+        "key": "Renegar92III",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "{On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination}."
+      },
+      {
+        "key": "Vorobjov21",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Lecture notes on complexity of quantifier elimination over the reals."
+      },
+      {
+        "key": "BHKR26",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Lower bounds for approximate sign rank."
+      },
+      {
+        "key": "BHHLT26",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Sign-rank, index, and list replicability: connections and separations."
+      },
+      {
+        "key": "VALG26",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "{VALG}: An agentic system for {ML} theory research and demonstrations on {COLT} 2026 open problems."
+      },
+      {
+        "key": "BDES02",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Limitations of learning via embeddings in {Euclidean} half spaces."
+      },
+      {
+        "key": "KMS20",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Approximate is good enough: probabilistic variants of dimensional and margin complexity."
+      },
+      {
+        "key": "CMW25",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "On reductions and representations of learning problems in {Euclidean} spaces."
+      },
+      {
+        "key": "Kearns98",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Efficient noise-tolerant learning from statistical queries."
+      },
+      {
+        "key": "Feldman08",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Evolvability from learning algorithms."
+      },
+      {
+        "key": "Feldman11",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Distribution-independent evolvability of linear threshold functions."
+      },
+      {
+        "key": "DV04",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "A simple polynomial-time rescaling algorithm for solving linear programs."
+      },
+      {
+        "key": "BF13",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Statistical active learning algorithms."
+      },
+      {
+        "key": "GSS13",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Efficient active learning of halfspaces: an aggressive approach."
+      },
+      {
+        "key": "FGV21",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Statistical query algorithms for mean vector estimation and stochastic convex optimization."
+      },
+      {
+        "key": "KM25",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "The power of random features and the limits of distribution-free gradient descent."
+      },
+      {
+        "key": "MKAS21",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "Quantifying the benefit of using differentiable learning over tangent kernels."
+      },
+      {
+        "key": "ABBBN21",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "The staircase property: how hierarchical structure can guide deep learning."
+      },
+      {
+        "key": "ABM22",
+        "matches_bib_title_words_and_punctuation": true,
+        "bbl_title": "The merged-staircase property: a necessary and nearly sufficient condition for {SGD} learning of sparse functions on two-layer neural networks."
+      }
+    ]
+  },
+  "pdf_citation_links": {
+    "status": "PASS",
+    "pdf_citation_destinations": 36,
+    "pdf_citation_links": 69,
+    "missing_pdf_citation_destinations": [],
+    "source_citation_commands": 60
+  },
+  "source_preservation": {
+    "tex_files": 44,
+    "only_source_change": "Renegar92 citation expands to Renegar92,Renegar92II,Renegar92III in appendices/explicit_proofs.tex.",
+    "mathematical_and_prose_tokens_unchanged": true,
+    "numbered_statements": 40,
+    "bound_proofs": 40,
+    "dependency_nodes": 51,
+    "acyclic": true
+  },
+  "visual_review": {
+    "rendered_pages": 64,
+    "dpi": 110,
+    "closely_reviewed_pages": [
+      14,
+      15,
+      16,
+      36,
+      53
+    ],
+    "in_text_Renegar": "Renegar [31, 32, 33] on page 36",
+    "in_text_MC12": "Cohen and Mahboubi [11] on page 53",
+    "result": "Full bibliography titles, proper-noun capitalization, author order, reference boundaries and affected in-text citations are readable. No clipping, overlaps, missing glyphs, stranded headings or newly split formulas observed on the reviewed pages."
+  },
+  "remaining_diagnostics": {
+    "underfull_hbox_notices": 19,
+    "other_latex_warnings": [],
+    "assessment": "Underfull notices concern spacing in narrow table columns and bibliography lines; no overfull boxes."
+  },
+  "pdf_sha256": "f79035873f0871e5d6ad0e91b62bea4b19c9dd2e28135610e8750d5f694c9dfd",
+  "bbl_sha256": "b254b21303950be96bdead6f54438ddc96e7a4cc3636c59001cb81394f6ff62d",
+  "scope": "Manuscript regeneration, source preservation, bibliography typesetting, citation-link and visual checks; mathematical validity is outside this validation."
+}

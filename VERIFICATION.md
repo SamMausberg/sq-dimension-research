@@ -1,14 +1,16 @@
 # Verification
 
-The latest repository checks are documented in
-[the 11 September 2026 setup audit](audits/setup-2026-09-11/README.md).
+The latest bibliography and reading-copy checks are documented in
+[the exact-title and citation audit](audits/citation-titles-2026-09-11/README.md).
+The unchanged Lean and experiment code is covered by
+[the repository setup audit](audits/setup-2026-09-11/README.md).
 
 | Check | Result and scope |
 | --- | --- |
 | Lean | Nine supporting lemmas compile; all 30 compiler theorem declarations in the two local modules pass the axiom audit. No proof holes or custom axioms. |
 | Manuscript | Regenerated 64-page PDF, 13 main pages; no errors, unresolved references/citations, overfull boxes, or duplicate anchors. |
-| Mathematics preserved | All mathematical statements, proof prose, and experiment algorithms preserved from the supplied bundle. Three presentation-only LaTeX changes are recorded. |
-| Citations | All 34 works located in live primary records; metadata/version links completed, with source-access limits retained. |
+| Mathematics preserved | All mathematical statements, proof prose, and experiment algorithms preserved. The setup's three presentation changes and the later expansion of one series citation are recorded separately. |
+| Citations | All 36 individual papers represented by the original 34 entries checked against primary titles and records. All 69 citation occurrences resolve; exact-title, author-order, and publication-field corrections are documented with access limits. |
 | Computation | All six suites pass, including 304 seeded median runs and 56 keyed cap runs. |
 | Tool regressions | 11 tests pass, including optimized-Python, stale-result, baseline, and integrity cases. |
 | Code and metadata | Active Python lint/format, dependency consistency, and citation schema checks pass. |

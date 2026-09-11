@@ -1,0 +1,320 @@
+{
+  "baseline_commit": "58b258762351f7bc5d3be95a91e06700e1fae63f",
+  "updated_or_added_entries": 18,
+  "removed_keys": [],
+  "added_keys": [
+    "Renegar92II",
+    "Renegar92III"
+  ],
+  "mathematical_claims_changed": false,
+  "changes": [
+    {
+      "key": "FKS26",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Proceedings of the Thirty-Ninth Conference on Learning Theory",
+          "after": "Proceedings of Thirty Ninth Conference on Learning Theory"
+        }
+      }
+    },
+    {
+      "key": "AMY16",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Conference on Learning Theory",
+          "after": "29th Annual Conference on Learning Theory"
+        }
+      }
+    },
+    {
+      "key": "Feldman17",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Conference on Learning Theory",
+          "after": "Proceedings of the 2017 Conference on Learning Theory"
+        }
+      }
+    },
+    {
+      "key": "HHM23",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Proceedings of the ACM Symposium on Theory of Computing",
+          "after": "Proceedings of the 55th Annual ACM Symposium on Theory of Computing"
+        },
+        "title": {
+          "before": "A {Borsuk--Ulam} lower bound for sign-rank and its applications",
+          "after": "A {Borsuk-Ulam} lower bound for sign-rank and its applications"
+        }
+      }
+    },
+    {
+      "key": "GHIS25",
+      "kind": "updated",
+      "fields": {
+        "title": {
+          "before": "Sign-rank of {$k$}-Hamming distance is constant",
+          "after": "Sign-rank of {$k$}-{Hamming} distance is constant"
+        }
+      }
+    },
+    {
+      "key": "MC12",
+      "kind": "updated",
+      "fields": {
+        "author": {
+          "before": "Mahboubi, Assia and Cohen, Cyril",
+          "after": "Cohen, Cyril and Mahboubi, Assia"
+        },
+        "doi": {
+          "before": null,
+          "after": "10.2168/LMCS-8(1:2)2012"
+        },
+        "entry_type": {
+          "before": "misc",
+          "after": "article"
+        },
+        "howpublished": {
+          "before": "arXiv:1201.3731",
+          "after": null
+        },
+        "journal": {
+          "before": null,
+          "after": "Logical Methods in Computer Science"
+        },
+        "note": {
+          "before": null,
+          "after": "Preprint: arXiv:1201.3731v2"
+        },
+        "number": {
+          "before": null,
+          "after": "1:2"
+        },
+        "pages": {
+          "before": null,
+          "after": "1--40"
+        },
+        "url": {
+          "before": "https://arxiv.org/abs/1201.3731",
+          "after": "https://doi.org/10.2168/LMCS-8(1:2)2012"
+        },
+        "volume": {
+          "before": null,
+          "after": "8"
+        }
+      }
+    },
+    {
+      "key": "Renegar92",
+      "kind": "updated",
+      "fields": {
+        "doi": {
+          "before": null,
+          "after": "10.1016/S0747-7171(10)80003-3"
+        },
+        "note": {
+          "before": "Three-part series. Part I: \\url{https://doi.org/10.1016/S0747-7171(10)80003-3}; Part II: \\url{https://doi.org/10.1016/S0747-7171(10)80004-5}; Part III: \\url{https://doi.org/10.1016/S0747-7171(10)80005-7}",
+          "after": null
+        },
+        "pages": {
+          "before": "255--299, 301--327, 329--352",
+          "after": "255--299"
+        },
+        "title": {
+          "before": "On the computational complexity and geometry of the first-order theory of the reals. {I--III}",
+          "after": "{On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals}"
+        },
+        "url": {
+          "before": null,
+          "after": "https://doi.org/10.1016/S0747-7171(10)80003-3"
+        }
+      }
+    },
+    {
+      "key": "Renegar92II",
+      "kind": "added",
+      "fields": {
+        "author": {
+          "before": null,
+          "after": "Renegar, James"
+        },
+        "doi": {
+          "before": null,
+          "after": "10.1016/S0747-7171(10)80004-5"
+        },
+        "entry_type": {
+          "before": null,
+          "after": "article"
+        },
+        "journal": {
+          "before": null,
+          "after": "Journal of Symbolic Computation"
+        },
+        "number": {
+          "before": null,
+          "after": "3"
+        },
+        "pages": {
+          "before": null,
+          "after": "301--327"
+        },
+        "title": {
+          "before": null,
+          "after": "{On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination}"
+        },
+        "url": {
+          "before": null,
+          "after": "https://doi.org/10.1016/S0747-7171(10)80004-5"
+        },
+        "volume": {
+          "before": null,
+          "after": "13"
+        },
+        "year": {
+          "before": null,
+          "after": "1992"
+        }
+      }
+    },
+    {
+      "key": "Renegar92III",
+      "kind": "added",
+      "fields": {
+        "author": {
+          "before": null,
+          "after": "Renegar, James"
+        },
+        "doi": {
+          "before": null,
+          "after": "10.1016/S0747-7171(10)80005-7"
+        },
+        "entry_type": {
+          "before": null,
+          "after": "article"
+        },
+        "journal": {
+          "before": null,
+          "after": "Journal of Symbolic Computation"
+        },
+        "number": {
+          "before": null,
+          "after": "3"
+        },
+        "pages": {
+          "before": null,
+          "after": "329--352"
+        },
+        "title": {
+          "before": null,
+          "after": "{On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination}"
+        },
+        "url": {
+          "before": null,
+          "after": "https://doi.org/10.1016/S0747-7171(10)80005-7"
+        },
+        "volume": {
+          "before": null,
+          "after": "13"
+        },
+        "year": {
+          "before": null,
+          "after": "1992"
+        }
+      }
+    },
+    {
+      "key": "BDES02",
+      "kind": "updated",
+      "fields": {
+        "title": {
+          "before": "Limitations of learning via embeddings in Euclidean half spaces",
+          "after": "Limitations of learning via embeddings in {Euclidean} half spaces"
+        }
+      }
+    },
+    {
+      "key": "KMS20",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Conference on Learning Theory",
+          "after": "Proceedings of Thirty Third Conference on Learning Theory"
+        }
+      }
+    },
+    {
+      "key": "CMW25",
+      "kind": "updated",
+      "fields": {
+        "title": {
+          "before": "On reductions and representations of learning problems in Euclidean spaces",
+          "after": "On reductions and representations of learning problems in {Euclidean} spaces"
+        }
+      }
+    },
+    {
+      "key": "Feldman08",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Proceedings of the ACM Symposium on Theory of Computing",
+          "after": "Proceedings of the fortieth annual ACM symposium on Theory of computing"
+        }
+      }
+    },
+    {
+      "key": "Feldman11",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Conference on Learning Theory",
+          "after": "Proceedings of the 24th Annual Conference on Learning Theory"
+        }
+      }
+    },
+    {
+      "key": "DV04",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Proceedings of the ACM Symposium on Theory of Computing",
+          "after": "Proceedings of the thirty-sixth annual ACM symposium on Theory of computing"
+        }
+      }
+    },
+    {
+      "key": "KM25",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "International Conference on Machine Learning",
+          "after": "Proceedings of the 42nd International Conference on Machine Learning"
+        }
+      }
+    },
+    {
+      "key": "MKAS21",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "International Conference on Machine Learning",
+          "after": "Proceedings of the 38th International Conference on Machine Learning"
+        }
+      }
+    },
+    {
+      "key": "ABM22",
+      "kind": "updated",
+      "fields": {
+        "booktitle": {
+          "before": "Proceedings of the Thirty-Fifth Conference on Learning Theory",
+          "after": "Proceedings of Thirty Fifth Conference on Learning Theory"
+        }
+      }
+    }
+  ]
+}

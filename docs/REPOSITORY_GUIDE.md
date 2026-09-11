@@ -4,7 +4,8 @@
 
 - **Read the research:** `paper/paper.pdf`, then `paper/summary.tex` and the relevant
   proofs under `paper/appendices/`.
-- **Assess the evidence:** `VERIFICATION.md`, `audits/setup-2026-09-11/README.md`,
+- **Assess the evidence:** `VERIFICATION.md`, `audits/citation-titles-2026-09-11/README.md`,
+  `audits/setup-2026-09-11/README.md`,
   `audits/current/NEW_RESULT_LEDGER.md`, and `formalization/COVERAGE.md`.
 - **Reproduce or develop:** `docs/REPRODUCIBILITY.md`, `CONTRIBUTING.md`, and `tools/`.
 - **Trace an idea:** `docs/TOPIC_INDEX.md`, then the specific snapshot in `history/`.
@@ -38,6 +39,7 @@ sq-dimension-research/
 ├── tools/                     Reproduction, builds, source checks, integrity, packaging
 ├── tests/                     Verification-tool regressions
 ├── audits/
+│   ├── citation-titles-2026-09-11/  Latest citation/title and PDF checks
 │   ├── setup-2026-09-11/      Fresh setup evidence
 │   ├── current/               Original revision 8 ledgers and records
 │   └── prior/                 Earlier reviews

@@ -1,8 +1,8 @@
 {
   "format_version": 2,
-  "file_count": 934,
+  "file_count": 954,
   "groups": {
-    "audits": 189,
+    "audits": 209,
     "docs": 11,
     "experiments": 41,
     "formalization": 9,
@@ -11,6 +11,126 @@
     "tools": 6
   },
   "files": [
+    {
+      "path": "audits/citation-titles-2026-09-11/README.md",
+      "bytes": 4912,
+      "sha256": "0c18ed92404192ee644277ccb6d1a2041e577f39bffe2ca80e66b8d04b0b37e2",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/TITLES.md",
+      "bytes": 6434,
+      "sha256": "6bc9a766bae35bb721bfa862b7c0cba1f2fd1bc0bb4e4947747db1fadcc08172",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/changes.json",
+      "bytes": 8835,
+      "sha256": "5fa42f9cb11eddbad3d12e4f058183182c7f1b5f3ba621c75e30fd42b03bdc5c",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/citation_structure.json",
+      "bytes": 7774,
+      "sha256": "c056502fce081ee504fea1af421778bd19e7a36c4c83e44030605eb852bd4733",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/FINAL_VALIDATION.md",
+      "bytes": 1769,
+      "sha256": "c973e39cf885222b6438bb32c83b99165049477583c0f7d606bbaa620ef2b5ec",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/final_build.json",
+      "bytes": 334,
+      "sha256": "810bea672199c34a254935a609a423e4d32aae1d93f59db25bab91b33f4c69f3",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/final_validation.json",
+      "bytes": 9991,
+      "sha256": "a4fcee375a1c96dc0ec57a388271dfdaa3bf13aa208db985111577c94802510a",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/logs/paper_bibtex.log",
+      "bytes": 155,
+      "sha256": "3a74389be5c1c3e72f69257dc304a8a9f0a1ad43cded49c01600d18b7279815f",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/logs/paper_pdflatex_1.log",
+      "bytes": 23209,
+      "sha256": "78ef9e9ecf58292336f2d0414a27baef428ba1d35aa945313340a8819f916cea",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/logs/paper_pdflatex_2.log",
+      "bytes": 23322,
+      "sha256": "d087b8de6c34b19049fd14927ee6655d7dc438c32047216d128ee6daf9da8f24",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/logs/paper_pdflatex_3.log",
+      "bytes": 22972,
+      "sha256": "89e5765289fed992c41033f89ea0443fd9fce853d9cbdb8204e032d9875b30d6",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/source_comparison.json",
+      "bytes": 5147,
+      "sha256": "895df535d8f4bef33dd04f9c7cf135f1abf3a0607ebf59be3fd2339b038232ea",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/paper/source_consistency.json",
+      "bytes": 524,
+      "sha256": "55e7087da00cd61cf3435e098b686cacf5945943511645dc59dd01d27248e512",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/primary/early.json",
+      "bytes": 38914,
+      "sha256": "435934c3d61465e862e83fbe00e2e64e6634d282111fe096d111a6b5b9e78518",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/primary/learning.json",
+      "bytes": 19103,
+      "sha256": "acbb399facc8dadb0728887ba7dff7c532fab02b10f147c5a84490c8b296fa0a",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/primary/mid.json",
+      "bytes": 17043,
+      "sha256": "3ef36013a508ad54fe58e77059b873ccef9d963650aa8299ee8f76c029c47dfc",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/primary/renegar-detail.json",
+      "bytes": 6352,
+      "sha256": "aaa05924dc499dbccbec2983e168b09c8165082ba089146e6be5937cfaa98c56",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/primary/theory.json",
+      "bytes": 25405,
+      "sha256": "935ea9193ced3fa3c2e5e9fd389b8b7ad4bc77c1b331798d6287f4289574b71d",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/source_preservation.json",
+      "bytes": 12091,
+      "sha256": "1e5728daf1fb73691506598653dc9bda0a93f91aec7440f3b338dd8907ea6a89",
+      "group": "audits"
+    },
+    {
+      "path": "audits/citation-titles-2026-09-11/titles.json",
+      "bytes": 59644,
+      "sha256": "fe7304e5e54fe734834e63e747b52b09ec77896c32d0cdba032139c3704c9565",
+      "group": "audits"
+    },
     {
       "path": "audits/current/CHANGES.md",
       "bytes": 3876,
@@ -565,14 +685,14 @@
     },
     {
       "path": "audits/setup-2026-09-11/README.md",
-      "bytes": 4772,
-      "sha256": "e38a89f24676a2ecf37c766cef72704f5d6ae4420a8d9d0ea607d3a2e5c4983a",
+      "bytes": 5060,
+      "sha256": "8c7ee631a0713e1a7c632fe9e2e34453f008b5c53776e388cd1199ccdf1f9135",
       "group": "audits"
     },
     {
       "path": "audits/setup-2026-09-11/citations/README.md",
-      "bytes": 3123,
-      "sha256": "90a9d3949ca390adc8a629531fb884ec71f11a08df52ae42568e65443ca053ce",
+      "bytes": 3425,
+      "sha256": "7015ed7c7202a119b03a5e4a16abb3a5619cdb97113443aaeab03e70e6626fd2",
       "group": "audits"
     },
     {
@@ -1147,8 +1267,8 @@
     },
     {
       "path": "docs/REPOSITORY_GUIDE.md",
-      "bytes": 3209,
-      "sha256": "9248c8cd996196a82cdb4624fdab36f11fae99ae0b3a48897430326860d62a22",
+      "bytes": 3340,
+      "sha256": "b3a6d177297ec5d0a349b5e67a4ffbbe4772338c15055548b87077faaf620d5f",
       "group": "docs"
     },
     {

@@ -16,7 +16,7 @@ For the decision algorithm, query the incidence bits and fill the known off-inci
 \[
  A_{ij}\sum_{s=1}^{D_k}U_{is}V_{sj}\ge1\quad(i,j\in[K_k]).
 \]
-Indeed a strict factorization can be scaled to have all signed scores at least one, since there are finitely many positive signed scores. The converse is immediate. There are $2K_kD_k$ real variables and $K_k^2$ degree-two polynomial inequalities with bounded integer coefficients. We use the singly exponential existential-real consistency bound in the formulation of \citet{Vorobjov21}, attributed there to \citet{Renegar92}: $(sd)^{O(v)}L^{O(1)}$ bit operations for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$. Substitution gives $2^{O(k^3D_k\log k)}$. The resulting decision procedure is applied only to the polynomial-size subgrid.
+Indeed a strict factorization can be scaled to have all signed scores at least one, since there are finitely many positive signed scores. The converse is immediate. There are $2K_kD_k$ real variables and $K_k^2$ degree-two polynomial inequalities with bounded integer coefficients. We use the singly exponential existential-real consistency bound in the formulation of \citet{Vorobjov21}, attributed there to \citet{Renegar92,Renegar92II,Renegar92III}: $(sd)^{O(v)}L^{O(1)}$ bit operations for $s$ polynomials of degree at most $d$, $v$ variables, and coefficient bit length $L$. Substitution gives $2^{O(k^3D_k\log k)}$. The resulting decision procedure is applied only to the polynomial-size subgrid.
 \end{proof}
 
 \subsection[Proof of result prf]{Proof of \cref{thm:prf}}\label{proof:prf}

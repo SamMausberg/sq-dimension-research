@@ -1,0 +1,359 @@
+{
+  "status": "PASS",
+  "bibliography_entries": 36,
+  "unique_cited_keys": 36,
+  "citation_occurrences": 69,
+  "missing_keys": [],
+  "uncited_entries": [],
+  "compiled_citation_occurrences": 69,
+  "compiled_citation_multiset_matches_source": true,
+  "rendered_bibliography_entries": 36,
+  "rendered_title_comparison_policy": "Same title normalization as titles.json; only the bibliography style's terminal full stop is additionally ignored. Protected Euclidean/Hamming capitalization checked case-sensitively.",
+  "citations": [
+    {
+      "key": "HHPTZ22",
+      "file": "paper/appendices/certificate_proofs.tex",
+      "line": 9
+    },
+    {
+      "key": "Forster02",
+      "file": "paper/appendices/comparisons.tex",
+      "line": 84
+    },
+    {
+      "key": "BHKR26",
+      "file": "paper/appendices/comparisons.tex",
+      "line": 237
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/appendices/engineered_simulation.tex",
+      "line": 2
+    },
+    {
+      "key": "Vorobjov21",
+      "file": "paper/appendices/explicit_proofs.tex",
+      "line": 19
+    },
+    {
+      "key": "Renegar92",
+      "file": "paper/appendices/explicit_proofs.tex",
+      "line": 19
+    },
+    {
+      "key": "Renegar92II",
+      "file": "paper/appendices/explicit_proofs.tex",
+      "line": 19
+    },
+    {
+      "key": "Renegar92III",
+      "file": "paper/appendices/explicit_proofs.tex",
+      "line": 19
+    },
+    {
+      "key": "APP05",
+      "file": "paper/appendices/family_proof.tex",
+      "line": 14
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/appendices/family_proof.tex",
+      "line": 14
+    },
+    {
+      "key": "Warren68",
+      "file": "paper/appendices/family_proof.tex",
+      "line": 25
+    },
+    {
+      "key": "AMY16",
+      "file": "paper/appendices/family_proof.tex",
+      "line": 25
+    },
+    {
+      "key": "DKT22",
+      "file": "paper/appendices/isotropy_program.tex",
+      "line": 2
+    },
+    {
+      "key": "Kearns98",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "Feldman17",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "FKS26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "BDES02",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "CMW25",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "KMS20",
+      "file": "paper/appendices/related_work.tex",
+      "line": 3
+    },
+    {
+      "key": "FKS26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "Feldman08",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "Feldman11",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "DV04",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "BF13",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "GSS13",
+      "file": "paper/appendices/related_work.tex",
+      "line": 6
+    },
+    {
+      "key": "KM25",
+      "file": "paper/appendices/related_work.tex",
+      "line": 9
+    },
+    {
+      "key": "FKS26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 9
+    },
+    {
+      "key": "Forster02",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "AMY16",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "Warren68",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "APP05",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "DKT22",
+      "file": "paper/appendices/related_work.tex",
+      "line": 12
+    },
+    {
+      "key": "Feldman17",
+      "file": "paper/appendices/related_work.tex",
+      "line": 15
+    },
+    {
+      "key": "BHKR26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 18
+    },
+    {
+      "key": "BHHLT26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 21
+    },
+    {
+      "key": "HHM23",
+      "file": "paper/appendices/related_work.tex",
+      "line": 21
+    },
+    {
+      "key": "FHV26",
+      "file": "paper/appendices/related_work.tex",
+      "line": 21
+    },
+    {
+      "key": "GHIS25",
+      "file": "paper/appendices/related_work.tex",
+      "line": 21
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/appendices/related_work.tex",
+      "line": 27
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/appendices/related_work.tex",
+      "line": 27
+    },
+    {
+      "key": "MKAS21",
+      "file": "paper/appendices/related_work.tex",
+      "line": 31
+    },
+    {
+      "key": "ABBBN21",
+      "file": "paper/appendices/related_work.tex",
+      "line": 31
+    },
+    {
+      "key": "ABM22",
+      "file": "paper/appendices/related_work.tex",
+      "line": 31
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/appendices/related_work.tex",
+      "line": 31
+    },
+    {
+      "key": "MC12",
+      "file": "paper/appendices/resource_proofs.tex",
+      "line": 13
+    },
+    {
+      "key": "FKS26",
+      "file": "paper/appendices/sgd_models.tex",
+      "line": 17
+    },
+    {
+      "key": "FGV21",
+      "file": "paper/appendices/sgd_models.tex",
+      "line": 23
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/appendices/sgd_models.tex",
+      "line": 23
+    },
+    {
+      "key": "Feldman17",
+      "file": "paper/appendices/statistical_dimension.tex",
+      "line": 49
+    },
+    {
+      "key": "Feldman17",
+      "file": "paper/appendices/statistical_dimension.tex",
+      "line": 66
+    },
+    {
+      "key": "FKS26",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 2
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 28
+    },
+    {
+      "key": "Warren68",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 29
+    },
+    {
+      "key": "AMY16",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 29
+    },
+    {
+      "key": "APP05",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 30
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 30
+    },
+    {
+      "key": "Feldman17",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 31
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 31
+    },
+    {
+      "key": "VALG26",
+      "file": "paper/sections/01_introduction.tex",
+      "line": 37
+    },
+    {
+      "key": "Kearns98",
+      "file": "paper/sections/02_preliminaries.tex",
+      "line": 23
+    },
+    {
+      "key": "BDES02",
+      "file": "paper/sections/02_preliminaries.tex",
+      "line": 35
+    },
+    {
+      "key": "CMW25",
+      "file": "paper/sections/02_preliminaries.tex",
+      "line": 45
+    },
+    {
+      "key": "KMS20",
+      "file": "paper/sections/02_preliminaries.tex",
+      "line": 45
+    },
+    {
+      "key": "HILL99",
+      "file": "paper/sections/06_explicit.tex",
+      "line": 3
+    },
+    {
+      "key": "GGM86",
+      "file": "paper/sections/06_explicit.tex",
+      "line": 3
+    },
+    {
+      "key": "AKMSS21",
+      "file": "paper/sections/07_gradient.tex",
+      "line": 2
+    },
+    {
+      "key": "HHPTZ22",
+      "file": "paper/sections/08_open.tex",
+      "line": 3
+    }
+  ]
+}

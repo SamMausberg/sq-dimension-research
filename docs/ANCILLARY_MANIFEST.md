@@ -38,7 +38,7 @@ local outputs are not part of the research record unless explicitly added to Git
 
 | Group | Files |
 |---|---:|
-| `audits/` | 189 |
+| `audits/` | 209 |
 | `docs/` | 11 |
 | `experiments/` | 41 |
 | `formalization/` | 9 |

@@ -1,0 +1,81 @@
+{
+  "audit_date": "2026-09-11",
+  "scope": "Fresh live bibliographic verification of the three Renegar 1992 articles. No manuscript or repository edits.",
+  "finding": "All three papers are real. The combined I--III bibliography title is series shorthand rather than the full title of any of the individual published articles. Replace it with three separate article records for full bibliographic precision.",
+  "primary_source_verification": "Full publisher title, author, journal, volume, issue, month/year, page range and DOI for each article were visible in live search results from ScienceDirect. These are the publisher HTML metadata's capitalization and punctuation. Actual printed PDF typography was not independently inspected.",
+  "articles": [
+    {
+      "suggested_key": "Renegar92I",
+      "author": "James Renegar",
+      "title": "On the computational complexity and geometry of the first-order theory of the reals. Part I: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals",
+      "journal": "Journal of Symbolic Computation",
+      "volume": "13",
+      "issue": "3",
+      "publication_date": "March 1992",
+      "year": "1992",
+      "month": "March",
+      "pages": "255-299",
+      "doi": "10.1016/S0747-7171(10)80003-3",
+      "doi_url": "https://doi.org/10.1016/S0747-7171(10)80003-3",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800033",
+      "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 255-299, and the stated DOI.",
+      "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part I}: Introduction. Preliminaries. The geometry of semi-algebraic sets. The decision problem for the existential theory of the reals"
+    },
+    {
+      "suggested_key": "Renegar92II",
+      "author": "James Renegar",
+      "title": "On the computational complexity and geometry of the first-order theory of the reals. Part II: The general decision problem. Preliminaries for quantifier elimination",
+      "journal": "Journal of Symbolic Computation",
+      "volume": "13",
+      "issue": "3",
+      "publication_date": "March 1992",
+      "year": "1992",
+      "month": "March",
+      "pages": "301-327",
+      "doi": "10.1016/S0747-7171(10)80004-5",
+      "doi_url": "https://doi.org/10.1016/S0747-7171(10)80004-5",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800045",
+      "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 301-327, and the stated DOI.",
+      "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part II}: The general decision problem. Preliminaries for quantifier elimination"
+    },
+    {
+      "suggested_key": "Renegar92III",
+      "author": "James Renegar",
+      "title": "On the computational complexity and geometry of the first-order theory of the reals. Part III: Quantifier elimination",
+      "journal": "Journal of Symbolic Computation",
+      "volume": "13",
+      "issue": "3",
+      "publication_date": "March 1992",
+      "year": "1992",
+      "month": "March",
+      "pages": "329-352",
+      "doi": "10.1016/S0747-7171(10)80005-7",
+      "doi_url": "https://doi.org/10.1016/S0747-7171(10)80005-7",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0747717110800057",
+      "source_evidence": "ScienceDirect result contained the full title, James Renegar, Journal of Symbolic Computation, Volume 13, Issue 3, March 1992, Pages 329-352, and the stated DOI.",
+      "suggested_bibtex_title": "On the computational complexity and geometry of the first-order theory of the reals. {Part III}: Quantifier elimination"
+    }
+  ],
+  "punctuation_and_style": [
+    "The publisher title uses a period after 'reals', followed by 'Part I:', 'Part II:', or 'Part III:'. Do not substitute comma-separated series shorthand if claiming to give the exact publisher title.",
+    "The part I subtitle has four sentence fragments separated by periods. The part II subtitle has two sentence fragments separated by a period. The part III subtitle is 'Quantifier elimination'.",
+    "The publisher titles are shown without a final full stop; bibliography style can supply its normal terminal punctuation.",
+    "Protect the Roman part designators in BibTeX against style lowercasing. Journal title and author are the same for all three articles."
+  ],
+  "pagination_conflict": {
+    "description": "DBLP's current author page shows 255-300 for part I and 301-328 for part II. ScienceDirect shows 255-299 and 301-327 respectively. Publisher ranges should be used; there is no basis in this audit to claim the trailing pages were printed blanks because the actual PDFs were not inspected.",
+    "secondary_record_url": "https://dblp.org/pid/43/2770",
+    "preferred_ranges": [
+      "255-299",
+      "301-327",
+      "329-352"
+    ]
+  },
+  "access_limits": [
+    "Direct web opens of all three ScienceDirect article HTML pages and their /pdf URLs returned Internal Error. The full primary metadata was nevertheless available in live publisher-domain search results.",
+    "Crossref API web open returned Internal Error. Direct shell HTTPS calls to api.crossref.org failed because the configured local network proxy refused the connection; Crossref deposits were not inspected.",
+    "Cornell's Part I technical report replacement file states that original Technical Report TR00853 is missing and directs readers to ScienceDirect. It does not establish printed published title typography and was not used as the final metadata authority."
+  ],
+  "cornell_primary_context_url": "https://ecommons.cornell.edu/bitstreams/305759aa-f544-4006-aa85-f70ddce54e00/download",
+  "replacement_guidance": "Use three distinct @article records with the metadata above, and replace any cite referring to the whole series with all three keys. Preserve mathematical text and claims. If only one specific result is intended, inspect its source and cite the relevant part separately rather than choosing a part from its title alone."
+}

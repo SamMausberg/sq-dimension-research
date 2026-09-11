@@ -1,0 +1,365 @@
+{
+  "audit_date": "2026-09-11",
+  "scope": "Independent second pass: exact titles, spelling, punctuation, hyphens, author order, venues, years, pages, identifiers, and versions for eight assigned bibliography keys. Sources freshly requested; title-page PDFs freshly downloaded and visually inspected. No repository edits.",
+  "method": "Publisher/arXiv landing records and original PDF title pages; fresh ACM-deposited Crossref JSON for three ACM publications. Title capitalization imposed by a bibliography style is separated from missing or altered wording. Local mid-*-titlepage.png files preserve inspected renderings.",
+  "summary": {
+    "entries_checked": 8,
+    "fabricated_works_found": 0,
+    "substantive_title_wording_errors_found": 0,
+    "required_case_protection": [
+      "BDES02: protect {Euclidean}",
+      "CMW25: protect {Euclidean}"
+    ],
+    "source_metadata_discrepancies": [
+      "VALG26: arXiv landing metadata omits the subtitle visibly present on the version-2 PDF title page; retain the PDF title with provenance documented."
+    ],
+    "other_findings": "KMS20's proceedings pagination is 2236-2262, even though its PDF uses article-local 1-27. BHHLT26's PDF displays April 2026, while arXiv v1 submission was 16 June 2026. These do not invalidate the cited years or version dates."
+  },
+  "entries": [
+    {
+      "key": "BHHLT26",
+      "status": "verified",
+      "canonical_title": "Sign-Rank, Index, and List Replicability: Connections and Separations",
+      "exact_pdf_title": "Sign-Rank, Index, and List Replicability: Connections and Separations",
+      "exact_landing_title": "Sign-Rank, Index, and List Replicability: Connections and Separations",
+      "recommended_bibtex_title": "Sign-rank, index, and list replicability: connections and separations",
+      "authors_in_order": [
+        "Ari Blondal",
+        "Hamed Hatami",
+        "Pooya Hatami",
+        "Chavdar Lalov",
+        "Sivan Tretiak"
+      ],
+      "year": 2026,
+      "publication_type": "arXiv preprint",
+      "identifier": "2606.18236v1",
+      "version_date": "2026-06-16",
+      "pdf_displayed_date": "April 2026",
+      "pdf_page_count": 29,
+      "canonical_url": "https://arxiv.org/abs/2606.18236v1",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2606.18236v1",
+        "https://arxiv.org/pdf/2606.18236v1"
+      ],
+      "evidence_files": [
+        "mid-BHHLT26.pdf",
+        "mid-BHHLT26-titlepage.png",
+        "mid-BHHLT26-titlepage.txt"
+      ],
+      "validated_fields": [
+        "title wording and colon/comma/hyphen punctuation",
+        "five authors and order",
+        "2026",
+        "arXiv identifier and version",
+        "version-specific URL"
+      ],
+      "precise_corrections": [],
+      "style_notes": "Sentence case in the bibliography is benign. Keep the hyphen in Sign-rank. June describes public arXiv release; April is the internal title-page date.",
+      "access_limits": "None for the explicitly cited v1. A later v2 exists; no substitution of versions was made."
+    },
+    {
+      "key": "VALG26",
+      "status": "verified with explicit primary-source discrepancy",
+      "canonical_title": "VALG: An Agentic System for ML Theory Research and Demonstrations on COLT 2026 Open Problems",
+      "exact_pdf_main_title": "VALG: An Agentic System for ML Theory Research",
+      "exact_pdf_subtitle": "and Demonstrations on COLT 2026 Open Problems",
+      "exact_landing_title": "VALG: An Agentic System for ML Theory Research",
+      "recommended_bibtex_title": "{VALG}: An Agentic System for {ML} Theory Research and Demonstrations on {COLT} 2026 Open Problems",
+      "authors_in_order": [
+        "Dechen Zhang",
+        "Xuan Tang",
+        "Xinxiang Yin",
+        "Xingwu Chen",
+        "Jian Qian",
+        "Difan Zou"
+      ],
+      "year": 2026,
+      "publication_type": "arXiv preprint",
+      "identifier": "2608.13060v2",
+      "version_date": "2026-09-10",
+      "pdf_displayed_date": "September 11, 2026",
+      "pdf_page_count": 45,
+      "canonical_url": "https://arxiv.org/abs/2608.13060v2",
+      "evidence_urls": [
+        "https://arxiv.org/abs/2608.13060v2",
+        "https://arxiv.org/pdf/2608.13060v2",
+        "https://arxiv.org/html/2608.13060v2"
+      ],
+      "evidence_files": [
+        "mid-VALG26.pdf",
+        "mid-VALG26-titlepage.png",
+        "mid-VALG26-titlepage.txt"
+      ],
+      "validated_fields": [
+        "main title and subtitle directly visible in PDF",
+        "six authors and order",
+        "2026",
+        "arXiv identifier and version",
+        "v2 submission date also stamped in PDF margin"
+      ],
+      "precise_corrections": [],
+      "style_notes": "Retain the full title from the cited PDF, including its subtitle. Protect VALG, ML and COLT capitals. The landing-page metadata's omission is documented rather than treated as proof of an invented subtitle.",
+      "access_limits": "Metadata and displayed PDF title/date differ. The exact v2 PDF was retrieved, rendered, and inspected; the version-specific comparison has direct PDF provenance."
+    },
+    {
+      "key": "BDES02",
+      "status": "verified; proper-name capitalization must be protected",
+      "canonical_title": "Limitations of Learning Via Embeddings in Euclidean Half Spaces",
+      "exact_pdf_title": "Limitations of Learning Via Embeddings in Euclidean Half Spaces",
+      "exact_landing_title": "Limitations of Learning Via Embeddings in Euclidean Half Spaces",
+      "recommended_bibtex_title": "Limitations of learning via embeddings in {Euclidean} half spaces",
+      "authors_in_order": [
+        "Shai Ben-David",
+        "Nadav Eiron",
+        "Hans Ulrich Simon"
+      ],
+      "year": 2002,
+      "venue": "Journal of Machine Learning Research",
+      "volume": "3",
+      "issue_month": "November",
+      "pages": "441-461",
+      "canonical_url": "https://www.jmlr.org/papers/v3/bendavid02a.html",
+      "evidence_urls": [
+        "https://www.jmlr.org/papers/v3/bendavid02a.html",
+        "https://www.jmlr.org/papers/volume3/bendavid02a/bendavid02a.pdf"
+      ],
+      "evidence_files": [
+        "mid-BDES02.pdf",
+        "mid-BDES02-titlepage.png",
+        "mid-BDES02-titlepage.txt"
+      ],
+      "validated_fields": [
+        "exact title wording",
+        "Half Spaces is two unhyphenated words",
+        "three authors and order",
+        "journal",
+        "volume",
+        "year and November publication",
+        "pages"
+      ],
+      "precise_corrections": [
+        {
+          "field": "title",
+          "change": "Enclose Euclidean in braces so plainnat does not print euclidean.",
+          "severity": "formatting/proper-name capitalization"
+        }
+      ],
+      "style_notes": "Other title-case versus sentence-case differences are style. Preserve Half Spaces as two words; no wording correction is needed.",
+      "access_limits": "None; official landing page and official published PDF agree."
+    },
+    {
+      "key": "KMS20",
+      "status": "verified",
+      "canonical_title": "Approximate is Good Enough: Probabilistic Variants of Dimensional and Margin Complexity",
+      "exact_pdf_title": "Approximate is Good Enough: Probabilistic Variants of Dimensional and Margin Complexity",
+      "exact_landing_title": "Approximate is Good Enough: Probabilistic Variants of Dimensional and Margin Complexity",
+      "recommended_bibtex_title": "Approximate is good enough: probabilistic variants of dimensional and margin complexity",
+      "authors_in_order": [
+        "Pritish Kamath",
+        "Omar Montasser",
+        "Nathan Srebro"
+      ],
+      "year": 2020,
+      "venue": "Proceedings of Thirty Third Conference on Learning Theory",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "125",
+      "pages": "2236-2262",
+      "canonical_url": "https://proceedings.mlr.press/v125/kamath20b.html",
+      "evidence_urls": [
+        "https://proceedings.mlr.press/v125/kamath20b.html",
+        "https://proceedings.mlr.press/v125/kamath20b/kamath20b.pdf"
+      ],
+      "evidence_files": [
+        "mid-KMS20.pdf",
+        "mid-KMS20-titlepage.png",
+        "mid-KMS20-titlepage.txt"
+      ],
+      "validated_fields": [
+        "title wording and colon",
+        "Dimensional rather than Dimension",
+        "three authors and order",
+        "PMLR 125",
+        "2020",
+        "proceedings pagination"
+      ],
+      "precise_corrections": [],
+      "optional_metadata_completion": "Expand Conference on Learning Theory to the exact official proceedings title above.",
+      "style_notes": "Sentence case is benign. Use the official landing-page/BibTeX pages 2236-2262. The PDF has article-local pagination 1-27, not a conflicting 2020 proceedings entry.",
+      "access_limits": "None; official landing and PDF inspected."
+    },
+    {
+      "key": "CMW25",
+      "status": "verified; proper-name capitalization must be protected",
+      "canonical_title": "On Reductions and Representations of Learning Problems in Euclidean Spaces",
+      "exact_publisher_deposited_title": "On Reductions and Representations of Learning Problems in Euclidean Spaces",
+      "exact_preprint_pdf_title": "On Reductions and Representations of Learning Problems in Euclidean Spaces",
+      "recommended_bibtex_title": "On reductions and representations of learning problems in {Euclidean} spaces",
+      "authors_in_order": [
+        "Bogdan Chornomaz",
+        "Shay Moran",
+        "Tom Waknine"
+      ],
+      "year": 2025,
+      "publication_date": "2025-06-15",
+      "venue": "Proceedings of the 57th Annual ACM Symposium on Theory of Computing",
+      "pages": "2043-2054",
+      "doi": "10.1145/3717823.3718213",
+      "preprint_identifier": "2411.10784v1",
+      "preprint_submission_date": "2024-11-16",
+      "preprint_pdf_displayed_date": "November 19, 2024",
+      "canonical_url": "https://doi.org/10.1145/3717823.3718213",
+      "evidence_urls": [
+        "https://api.crossref.org/works/10.1145/3717823.3718213",
+        "https://doi.org/10.1145/3717823.3718213",
+        "https://arxiv.org/abs/2411.10784v1",
+        "https://arxiv.org/pdf/2411.10784v1"
+      ],
+      "evidence_files": [
+        "mid-CMW25-crossref-fresh.json",
+        "mid-CMW25-preprint.pdf",
+        "mid-CMW25-preprint-titlepage.png",
+        "mid-CMW25-preprint-titlepage.txt"
+      ],
+      "validated_fields": [
+        "published title exactly matches preprint wording",
+        "three authors and order",
+        "2025 proceedings year",
+        "complete venue",
+        "pages",
+        "DOI",
+        "versioned preprint note"
+      ],
+      "precise_corrections": [
+        {
+          "field": "title",
+          "change": "Enclose Euclidean in braces so plainnat does not print euclidean.",
+          "severity": "formatting/proper-name capitalization"
+        }
+      ],
+      "style_notes": "Other sentence-case differences are benign. The 2024 preprint does not contradict the 2025 proceedings year.",
+      "access_limits": "ACM publisher landing/PDF endpoints returned 403. Published metadata is freshly retrieved directly from ACM's Crossref deposit; original preprint PDF title page independently inspected. Do not describe the ACM proceedings PDF as inspected."
+    },
+    {
+      "key": "Kearns98",
+      "status": "verified",
+      "canonical_title": "Efficient Noise-Tolerant Learning from Statistical Queries",
+      "exact_pdf_title": "Efficient Noise-Tolerant Learning from Statistical Queries",
+      "exact_publisher_deposited_title": "Efficient noise-tolerant learning from statistical queries",
+      "recommended_bibtex_title": "Efficient noise-tolerant learning from statistical queries",
+      "authors_in_order": [
+        "Michael Kearns"
+      ],
+      "year": 1998,
+      "publication_month": "November",
+      "venue": "Journal of the ACM",
+      "volume": "45",
+      "issue": "6",
+      "pages": "983-1006",
+      "doi": "10.1145/293347.293351",
+      "canonical_url": "https://doi.org/10.1145/293347.293351",
+      "evidence_urls": [
+        "https://api.crossref.org/works/10.1145/293347.293351",
+        "https://doi.org/10.1145/293347.293351",
+        "https://homepages.math.uic.edu/~lreyzin/papers/kearns98.pdf",
+        "https://www.cis.upenn.edu/~mkearns/papers/cv01.pdf"
+      ],
+      "evidence_files": [
+        "mid-Kearns98-crossref-fresh.json",
+        "mid-Kearns98-journal-copy.pdf",
+        "mid-Kearns98-titlepage.png"
+      ],
+      "validated_fields": [
+        "title wording and Noise-Tolerant hyphen",
+        "author Michael Kearns",
+        "journal",
+        "45(6)",
+        "1998",
+        "983-1006",
+        "DOI"
+      ],
+      "precise_corrections": [],
+      "style_notes": "Publisher metadata uses sentence case and the journal title page uses title case. This is benign. The first page's copyright line says 1999 but its journal footer and publisher metadata specify November 1998, the correct bibliographic year.",
+      "access_limits": "ACM direct endpoints returned 403. Crossref deposit freshly retrieved. The title page inspected visually is the original journal article hosted on an academic UIC page, not a direct ACM download."
+    },
+    {
+      "key": "Feldman08",
+      "status": "verified",
+      "canonical_title": "Evolvability from Learning Algorithms",
+      "exact_author_pdf_title": "Evolvability from Learning Algorithms",
+      "exact_publisher_deposited_title": "Evolvability from learning algorithms",
+      "recommended_bibtex_title": "Evolvability from learning algorithms",
+      "authors_in_order": [
+        "Vitaly Feldman"
+      ],
+      "year": 2008,
+      "publication_date": "2008-05-17",
+      "exact_publisher_venue": "Proceedings of the fortieth annual ACM symposium on Theory of computing",
+      "pages": "619-628",
+      "doi": "10.1145/1374376.1374465",
+      "canonical_url": "https://doi.org/10.1145/1374376.1374465",
+      "evidence_urls": [
+        "https://api.crossref.org/works/10.1145/1374376.1374465",
+        "https://doi.org/10.1145/1374376.1374465",
+        "https://research.ibm.com/publications/evolvability-from-learning-algorithms",
+        "https://vtaly.net/papers/F_Evolve_full_08.pdf"
+      ],
+      "evidence_files": [
+        "mid-Feldman08-crossref-fresh.json",
+        "mid-Feldman08-author.pdf",
+        "mid-Feldman08-author-titlepage.png",
+        "mid-Feldman08-author-titlepage.txt"
+      ],
+      "validated_fields": [
+        "title wording",
+        "author",
+        "2008",
+        "STOC venue",
+        "619-628",
+        "DOI"
+      ],
+      "precise_corrections": [],
+      "optional_metadata_completion": "Expand the generic proceedings title to the complete official title above; conventional title capitalization is acceptable.",
+      "style_notes": "Title case versus sentence case is benign. The author-hosted full version is dated April 16, 2008 and has its own page numbering; proceedings details come from the publisher's deposit and IBM publication record.",
+      "access_limits": "ACM direct endpoints returned 403. No claim of visually inspecting the ACM conference PDF; the author's original full-version title page and fresh publisher-deposited metadata were inspected."
+    },
+    {
+      "key": "Feldman11",
+      "status": "verified",
+      "canonical_title": "Distribution-Independent Evolvability of Linear Threshold Functions",
+      "exact_pdf_title": "Distribution-Independent Evolvability of Linear Threshold Functions",
+      "exact_landing_title": "Distribution-Independent Evolvability of Linear Threshold Functions",
+      "recommended_bibtex_title": "Distribution-independent evolvability of linear threshold functions",
+      "authors_in_order": [
+        "Vitaly Feldman"
+      ],
+      "year": 2011,
+      "venue": "Proceedings of the 24th Annual Conference on Learning Theory",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "19",
+      "pages": "253-272",
+      "canonical_url": "https://proceedings.mlr.press/v19/feldman11b.html",
+      "evidence_urls": [
+        "https://proceedings.mlr.press/v19/feldman11b.html",
+        "https://proceedings.mlr.press/v19/feldman11b/feldman11b.pdf"
+      ],
+      "evidence_files": [
+        "mid-Feldman11.pdf",
+        "mid-Feldman11-titlepage.png",
+        "mid-Feldman11-titlepage.txt"
+      ],
+      "validated_fields": [
+        "title wording and Distribution-Independent hyphen",
+        "author",
+        "2011",
+        "24th COLT",
+        "PMLR 19",
+        "253-272",
+        "official URL"
+      ],
+      "precise_corrections": [],
+      "optional_metadata_completion": "Expand Conference on Learning Theory to the complete official proceedings title above.",
+      "style_notes": "Sentence case is benign. The original PDF labels the series JMLR: Workshop and Conference Proceedings; the current official landing/BibTeX uses Proceedings of Machine Learning Research. This is a series-name evolution, not a nonexistent publication.",
+      "access_limits": "None; official landing and published PDF agree on the material fields."
+    }
+  ]
+}

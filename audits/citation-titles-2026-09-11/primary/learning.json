@@ -1,0 +1,399 @@
+{
+  "audit_date": "2026-09-11",
+  "audit_pass": "Fresh exact-title and bibliographic-field recheck",
+  "compared_file": "outputs/sq-dimension-research/paper/references.bib",
+  "method": "Reopened live primary landing pages, fresh publisher-deposited Crossref records and native BibTeX; inspected original proceedings/journal PDF title pages where accessible. No previous audit report was used as the source of canonical titles.",
+  "summary": {
+    "assigned": 8,
+    "title_word_errors": 0,
+    "title_punctuation_or_hyphen_errors": 0,
+    "wrong_author_order": 0,
+    "wrong_year_for_cited_publication": 0,
+    "wrong_verified_doi": 0,
+    "case_only_differences": 6,
+    "required_factual_corrections": [],
+    "scope_limit": "This pass verifies exact bibliographic identity and title wording, not all cited proofs. Source display capitalization and personal-name metadata variants are recorded rather than treated as fabricated citations."
+  },
+  "records": [
+    {
+      "key": "DV04",
+      "exact_canonical_title": "A simple polynomial-time rescaling algorithm for solving linear programs",
+      "title_source": "ACM-deposited Crossref record freshly fetched",
+      "title_comparison": "Exact match, including polynomial-time hyphen, all words and case.",
+      "validated_fields": {
+        "authors_in_order": [
+          "John Dunagan",
+          "Santosh Vempala"
+        ],
+        "year": 2004,
+        "publication_date": "2004-06-13",
+        "booktitle": "Proceedings of the thirty-sixth annual ACM symposium on Theory of computing",
+        "pages": "315--320",
+        "doi": "10.1145/1007352.1007404",
+        "url": "https://doi.org/10.1145/1007352.1007404",
+        "publisher": "ACM"
+      },
+      "primary_urls": [
+        "https://api.crossref.org/works/10.1145/1007352.1007404",
+        "https://dl.acm.org/doi/10.1145/1007352.1007404"
+      ],
+      "discrepancies": [
+        {
+          "field": "booktitle",
+          "kind": "abbreviated_venue_not_wrong_venue",
+          "current": "Proceedings of the ACM Symposium on Theory of Computing",
+          "canonical": "Proceedings of the thirty-sixth annual ACM symposium on Theory of computing",
+          "recommendation": "Optional expansion to the precise proceedings name; no correction to paper title."
+        }
+      ],
+      "evidence_files": [
+        "primary/DV04-crossref.json"
+      ],
+      "access_limits": "ACM direct HTML still failed in the web tool; no original ACM PDF title page inspected. Exact identity, DOI, pages and title independently verified from fresh publisher-deposited metadata (publisher ACM; Crossref member 320)."
+    },
+    {
+      "key": "BF13",
+      "exact_canonical_title": "Statistical Active Learning Algorithms",
+      "title_source": "NeurIPS original PDF title page and official landing/BibTeX",
+      "title_comparison": "All words match; current bibliography uses sentence case. No subtitle is missing from the proceedings title.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Maria Florina Balcan",
+          "Vitaly Feldman"
+        ],
+        "year": 2013,
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "26",
+        "pages": null,
+        "publisher": "Curran Associates, Inc.",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html",
+        "doi": null,
+        "extended_version": {
+          "arxiv": "1307.3102v4",
+          "date": "2014-11-05",
+          "exact_title": "Statistical Active Learning Algorithms for Noise Tolerance and Differential Privacy",
+          "initial_submission": "2013-07-11"
+        }
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper_files/paper/2013/hash/84117275be999ff55a987b9381e01f96-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/2013/file/84117275be999ff55a987b9381e01f96-Paper.pdf",
+        "https://proceedings.neurips.cc/paper_files/paper/2013/file/84117275be999ff55a987b9381e01f96-Bibtex.bib",
+        "https://arxiv.org/abs/1307.3102v4"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "Statistical active learning algorithms",
+          "canonical": "Statistical Active Learning Algorithms"
+        },
+        {
+          "field": "author",
+          "kind": "primary_sources_differ",
+          "description": "Original PDF and arXiv display Maria Florina Balcan; official landing/BibTeX displays Maria-Florina F Balcan. Current Maria-Florina Balcan is the established conventional spelling and does not invent an extra author or change order. Do not mechanically add the metadata's extra F."
+        },
+        {
+          "field": "pages",
+          "kind": "primary_metadata_omission",
+          "description": "Native NeurIPS BibTeX has an empty pages field. The article PDF has local pages 1-9. The bibliography's omission is appropriate; this pass does not certify a global proceedings page range."
+        },
+        {
+          "field": "version",
+          "kind": "already_distinguished",
+          "description": "The short proceedings title/year 2013 and longer 2014 extended-v4 title identify distinct manifestations. Existing note explicitly identifies the extended version for Appendix A."
+        }
+      ],
+      "evidence_files": [
+        "primary/BF13.bib"
+      ],
+      "access_limits": "No paper DOI or global page range was supplied in the inspected official record; absence from record does not prove none exists."
+    },
+    {
+      "key": "GSS13",
+      "exact_canonical_title": "Efficient Active Learning of Halfspaces: An Aggressive Approach",
+      "title_source": "JMLR original PDF title page and landing record",
+      "title_comparison": "All words and colon match; Halfspaces is one unhyphenated word in the title, as currently written. Current title differs only in display case.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Alon Gonen",
+          "Sivan Sabato",
+          "Shai Shalev-Shwartz"
+        ],
+        "year": 2013,
+        "journal": "Journal of Machine Learning Research",
+        "volume": "14",
+        "number": "79",
+        "pages": "2583--2615",
+        "published_month": "2013-09",
+        "url": "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://jmlr.org/papers/v14/gonen13a.html",
+        "https://jmlr.org/papers/volume14/gonen13a/gonen13a.pdf"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "Efficient active learning of halfspaces: an aggressive approach",
+          "canonical": "Efficient Active Learning of Halfspaces: An Aggressive Approach"
+        },
+        {
+          "field": "number",
+          "kind": "optional_missing_field",
+          "description": "JMLR landing record additionally identifies article 79; current volume/pages uniquely identify the paper."
+        }
+      ],
+      "access_limits": "DOI not provided on inspected official page; no DOI invented."
+    },
+    {
+      "key": "FGV21",
+      "exact_canonical_title": "Statistical Query Algorithms for Mean Vector Estimation and Stochastic Convex Optimization",
+      "title_source": "INFORMS publisher landing record, fresh publisher-deposited Crossref record, corroborating author-preprint PDF title page",
+      "title_comparison": "All words match; there are no hyphens or subtitle separators in this title. Current title differs only in display case.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Vitaly Feldman",
+          "Cristóbal Guzmán",
+          "Santosh Vempala"
+        ],
+        "year": 2021,
+        "journal": "Mathematics of Operations Research",
+        "volume": "46",
+        "number": "3",
+        "pages": "912--945",
+        "doi": "10.1287/moor.2020.1111",
+        "url": "https://doi.org/10.1287/moor.2020.1111",
+        "published_online": "2021-03-08",
+        "issue_date": "2021-08",
+        "preprint": {
+          "arxiv": "1512.09170",
+          "initial_submission": "2015-12-30",
+          "latest_version": "v2",
+          "latest_version_date": "2016-11-22"
+        }
+      },
+      "primary_urls": [
+        "https://pubsonline.informs.org/doi/10.1287/moor.2020.1111",
+        "https://api.crossref.org/works/10.1287/moor.2020.1111",
+        "https://arxiv.org/abs/1512.09170",
+        "https://arxiv.org/pdf/1512.09170"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "Statistical query algorithms for mean vector estimation and stochastic convex optimization",
+          "canonical": "Statistical Query Algorithms for Mean Vector Estimation and Stochastic Convex Optimization"
+        },
+        {
+          "field": "version",
+          "kind": "distinct_publication_dates_not_error",
+          "description": "Preprint first appeared in 2015 and latest arXiv v2 is 2016; the journal manifestation cited is 2021. Existing preprint note is correctly secondary."
+        }
+      ],
+      "evidence_files": [
+        "primary/FGV21-crossref.json"
+      ],
+      "access_limits": "INFORMS View PDF redirected to an abstract page. Journal metadata was verified; PDF title-page corroboration is from the identified author preprint, not the final journal PDF."
+    },
+    {
+      "key": "KM25",
+      "exact_canonical_title": "The Power of Random Features and the Limits of Distribution-Free Gradient Descent",
+      "title_source": "PMLR official landing/native BibTeX and original proceedings PDF downloaded through the official link",
+      "title_comparison": "All words, the connecting and, and Distribution-Free hyphen match. Current title is sentence case. PDF title breaks after and and starts the second line with lowercase the; no lexical title difference.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Ari Karchmer",
+          "Eran Malach"
+        ],
+        "year": 2025,
+        "booktitle": "Proceedings of the 42nd International Conference on Machine Learning",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "267",
+        "pages": "29078--29097",
+        "publisher": "PMLR",
+        "conference_dates": "2025-07-13--2025-07-19",
+        "url": "https://proceedings.mlr.press/v267/karchmer25a.html",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v267/karchmer25a.html",
+        "https://raw.githubusercontent.com/mlresearch/v267/main/assets/karchmer25a/karchmer25a.pdf"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "The power of random features and the limits of distribution-free gradient descent",
+          "canonical": "The Power of Random Features and the Limits of Distribution-Free Gradient Descent"
+        },
+        {
+          "field": "booktitle",
+          "kind": "abbreviated_venue_not_wrong_venue",
+          "current": "International Conference on Machine Learning",
+          "canonical": "Proceedings of the 42nd International Conference on Machine Learning",
+          "recommendation": "Optional precise proceedings-name expansion."
+        }
+      ],
+      "evidence_files": [
+        "primary/KM25.pdf"
+      ],
+      "access_limits": "Web tool could not parse the official GitHub PDF content type; native PowerShell downloaded it successfully. Its first page was read with pdftotext. The reader emitted a MiKTeX log-permission warning after extracting text; this does not alter the displayed source text."
+    },
+    {
+      "key": "MKAS21",
+      "exact_canonical_title": "Quantifying the Benefit of Using Differentiable Learning over Tangent Kernels",
+      "title_source": "PMLR landing/native BibTeX and original proceedings PDF title page",
+      "title_comparison": "Exact word order and wording match. Benefit is singular, Using is present, and over is the title's actual preposition. Current title differs only in display case.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Eran Malach",
+          "Pritish Kamath",
+          "Emmanuel Abbe",
+          "Nathan Srebro"
+        ],
+        "year": 2021,
+        "booktitle": "Proceedings of the 38th International Conference on Machine Learning",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "139",
+        "pages": "7379--7389",
+        "publisher": "PMLR",
+        "conference_dates": "2021-07-18--2021-07-24",
+        "url": "https://proceedings.mlr.press/v139/malach21a.html",
+        "doi": null
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v139/malach21a.html",
+        "https://proceedings.mlr.press/v139/malach21a/malach21a.pdf"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "Quantifying the benefit of using differentiable learning over tangent kernels",
+          "canonical": "Quantifying the Benefit of Using Differentiable Learning over Tangent Kernels"
+        },
+        {
+          "field": "booktitle",
+          "kind": "abbreviated_venue_not_wrong_venue",
+          "current": "International Conference on Machine Learning",
+          "canonical": "Proceedings of the 38th International Conference on Machine Learning",
+          "recommendation": "Optional precise proceedings-name expansion."
+        }
+      ],
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented."
+    },
+    {
+      "key": "ABBBN21",
+      "exact_canonical_title": "The staircase property: How hierarchical structure can guide deep learning",
+      "title_source": "NeurIPS landing, fresh native BibTeX and original proceedings PDF title page",
+      "title_comparison": "All words and colon match. No hyphen in staircase. The sole case difference is How after the colon versus current how.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Emmanuel Abbe",
+          "Enric Boix-Adsera",
+          "Matthew Brennan",
+          "Guy Bresler",
+          "Dheeraj Nagaraj"
+        ],
+        "year": 2021,
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "34",
+        "pages": "26989--27002",
+        "publisher": "Curran Associates, Inc.",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html",
+        "doi": null,
+        "preprint": {
+          "arxiv": "2108.10573",
+          "initial_submission": "2021-08-24",
+          "latest_version": "v2",
+          "latest_version_date": "2021-11-24"
+        }
+      },
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper_files/paper/2021/hash/e2db7186375992e729165726762cb4c1-Abstract.html",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/e2db7186375992e729165726762cb4c1-Bibtex.bib",
+        "https://proceedings.neurips.cc/paper_files/paper/2021/file/e2db7186375992e729165726762cb4c1-Paper.pdf",
+        "https://arxiv.org/abs/2108.10573"
+      ],
+      "discrepancies": [
+        {
+          "field": "title",
+          "kind": "display_case_only",
+          "current": "The staircase property: how hierarchical structure can guide deep learning",
+          "canonical": "The staircase property: How hierarchical structure can guide deep learning"
+        },
+        {
+          "field": "author",
+          "kind": "primary_sources_differ",
+          "description": "Native metadata adds middle initial S to Matthew Brennan; original PDF and author arXiv list Matthew Brennan, matching current bibliography. Current Enric Boix-Adserà uses the author's accented surname; proceedings display ASCII Boix-Adsera. These identify the same author list/order and are not factual errors."
+        }
+      ],
+      "evidence_files": [
+        "primary/ABBBN21.bib"
+      ],
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented."
+    },
+    {
+      "key": "ABM22",
+      "exact_canonical_title": "The merged-staircase property: a necessary and nearly sufficient condition for SGD learning of sparse functions on two-layer neural networks",
+      "title_source": "PMLR landing/native BibTeX and original proceedings PDF title page",
+      "title_comparison": "Exact title match after removing BibTeX braces protecting SGD. Both merged-staircase and two-layer hyphens, lowercase a after colon, and nearly sufficient wording match.",
+      "validated_fields": {
+        "authors_in_order": [
+          "Emmanuel Abbe",
+          "Enric Boix-Adserà",
+          "Theodor Misiakiewicz"
+        ],
+        "year": 2022,
+        "booktitle": "Proceedings of Thirty Fifth Conference on Learning Theory",
+        "series": "Proceedings of Machine Learning Research",
+        "volume": "178",
+        "pages": "4782--4887",
+        "publisher": "PMLR",
+        "conference_dates": "2022-07-02--2022-07-05",
+        "url": "https://proceedings.mlr.press/v178/abbe22a.html",
+        "doi": null,
+        "preprint": {
+          "arxiv": "2202.08658",
+          "initial_submission": "2022-02-17",
+          "latest_version": "v2",
+          "latest_version_date": "2024-08-26"
+        }
+      },
+      "primary_urls": [
+        "https://proceedings.mlr.press/v178/abbe22a.html",
+        "https://proceedings.mlr.press/v178/abbe22a/abbe22a.pdf",
+        "https://arxiv.org/abs/2202.08658"
+      ],
+      "discrepancies": [
+        {
+          "field": "booktitle",
+          "kind": "venue_style_variant",
+          "current": "Proceedings of the Thirty-Fifth Conference on Learning Theory",
+          "canonical": "Proceedings of Thirty Fifth Conference on Learning Theory",
+          "recommendation": "Optional alignment with native PMLR booktitle; both denote the correct venue."
+        },
+        {
+          "field": "author",
+          "kind": "primary_metadata_indexing_variant",
+          "description": "PMLR landing/BibTeX uses Enric Boix Adsera / Adsera, Enric Boix; original PDF shows Enric Boix-Adserà, validating current surname and author order."
+        },
+        {
+          "field": "pages",
+          "kind": "source_pagination_variant",
+          "description": "PMLR landing supplies global pages 4782--4887. The linked PDF header uses local 1-106. Global page span has 106 pages, consistent with that PDF; retain published pages."
+        },
+        {
+          "field": "version",
+          "kind": "preprint_note_not_version_pinned",
+          "description": "The unversioned arXiv note currently resolves to v2 dated 2024-08-26, while the cited conference manifestation is 2022. This is not an incorrect conference year; optional note can make the current preprint version explicit."
+        }
+      ],
+      "access_limits": "No paper DOI supplied by inspected official record; no DOI invented."
+    }
+  ]
+}

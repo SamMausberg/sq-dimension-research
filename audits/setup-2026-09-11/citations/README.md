@@ -1,5 +1,10 @@
 # Citation audit — 11 September 2026
 
+This initial 34-entry audit is retained as a snapshot. The subsequent
+[exact-title audit](../../citation-titles-2026-09-11/README.md) corrects the MC12
+author order to the actual PDF byline, separates Renegar into three fully titled
+entries, and supersedes the bibliography-precision decisions below.
+
 All **34 cited works were located in live primary records**. No fabricated work,
 wrong-work link, or gross attribution mismatch was found. All 34 bibliography
 keys are cited in the manuscript and rendered in its bibliography.

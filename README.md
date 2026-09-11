@@ -10,7 +10,7 @@ repository collects the paper, reproducible experiments, supporting Lean lemmas,
 and the preserved development record.
 
 **[Read the paper](paper/paper.pdf)** · **[Verification](VERIFICATION.md)** ·
-**[Citation audit](audits/setup-2026-09-11/citations/README.md)** ·
+**[Citation and title audit](audits/citation-titles-2026-09-11/README.md)** ·
 **[Reproduce the results](docs/REPRODUCIBILITY.md)** · **[Repository guide](docs/REPOSITORY_GUIDE.md)**
 
 ## Repository map
@@ -22,6 +22,7 @@ and the preserved development record.
 | [`formalization/`](formalization/) | Selected supporting Lean lemmas, pinned dependencies, coverage notes, and axiom audit. |
 | [`tools/`](tools/) | Build, source checks, reproduction, integrity manifests, and submission packaging. |
 | [`tests/`](tests/) | Regression tests for the verification tools. |
+| [`audits/citation-titles-2026-09-11/`](audits/citation-titles-2026-09-11/) | Latest exact-title, citation, and regenerated-PDF audit. |
 | [`audits/setup-2026-09-11/`](audits/setup-2026-09-11/) | Fresh repository-setup verification evidence. |
 | [`audits/current/`](audits/current/) | Manuscript revision 8 ledgers, proof dependencies, and original build/check evidence. |
 | [`history/`](history/) | Seven preserved earlier snapshots; old numbering and superseded claims are retained as history. |
@@ -34,7 +35,7 @@ The current manuscript contains **40 numbered statements** and retains all 39
 prior labels. The Lean project covers **nine supporting lemmas**, not the entire
 paper. The cap construction, PRF reduction, and full query lower bound are not
 fully formalized. [Coverage](formalization/COVERAGE.md) and the
-[latest validation report](audits/setup-2026-09-11/README.md) explain exactly what
+[verification reports](VERIFICATION.md) explain exactly what
 was checked and what remains open.
 
 Finite experiments distinguish integer/rational checks from floating-point

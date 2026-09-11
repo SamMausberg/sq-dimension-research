@@ -15,7 +15,7 @@
 ## Author actions and qualifications
 
 - **OPEN**: Read the current proofs, particularly the new output-count lower bound and the proper/improper distinction. Simulated audits and finite checks are not external peer review.
-- **DONE**: Bibliographic records for all 34 citations verified live, including the five earlier metadata gaps. Verified DOIs, page ranges, and version links are recorded in `audits/setup-2026-09-11/citations/`. Some original publisher full texts remain inaccessible; the audit identifies the accessible restatements checked and does not claim full independent proof review.
+- **DONE**: All 34 original bibliography records rechecked against primary titles and metadata; Renegar's three-part series now has individual entries, bringing the bibliography to 36. All 69 citation occurrences resolve. Exact titles, author-order corrections, DOIs, page ranges, version choices, and source-access limits are recorded in `audits/citation-titles-2026-09-11/`. The earlier context audit remains in `audits/setup-2026-09-11/citations/`; neither audit claims a full independent proof review.
 - **OPEN**: Review the raw-score/tie convention in the FKS quotation and probabilistic variants.
 - **DONE**: Original contributions carry the author's requested all-rights-reserved notice and citation metadata. The repository remains private.
 - **OPEN**: Decide any future public software/manuscript license and arXiv submission license; confirm third-party rights and cross-list suitability before public release.
@@ -24,4 +24,5 @@
 - **OPEN**: Acknowledge the subexponential PRF assumption and that high-probability keys/advice do not give an efficient deterministic good-key selector. The HMAC runs supply no security proof.
 - **OPEN**: Replace the arXiv-link placeholder in the cover email only after an identifier exists; no email or submission has been sent.
 
-Build and import outcomes are recorded in `audits/current/build.json`, `clean_package.json` and `git_bundle_verification.json` in the delivered verification package.
+Current build and citation checks are linked from `VERIFICATION.md`. Original build,
+package, and bundle-import records remain in `audits/current/` and the dated setup audit.

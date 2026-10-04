@@ -80,11 +80,10 @@ drafting, source checks, code, figures, and simulated reviews. The paper disclos
 this assistance and attributes imported results. Samuel Mausberg is responsible
 for the claims, citations, and presentation.
 
-Original contributions are **all rights reserved** under [LICENSE](LICENSE).
-Public access does not grant an open-source license;
-[GitHub's viewing and forking rights](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
-still apply. Dependencies and the identified PMLR source excerpt retain their
-own licenses. No DOI or arXiv identifier has been assigned.
+Original manuscripts and research material use [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
+Original code uses [MIT](LICENSES/MIT.txt); see [LICENSE](LICENSE) for the scope.
+Dependencies and the identified PMLR source excerpt retain their own licenses.
+No DOI or arXiv identifier has been assigned.
 
 Historical snapshots contain superseded claims and failed or uncompiled attempts.
 Prior notes and previews are preserved in

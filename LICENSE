@@ -1,24 +1,17 @@
 Copyright (c) 2026 Samuel Mausberg, for original contributions.
-All rights reserved.
 
-No license is granted to reproduce, distribute, sublicense, sell, or create
-derivative works of the original manuscript, code, figures, or other original
-project materials without prior written permission from the relevant rights
-holder, except as permitted by applicable law or a separate written agreement.
+Manuscripts (PDF and LaTeX), original figures, research data, and written
+research material are licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0). See LICENSES/CC-BY-4.0.txt.
 
-This notice does not claim ownership of third-party works, software dependencies,
-mathematical ideas, facts, methods, or results that are not subject to copyright.
-Existing third-party notices and licenses remain in effect. Authorship and source
-attributions in the manuscript and historical records must be preserved.
+Original software, including Python, C++, Lean, build scripts, and software
+documentation, is licensed under the MIT License. See LICENSES/MIT.txt.
 
-Citation is requested as described in CITATION.cff. Citation alone is not a grant
-of permission to reuse protected material.
+These grants apply only to Samuel Mausberg's original contributions.
+Third-party code, document classes, excerpts, and other material retain their
+own licenses and notices. Preserve their authorship and source attributions.
 
-This is an all-rights-reserved notice, not an open-source license. For permission,
-contact Samuel Mausberg through https://github.com/SamMausberg.
-
-Nothing in this notice limits rights granted under GitHub's Terms of Service
-for material published on GitHub.
+Please cite the manuscript as described in CITATION.cff.
 
 Third-party source excerpt
 --------------------------
@@ -38,4 +31,4 @@ https://proceedings.mlr.press/pmlr-license-agreement.html
 
 The extraction adds font markers and changes layout; it can contain extraction
 errors. It is not an authoritative edition and does not imply author endorsement.
-The all-rights-reserved notice above does not restrict this third-party text.
+The original-contribution licenses above do not replace this third-party license.

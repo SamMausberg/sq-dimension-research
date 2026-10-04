@@ -10,7 +10,9 @@ date-released: "2026-09-11"
 repository-code: "https://github.com/SamMausberg/sq-dimension-research"
 url: "https://github.com/SamMausberg/sq-dimension-research"
 license-url: "https://github.com/SamMausberg/sq-dimension-research/blob/main/LICENSE"
+license: MIT
 preferred-citation:
+  license: CC-BY-4.0
   type: unpublished
   title: "Distribution-independent SQ learning does not imply low dimension complexity"
   authors:

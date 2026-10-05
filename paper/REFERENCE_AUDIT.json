@@ -1,0 +1,215 @@
+{
+  "checked_on": "2026-10-04",
+  "timezone": "America/Vancouver",
+  "bibliography_database_entries": 22,
+  "cited_references": 21,
+  "uncited_database_entries": [
+    "AD98"
+  ],
+  "scope": "Bibliographic metadata and cited personal-communication attribution; not independent verification of every cited theorem or the manuscript proofs.",
+  "personal_communication": {
+    "source": "https://proceedings.mlr.press/v336/feldman26a.html",
+    "finding": "The publisher PDF attributes the proof-flaw report to Karchmer and Malach (2026), whose bibliography entry is Personal communication. The manuscript attributes this report to Feldman, Kamath, and Srebro rather than presenting a separate public 2026 paper."
+  },
+  "patel_submission_history": "arXiv:2609.19780v1 submitted 17 September 2026, 06:49:33 UTC",
+  "entries": [
+    {
+      "key": "FKS26",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v336/feldman26a.html",
+      "method": "Original publisher or repository record",
+      "reference": "Vitaly Feldman; Pritish Kamath; Nathan Srebro (2026). Invited Open Problem: Is the Power of Deep Learning over Linear Models Inherently Distribution Dependent? Proceedings of the Thirty-Ninth Conference on Learning Theory, Proceedings of Machine Learning Research 336, 7117-7122. https://proceedings.mlr.press/v336/feldman26a.html"
+    },
+    {
+      "key": "Patel26",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://arxiv.org/abs/2609.19780",
+      "method": "Original publisher or repository record",
+      "reference": "Shyamal Patel (2026). A Separation Between Distribution-Free SQ Learning and Dimension Complexity. arXiv:2609.19780v1. First posted September 17, 2026. https://arxiv.org/abs/2609.19780"
+    },
+    {
+      "key": "DKR25",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v291/diakonikolas25b.html",
+      "method": "Original publisher or repository record",
+      "reference": "Ilias Diakonikolas; Daniel M. Kane; Lisheng Ren (2025). Faster Algorithms for Agnostically Learning Disjunctions and Their Implications. Proceedings of the Thirty-Eighth Conference on Learning Theory, Proceedings of Machine Learning Research 291, 1531-1558. https://proceedings.mlr.press/v291/diakonikolas25b.html"
+    },
+    {
+      "key": "RS10",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1137/080744037",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Alexander A. Razborov; Alexander A. Sherstov (2010). The Sign-Rank of AC⁰. SIAM Journal on Computing, 39(5), 1833-1855. https://doi.org/10.1137/080744037"
+    },
+    {
+      "key": "AD98",
+      "cited_in_paper": false,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1006/inco.1998.2664",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Javed A. Aslam; Scott E. Decatur (1998). General Bounds on Statistical Query Learning and PAC Learning with Noise via Hypothesis Boosting. Information and Computation, 141(2), 85-118. https://doi.org/10.1006/inco.1998.2664"
+    },
+    {
+      "key": "Kearns98",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1145/293347.293351",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Michael Kearns (1998). Efficient Noise-Tolerant Learning from Statistical Queries. Journal of the ACM, 45(6), 983-1006. https://doi.org/10.1145/293347.293351"
+    },
+    {
+      "key": "HHPTZ22",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://eccc.weizmann.ac.il/report/2022/079/",
+      "method": "Original publisher or repository record",
+      "reference": "Hamed Hatami; Pooya Hatami; William Pires; Ran Tao; Rosie Zhao (2022). Lower Bound Methods for Sign-Rank and Their Limitations. Electronic Colloquium on Computational Complexity, TR22-079. https://eccc.weizmann.ac.il/report/2022/079/"
+    },
+    {
+      "key": "APP05",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1016/j.jcta.2004.12.008",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Noga Alon; János Pach; Rom Pinchasi; Radoš Radoičić; Micha Sharir (2005). Crossing Patterns of Semi-Algebraic Sets. Journal of Combinatorial Theory, Series A, 111(2), 310-326. https://doi.org/10.1016/j.jcta.2004.12.008"
+    },
+    {
+      "key": "Warren68",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1090/S0002-9947-1968-0226281-1",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Hugh E. Warren (1968). Lower Bounds for Approximation by Nonlinear Manifolds. Transactions of the American Mathematical Society, 133(1), 167-178. https://doi.org/10.1090/S0002-9947-1968-0226281-1"
+    },
+    {
+      "key": "AMY16",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v49/alon16.html",
+      "method": "Original publisher or repository record",
+      "reference": "Noga Alon; Shay Moran; Amir Yehudayoff (2016). Sign Rank versus VC Dimension. Proceedings of the Twenty-Ninth Conference on Learning Theory, Proceedings of Machine Learning Research 49, 47-80. https://proceedings.mlr.press/v49/alon16.html"
+    },
+    {
+      "key": "BES02",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://www.jmlr.org/papers/v3/bendavid02a.html",
+      "method": "Original publisher or repository record",
+      "reference": "Shai Ben-David; Nadav Eiron; Hans Ulrich Simon (2002). Limitations of Learning via Embeddings in Euclidean Half Spaces. Journal of Machine Learning Research, 3, 441-461. https://www.jmlr.org/papers/v3/bendavid02a.html"
+    },
+    {
+      "key": "CMW25",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1145/3717823.3718213",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Bogdan Chornomaz; Shay Moran; Tom Waknine (2025). On Reductions and Representations of Learning Problems in Euclidean Spaces. Proceedings of the Fifty-Seventh Annual ACM Symposium on Theory of Computing, 2043-2054. https://doi.org/10.1145/3717823.3718213"
+    },
+    {
+      "key": "KMS20",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v125/kamath20b.html",
+      "method": "Original publisher or repository record",
+      "reference": "Pritish Kamath; Omar Montasser; Nathan Srebro (2020). Approximate Is Good Enough: Probabilistic Variants of Dimensional and Margin Complexity. Proceedings of the Thirty-Third Conference on Learning Theory, Proceedings of Machine Learning Research 125, 2236-2262. https://proceedings.mlr.press/v125/kamath20b.html"
+    },
+    {
+      "key": "Forster02",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1016/S0022-0000(02)00019-3",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Jürgen Forster (2002). A Linear Lower Bound on the Unbounded Error Probabilistic Communication Complexity. Journal of Computer and System Sciences, 65(4), 612-625. https://doi.org/10.1016/S0022-0000(02)00019-3"
+    },
+    {
+      "key": "BPR06",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1007/3-540-33099-2",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Saugata Basu; Richard Pollack; Marie-Françoise Roy (2006). Algorithms in Real Algebraic Geometry. Springer, Algorithms and Computation in Mathematics 10, second edition. https://doi.org/10.1007/3-540-33099-2"
+    },
+    {
+      "key": "Hoeffding63",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Wassily Hoeffding (1963). Probability Inequalities for Sums of Bounded Random Variables. Journal of the American Statistical Association, 58(301), 13-30. https://doi.org/10.1080/01621459.1963.10500830"
+    },
+    {
+      "key": "GGM86",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1145/6490.6503",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "Oded Goldreich; Shafi Goldwasser; Silvio Micali (1986). How to Construct Random Functions. Journal of the ACM, 33(4), 792-807. https://doi.org/10.1145/6490.6503"
+    },
+    {
+      "key": "Renegar92a",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1016/S0747-7171(10)80003-3",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "James Renegar (1992). On the Computational Complexity and Geometry of the First-Order Theory of the Reals. Part I: Introduction. Preliminaries. The Geometry of Semi-Algebraic Sets. The Decision Problem for the Existential Theory of the Reals. Journal of Symbolic Computation, 13(3), 255-299. https://doi.org/10.1016/S0747-7171(10)80003-3"
+    },
+    {
+      "key": "Renegar92b",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1016/S0747-7171(10)80004-5",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "James Renegar (1992). On the Computational Complexity and Geometry of the First-Order Theory of the Reals. Part II: The General Decision Problem. Preliminaries for Quantifier Elimination. Journal of Symbolic Computation, 13(3), 301-327. https://doi.org/10.1016/S0747-7171(10)80004-5"
+    },
+    {
+      "key": "Renegar92c",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://api.crossref.org/works/10.1016/S0747-7171(10)80005-7",
+      "method": "Publisher-deposited Crossref DOI metadata; book edition also checked on Springer for BPR06",
+      "reference": "James Renegar (1992). On the Computational Complexity and Geometry of the First-Order Theory of the Reals. Part III: Quantifier Elimination. Journal of Symbolic Computation, 13(3), 329-352. https://doi.org/10.1016/S0747-7171(10)80005-7"
+    },
+    {
+      "key": "KM25",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v267/karchmer25a.html",
+      "method": "Original publisher or repository record",
+      "reference": "Ari Karchmer; Eran Malach (2025). The Power of Random Features and the Limits of Distribution-Free Gradient Descent. Proceedings of the Forty-Second International Conference on Machine Learning, Proceedings of Machine Learning Research 267, 29078-29097. Theorem numbering refers to arXiv:2505.10423v1. https://proceedings.mlr.press/v267/karchmer25a.html"
+    },
+    {
+      "key": "Feldman17",
+      "cited_in_paper": true,
+      "verified": true,
+      "fields_checked": "authors, title, year, publication venue, and volume/pages or report identifier where applicable",
+      "source": "https://proceedings.mlr.press/v65/feldman17c.html",
+      "method": "Original publisher or repository record",
+      "reference": "Vitaly Feldman (2017). A General Characterization of the Statistical Query Complexity. Proceedings of the Thirtieth Conference on Learning Theory, Proceedings of Machine Learning Research 65, 785-830. https://proceedings.mlr.press/v65/feldman17c.html"
+    }
+  ]
+}

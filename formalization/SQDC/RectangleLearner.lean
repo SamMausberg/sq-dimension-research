@@ -53,10 +53,10 @@ Expected progress and the query budget:
   expectation and Markov's inequality for a finitely branching process with conditional
   drift `r/4` in every round, giving `Pr[Σ G ≤ B] ≤ e^{B-rR/8} ≤ ε/2`.
 * `budget_tail`: `e^{B-rR/8} ≤ ε/2`; `query_count`: at most three queries per round give
-  the worst-case budget `3R+1`; `expected_loss_le`: the final combination "expected loss
+  the worst-case budget `3R`; `expected_loss_le`: the final combination "expected loss
   at most `ε`".
 * `rectanglebound_explicit`: the parameter formulas behind `eq:rectanglebound` with
-  explicit constants, `3R+1 ≤ 124ρ(ln K + ln(1/ε))` and `τ ≥ ε/(288ρ ln(1/ε))` (the
+  explicit constants, `3R ≤ 124ρ(ln K + ln(1/ε))` and `τ ≥ ε/(288ρ ln(1/ε))` (the
   constants are ours; see "Not formalized" below for the learner itself).
 
 Pointwise coverage:
@@ -925,10 +925,10 @@ theorem prob_total_le_chargeBound {r ε : ℝ} (hr0 : 0 < r) (hε0 : 0 < ε) (K 
     T.probTotalLE (chargeBound K ε) ≤ ε / 2 :=
   (ProgressTree.prob_total_le_bound hr0.le T hT _).trans (budget_tail hr0 hε0 K)
 
-/-- "There are at most three queries per round, so `3R+1` is a valid worst-case bound":
+/-- "There are at most three queries per round, so `3R` is a valid worst-case bound":
 `q t ≤ 3` queries in each of the at most `R` rounds. -/
 theorem query_count (R : ℕ) (q : ℕ → ℕ) (hq : ∀ t < R, q t ≤ 3) :
-    ∑ t ∈ Finset.range R, q t ≤ 3 * R + 1 := by
+    ∑ t ∈ Finset.range R, q t ≤ 3 * R := by
   have : ∑ t ∈ Finset.range R, q t ≤ ∑ _t ∈ Finset.range R, 3 :=
     Finset.sum_le_sum fun t ht => hq t (Finset.mem_range.mp ht)
   simp only [Finset.sum_const, Finset.card_range, smul_eq_mul] at this
@@ -957,13 +957,13 @@ theorem expected_loss_le {α : Type*} [DecidableEq α] (s : Finset α) (w : α �
     _ ≤ ε := by linarith
 
 /-- The parameter formulas behind `eq:rectanglebound`, for `r = 1/ρ`, `ρ ≥ 1`,
-`0 < ε < 1/4`: the budget `3R+1` is at most `124ρ(ln K + ln(1/ε))` and the tolerance
+`0 < ε < 1/4`: the budget `3R` is at most `124ρ(ln K + ln(1/ε))` and the tolerance
 satisfies `τ ≥ ε/(288ρ ln(1/ε))`, matching the orders `O(ρ(log K + log(1/ε)))` and
 `Ω(ε/(ρ log(1/ε)))`. This bounds the parameters only; no learner is constructed here.
 (The constants `124` and `288` are ours.) -/
 theorem rectanglebound_explicit {ρ ε : ℝ} (hρ : 1 ≤ ρ) (hε0 : 0 < ε) (hε1 : ε < 1 / 4)
     (K : ℕ) :
-    ((3 * roundBudget (1 / ρ) K ε + 1 : ℕ) : ℝ) ≤ 124 * ρ * (Real.log K + Real.log (1 / ε)) ∧
+    ((3 * roundBudget (1 / ρ) K ε : ℕ) : ℝ) ≤ 124 * ρ * (Real.log K + Real.log (1 / ε)) ∧
       ε / (288 * ρ * Real.log (1 / ε)) ≤ tol (1 / ρ) ε := by
   set L := Real.log (1 / ε)
   have hL4 : Real.log 4 < L := Real.log_lt_log (by norm_num) (by rw [lt_div_iff₀ hε0]; linarith)

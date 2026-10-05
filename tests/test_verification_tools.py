@@ -94,6 +94,33 @@ class CheckRunnerTests(unittest.TestCase):
 
 
 class SourceAuditTests(unittest.TestCase):
+    def test_nested_figure_inputs_are_expanded_and_audited(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "figures").mkdir()
+            for name, text in {
+                "paper.tex": "\\input{main}\n\\bibliography{references}\n\\input{appendices}\n",
+                "main.tex": "Main.\n\\input{figures/example}\n",
+                "figures/example.tex": "\\label{fig:example}Figure.\\citep{Example}\n",
+                "appendices.tex": "Appendix.\n",
+                "paper.bbl": "Bibliography.\n",
+            }.items():
+                (root / name).write_text(text, encoding="utf-8")
+            expanded = check_sources.expand_single(root)
+            self.assertNotIn("\\input", expanded)
+            self.assertIn("\\label{fig:example}", expanded)
+            texts = check_sources.source_texts(root)
+            self.assertIn("figures/example.tex", texts)
+            self.assertEqual(check_sources.CITE.findall(texts["figures/example.tex"]), ["Example"])
+            wrapped = "% Begin main.tex\n" + expanded + "% End main.tex\n"
+            self.assertEqual(
+                check_sources.nonblank_lines(wrapped), check_sources.nonblank_lines(expanded)
+            )
+            self.assertNotEqual(
+                check_sources.nonblank_lines(wrapped.replace("Figure.", "Changed.")),
+                check_sources.nonblank_lines(expanded),
+            )
+
     def test_single_source_is_the_expanded_modular_source(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

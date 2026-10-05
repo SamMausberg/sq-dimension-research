@@ -61,19 +61,48 @@ def canonical(base: Path, names=SOURCES):
 
 def expand_single(paper: Path) -> str:
     """paper.tex with its \\input files and compiled bibliography inlined."""
-    text = (paper / "paper.tex").read_text(encoding="utf-8")
-    for command, name in (
-        ("\\input{main}", "main.tex"),
-        ("\\bibliography{references}", "paper.bbl"),
-        ("\\input{appendices}", "appendices.tex"),
-    ):
-        require(text.count(command) == 1, ("paper.tex must contain once", command))
-        text = text.replace(command, (paper / name).read_text(encoding="utf-8"))
-    return text
+
+    def expand(name: str) -> str:
+        path = paper / name
+        if not path.suffix:
+            path = path.with_suffix(".tex")
+        return re.sub(
+            r"\\input\{([^}]+)\}",
+            lambda match: expand(match[1]),
+            path.read_text(encoding="utf-8"),
+        )
+
+    return expand("paper.tex").replace(
+        "\\bibliography{references}", (paper / "paper.bbl").read_text(encoding="utf-8")
+    )
+
+
+def source_texts(paper: Path) -> dict[str, str]:
+    """Collect modular text, including labels and citations in figure inputs."""
+    texts: dict[str, str] = {}
+
+    def collect(name: str) -> None:
+        path = Path(name)
+        if not path.suffix:
+            path = path.with_suffix(".tex")
+        name = path.as_posix()
+        if name in texts:
+            return
+        texts[name] = (paper / path).read_text(encoding="utf-8")
+        for child in re.findall(r"\\input\{([^}]+)\}", texts[name]):
+            collect(child)
+
+    for name in SOURCES:
+        collect(name)
+    return texts
 
 
 def nonblank_lines(text: str) -> list[str]:
-    return [line.rstrip() for line in text.splitlines() if line.strip()]
+    return [
+        line.rstrip()
+        for line in text.splitlines()
+        if line.strip() and not re.fullmatch(r"% (?:Begin|End) .+\.tex", line.strip())
+    ]
 
 
 def lean_citations(formalization: Path) -> dict[str, list[str]]:
@@ -95,7 +124,7 @@ def check_sources(paper: Path, output: Path, formalization: Path | None = None):
     by = {s["label"]: s for s in st}
     require(len(by) == len(st), [s["label"] for s in st])
 
-    texts = {name: (P / name).read_text(encoding="utf-8") for name in SOURCES}
+    texts = source_texts(P)
     defs = [
         (m[1], name, text.count("\n", 0, m.start()) + 1)
         for name, text in texts.items()

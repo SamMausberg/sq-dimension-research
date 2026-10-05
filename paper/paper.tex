@@ -1,4 +1,7 @@
+% Compile paper.tex for the authored version, or review.tex for anonymous review.
 \documentclass[11pt,letterpaper,pmlr,twoside]{jmlr}
+\newif\ifreview
+\ifdefined\AnonymousReview\reviewtrue\else\reviewfalse\fi
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
@@ -7,12 +10,22 @@
 \usetikzlibrary{arrows.meta,positioning,calc,patterns}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
  pdftitle={Distribution-independent SQ learning does not imply low dimension complexity},
- pdfauthor={Samuel Mausberg},pdfsubject={Statistical query learning and dimension complexity}}
-\jmlrproceedings{}{Preprint}
+ pdfsubject={Statistical query learning and dimension complexity}}
+\ifreview
+\hypersetup{pdfauthor={}}
+\jmlrproceedings{}{Submission manuscript}
+\else
+\hypersetup{pdfauthor={Samuel Mausberg}}
+\jmlrproceedings{}{Preprint (v3), 4 October}
+\fi
 \jmlrvolume{}\jmlrpages{}\jmlryear{2026}
 \jmlrworkshop{}\editor{}
-\title[SQ learning and dimension complexity]{Distribution-independent SQ learning does not imply low dimension complexity}
+\title[SQ learning and dimension complexity]{Distribution-independent SQ learning\\does not imply low dimension complexity}
+\ifreview
+\author[Anonymous]{\Name{Anonymous Author}}
+\else
 \author[Mausberg]{\Name{Samuel Mausberg}\\\addr Independent Researcher}
+\fi
 \newcommand{\Hc}{\mathcal H}
 \newcommand{\Lc}{\mathcal L}
 \newcommand{\Rc}{\mathcal R}
@@ -52,7 +65,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We construct classes on $2N^3$ points that are learnable under every input distribution with $O_\eps(\log N)$ statistical queries of constant tolerance, but have dimension $\Theta(N)$. The same bound holds for exact and expected-error probabilistic representations. It also holds when the feature law may depend on a target prior and may fail on any fixed fraction of targets below one. The classes have constant classical SQ dimension, separating that parameter from prior-average probabilistic dimension. The construction combines the incidence matrices of Hatami, Hatami, Pires, Tao, and Zhao with a rectangle-based learner and a sign-pattern count restricted to the random incidences. The fixed-tolerance query order is optimal. The learners can be proper, deterministic, and polynomial-time in the explicit table.
+Does distribution-independent statistical-query learning imply low dimension complexity? We give a negative answer with a sharp exponential separation. Classes on $2N^3$ points admit $O_\eps(\log N)$ queries of constant tolerance, yet have ordinary, exact probabilistic, and expected-error dimension $\Theta(N)$ at fixed approximation error below $1/2$. The lower bound persists when the feature law may depend on a target prior and discard any fixed fraction of targets below one. These classes have constant classical SQ dimension, giving an explicit counterexample to a claimed bound of Karchmer and Malach. The construction combines the incidence flips of Hatami, Hatami, Pires, Tao, and Zhao with a rectangle-based learner and a sign-pattern count restricted to incidences. The fixed-tolerance query order is optimal; transcript representations give complementary upper bounds. The learner can be proper, deterministic, and polynomial-time in the explicit table.
 \end{abstract}
 \begin{keywords}
 Statistical queries, distribution-independent learning, dimension complexity, sign-rank, random features

@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-message: "Please cite this manuscript and identify the repository commit used. No arXiv identifier or DOI has been assigned."
+message: "Please cite the Zenodo preprint and identify the repository commit used."
 title: "Distribution-independent SQ learning does not imply low dimension complexity"
 type: software
 authors:
   - family-names: Mausberg
     given-names: Samuel
-version: "v2"
+version: "v3"
 date-released: "2026-10-04"
 repository-code: "https://github.com/SamMausberg/sq-dimension-research"
 url: "https://github.com/SamMausberg/sq-dimension-research"
@@ -19,5 +19,6 @@ preferred-citation:
     - family-names: Mausberg
       given-names: Samuel
   year: 2026
-  notes: "Unpublished manuscript, version 2. Identify the repository commit used."
-  url: "https://github.com/SamMausberg/sq-dimension-research"
+  notes: "Preprint, version 3. Identify the repository commit used."
+  doi: "10.5281/zenodo.23150135"
+  url: "https://zenodo.org/records/23150135"

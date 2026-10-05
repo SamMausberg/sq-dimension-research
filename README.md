@@ -18,15 +18,16 @@ Manuscript, finite checks, and supporting Lean proofs.
 | [`tools/`](tools/), [`tests/`](tests/) | Build, reproduction, packaging, integrity, and regression checks. |
 | [`audits/`](audits/), [`docs/`](docs/) | Verification records, provenance, and integrity hashes for earlier revisions; `audits/current/` is the original revision 8 snapshot. |
 | [`history/`](history/) | Superseded source snapshots (revision 8 source in `turn08/`) and archived development notes. |
-| [`submission/`](submission/) | Draft publication metadata and disclosure for the current paper; nothing has been submitted. |
+| [`submission/`](submission/) | Draft arXiv metadata and disclosure. The preprint is published on Zenodo. |
 
 ## Verification
 
 - [x] Manuscript builds (36 pages; main text ends on page 11) with no undefined
   references or overfull boxes; `paper_single.tex` matches the modular source.
-- [x] All 22 bibliography records name a venue or arXiv source and every citation
-  resolves. The earlier primary-title audit covered the previous bibliography only.
-- [x] The paper's finite checks reproduce their recorded outputs; twelve tool
+- [x] All 22 bibliography records were checked against primary records or
+  publisher-deposited DOI metadata; all 21 cited entries resolve. See
+  [`REFERENCE_AUDIT.json`](paper/REFERENCE_AUDIT.json).
+- [x] The paper's finite checks reproduce their recorded outputs; thirteen tool
   regression tests and the earlier experiment suites pass.
 - [x] 213 Lean theorems compile with warnings as errors; all 534 compiler theorem
   declarations pass the axiom audit without proof holes or custom axioms. Every
@@ -114,7 +115,9 @@ citations, and presentation.
 Original manuscripts and research material use [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
 Original code uses [MIT](LICENSES/MIT.txt); see [LICENSE](LICENSE) for the scope.
 Dependencies and the identified PMLR source excerpt retain their own licenses.
-No DOI or arXiv identifier has been assigned.
+The [version 3 preprint](https://zenodo.org/records/23150135) has DOI
+[10.5281/zenodo.23150135](https://doi.org/10.5281/zenodo.23150135).
+No arXiv identifier has been assigned.
 
 Historical snapshots contain superseded claims and failed or uncompiled attempts.
 Prior notes and previews are preserved in

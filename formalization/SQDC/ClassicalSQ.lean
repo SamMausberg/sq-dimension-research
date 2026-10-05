@@ -16,7 +16,7 @@ comparison with gradient-descent claims" (`sec:km`), and the proof in Subsection
   `exists_sqDimAt_eq_sqDim` check that the `sSup`/`iSup` are attained maxima.
 * `rect_pos`: for a finite nonempty class on a finite nonempty domain,
   `rect(H) ≥ 1/(2K) > 0` (one heaviest row and the heavier of its two label sets).
-  The paper uses `rect(H) > 0` implicitly ("Write `t=|T|`, which is positive"); it is
+  The paper now states `rect(H) > 0` explicitly; it is
   needed because `2/0 = 0` in Lean.
 * `sq_square_bound`: the core inequality `D(S)t² ≤ E_D(Σ_{h∈T} h)² ≤ t + t(t-1)/d`.
 * `mass_mul_frac_le`: "Divide by `dt`. Since `t ≤ d`, this gives

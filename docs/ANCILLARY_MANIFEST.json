@@ -1435,8 +1435,8 @@
     },
     {
       "path": "formalization/SQDC/ClassicalSQ.lean",
-      "bytes": 16366,
-      "sha256": "14b15dfa3e3e09b7e9babf6bb03e0bd59919008c9345316c06a7d2574294dc11",
+      "bytes": 16335,
+      "sha256": "b93eef58d2b3dc80621ad9dcaed91fd25b9592a7e5c820abd98ee0c491f22a96",
       "group": "formalization"
     },
     {
@@ -1447,8 +1447,8 @@
     },
     {
       "path": "formalization/SQDC/Incidence.lean",
-      "bytes": 44565,
-      "sha256": "d252e2bef260a7da16f83682a9f68611d0ebfa4fb04ef8e52e40f378f1948434",
+      "bytes": 44613,
+      "sha256": "3955c819d2d2543c56a7ce0e386c8c48156c8e60662cbabe596df88ce115f2d5",
       "group": "formalization"
     },
     {
@@ -1471,8 +1471,8 @@
     },
     {
       "path": "formalization/SQDC/RectangleLearner.lean",
-      "bytes": 63556,
-      "sha256": "e31015ff22d98462b298bba2ff839826ea270f833903ca1c04aac1d6c4e25786",
+      "bytes": 63540,
+      "sha256": "d9e3103cb764d87288b54dd7b1d23074f91a972973c720d141aa3a5a10a1540d",
       "group": "formalization"
     },
     {
@@ -5761,8 +5761,8 @@
     },
     {
       "path": "tests/test_verification_tools.py",
-      "bytes": 11792,
-      "sha256": "0be262821ba48aa786ec792a725ad9e2dfd93ddfcfc2273c5b7b55bd4a03580c",
+      "bytes": 13235,
+      "sha256": "dca5c626ccc94dd4a07f583c970b3560eed53ec202eacb02ab23fff30fab2019",
       "group": "tests"
     },
     {
@@ -5773,8 +5773,8 @@
     },
     {
       "path": "tools/check_sources.py",
-      "bytes": 8509,
-      "sha256": "cfcd53d6df63c16cab108aba7dc335ab3e4eb46ad059efdd814f0ae5b683f06b",
+      "bytes": 9160,
+      "sha256": "a7e0ad8a5e12f6fd95fdde7ec6e2078c17dcfa47d89a155033ec77d9687445a2",
       "group": "tools"
     },
     {

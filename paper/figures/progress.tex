@@ -1,0 +1,38 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+% Each panel has points on the vertical axis and hypotheses on the horizontal axis.
+\begin{scope}
+  \draw (0,0) rectangle (3.2,1.9);
+  \fill[black!16] (.85,.64) rectangle (2.15,1.28);
+  \draw (.85,.64) rectangle (2.15,1.28);
+  \node at (1.5,.96) {$S\times T$};
+  \node at (1.6,2.17) {propose a rectangle};
+  \node[rotate=90] at (-.3,.95) {$U$};
+  \node at (1.6,-.25) {$V$};
+\end{scope}
+\draw[->] (3.4,.96) -- (4.05,.96);
+\begin{scope}[xshift=4.3cm]
+  \draw (0,0) rectangle (3.2,1.9);
+  \fill[pattern=north east lines,pattern color=black!45] (0,.64) rectangle (3.2,1.28);
+  \draw[dashed] (0,.64)--(3.2,.64) (0,1.28)--(3.2,1.28);
+  \node[fill=white,inner sep=2pt] at (1.6,.96) {label $S$};
+  \node at (1.6,2.17) {small disagreement};
+  \node[align=center] at (1.6,-.5)
+     {$D(U')=(1-a)D(U)$\\progress $a$};
+\end{scope}
+\node at (7.95,.96) {or};
+\begin{scope}[xshift=8.4cm]
+  \draw (0,0) rectangle (3.2,1.9);
+  \fill[pattern=north east lines,pattern color=black!45] (.85,0) rectangle (2.15,1.9);
+  \draw[dashed] (.85,0)--(.85,1.9) (2.15,0)--(2.15,1.9);
+  \node[fill=white,inner sep=2pt,align=center] at (1.5,.96) {discard\\$T$};
+  \node at (1.6,2.17) {witnessed disagreement};
+  \node[align=center] at (1.6,-.5)
+     {$|V'|=(1-b)|V|$\\progress $b$};
+\end{scope}
+\node at (5.8,-1.15) {$a= D(S)/D(U),\quad b=\nu(T),\quad\min\{a,b\}\ge ab$};
+\end{tikzpicture}
+\caption{An accepted proposal either removes a fraction $a$ of the remaining point mass or a fraction $b$ of the surviving hypotheses. The shaded band marks what is removed. Both updates have progress at least $ab$, the quantity controlled by the pointwise rectangle mixture.}
+\label{fig:progress}
+\end{figure}

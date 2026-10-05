@@ -31,7 +31,7 @@ cited by title and TeX label.
   (`eq:geometry`, `eq:representation-score`).
 * `monochromatic_true_of_template`, `template_negative_rectangle_singleton_side`,
   `exists_half_rectangle`, `half_le_rect_flip`: rectangle survival (`app:geometry`,
-  "For the rank-six template…"); `rect_template_ge`, `rect_flip_ge`: `rect(F) ≥ 2^{-14}` and
+  "For the template of sign-rank at most six…"); `rect_template_ge`, `rect_flip_ge`: `rect(F) ≥ 2^{-14}` and
   `rect(𝓗_A) ≥ 2^{-15}` (`eq:geometry`) for `N ≥ 1`, given the [APP05] input `APP05Template`.
 * `fullLines` (`𝓛₀ = [N] × [N²]`), `card_fullLines`, `fullLine_point_mem_grid`,
   `card_linePoints_of_full`, `card_incidences_of_rows`, `lineDist` (`D_ℓ`): full-length
@@ -540,7 +540,7 @@ theorem flip_embedsAt {A : Line N → Hyp (Point N)} (hA : IsFlip A) : EmbedsAt 
 theorem flip_dc_le {A : Line N → Hyp (Point N)} (hA : IsFlip A) : dc A ≤ N + 3 :=
   dc_le_of_embedsAt _ (flip_embedsAt hA)
 
-/-! ### Rectangle survival (`app:geometry`, "For the rank-six template…") -/
+/-! ### Rectangle survival (`app:geometry`, "For the template of sign-rank at most six…") -/
 
 /-- `app:geometry`: "A positive rectangle remains positive after flipping." -/
 theorem monochromatic_true_of_template {A : Line N → Hyp (Point N)} (hA : IsFlip A)
@@ -670,7 +670,7 @@ theorem one_one_mem_grid (hN : 1 ≤ N) : ((1, 1) : ℕ × ℕ) ∈ grid N := by
   have : 1 ≤ N ^ 2 := Nat.one_le_pow _ _ hN
   omega
 
-/-- `app:geometry`: "For the rank-six template, every product distribution therefore has a
+/-- `app:geometry`: "For the template of sign-rank at most six, every product distribution therefore has a
 monochromatic rectangle of mass at least `2^{-14}`" (`2·6 + 2 = 14`), given [APP05]. -/
 theorem rect_template_ge (hN : 1 ≤ N) (hAPP : APP05Template N) :
     (1 / 2 ^ 14 : ℝ) ≤ rect (template N) := by

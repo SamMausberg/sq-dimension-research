@@ -79,8 +79,9 @@ Check formatting with `python -m ruff check .` and
 `python -m ruff format --check .`.
 
 For the PDF, install TeX Live (`texlive-latex-extra`, `texlive-science`,
-`texlive-pictures`, `texlive-publishers`, `texlive-fonts-recommended`,
-`texlive-fonts-extra`, and `lmodern` on Debian/Ubuntu):
+`texlive-pictures`, `texlive-publishers`, `texlive-plain-generic`,
+`texlive-fonts-recommended`, `texlive-fonts-extra`, `tex-gyre`, and `lmodern` on
+Debian/Ubuntu):
 
 ```sh
 python -X utf8 tools/build_paper.py --bibtex

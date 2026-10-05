@@ -96,7 +96,7 @@ jobs:
       - name: Install TeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-science texlive-pictures texlive-publishers texlive-fonts-recommended texlive-fonts-extra lmodern
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-science texlive-pictures texlive-publishers texlive-plain-generic texlive-fonts-recommended texlive-fonts-extra tex-gyre lmodern
       - run: python tools/build_paper.py --bibtex --report work/paper/build.json
       - run: python tools/check_sources.py --output work/paper/sources
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

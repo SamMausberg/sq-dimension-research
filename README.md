@@ -115,8 +115,9 @@ citations, and presentation.
 Original manuscripts and research material use [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
 Original code uses [MIT](LICENSES/MIT.txt); see [LICENSE](LICENSE) for the scope.
 Dependencies and the identified PMLR source excerpt retain their own licenses.
-The [version 3 preprint](https://zenodo.org/records/23150135) has DOI
-[10.5281/zenodo.23150135](https://doi.org/10.5281/zenodo.23150135).
+The [version 4 preprint](https://zenodo.org/records/23168702) has DOI
+[10.5281/zenodo.23168702](https://doi.org/10.5281/zenodo.23168702).
+Version 4 corrects the proof-sketch headings; mathematical statements and proof text are unchanged from version 3.
 No arXiv identifier has been assigned.
 
 Historical snapshots contain superseded claims and failed or uncompiled attempts.

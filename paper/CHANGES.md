@@ -1,5 +1,10 @@
 # Final revision changes
 
+## v4 - 5 October 2026
+
+- Fixed both proof-sketch headings to print "Proof sketch" without a duplicated "Proof" or literal square brackets. The dedicated environment uses the jmlr class's proof styling and end marker.
+- Mathematical statements and proof text are unchanged from v3.
+
 ## v3 - 4 October 2026
 
 - Restricted the classical-SQ rectangle to the chosen hypotheses and stated the positive lower bound on the rectangle ratio.

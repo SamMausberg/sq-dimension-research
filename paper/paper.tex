@@ -16,7 +16,7 @@
 \jmlrproceedings{}{Submission manuscript}
 \else
 \hypersetup{pdfauthor={Samuel Mausberg}}
-\jmlrproceedings{}{Preprint (v3), 4 October}
+\jmlrproceedings{}{Preprint (v4), 5 October}
 \fi
 \jmlrvolume{}\jmlrpages{}\jmlryear{2026}
 \jmlrworkshop{}\editor{}
@@ -62,6 +62,10 @@
 \setlength{\emergencystretch}{1em}
 \newcommand{\adc}{\operatorname{adc}}
 \newcommand{\sqdim}{\operatorname{sq}}
+\newenvironment{proofsketch}{%
+  \renewcommand{\proofname}{Proof sketch}%
+  \begin{proof}%
+}{\end{proof}}
 \begin{document}
 \maketitle
 \begin{abstract}

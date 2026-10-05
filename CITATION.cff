@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Mausberg
     given-names: Samuel
-version: "v3"
-date-released: "2026-10-04"
+version: "v4"
+date-released: "2026-10-05"
 repository-code: "https://github.com/SamMausberg/sq-dimension-research"
 url: "https://github.com/SamMausberg/sq-dimension-research"
 license-url: "https://github.com/SamMausberg/sq-dimension-research/blob/main/LICENSE"
@@ -19,6 +19,6 @@ preferred-citation:
     - family-names: Mausberg
       given-names: Samuel
   year: 2026
-  notes: "Preprint, version 3. Identify the repository commit used."
-  doi: "10.5281/zenodo.23150135"
-  url: "https://zenodo.org/records/23150135"
+  notes: "Preprint, version 4. Identify the repository commit used."
+  doi: "10.5281/zenodo.23168702"
+  url: "https://zenodo.org/records/23168702"

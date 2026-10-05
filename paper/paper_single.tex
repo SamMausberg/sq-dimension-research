@@ -16,7 +16,7 @@
 \jmlrproceedings{}{Submission manuscript}
 \else
 \hypersetup{pdfauthor={Samuel Mausberg}}
-\jmlrproceedings{}{Preprint (v3), 4 October}
+\jmlrproceedings{}{Preprint (v4), 5 October}
 \fi
 \jmlrvolume{}\jmlrpages{}\jmlryear{2026}
 \jmlrworkshop{}\editor{}
@@ -62,6 +62,10 @@
 \setlength{\emergencystretch}{1em}
 \newcommand{\adc}{\operatorname{adc}}
 \newcommand{\sqdim}{\operatorname{sq}}
+\newenvironment{proofsketch}{%
+  \renewcommand{\proofname}{Proof sketch}%
+  \begin{proof}%
+}{\end{proof}}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -111,11 +115,11 @@ The deterministic improper learner uses only $O(\log N+\log(1/\eps))$ queries at
 For each fixed $0\le\eta<1/2$ and $0\le\delta<1$, the uniform prior on the full-length lines also has prior-average dimension $\Theta_{\eta,\delta}(N)$ with probability $1-\exp(-\Omega_{\eta,\delta}(N^4))$.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
+\begin{proofsketch}
 The incidence template has sign-rank at most six, which gives a constant rectangle ratio after every flip. Theorem~\ref{thm:rectangle} supplies the learner; Appendix~\ref{app:proper} makes it deterministic and proper.
 
 For dimension, test each row on its incidence support. Any common random feature law of small expected error yields one embedding with few total incidence mistakes. Lemma~\ref{lem:mask} bounds the number of such low-rank patterns. One constant feature reduces exact probabilistic dimension to this case. Conversely, $N$ indicator features and three quadratic features represent every flip. Applying the count to every sufficiently large row subset gives the prior-average assertion of Theorem~\ref{thm:prior}.
-\end{proof}
+\end{proofsketch}
 
 Taking $N=2^b$ gives a domain of size $2^n$ with $n=3b+1$. Thus no universal polynomial in $(m,1/\tau,n)$ bounds any of the three dimensions. This also refutes a bound on $\dc_{C\eps}$ for any universal $C>0$: choose $\eps$ once so that $C\eps<1/2$, then let $N$ grow. At error $1/2$, a constant feature would suffice.
 
@@ -456,9 +460,9 @@ Then
 Consequently $\adc_{\eta,\delta}(\pi_N)=\Theta_{\eta,\delta}(N)$ with probability $1-\exp(-\Omega_{\eta,\delta}(N^4))$.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
+\begin{proofsketch}
 Fix $g$ rows. Their $gN$ incidence signs are independent. An embedding that approximates all these rows under every marginal gives, by testing on each row's line, an approximation of rank at most $d+1$ to these signs. Apply Lemma~\ref{lem:mask} with $g$ rows and $Q$ columns, then count nearby patterns. Finally take a union bound over the $\binom{L}{g}$ possible good row sets. Their logarithmic number is only $O(N^3)$; the random signs supply $\Theta(N^4)$ bits. Appendix~\ref{app:prior} proves the statement, including priors with repeated functions.
-\end{proof}
+\end{proofsketch}
 
 Even retaining only $1\%$ of the targets requires dimension linear in $N$. The constant depends on the retained fraction and the approximation error; the order does not.
 

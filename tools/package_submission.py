@@ -36,7 +36,10 @@ def build_package(args: argparse.Namespace, out: Path) -> dict:
     selected = sorted(
         p
         for p in paper.rglob("*")
-        if p.is_file() and (p.suffix in {".tex", ".bib", ".bbl"} or p.name == "README.txt")
+        if p.is_file()
+        and (p.suffix in {".tex", ".bib", ".bbl"} or p.name == "README.txt")
+        # The self-contained copy would be a second top-level TeX file for arXiv.
+        and p.name != "paper_single.tex"
     )
     for path in selected:
         if path.suffix == ".tex":

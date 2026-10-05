@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "exact_N_plus_3_and_template_scores": 739276,
+    "exact_PRF_rank_and_security_exponent_cases": 75,
+    "exact_cleared_radial_equation_entries": 12,
+    "exact_incidence_counts": 63,
+    "exact_median_orientation_endpoint_inequalities": 28,
+    "exact_noisy_median_leaf_and_atom_cases": 1134,
+    "exact_rectangle_endpoint_inequalities": 640,
+    "exact_response_quantizer_cases": 37344,
+    "numerical_rectangle_exponential_budgets": 400,
+    "numerical_restricted_Warren_constant_cases": 10000
+  },
+  "scope": "finite checks, not formal verification",
+  "seed": 20261004,
+  "status": "passed"
+}

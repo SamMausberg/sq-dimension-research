@@ -2,7 +2,14 @@
 target-version = "py313"
 line-length = 100
 include = ["tools/**/*.py", "experiments/**/*.py", "tests/**/*.py", "formalization/*.py"]
-extend-exclude = ["history", "audits", ".venv", "formalization/.lake"]
+extend-exclude = [
+  "history",
+  "audits",
+  ".venv",
+  "formalization/.lake",
+  # Distributed with the manuscript; kept byte-identical to the source bundle.
+  "experiments/finite_checks",
+]
 
 [tool.ruff.lint]
 select = ["E4", "E9", "F63", "F7", "F82", "I"]

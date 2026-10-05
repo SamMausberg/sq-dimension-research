@@ -1,12 +1,12 @@
 {
   "format_version": 2,
-  "file_count": 902,
+  "file_count": 964,
   "groups": {
     "audits": 189,
     "docs": 1,
-    "experiments": 40,
-    "formalization": 7,
-    "history": 659,
+    "experiments": 44,
+    "formalization": 14,
+    "history": 710,
     "tests": 1,
     "tools": 5
   },
@@ -1176,6 +1176,30 @@
       "group": "experiments"
     },
     {
+      "path": "experiments/finite_checks/check_extensions.py",
+      "bytes": 5197,
+      "sha256": "b098ba2f3b41c91ff90fd2392ad1c0428b0c4ffe8b38a354256fb8ada5205cd0",
+      "group": "experiments"
+    },
+    {
+      "path": "experiments/finite_checks/check_parameters.py",
+      "bytes": 7741,
+      "sha256": "dafbf87575b8653522bca6c27c0a3f771fe1bb40f5a4ff31133406f94ed319e9",
+      "group": "experiments"
+    },
+    {
+      "path": "experiments/finite_checks/check_results.json",
+      "bytes": 617,
+      "sha256": "370aab6007e85f9dbc66e6201af9ee446b9220f14fba38732f8885820f3f2c89",
+      "group": "experiments"
+    },
+    {
+      "path": "experiments/finite_checks/extension_results.json",
+      "bytes": 533,
+      "sha256": "893f2d02420ba602541ea6b2926265166d79da9e94cbbc44e051511550437391",
+      "group": "experiments"
+    },
+    {
       "path": "experiments/high_precision.py",
       "bytes": 3666,
       "sha256": "75b02b181f106c5485b8db9f93654d8bac597941fe6fb6b0ba09cd5508399768",
@@ -1393,32 +1417,74 @@
     },
     {
       "path": "formalization/AxiomAudit.lean",
-      "bytes": 1822,
-      "sha256": "302bf45aa1f5ad310149d07f70429bc0fe7d775010f97ea37950af194d385424",
+      "bytes": 1536,
+      "sha256": "9904c5ab1edc2f3278da9312c5bb5010773a70a2eda743f38520943e718b8484",
       "group": "formalization"
     },
     {
       "path": "formalization/SQDC.lean",
-      "bytes": 6010,
-      "sha256": "bd83851f6547ce2bb2f45aa8ea4000972c966409c804ba701e32da7ef958d7ed",
+      "bytes": 196,
+      "sha256": "28a7c18832692c35cd4e0bc320d44015360b00dd7ca81e90203909be541c3a34",
       "group": "formalization"
     },
     {
-      "path": "formalization/Turn2.lean",
-      "bytes": 4948,
-      "sha256": "488792892b0186f5301b973669e6a1d06c6edaedd3112019833450057194e18d",
+      "path": "formalization/SQDC/Basic.lean",
+      "bytes": 9974,
+      "sha256": "2993f3c144e4bb3235ac9cb30f6fb4fe5e4e0e1ec39b4f46f8094c4669906dee",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/ClassicalSQ.lean",
+      "bytes": 16366,
+      "sha256": "14b15dfa3e3e09b7e9babf6bb03e0bd59919008c9345316c06a7d2574294dc11",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/Counting.lean",
+      "bytes": 30765,
+      "sha256": "bba7e7bfd01d4749b687b26be9249f3ead224f255112657a31eeda3d37de8cc6",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/Incidence.lean",
+      "bytes": 44565,
+      "sha256": "d252e2bef260a7da16f83682a9f68611d0ebfa4fb04ef8e52e40f378f1948434",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/IncidenceConsequences.lean",
+      "bytes": 3938,
+      "sha256": "62ef5a922728b89ee9f11f48280c56c16fe88221224a09d90bec71d80165b3b9",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/NoisyMedian.lean",
+      "bytes": 15272,
+      "sha256": "34353891c733331df97c9e67762eb67fd5e2f1a4da4f06204e7bd6a337ca0ddb",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/QueryBounds.lean",
+      "bytes": 32174,
+      "sha256": "1f211822f57d4f68622b0144f5082db89afa5ba6e2757e11c00e0b89771ec543",
+      "group": "formalization"
+    },
+    {
+      "path": "formalization/SQDC/RectangleLearner.lean",
+      "bytes": 63556,
+      "sha256": "e31015ff22d98462b298bba2ff839826ea270f833903ca1c04aac1d6c4e25786",
       "group": "formalization"
     },
     {
       "path": "formalization/lake-manifest.json",
-      "bytes": 3166,
-      "sha256": "04a78a02fcc5dd0ca5ae9ee87cfebe6602ae139fa9d9ec525a9e6fa6045d5ab0",
+      "bytes": 3159,
+      "sha256": "f4027fb0ad73b76babd5ce0a29486cc009d25979c2a24a54bc1e911ed679eadf",
       "group": "formalization"
     },
     {
       "path": "formalization/lakefile.toml",
-      "bytes": 304,
-      "sha256": "5b61e2a6271c54feebe13cfb225359ce8d60b27180d9c49e09c348dfe9174e2f",
+      "bytes": 268,
+      "sha256": "b54074f0c17d81a3860581bbc9b9ab34ebaaa0676ee7eb7c21af20639832ea74",
       "group": "formalization"
     },
     {
@@ -1429,8 +1495,8 @@
     },
     {
       "path": "formalization/verify.py",
-      "bytes": 3818,
-      "sha256": "860d5c3e0bbbe2faf85c0058aefc13eebbbf6b989633b48b1ea6b23166eace3d",
+      "bytes": 4944,
+      "sha256": "0a73150b38a82c3d05d13977f9dc3c203bb265249e98d625b7b88df9380b7964",
       "group": "formalization"
     },
     {
@@ -5388,9 +5454,315 @@
       "group": "history"
     },
     {
+      "path": "history/turn08/paper/abstract.tex",
+      "bytes": 1290,
+      "sha256": "ec3efd55a862dfb263d1ed1613875ce284b42256fd28e014bd594a0bdcccd89e",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/acknowledgments.tex",
+      "bytes": 969,
+      "sha256": "1d7b88cedfe32d1c7883a03b432045c1d2f40cad512fe9b1e2d2970e3b51bbcc",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/cap_procedure.tex",
+      "bytes": 916,
+      "sha256": "138fa2577fe79c019f11c6fabd651b415060b0a1ba542e30bcbad41f6cc39458",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/cap_proper_proofs.tex",
+      "bytes": 9936,
+      "sha256": "f0f43c2f427d1293abbd3223e353c667f6aeaa556291229082fe31b49449ee7e",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/certificate_proofs.tex",
+      "bytes": 24633,
+      "sha256": "ab8558b909e3fd57eb297fc46fa64bc348dbbcd7a033ab55fa6b5e22273f0d92",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/comparisons.tex",
+      "bytes": 15974,
+      "sha256": "8fb8f908cc6a00f0ccb717d7420cbccd8bcd3763a9d80fba8834a7e91e7499ac",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/concentration.tex",
+      "bytes": 1396,
+      "sha256": "eda5ac9f4b4ccca8f9092485d978f2ec8adcc48ab521f0c86606085477e5c5e0",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/engineered_simulation.tex",
+      "bytes": 3403,
+      "sha256": "671afceb0f3afb6fb8d0bb2e6f63f7bf63ed751aaaca8b45c6a52cc1861cd687",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/experiments.tex",
+      "bytes": 8203,
+      "sha256": "c0e027758641eff250e27c246a15fa89c77a17a8fb815fb9e1b44181f323e3d3",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/explicit_proofs.tex",
+      "bytes": 6759,
+      "sha256": "93b1f4360ac014b39c8eb5f6e93b95670e7af9ac127a19d0c46795b20a12ad4b",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/family_proof.tex",
+      "bytes": 7398,
+      "sha256": "54879eb6b8e074fd855f91c0ba7e7714930038612ba663defe4021783355d5e9",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/foundations.tex",
+      "bytes": 3045,
+      "sha256": "96ecfbbb9905a0d6fdf0806b9e533301391a8f67f9a418276a5c7d705491ceba",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/geometric_bounds.tex",
+      "bytes": 3801,
+      "sha256": "66ddd8ee76fbf32ef6d812e464dc90d50178117e101e7b3e9f527c0275f7a391",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/isotropy_program.tex",
+      "bytes": 8438,
+      "sha256": "39d26a618f00d67dcce12511576d8bf6b76b687b1c2f0314d1327ce15879f4b8",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/median_proofs.tex",
+      "bytes": 8726,
+      "sha256": "ec18965303873440f7afc75f58e0b452bd778e2f6dccd7f4c547c9682bed7fea",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/network_proofs.tex",
+      "bytes": 2108,
+      "sha256": "3829b88817a62e7347a90f58074ef098a3c5273ea494f5776b113e7685144d07",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/new_result_audit.tex",
+      "bytes": 16823,
+      "sha256": "63f484c244727258bc5042bef3206544edbd65c181ece637e78dac390f7a819a",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/oracle_bounds.tex",
+      "bytes": 5100,
+      "sha256": "3099f54226e1b0668f784471c89619094c24e95546e51b36a6b9b4dff77d0886",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/query_lower_bound.tex",
+      "bytes": 4148,
+      "sha256": "4cfbf8c72d8d69c0dbce69ce687742893a15decb9750d18aac57474e34dcb700",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/rectangle_proof.tex",
+      "bytes": 5939,
+      "sha256": "c11f1379e8731ba15c360db6e390406686aa2c1f6dca65460074e4669dc1ea95",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/rectify_geometry.tex",
+      "bytes": 84,
+      "sha256": "050c52ac3eefb2b202c1f27269346cd76f65cdd8c2683ee905ce12fb34a3900e",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/related_work.tex",
+      "bytes": 7905,
+      "sha256": "cedd6ec78fafdaddab391a8017cd7f2f1b1184fb12db06c29dc7b507b09f9804",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/resource_proofs.tex",
+      "bytes": 4635,
+      "sha256": "c1d185c0cd6d58366298bb007752ae96cf732d201188d88ed9e7312224ffe5ed",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/resources.tex",
+      "bytes": 1399,
+      "sha256": "15b52ff7574dd3905048b64439dde963a8bd49ad4fbccb50f8909d11170bb6aa",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/sgd_models.tex",
+      "bytes": 2650,
+      "sha256": "a90d7e11f11b56d753c192622b5bf1efe7b889a7e73011aa091f5884714aadd2",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/appendices/statistical_dimension.tex",
+      "bytes": 6651,
+      "sha256": "21f3832e3466dd2624f40d1ca948c2e3d473d8daeefa2868666fb5e764d56a9c",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/cap_geometry.tex",
+      "bytes": 1420,
+      "sha256": "23289309a1ef96a244e7726632d530ef73093446b841849b78895ebc9c2d3432",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/example_table.tex",
+      "bytes": 1283,
+      "sha256": "cc1f88f5c273803910ee8f5e60751c384e104fdd3c444d56b8aa4693b938e8ed",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/family_parameters.tex",
+      "bytes": 1310,
+      "sha256": "b2efeef1b1f86e2ec1789c7277eaa672710cde5843b0597ec16dfff1b0355a16",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/implication_map.tex",
+      "bytes": 2510,
+      "sha256": "b103544b08d98e1d9f14def8ea460b84033bd948be74aafffad8e55b44c43cb8",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/order_median.tex",
+      "bytes": 1767,
+      "sha256": "982f000feef387f999fea6344f0b5695bba67a6d8a396838de399cdf485dffa2",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/rectify_round.tex",
+      "bytes": 1963,
+      "sha256": "8be33d3497d71298ab33376d8af222ef92a4bba0e38af28cef92b857543c2976",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/figures/template_flip.tex",
+      "bytes": 7096,
+      "sha256": "7506c5b57f4f18852a180bd0bb60485d275d60deecce195e132e93cfe1a2c4a8",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/paper.bbl",
+      "bytes": 14733,
+      "sha256": "b254b21303950be96bdead6f54438ddc96e7a4cc3636c59001cb81394f6ff62d",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/paper.tex",
+      "bytes": 1660,
+      "sha256": "1f5adff694aff0b6d0a86ff5e9150fab2334a3b5dc0a54e18a9e4ac0adfc6c49",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/preamble.tex",
+      "bytes": 3844,
+      "sha256": "2c700eba6bf8eaf57f7beb2b97f58ac5d3fa5ad4f62dfcc6118a35aaf8885bb7",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/references.bib",
+      "bytes": 13873,
+      "sha256": "4b43d969705b5ed9d9692737c679486b598e49075b43d12b35b119b26c0caa40",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/01_introduction.tex",
+      "bytes": 4660,
+      "sha256": "f7a3577f93f514d97158640fe44157e4ad3ecd868b225614a024fe5370a022f2",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/02_preliminaries.tex",
+      "bytes": 3295,
+      "sha256": "f14f12656735f528217e594497565aead71b065563937ffc0df820e5385bb1fc",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/03_rectangle.tex",
+      "bytes": 4127,
+      "sha256": "8a090144baf72679870e8c8634e767e04d49017b904d6bfd87e2cc9c542ae0fe",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/04_family.tex",
+      "bytes": 4558,
+      "sha256": "f750322fc91b097177fc8657348e779e59da0648b1abcbe64f38de610e7ae47d",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/05_learners.tex",
+      "bytes": 6377,
+      "sha256": "fb3a62d33d3fe5eb129f6ea16e6719d728049e8b57b3b6f8732b470dd59b4fb5",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/06_explicit.tex",
+      "bytes": 5138,
+      "sha256": "18ab0ab5c7294542e8f9f30cf40a62d163e026290a5f1523dc1b5f31aa29d1b2",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/07_gradient.tex",
+      "bytes": 4440,
+      "sha256": "a20f7e7a1f486a3ab228481fa4c2d6d74139f200a8a0450fa5de83050dd4e4cb",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/sections/08_open.tex",
+      "bytes": 1961,
+      "sha256": "cb15c2bdbf7dc051d8fe37aefcd6275ae06b62568aa1fda19ed3accc55da7412",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/paper/summary.tex",
+      "bytes": 2622,
+      "sha256": "a447112aa58d7c13e369bdddb3b4e4e8b3dda2a64c23bc57cde3de8cf79b966f",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/submission/AI_USE_STATEMENT.txt",
+      "bytes": 480,
+      "sha256": "a4ca2a08213ba0ced3de0233bc4aba3e0796cd98f40e95319d5fbdff34877eb3",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/submission/ARXIV_ABSTRACT.txt",
+      "bytes": 1292,
+      "sha256": "76d2648252e4d9170d67d64fd9f723e6043a342cd3546ab05e0affb9e35b7984",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/submission/ARXIV_METADATA.txt",
+      "bytes": 1629,
+      "sha256": "1c1e1dc9ff7d1b4a47c76a6b7a0e1917790ae911f7af78a9f5fd5968a18f3e00",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/submission/COVER_EMAIL.txt",
+      "bytes": 1251,
+      "sha256": "4cf0dc9f7b52d10a31447773c86b26140ef0f2e2d0d71acffa0e54d3babc6445",
+      "group": "history"
+    },
+    {
+      "path": "history/turn08/submission/PLAIN_LANGUAGE_SUMMARY.txt",
+      "bytes": 830,
+      "sha256": "d1f8f7d674f87a300cbddca3e74c641a573614826aca6ecacbaf86cabd593712",
+      "group": "history"
+    },
+    {
       "path": "tests/test_verification_tools.py",
-      "bytes": 10964,
-      "sha256": "f18ec58f485e2bf39194551b50fb2928a41cf53905e4c03a22cfe10743abbe7c",
+      "bytes": 11792,
+      "sha256": "0be262821ba48aa786ec792a725ad9e2dfd93ddfcfc2273c5b7b55bd4a03580c",
       "group": "tests"
     },
     {
@@ -5401,8 +5773,8 @@
     },
     {
       "path": "tools/check_sources.py",
-      "bytes": 11243,
-      "sha256": "ed8f1d540aee0349b8cea68af390e3b15463a70b745f8eebdec61c59aa7bfe67",
+      "bytes": 8509,
+      "sha256": "cfcd53d6df63c16cab108aba7dc335ab3e4eb46ad059efdd814f0ae5b683f06b",
       "group": "tools"
     },
     {
@@ -5413,14 +5785,14 @@
     },
     {
       "path": "tools/package_submission.py",
-      "bytes": 5367,
-      "sha256": "8ec27ca0716a3aa61b1b3669a96e16e306a044d8381c077316c2f35725a2f290",
+      "bytes": 5498,
+      "sha256": "7f53c20f7d818291d6cbce111205143d1d39cfe33e777c79eeed160f96876a0b",
       "group": "tools"
     },
     {
       "path": "tools/run_checks.py",
-      "bytes": 5684,
-      "sha256": "9d439c0c99d9fed5c244117277204a15dcda62f5c82a8628bf49aa02db49e94b",
+      "bytes": 6430,
+      "sha256": "779de9f5bb300d49cce4e6e0075b762b08217dce373bee8dad9ceeef70e43563",
       "group": "tools"
     }
   ]

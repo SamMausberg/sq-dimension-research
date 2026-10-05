@@ -1,0 +1,408 @@
+\section{Introduction}\label{sec:intro}
+A learning algorithm may adapt to the input distribution without knowing it in advance. A fixed feature map cannot. Does this distinction give a substantial advantage when the learner sees only approximate expectations, rather than individual examples? The question asks whether statistical learning under every distribution is essentially linear learning in a suitable common representation. It is the statistical-query part of the open problem of \citet{FKS26}.
+
+The answer is no. For infinitely many input lengths $n$, we give classes learnable with $O_\eps(n)$ statistical queries of constant tolerance whose ordinary and probabilistic dimension complexities are all $\Theta(2^{n/3})$. The dimensions remain large even if one chooses the feature law for a known prior on targets and permits it to fail on a fixed fraction of them. Thus neither approximate representation nor averaging over targets removes the separation.
+
+\citet{Patel26} posted an independent separation first. His read-once DNFs have ordinary dimension $2^{\Omega(n^{1/3})}$ and, at error $0.01$, an SQ learner using $2^{\widetilde O(n^{2/9})}$ queries of tolerance $2^{-\widetilde O(n^{2/9})}$. Our independently developed result improves these quantitative parameters and treats probabilistic features, but uses a random table rather than a natural succinct class. The qualitative separation also follows from \citet{DKR25} and \citet{RS10}, as Patel makes explicit.
+
+\subsection{The source of the separation}\label{sec:techniques}
+The construction starts with the point--line incidence matrix of \citet{HHPTZ22}. Its rows are integer lines, its columns are grid points, and a negative entry records an incidence. Independently changing incidence signs leaves two useful properties intact: every product distribution has a large monochromatic rectangle, and two rows share at most one negative point. There are nevertheless enough independent signs to force large dimension.
+
+A rectangle supplies two possible advances for the learner. If the target usually agrees with its color, the learner labels its points and removes them. Otherwise, it removes the rectangle's hypotheses. The first step reduces unexplained probability mass; the second reduces uncertainty about the target. A minimax argument chooses rectangles without knowing the point marginal. We then charge both operations to the product of the rectangle's two masses. This yields logarithmically many queries, even when each oracle answer is chosen adversarially within its tolerance.
+
+For dimension, the random signs occupy $\Theta(N^4)$ entries in a table with $\Theta(N^3)$ rows and columns. Counting low-rank signs on the whole table loses a logarithm. Counting only these entries gives $2^{O(N^3d\log(N/d))}$ possibilities in dimension $d$, by Warren's theorem. At $d=cN$ for a sufficiently small constant $c$, this is a small fraction of the random tables. Counting nearby sign patterns gives the approximate lower bound. The argument also works simultaneously for every large subset of rows, which is what the prior-average extension needs.
+
+\subsection{Main result}\label{sec:main}
+We use $\dc$ for ordinary dimension, $\edc$ for exact probabilistic dimension, and $\dc_\eta$ for expected-error probabilistic dimension at error $\eta$. Their definitions appear in Section~\ref{sec:definitions}. A statistical-query learner must tolerate every valid answer policy; it is not given the input distribution.
+
+\begin{theorem}[Sharp incidence separation]\label{thm:main}
+For each integer $N\ge2$, there is a family of classes $\Hc_A$ on $2N^3$ points such that every member has VC dimension at most two and $\dc(\Hc_A)\le N+3$. For every $0<\eps<1/4$, every member has a proper deterministic distribution-independent SQ learner with
+\begin{equation}
+ m=O\bigl(\log N+\eps^{-1}+\log(1/\eps)\bigr),
+ \qquad \tau=\Omega\bigl(\eps/\log(1/\eps)\bigr).
+ \label{eq:mainlearn}
+\end{equation}
+Its computation is polynomial in the explicit table size and $1/\eps$. For each fixed $0\le\eta<1/2$, independent fair incidence signs give, with probability $1-\exp(-\Omega_\eta(N^4))$,
+\begin{equation}
+ \dc(\Hc_A)=\Theta(N),\qquad
+ \edc(\Hc_A)=\Theta(N),\qquad
+ \dc_\eta(\Hc_A)=\Theta_\eta(N).
+ \label{eq:maindim}
+\end{equation}
+For each fixed $0\le\eta<1/2$ and $0\le\delta<1$, the uniform prior on the full-length lines also has prior-average dimension $\Theta_{\eta,\delta}(N)$ with probability $1-\exp(-\Omega_{\eta,\delta}(N^4))$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+A six-dimensional representation of the incidence template gives a constant rectangle ratio after any flips. Theorem~\ref{thm:rectangle} turns that ratio into a learner. A finite geometric construction makes its choices deterministic; the one-intersection property gives a proper output. These implementations are proved in Appendix~\ref{app:proper}.
+
+The restricted count in Lemma~\ref{lem:mask} gives the lower bounds. To handle a random feature map, test each row on its own incidence support. Averaging selects one embedding with few total incidence errors, to which the count applies. Appending one constant feature converts exact probabilistic representation into expected-error representation. The upper representation uses $N$ indicator features and three quadratic features. Finally, repeating the count after any fixed fraction of rows is removed proves the prior-average assertion in Theorem~\ref{thm:prior}.
+\end{proof}
+
+Taking $N=2^b$ gives a domain of size $2^n$ with $n=3b+1$. Hence no polynomial in $(m,1/\tau,n)$ can bound any of the three dimensions. For a proposed bound involving $\dc_{C\eps}$, fix $\eps$ so that $C\eps<1/2$. The approximation parameter must remain below chance error; otherwise a constant feature suffices.
+
+Two further conclusions locate this separation. Typical tables require $\Theta_\eps(n)$ queries at a suitable fixed tolerance, even for randomized improper learning. Conversely, the outputs at the leaves of a quantized response tree give exponential upper bounds on all three dimensions. The exponential dependence on query count is therefore necessary at fixed tolerance. Neither statement asserts the optimal joint dependence on query count and tolerance.
+
+\section{Learning and representation models}\label{sec:definitions}
+Let $X$ be a finite nonempty domain and $\Hc=\{h_1,\ldots,h_K\}\subseteq\{-1,+1\}^{X}$ an indexed class. Repeated rows are allowed. Write $Q=|X|$, $n=\ceil{\log_2 Q}$, and $\Delta(Z)$ for the probability simplex on a finite set $Z$. For a marginal $D\in\Delta(X)$, target $h$, and Boolean predictor $g$, put
+\[
+ L_{D,h}(g)=\Pr_{z\sim D}[g(z)\ne h(z)].
+\]
+Natural logarithms are denoted by $\ln$; dimension and information counts use $\log_2$.
+
+\paragraph{Statistical queries.}
+A query $q:X\times\{-1,+1\}\to[-1,1]$ receives a number within $\tau$ of $\E_{z\sim D}q(z,h(z))$ \citep{Kearns98}. A valid oracle policy may depend on previous queries and answers and on the current query, but not on unrevealed future learner randomness. A depth-$m$ learner uses at most $m$ queries and satisfies
+\begin{equation}
+ \forall D\ \forall h\in\Hc\ \forall\text{ valid policies }O,
+ \qquad \E_\omega L_{D,h}(A^O_\omega)\le\eps.
+ \label{eq:learnmodel}
+\end{equation}
+Here $\omega$ is the learner's independent seed. The algorithm may depend on the class, not on the unknown instance $(D,h)$. A proper learner returns a member of $\Hc$. Computation is uncharged unless stated; finite-bit implementations include answer rounding in the tolerance.
+
+\paragraph{Dimension.}
+Ordinary dimension complexity $\dc(\Hc)$ is the least $d$ admitting a map $\phi:X\to\R^d$ and row vectors $w_h$ such that
+\begin{equation}
+ h(z)\ip{w_h}{\phi(z)}>0\qquad(h\in\Hc,\ z\in X).
+ \label{eq:dcdef}
+\end{equation}
+This is the sign-rank of the truth table \citep{BES02}. For probabilistic representations we fix $\sgn(0)=+1$ and write
+\[
+ \mathcal E_\phi(D,h)=\min_w L_{D,h}(\sgn\ip{w}{\phi}).
+\]
+The minimum is attained because only finitely many Boolean prediction patterns occur. The optimizing vector may depend on the realized map, the target, and the marginal.
+
+The exact probabilistic dimension $\edc(\Hc)$ is the least $d$ admitting one law on maps $\phi:X\to\R^d$ such that
+\begin{equation}
+ \forall D,h,\qquad \Pr_\phi[\mathcal E_\phi(D,h)=0]\ge\tfrac12.
+ \label{eq:exactprob}
+\end{equation}
+The expected-error probabilistic dimension $\dc_\eta(\Hc)$ is defined by replacing this condition with
+\begin{equation}
+ \forall D,h,\qquad \E_\phi\mathcal E_\phi(D,h)\le\eta.
+ \label{eq:avgprob}
+\end{equation}
+In both definitions the feature law is chosen before the target and marginal. These are the nondegenerate Boolean versions of the probabilistic representation notions of \citet{CMW25} and \citet{KMS20}.
+
+\begin{remark}[Threshold ties]\label{rem:ties}
+One constant feature turns any finite Boolean prediction matrix into a strict representation: add a row-specific positive bias smaller than every nonzero negative score in absolute value. The opposite fixed tie rule uses a negative bias. Counting zero scores as errors only makes approximation harder. Our lower bounds therefore do not depend on the choice between these conventions, apart from an additive dimension.
+\end{remark}
+
+\section{A learner from monochromatic rectangles}\label{sec:rectangle}
+The learner needs a region on which many surviving hypotheses agree. For a rectangle $S\times T\subseteq X\times\Hc$, call $c\in\{-1,+1\}$ its color when $h(z)=c$ throughout the rectangle. Following \citet{HHPTZ22}, define
+\begin{equation}
+ \rect(\Hc)=\inf_{\mu\in\Delta(X),\,\nu\in\Delta(\Hc)}
+ \max_{S\times T\text{ monochromatic}}\mu(S)\nu(T).
+ \label{eq:rectdef}
+\end{equation}
+Restrictions to subsets of rows or points cannot decrease this quantity: extend the restricted weights by zero.
+
+\begin{theorem}[Rectangle learner]\label{thm:rectangle}
+If $\rect(\Hc)\ge1/\rho$ with $\rho\ge1$, then for every $0<\eps<1/4$ a randomized learner satisfies \eqref{eq:learnmodel} using
+\begin{equation}
+ m=O\bigl(\rho(\log K+\log(1/\eps))\bigr),
+ \qquad \tau=\Omega\bigl(\eps/(\rho\log(1/\eps))\bigr).
+ \label{eq:rectanglebound}
+\end{equation}
+The query budget is a worst-case bound. The learner can be constructed from the table and the stated lower bound on the rectangle ratio.
+\end{theorem}
+
+The product condition involves an unknown point distribution. The next lemma removes it. Its finite minimax argument also appears in the average-margin analysis of \citet{HHPTZ22}; the learning theorem requires an additional progress argument.
+
+\begin{lemma}[Pointwise coverage]\label{lem:mixture}
+Fix nonempty $U\subseteq X$, $V\subseteq\Hc$, a prior $\nu$ on $V$, and $0<r\le\rect(\Hc)$. There is a law $\lambda$ on monochromatic rectangles $S\times T\subseteq U\times V$ satisfying
+\begin{equation}
+ \E_{(S,T,c)\sim\lambda}[\one_S(z)\nu(T)]\ge r
+ \qquad(z\in U).
+ \label{eq:pointwise}
+\end{equation}
+This law depends on the table, $U$, $V$, and $\nu$, but not on $D$.
+\end{lemma}
+
+\begin{proof}
+For every distribution $\mu$ on $U$, some rectangle has $\mu(S)\nu(T)\ge r$. Finite minimax gives a mixture of these rectangles whose weighted coverage is at least $r$ at every point. Appendix~\ref{app:rectangle} gives the corresponding finite separation argument.
+\end{proof}
+
+\paragraph{The algorithm.}\label{alg:rectify}
+\Rectify{} maintains unlabelled points $U$, surviving hypotheses $V$, and a partial predictor. Start with $U=X$ and $V=\Hc$. Query $u=D(U)$ and stop when its estimate is at most $\eps/4$. Otherwise use Lemma~\ref{lem:mixture}, with the uniform prior on $V$, to propose $(S,T,c)$. Query $s=D(S)$ and reject the proposal if $\widehat s<(r/2)\widehat u$. For an accepted proposal, query the disagreement mass
+\[
+ w=D(S\cap\{h\ne c\}).
+\]
+If $\widehat w\le2\tau$, label $S$ with $c$ and remove it from $U$. Otherwise remove $T$ from $V$. After a fixed number of rounds, stop and extend the partial predictor by $+1$.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+ \draw (0,0) rectangle (3,2.05);
+ \node at (1.5,2.32) {surviving hypotheses $V$};
+ \node[rotate=90] at (-.35,1.02) {unlabelled points $U$};
+ \fill[black!16] (.6,.65) rectangle (2.2,1.4);
+ \draw (.6,.65) rectangle (2.2,1.4);
+ \node at (1.4,1.02) {$S\times T$};
+ \draw[->] (3.15,1.35) -- (4.05,1.85);
+ \draw[->] (3.15,.7) -- (4.05,.2);
+ \node[align=left,anchor=west] at (4.2,1.8) {small disagreement: label and remove $S$\\
+    progress $a=D(S)/D(U)$};
+ \node[align=left,anchor=west] at (4.2,.25) {witnessed disagreement: remove $T$\\
+    progress $b=|T|/|V|$};
+ \node[anchor=west] at (4.2,-.55) {either accepted update gives progress at least $ab$};
+\end{tikzpicture}
+\caption{The two updates use different resources. Labelling removes probability mass; elimination removes possible targets. Pointwise coverage controls the expected product $ab$, so it guarantees progress whichever update a valid answer induces.}
+\label{fig:progress}
+\end{figure}
+
+\paragraph{Why it stops.}
+Put $a=s/u$ and $b=\nu(T)$. With the tolerance chosen in Appendix~\ref{app:rectangle}, acceptance implies $a\ge r/4$, while every proposal with $a\ge3r/4$ is accepted. A labelling step makes at most $3\tau$ error. An elimination never removes the target.
+
+Assign progress $G=a$ to labelling, $G=b$ to elimination, and $G=0$ to rejection. Either accepted update satisfies $G\ge ab$. Pointwise coverage gives $\E[ab\mid\text{history}]\ge r$, so rejection loses at most $3r/4$ and
+\begin{equation}
+ \E[G\mid\text{history}]\ge r/4.
+ \label{eq:drift}
+\end{equation}
+The cumulative elimination progress is at most $\ln K$; the cumulative labelling progress is at most $\ln(8/\eps)+1$. An exponential potential therefore bounds the probability of exhausting the round budget. The number of labelling steps is $O(\rho\log(1/\eps))$, explaining the tolerance in \eqref{eq:rectanglebound}. The proof in Appendix~\ref{app:rectangle} treats every allowable oracle answer.
+
+\section{Incidence signs and representation dimension}\label{sec:incidence}
+At scale $N$, the point set $X$ and line index set $\Lc$ are both $[N]\times[2N^2]$. A point is $p=(x,y)$ and a line is $\ell=(a,b)$, representing $y=ax+b$. Let
+\begin{equation}
+ F_{\ell,p}=-1\ \Longleftrightarrow\ y=ax+b.
+ \label{eq:grid}
+\end{equation}
+An incidence flip $A$ changes any subset of these negative entries to $+1$ and leaves every other entry positive. Its row class is $\Hc_A$. A random flip chooses each incidence sign independently and fairly.
+
+The line $\ell=(1,1)$ is a running example. Its template points are $(1,2),\ldots,(N,N+1)$. Their labels in its row can be chosen arbitrarily; the row remains positive elsewhere. A different line shares at most one of these points, and the two rows' signs at that point are separate random bits.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=.62cm,y=.62cm,font=\small,>=Stealth]
+ \node at (3.5,5.05) {incidence template $F$};
+ \node at (13.3,5.05) {one choice of flips $A$};
+ \foreach \off in {0,9.8}{
+   \foreach \i/\lab in {1/{(1,1)},2/{(1,2)},3/{(2,1)}}{
+     \node[anchor=east] at (\off+.25,3.5-\i) {$\lab$};
+   }
+   \foreach \j/\lab in {1/{(1,2)},2/{(2,3)},3/{(3,4)},4/{(1,3)},5/{(2,4)},6/{(3,7)}}{
+     \node[rotate=55,anchor=west,font=\scriptsize] at (\off+\j,3.05) {$\lab$};
+     \foreach \i in {1,2,3} \node at (\off+\j,3.5-\i) {$+$};
+   }
+   \draw (\off+.5,0) rectangle (\off+6.5,3);
+ }
+ \foreach \i/\j in {1/1,1/2,1/3,2/4,2/5,3/4,3/6}{
+   \fill[white] (\j,3.5-\i) circle (.19);
+   \fill[black!17] (\j-.4,3.5-\i-.34) rectangle (\j+.4,3.5-\i+.34);
+   \node at (\j,3.5-\i) {$-$};
+ }
+ \foreach \i/\j in {1/1,1/3,2/5,3/4}{
+   \fill[white] (9.8+\j,3.5-\i) circle (.19);
+   \fill[black!17] (9.8+\j-.4,3.5-\i-.34) rectangle (9.8+\j+.4,3.5-\i+.34);
+   \node at (9.8+\j,3.5-\i) {$-$};
+ }
+ \foreach \i/\j in {1/2,2/4,3/6}{\draw (9.8+\j,3.5-\i) circle (.3);}
+ \draw[->,thick] (6.9,1.5)--(8,1.5);
+\end{tikzpicture}
+\caption{A restriction of the scale-$3$ table. Shading marks negative entries; circles mark incidences changed to positive. Off-incidence entries cannot change. The shared point $(1,3)$ has independently chosen signs in rows $(1,2)$ and $(2,1)$. No two distinct rows have two common incidences.}
+\label{fig:incidence}
+\end{figure}
+
+\begin{proposition}[Geometry and an upper representation]\label{prop:geometry}
+Every incidence flip satisfies
+\begin{equation}
+ \VC(\Hc_A)\le2,\qquad \rect(\Hc_A)\ge2^{-15},\qquad \dc(\Hc_A)\le N+3.
+ \label{eq:geometry}
+\end{equation}
+The template has sign-rank at most six and has exactly
+\begin{equation}
+ I=2N^4-\bigl(N(N+1)/2\bigr)^2\ge N^4
+ \label{eq:incidencecount}
+\end{equation}
+incidences.
+\end{proposition}
+
+\paragraph{Why the geometry survives.}
+The score $(ax+b-y)^2-1/2$ gives a six-dimensional strict representation of $F$. The homogeneous-rectangle theorem of \citet{APP05}, in the formulation of \citet[Theorem~1.9]{HHPTZ22}, gives a large monochromatic rectangle under every product distribution. Positive rectangles survive every flip. A negative rectangle has a singleton side, because distinct lines meet at most once; splitting its other side by the new signs retains at least half its mass. This proves the rectangle bound. The same one-intersection property forbids shattering three points.
+
+The upper representation stores the labels along a line, not its whole row. Let $q_\ell(t)$ be its label at $(t,at+b)$, taking $+1$ when that point is outside the domain. Then
+\begin{equation}
+ q_\ell(x)+2(y-ax-b)^2
+ \label{eq:representation-score}
+\end{equation}
+has the desired sign. It lies in the span of $\one_{\{x=t\}}$ for $t\in[N]$, together with $y$, $xy$, and $y^2$. Appendix~\ref{app:geometry} verifies the coefficients and the incidence count. For the running line, the $N$ indicator coefficients store its $N$ arbitrary signs; the quadratic term forces positivity away from the line.
+
+\subsection{Counting on the incidence support}
+The lower bound must count the part of the table that actually varies. Off-incidence entries contain no random information.
+
+\begin{lemma}[Restricted sign patterns]\label{lem:mask}
+On a specified set $J$ of $s$ entries of a $k\times q$ matrix, the number of strict sign patterns produced by real matrices of rank at most $d$ is at most
+\begin{equation}
+ \left(\frac{8es}{v}\right)^v,\qquad v=(k+q)d,\quad 1\le v\le s.
+ \label{eq:maskcount}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Factor the matrix into $k$ row vectors and $q$ column vectors in $\R^d$. Its entries in $J$ are $s$ degree-two polynomials in $v$ variables. Apply the strict-sign form of \citet{Warren68}; this factorization argument is standard in sign-rank counting \citep{AMY16}.
+\end{proof}
+
+For $0\le\eta<1/2$, let $\hbin(\eta)=-\eta\log_2\eta-(1-\eta)\log_2(1-\eta)$, with $0\log_2 0=0$, and set
+\begin{equation}
+ c_\eta=1-\hbin(\eta),\qquad
+ s_\eta=\left\lfloor\frac{c_\eta^2 I}{32(K+Q)}\right\rfloor.
+ \label{eq:seta}
+\end{equation}
+Here $K=Q=2N^3$. Lemma~\ref{lem:mask} counts at most $2^{c_\eta I/2}$ patterns in rank $s_\eta$; a Hamming ball of radius $\eta I$ contains at most $2^{\hbin(\eta)I}$ patterns. Their union covers at most a $2^{-c_\eta I/2}$ fraction of the random signs.
+
+\begin{lemma}[Probabilistic reductions]\label{lem:prob-reduction}
+If $\dc_\eta(\Hc_A)=d$, one strict rank-$(d+1)$ matrix makes at most $\eta I$ errors on the incidences. For every finite class,
+\begin{equation}
+ \dc_{1/4}(\Hc)\le\edc(\Hc)+1.
+ \label{eq:exact-to-average}
+\end{equation}
+\end{lemma}
+
+\paragraph{Why randomization does not evade the count.}
+For each nonempty line support $J_\ell$, use the uniform marginal on $J_\ell$ and weight the row by $|J_\ell|/I$. The expected total incidence error is at most $\eta I$, so one embedding attains that bound. Make its predictions strict with the constant feature. For \eqref{eq:exact-to-average}, the constant feature provides a predictor of error at most $1/2$ whenever exact representation fails; failure has probability at most $1/2$. Appendix~\ref{app:counting} gives the full reductions.
+
+\begin{theorem}[Dimension probabilities]\label{thm:dimensions}
+A random incidence flip satisfies
+\begin{align}
+ \Pr[\dc(\Hc_A)\le s_0]&\le2^{-I/2},\label{eq:ordinaryprob}\\
+ \Pr[\dc_\eta(\Hc_A)<s_\eta]&\le2^{-c_\eta I/2},\label{eq:averageprob}\\
+ \Pr[\edc(\Hc_A)<s_{1/4}-1]&\le2^{-c_{1/4}I/2}.
+ \label{eq:exactprob-bound}
+\end{align}
+\end{theorem}
+
+Together with Proposition~\ref{prop:geometry}, these bounds prove the three matching dimension orders. In particular, high dimension is not caused merely by insisting on exact representation.
+
+\section{Allowing a prior and discarding targets}\label{sec:prior}
+A stronger relaxation chooses the feature law for a known target prior and requires it to work only for most targets. This is the average probabilistic dimension of \citet[Definition~3.2]{KM25}. We denote it by $\adc_{\eta,\delta}(\pi)$ and use Boolean threshold loss: it is the least $d$ admitting one law on maps $\phi:X\to\R^d$ with
+\begin{equation}
+ \Pr_{h\sim\pi}\left[\ \forall D\in\Delta(X),\quad
+       \E_\phi\mathcal E_\phi(D,h)\le\eta\ \right]\ge1-\delta.
+ \label{eq:adcdef}
+\end{equation}
+The law may depend on $\pi$. It may not depend on the realized target or on $D$. The good set of targets must work for every marginal.
+
+\begin{theorem}[Dimension after discarding targets]\label{thm:prior}
+Let $\Lc_0=[N]\times[N^2]$ be the full-length lines, let $L=|\Lc_0|=N^3$, and let $\pi_N$ be the prior on $\Hc_A$ induced by a uniform line in $\Lc_0$. Fix $0\le\eta<1/2$ and $0\le\delta<1$. Put
+\begin{equation}
+ g=\ceil{(1-\delta)L},\qquad
+ t_{\eta,\delta}=\left\lfloor\frac{c_\eta^2 gN}{32(g+Q)}\right\rfloor.
+ \label{eq:prior-threshold}
+\end{equation}
+Then
+\begin{equation}
+ \Pr_A[\adc_{\eta,\delta}(\pi_N)<t_{\eta,\delta}]
+ \le \binom{L}{g}\,2^{-c_\eta gN/2}.
+ \label{eq:prior-prob}
+\end{equation}
+Consequently $\adc_{\eta,\delta}(\pi_N)=\Theta_{\eta,\delta}(N)$ with probability $1-\exp(-\Omega_{\eta,\delta}(N^4))$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Fix $g$ rows. Their $gN$ incidence signs are independent. An embedding that approximates all these rows under every marginal gives, by testing on each row's line, a rank-$(d+1)$ approximation to these signs. Apply Lemma~\ref{lem:mask} with $g$ rows and $Q$ columns, then count nearby patterns. Finally take a union bound over the $\binom{L}{g}$ possible good row sets. Their logarithmic number is only $O(N^3)$; the random signs supply $\Theta(N^4)$ bits. Appendix~\ref{app:prior} proves the statement, including priors with repeated functions.
+\end{proof}
+
+Thus the learner's advantage remains even when the representation may sacrifice, for example, $99\%$ of the targets under this prior. The constants deteriorate with the retained fraction, but the dimension is still linear in $N$ for each fixed positive fraction.
+
+There is also a general relation between the prior-average and worst-target notions. Allowing a separate feature law for every prior does not yield an independent dimension scale once the error parameters are adjusted.
+
+\begin{proposition}[From all priors to all targets]\label{prop:prior-minimax}
+For every finite class, $0\le\eta<1/2$, and $0\le\delta<1$, put $\theta=\eta+(1/2-\eta)\delta$. Then
+\begin{equation}
+ \dc_\theta(\Hc)-1
+ \le \sup_{\pi\in\Delta(\Hc)}\adc_{\eta,\delta}(\pi)
+ \le \dc_\eta(\Hc).
+ \label{eq:prior-minimax}
+\end{equation}
+\end{proposition}
+
+To see the left inequality, append a constant feature. Good targets have expected error at most $\eta$ and all other targets have error at most $1/2$. Against any mixture of target--marginal pairs, one feature law therefore has average error at most $\theta$. A finite minimax argument chooses one law for every pair. Only finitely many Boolean prediction families are induced by feature maps on $X$, so there is no compactness assumption on real-valued maps. The complete proof appears in Appendix~\ref{app:prior}.
+
+\subsection{The comparison with gradient-descent claims}\label{sec:km}
+The relevant comparison is with a specific intermediate statement, not with gradient descent in general. Define $\sqdim(\Hc,D)$ as the largest number $d$ of distinct rows satisfying $\E_D[h_i h_j]\le1/d$ for $i\ne j$, and put $\sqdim(\Hc)=\max_D\sqdim(\Hc,D)$. This is the classical SQ dimension used in \citet[Definition~3.5]{KM25}, rather than a characterization of distribution-independent strong learning \citep{Feldman17}.
+
+\begin{proposition}[Rectangles bound classical SQ dimension]\label{prop:classical-sq}
+For every finite nonempty class,
+\begin{equation}
+ \sqdim(\Hc)\le 2/\rect(\Hc).
+ \label{eq:classical-sq}
+\end{equation}
+In particular, every incidence flip has $\sqdim(\Hc_A)\le2^{16}$.
+\end{proposition}
+
+The proof squares the sum of the nearly uncorrelated rows on a monochromatic rectangle. It is given in Appendix~\ref{app:prior}. Combining this proposition with Theorem~\ref{thm:prior} rules out any bound on $\adc_{\eta,\delta}(\pi)$ that depends only on classical SQ dimension, for fixed $\eta<1/2$ and $\delta<1$.
+
+\citet[Theorem~4.1]{KM25} assert the bound $\adc_{\eta,\delta}(\pi)=O(\sqdim(\Hc)^{24.01})$ for small fixed errors. The preceding result contradicts that assertion under their stated quantifiers. Their literal unthresholded $0$--$1$ loss is at least as restrictive as threshold loss, so it cannot avoid this lower bound. 
+
+In their Appendix~A.3, boosting selects feature distributions using reweighted marginals that depend on the target; this does not construct the single law required by \eqref{eq:adcdef}. 
+
+Their Theorem~3.3 concerns clipped, finite-precision mini-batch SGD, with batch size $b$, precision $c$, $T$ steps, $p$ parameters, and $bc^2\gtrsim\log(Tp/\delta)$. It asserts a bound $\adc_{\eta,\delta}\le\poly(Tp/c^2)$ for fixed small errors; its proof invokes Theorem~4.1. Our counterexample invalidates that step, but does not establish that the mini-batch conclusion itself is false. We prove no separation for the benign-network dynamics in Open Question~1 of \citet{FKS26}.
+
+\section{Query optimality and general dimension bounds}\label{sec:optimality}
+A dimension lower bound alone need not make a class SQ-hard. For these random tables, however, a separate counting argument shows that the logarithmic query count cannot be improved at fixed tolerance.
+
+\begin{theorem}[Query lower bounds]\label{thm:querylower}
+Let $\chi=1-\hbin(3/8)$. Suppose $N\ge25$ and $\chi N\ge6\log_2N$. With probability at least $1-2^{-2N^3}-N^3e^{-N/32}$ over $A$, every randomized learner satisfying \eqref{eq:learnmodel}, for any $0<\eps<1/4$ and $0<\tau<1$, obeys
+\begin{equation}
+ m\ge\frac{\log_2 N+\log_2\!\bigl(\chi(1-8\eps/3)/8\bigr)}{\log_2\ceil{1/\tau}}.
+ \label{eq:lowerimproper}
+\end{equation}
+If its output must belong to $\Hc_A$, then
+\begin{equation}
+ m\ge\frac{3\log_2 N+\log_2(1-3\eps)}{\log_2\ceil{1/\tau}}.
+ \label{eq:lowerproper}
+\end{equation}
+The bounds already hold on targets from $\Lc_0$, with the uniform marginal on each target line.
+\end{theorem}
+
+\paragraph{Why outputs, not targets, must be counted.}
+A fixed predictor fits a random row on its $N$ incidences with probability exponentially small in $N$. Counting all predictors shows that none fits more than $O(N^2)$ of the $N^3$ full-line instances. Quantizing the replies gives at most $\ceil{1/\tau}^m$ outputs for each fixed learner seed. Averaging over seeds proves \eqref{eq:lowerimproper}. A proper output fits at most one line instance, giving \eqref{eq:lowerproper}. An improper output can fit every line of one slope simultaneously, so the stronger proper bound cannot be obtained by counting target labels alone. Appendix~\ref{app:query} supplies both arguments.
+
+The same response tree supplies universal upper bounds. For randomized learners, a finite minimax argument and sampling of independent trees convert an approximate representation into exact ones.
+
+\begin{proposition}[Transcript representations]\label{prop:transcript}
+Suppose a randomized depth-$m$ learner achieves expected error $\eps<1/2$ at tolerance $0<\tau<1$. Put $B_\tau=\ceil{1/\tau}$ and $\gamma=1-2\eps$. Then
+\begin{align}
+ \dc_\eps(\Hc)&\le B_\tau^m,\label{eq:transcript}\\
+ \edc(\Hc)&\le B_\tau^m\ceil{2\gamma^{-2}\ln(2Q)},\label{eq:transcript-exactprob}\\
+ \dc(\Hc)&\le B_\tau^m\ceil{2\gamma^{-2}\ln(2KQ)}.\label{eq:transcript-exact}
+\end{align}
+For a deterministic learner, $\dc(\Hc)\le B_\tau^m$.
+\end{proposition}
+
+At fixed tolerance and accuracy, the lower and upper results have the same exponential order in $m$ for the incidence construction. The logarithms in \eqref{eq:transcript-exactprob}--\eqref{eq:transcript-exact} are not asserted to be necessary. Nor does the construction attain the full upper envelope for every varying tolerance.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+ \draw[->] (0,0)--(7.4,0) node[right] {input length $n$};
+ \draw[->] (0,0)--(0,3.65) node[above] {$\log_2 d$};
+ \draw[dashed,thick] (.3,.18)--(6.4,3.28);
+ \draw[thick] (.3,.11)--(6.4,2.55);
+ \draw[thick] (.3,.17) .. controls (1.4,.53) and (3.1,.75) .. (6.4,.9);
+ \node[anchor=west,align=left,font=\footnotesize] at (6.6,3.15) {general upper: $O_\eps(n)$\\at the incidence learner's resources};
+ \node[anchor=west,align=left,font=\footnotesize] at (6.6,2.25) {incidence flips: $\Theta(n)$\\$m=O_\eps(n)$, $\tau=\Omega_\eps(1)$};
+ \node[anchor=west,align=left,font=\footnotesize] at (6.6,.7) {Patel: $\Omega(n^{1/3})$\\$m,\tau^{-1}=2^{\widetilde O(n^{2/9})}$};
+\end{tikzpicture}
+\caption{A schematic comparison of proved growth orders, not numerical constants. The solid lower curve is Patel's ordinary-dimension lower bound. The incidence curve applies to all three dimensions. The dashed bound is Proposition~\ref{prop:transcript} evaluated with $K=Q=2^n$, $m=O_\eps(n)$, and fixed tolerance; it is not evaluated at Patel's query parameters.}
+\label{fig:parameters}
+\end{figure}
+
+\section{Computational implementations}\label{sec:computation}
+The distinction between the table size and its encoding length matters. The rectangle learner by itself does not evaluate arbitrary random incidence signs in polynomial time in $n$.
+
+\begin{theorem}[Table and succinct implementations]\label{thm:table}
+For every $0<\eps<1/4$, each incidence flip has the deterministic proper table-polynomial learner in \eqref{eq:mainlearn}. If its entries can instead be evaluated in time $E(n)$, it has a deterministic improper learner using $O(n^2)$ queries of tolerance $\eps/8192$, with computation polynomial in $(n,1/\eps,E(n))$ and an efficiently evaluable output.
+\end{theorem}
+
+The table algorithm derives a constant-size catalog of geometric rectangles from the six-dimensional template, then chooses useful rectangles deterministically. At the first negative labelling step, the one-intersection property either identifies a good row or locates a negative point. The remaining row supports away from that point are disjoint, which permits proper completion. Appendix~\ref{app:proper} gives a finite-bit implementation.
+
+The succinct algorithm uses the order along a line. At a trial slope $a$, the residual $y-ax$ increases with $x$ if $a$ is too small and decreases if it is too large. Noisy medians and one intersection-mass query distinguish these cases. A heavy atom identifies either the whole line or one negative point. This yields $O(\log N)$ stages with $O(\log N)$ queries each. Appendix~\ref{app:median} proves the result and a proper variant under a condition satisfied by almost every random table.
+
+The cryptographic result remains separate. Under the direct subexponential pseudorandom-function assumption stated in Appendix~\ref{app:prf}, for every prescribed integer $c\ge1$ there are polynomial-length keys such that almost every key defines a class with all three dimensions at least $n^c$ and a key-known proper polynomial-time learner using $O_\eps(n^2)$ queries at fixed tolerance. Every key has the deterministic improper learner. The key-length exponent depends on $c$; this does not give an unconditional succinct construction, or an exponential gap for one polynomial-time family.
+
+\section{Limitations and open problems}\label{sec:open}
+The main separation is sharp for its random incidence construction and for fixed-tolerance query order. It does not provide a natural, succinct class with an unconditional polynomial-time learner and the same exponential dimension. Explicit high-dimension flips would also address the direction of \citet[Problem~4.1]{HHPTZ22}; the present counting proof does not select them efficiently. The benign-gradient-descent question remains separate, and the failure of a general SQ-dimension-to-random-features implication does not settle it. Finally, the complete dependence of representation dimension on both $m$ and a varying $\tau$ remains undetermined.
+
+\acks{The author thanks the authors of the cited work for the constructions and questions developed here. GPT-6 Astra (OpenAI) assisted with mathematical development, source comparison, code, and writing. The author is responsible for the claims and presentation.}
+\paragraph{Reproducibility.}
+The source bundle includes the complete proofs, build instructions, and finite arithmetic checks. Earlier supporting lemmas in Lean cover only a small part of the argument; no whole-paper formal verification is claimed.
+\label{main-end}

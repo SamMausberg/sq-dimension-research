@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Mausberg
     given-names: Samuel
-version: "revision-8"
-date-released: "2026-09-11"
+version: "v2"
+date-released: "2026-10-04"
 repository-code: "https://github.com/SamMausberg/sq-dimension-research"
 url: "https://github.com/SamMausberg/sq-dimension-research"
 license-url: "https://github.com/SamMausberg/sq-dimension-research/blob/main/LICENSE"
@@ -19,5 +19,5 @@ preferred-citation:
     - family-names: Mausberg
       given-names: Samuel
   year: 2026
-  notes: "Unpublished manuscript, revision 8. Identify the repository commit used."
+  notes: "Unpublished manuscript, version 2. Identify the repository commit used."
   url: "https://github.com/SamMausberg/sq-dimension-research"

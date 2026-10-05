@@ -3,7 +3,7 @@
 **Samuel Mausberg**
 
 *Distribution-independent SQ learning does not imply low dimension complexity.*
-Manuscript, reproducible experiments, and supporting Lean proofs.
+Manuscript, finite checks, and supporting Lean proofs.
 
 **[Read the paper](paper/paper.pdf)** · **[Cite it](CITATION.cff)** ·
 **[Automated checks](https://github.com/SamMausberg/sq-dimension-research/actions)**
@@ -12,29 +12,55 @@ Manuscript, reproducible experiments, and supporting Lean proofs.
 
 | Path | Contents |
 | --- | --- |
-| [`paper/`](paper/) | Current LaTeX source, bibliography, TikZ figures, and PDF. Build `paper.tex`. |
-| [`experiments/`](experiments/) | Python experiments and retained reference data. |
-| [`formalization/`](formalization/) | Lean definitions, nine supporting lemmas, and an axiom verifier. |
+| [`paper/`](paper/) | Current LaTeX source (`paper.tex` with `main.tex` and `appendices.tex`; self-contained `paper_single.tex`), bibliography, and PDF. [`CHANGES.md`](paper/CHANGES.md) and [`SOURCE_NOTES.md`](paper/SOURCE_NOTES.md) record changes from the preceding manuscript and source scope. |
+| [`experiments/`](experiments/) | [`finite_checks/`](experiments/finite_checks/) for the current paper, plus earlier Python experiments and retained reference data. |
+| [`formalization/`](formalization/) | Lean definitions, 213 supporting theorems for steps of the current paper, and an axiom verifier. |
 | [`tools/`](tools/), [`tests/`](tests/) | Build, reproduction, packaging, integrity, and regression checks. |
-| [`audits/`](audits/), [`docs/`](docs/) | Verification records, provenance, and integrity hashes; `audits/current/` is the original revision 8 snapshot. |
-| [`history/`](history/) | Superseded source snapshots and archived development notes. |
-| [`submission/`](submission/) | Draft publication metadata and disclosure; nothing has been submitted. |
+| [`audits/`](audits/), [`docs/`](docs/) | Verification records, provenance, and integrity hashes for earlier revisions; `audits/current/` is the original revision 8 snapshot. |
+| [`history/`](history/) | Superseded source snapshots (revision 8 source in `turn08/`) and archived development notes. |
+| [`submission/`](submission/) | Draft publication metadata and disclosure for the current paper; nothing has been submitted. |
 
 ## Verification
 
-- [x] Manuscript builds; citation and reference checks pass.
-- [x] All 36 cited papers checked against primary titles and records.
-- [x] Twelve tool regression tests and six experiment suites pass.
-- [x] Nine Lean lemmas compile; all 30 local compiler theorem declarations pass
-  the axiom audit without proof holes or custom axioms.
+- [x] Manuscript builds (36 pages; main text ends on page 11) with no undefined
+  references or overfull boxes; `paper_single.tex` matches the modular source.
+- [x] All 22 bibliography records name a venue or arXiv source and every citation
+  resolves. The earlier primary-title audit covered the previous bibliography only.
+- [x] The paper's finite checks reproduce their recorded outputs; twelve tool
+  regression tests and the earlier experiment suites pass.
+- [x] 213 Lean theorems compile with warnings as errors; all 534 compiler theorem
+  declarations pass the axiom audit without proof holes or custom axioms. Every
+  paper label cited in the Lean sources exists in the manuscript.
 
-Lean covers supporting lemmas, **not the complete paper**. Tests and AI reviews
-are not independent mathematical peer review. HMAC experiments are not a PRF
-security proof.
+Lean covers parts of the argument, **not the complete paper**. Results are cited by
+title and TeX label, so the mapping survives renumbering. External theorems enter
+only as explicit, documented hypotheses.
 
-Detailed [citation evidence](audits/citation-titles-2026-09-11/titles.json),
-[Lean results](audits/setup-2026-09-11/lean/verification.json), and
-[release checks](audits/public-release-2026-09-11/verification.json) record the scope.
+| Paper statement | Lean coverage |
+| --- | --- |
+| Theorem *Sharp incidence separation* (`thm:main`) | Ingredients only: `2N³` points, VC dimension at most two, `dc ≤ N+3`, and threshold arithmetic. Not composed. |
+| Remark *Threshold ties* (`rem:ties`) | Not formalized. |
+| Theorem *Rectangle learner* (`thm:rectangle`) | Every inequality of the proof, the drift and exponential-potential argument, and the budget. The learner is not assembled into one query tree. |
+| Lemma *Pointwise coverage* (`lem:mixture`) | Formalized, including the finite separation argument. |
+| Proposition *Geometry and an upper representation* (`prop:geometry`) | VC dimension, `dc ≤ N+3`, template sign-rank at most six, and the incidence count are formalized. `rect ≥ 2^{-15}` assumes the homogeneous-rectangle theorem of Alon et al. |
+| Lemma *Restricted sign patterns* (`lem:mask`) | Not formalized (Warren's theorem); used as a hypothesis. |
+| Lemma *Probabilistic reductions* (`lem:prob-reduction`) | Not formalized. |
+| Theorem *Dimension probabilities* (`thm:dimensions`) | Not composed; its counting core is `lem:mask-approx`, and the threshold bounds are formalized. |
+| Theorem *Dimension after discarding targets* (`thm:prior`) | Counting steps only: full-length lines, tested entries, the threshold bound, and the probability exponent. |
+| Proposition *From all priors to all targets* (`prop:prior-minimax`) | Not formalized. |
+| Proposition *Rectangles bound classical SQ dimension* (`prop:classical-sq`) | Formalized. The corollary `sq(H_A) ≤ 2^16` assumes the homogeneous-rectangle theorem. |
+| Theorem *Query lower bounds* (`thm:querylower`) | Both bounds for every randomized learner, given the random-table events. The proper event follows from the Hoeffding event. Probabilities over the table are not formalized; the counting form of the Hamming-ball bound and the union-bound exponent are. |
+| Proposition *Transcript representations* (`prop:transcript`) | Rounding alphabet and leaf count only. |
+| Theorem *Table and succinct implementations* (`thm:table`) | Not formalized. |
+| Lemma *Approximation on a random mask* (`lem:mask-approx`) | Formalized, with Warren's count as a hypothesis. |
+| Theorem *Finite-table implementation* (`thm:table-general`) | Not formalized. |
+| Theorem *Order-median learner* (`thm:median`) | Not formalized beyond the noisy-median lemma. |
+| Lemma *Noisy median* (`lem:noisymedian`) | Formalized, against fully adaptive answers. |
+| Theorem *Key-known polynomial-time separation* (`thm:prf`) | Not formalized. |
+
+The probabilistic dimension notions and the prior-average dimension are not
+formalized. Finite checks are not formal verification, and tests are not independent
+mathematical peer review.
 
 ## Reproduce
 
@@ -53,18 +79,21 @@ Check formatting with `python -m ruff check .` and
 `python -m ruff format --check .`.
 
 For the PDF, install TeX Live (`texlive-latex-extra`, `texlive-science`,
-`texlive-pictures`, `texlive-fonts-recommended`, and `lmodern` on Debian/Ubuntu):
+`texlive-pictures`, `texlive-publishers`, `texlive-fonts-recommended`,
+`texlive-fonts-extra`, and `lmodern` on Debian/Ubuntu):
 
 ```sh
 python -X utf8 tools/build_paper.py --bibtex
 python -X utf8 tools/check_sources.py
 ```
 
+The build writes `paper/paper.pdf` in place; the committed PDF is the release copy.
+
 For Lean, install [elan](https://github.com/leanprover/elan), then:
 
 ```sh
 cd formalization
-lake exe cache get Mathlib.Analysis.SpecialFunctions.Sqrt Mathlib.MeasureTheory.Integral.Bochner.Basic Mathlib.Tactic.Linarith Mathlib.Tactic.Ring Mathlib.Analysis.SpecialFunctions.Log.Basic
+lake exe cache get
 python verify.py --output ../work/lean-verification.json
 cd ..
 ```
@@ -75,10 +104,11 @@ Generated dependencies and rerun outputs are ignored.
 
 ## Authorship, rights, and history
 
-GPT-6 Astra (OpenAI) assisted with derivations,
-drafting, source checks, code, figures, and simulated reviews. The paper discloses
-this assistance and attributes imported results. Samuel Mausberg is responsible
-for the claims, citations, and presentation.
+GPT-6 Astra (OpenAI) assisted with mathematical development, source comparison,
+code, and writing. The Lean formalization of the current version was developed with
+assistance from Claude (Anthropic). The paper discloses its AI assistance and
+attributes imported results. Samuel Mausberg is responsible for the claims,
+citations, and presentation.
 
 Original manuscripts and research material use [CC BY 4.0](LICENSES/CC-BY-4.0.txt).
 Original code uses [MIT](LICENSES/MIT.txt); see [LICENSE](LICENSE) for the scope.

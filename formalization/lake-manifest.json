@@ -91,6 +91,6 @@
    "inputRev": "v4.34.0-rc2",
    "inherited": true,
    "configFile": "lakefile.toml"}],
- "name": "sq_dc_turn2",
+ "name": "sqdc",
  "lakeDir": ".lake",
  "fixedToolchain": false}

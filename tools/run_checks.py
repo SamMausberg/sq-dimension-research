@@ -104,6 +104,17 @@ def run_checks(output: Path, caps: bool = False) -> dict:
             shutil.copy2(ROOT / "history/turn06/checks/recompute_constants.py", work / "checks")
             for path in (ROOT / "experiments").glob("*.py"):
                 shutil.copy2(path, work / "experiments")
+            # Finite checks distributed with the current manuscript; their JSON
+            # output must reproduce the recorded results exactly.
+            finite = ROOT / "experiments/finite_checks"
+            for script, recorded in (
+                ("check_parameters.py", "check_results.json"),
+                ("check_extensions.py", "extension_results.json"),
+            ):
+                run(str(finite / script), work, script.removesuffix(".py") + ".log")
+                produced = json.loads((output / (script.removesuffix(".py") + ".log")).read_text())
+                if produced != json.loads((finite / recorded).read_text(encoding="utf-8")):
+                    raise RuntimeError(f"{script}: output differs from {recorded}")
             run(
                 str(ROOT / "experiments/current/check_late_results.py"),
                 work,

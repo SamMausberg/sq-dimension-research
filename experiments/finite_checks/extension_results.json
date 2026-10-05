@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "exact_classical_SQ_rectangle_inequalities": 8385,
+    "exact_constant_feature_fallback_cases": 16320,
+    "exact_prior_threshold_and_variable_counts": 60,
+    "exact_same_slope_predictor_checks": 60709,
+    "exact_transcript_minimax_games": 200,
+    "numerical_Hamming_and_Warren_bounds": 256,
+    "numerical_transcript_concentration_budgets": 20,
+    "positive_margin_games_among_these": 75
+  },
+  "scope": "finite exact and numerical tests, not formal verification",
+  "seed": 20261005,
+  "status": "passed"
+}

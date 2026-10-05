@@ -1,48 +1,29 @@
 #!/usr/bin/env python3
-"""Canonical-statement/proof linkage, revision diff and dependency consistency.
+"""Statement inventory, cross-reference integrity, and Lean citation consistency.
 
-This checks source bindings and a reviewed dependency graph, not proof validity.
+Checks the modular manuscript (paper.tex, main.tex, appendices.tex), its
+self-contained copy paper_single.tex, the bibliography, and every paper label
+cited by the Lean formalization. This checks source bindings, not proof validity.
 """
 
 from __future__ import annotations
 
 import argparse
-import difflib
-import graphlib
 import hashlib
 import json
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SOURCES = ("main.tex", "appendices.tex")
 PAT = re.compile(
-    r"\\begin\{(theorem|lemma|proposition|corollary)\}(?:\[([^\]]*)\])?([\s\S]*?)\\end\{\1\}"
+    r"\\begin\{(theorem|lemma|proposition|corollary|remark|definition)\}"
+    r"(?:\[([^\]]*)\])?([\s\S]*?)\\end\{\1\}"
 )
-
-
-def canonical(base: Path):
-    records = []
-    for file in sorted(
-        list((base / "sections").glob("*.tex")) + list((base / "appendices").glob("*.tex"))
-    ):
-        text = file.read_text(encoding="utf-8")
-        for m in PAT.finditer(text):
-            label = re.search(r"\\label\{([^}]+)\}", m.group())
-            require(label is not None, (file, m.group()[:100]))
-            records.append(
-                dict(
-                    label=label[1],
-                    kind=m[1],
-                    title=m[2],
-                    file=file.relative_to(base).as_posix(),
-                    line=text.count("\n", 0, m.start()) + 1,
-                    end_line=text.count("\n", 0, m.end()) + 1,
-                    offset=m.start(),
-                    end_offset=m.end(),
-                    text=m.group(),
-                )
-            )
-    return records
+REF = re.compile(r"\\(?:[Cc]ref|ref|[Cc]pageref|pageref|eqref)\{([^}]+)\}")
+CITE = re.compile(r"\\cite[pt]?\*?(?:\[[^\]]*\])*\{([^}]+)\}")
+# Labels quoted in Lean comments, e.g. `prop:geometry` or `eq:incidencecount`.
+LEAN_LABEL = re.compile(r"`((?:thm|lem|prop|cor|rem|def|eq|app|sec|alg|fig):[A-Za-z0-9:_-]+)`")
 
 
 def require(condition, detail):
@@ -50,193 +31,106 @@ def require(condition, detail):
         raise ValueError(str(detail))
 
 
-def baseline_directory(root: Path) -> Path:
-    # The recovered release 7 places its TeX files under paper/. Never silently
-    # substitute a different release while labeling the output release 7.
-    for candidate in (
-        root / "history/turn07/paper",
-        root / "history/turn07/arxiv_source",
-        root / "history/turn07",
-    ):
-        if (candidate / "sections").is_dir() and (candidate / "appendices").is_dir():
-            return candidate
-    raise FileNotFoundError("Release-7 paper sources are missing; refusing a different baseline.")
-
-
 def write_text(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8", newline="\n")
 
 
-def check_sources(paper: Path, output: Path):
-    P = paper.resolve()
-    OUT = output.resolve()
-    OUT.mkdir(parents=True, exist_ok=True)
-    baseline = baseline_directory(ROOT)
-    st = canonical(P)
-    old = canonical(baseline)
-    by = {s["label"]: s for s in st}
-    previous = {s["label"]: s for s in old}
-    require(len(by) == len(st) == 40, (len(st), len(by)))
-    require(len(previous) == 39, len(previous))
-    require(set(previous) <= set(by), set(previous) - set(by))
-    aux = (P / "paper.aux").read_text(encoding="utf-8")
-    numbers = {a: b for a, b in re.findall(r"\\newlabel\{([^}]+)\}\{\{([^}]+)\}", aux)}
-    oldinv = {
-        q["label"]: q
-        for q in json.loads(
-            (ROOT / "history/turn06/checks/statement_inventory.json").read_text(encoding="utf-8")
-        )
-    }
-    texts = {f.relative_to(P).as_posix(): f.read_text(encoding="utf-8") for f in P.rglob("*.tex")}
-    proofs = {}
-    for name, text in texts.items():
-        for m in re.finditer(r"\\begin\{proof\}(?:\[([^\n]*)\])?([\s\S]*?)\\end\{proof\}", text):
-            head = m[1] or ""
-            labels = []
-            for q in re.findall(r"\\(?:[Cc]ref|ref)\{([^}]+)\}", head):
-                labels += q.split(",")
-            labels = [x for x in labels if x in by]
-            if not labels:
-                prior = [s for s in st if s["file"] == name and s["end_offset"] < m.start()]
-                if prior:
-                    labels = [max(prior, key=lambda s: s["end_offset"])["label"]]
-            for lab in labels:
-                require(lab not in proofs, ("duplicate proof", lab, name))
-                proofs[lab] = dict(
+def canonical(base: Path, names=SOURCES):
+    records = []
+    for name in names:
+        file = base / name
+        if not file.is_file():
+            continue
+        text = file.read_text(encoding="utf-8")
+        for m in PAT.finditer(text):
+            label = re.search(r"\\label\{([^}]+)\}", m.group())
+            require(label is not None, (name, m.group()[:100]))
+            records.append(
+                dict(
+                    label=label[1],
+                    kind=m[1],
+                    title=m[2],
                     file=name,
                     line=text.count("\n", 0, m.start()) + 1,
                     end_line=text.count("\n", 0, m.end()) + 1,
                     text=m.group(),
                 )
-    # The exact-parameter lemma is a declared shared proof unit with the main theorem.
-    if "lem:params" not in proofs:
-        proofs["lem:params"] = proofs["thm:main"] | {"shared_with": "thm:main"}
-    require(set(proofs) == set(by), (set(by) - set(proofs), set(proofs) - set(by)))
-    defs = []
-    refs = []
-    for name, s in texts.items():
-        defs += [
-            (lab, name, s.count("\n", 0, m.start()) + 1)
-            for m in re.finditer(r"\\label\{([^}]+)\}", s)
-            for lab in [m[1]]
-        ]
-        refs += [
-            (lab, name)
-            for m in re.finditer(r"\\(?:[Cc]ref|ref|[Cc]pageref|pageref|eqref)\{([^}]+)\}", s)
-            for lab in m[1].split(",")
-        ]
+            )
+    return records
+
+
+def expand_single(paper: Path) -> str:
+    """paper.tex with its \\input files and compiled bibliography inlined."""
+    text = (paper / "paper.tex").read_text(encoding="utf-8")
+    for command, name in (
+        ("\\input{main}", "main.tex"),
+        ("\\bibliography{references}", "paper.bbl"),
+        ("\\input{appendices}", "appendices.tex"),
+    ):
+        require(text.count(command) == 1, ("paper.tex must contain once", command))
+        text = text.replace(command, (paper / name).read_text(encoding="utf-8"))
+    return text
+
+
+def nonblank_lines(text: str) -> list[str]:
+    return [line.rstrip() for line in text.splitlines() if line.strip()]
+
+
+def lean_citations(formalization: Path) -> dict[str, list[str]]:
+    cited: dict[str, list[str]] = {}
+    for file in sorted(formalization.glob("**/*.lean")):
+        if ".lake" in file.parts:
+            continue
+        for label in LEAN_LABEL.findall(file.read_text(encoding="utf-8")):
+            cited.setdefault(label, []).append(file.relative_to(formalization).as_posix())
+    return {label: sorted(set(files)) for label, files in sorted(cited.items())}
+
+
+def check_sources(paper: Path, output: Path, formalization: Path | None = None):
+    P = paper.resolve()
+    OUT = output.resolve()
+    OUT.mkdir(parents=True, exist_ok=True)
+    st = canonical(P)
+    require(st, "No labeled statements found")
+    by = {s["label"]: s for s in st}
+    require(len(by) == len(st), [s["label"] for s in st])
+
+    texts = {name: (P / name).read_text(encoding="utf-8") for name in SOURCES}
+    defs = [
+        (m[1], name, text.count("\n", 0, m.start()) + 1)
+        for name, text in texts.items()
+        for m in re.finditer(r"\\label\{([^}]+)\}", text)
+    ]
     defined = {x[0] for x in defs}
-    missing = sorted(set(lab for lab, name in refs) - defined)
-    require(not missing, missing)
-    require(len(defs) == len(defined), [q for q in defined if sum(q == v[0] for v in defs) > 1])
-    allnumbers = sorted(int(numbers[s["label"]]) for s in st)
-    require(allnumbers == list(range(1, 41)), allnumbers)
-    extract = OUT / "statement_proof_extracts"
-    extract.mkdir(parents=True, exist_ok=True)
-    rows = []
-    diffs = []
-    mapping = [
-        "# Statement numbering",
-        "",
-        "| Release 7 | Current | Label | Source and proof |",
-        "|---|---|---|---|",
-    ]
-    for s in sorted(st, key=lambda s: int(numbers[s["label"]])):
-        label = s["label"]
-        proof = proofs[label]
-        num = numbers[label]
-        onum = oldinv.get(label, {}).get("number", "new")
-        write_text(
-            extract / f"{int(num):02d}.tex",
-            f"% {s['file']}:{s['line']}-{s['end_line']}\n"
-            + s["text"]
-            + f"\n\n% {proof['file']}:{proof['line']}-{proof['end_line']}\n"
-            + proof["text"]
-            + "\n",
-        )
-        if label in previous:
-            a = previous[label]["text"]
-            b = s["text"]
-            diff = "".join(
-                difflib.unified_diff(
-                    a.splitlines(True),
-                    b.splitlines(True),
-                    fromfile=f"release7:{label}",
-                    tofile=f"current:{label}",
-                )
-            )
-            if diff:
-                diffs.append(dict(label=label, old_number=onum, new_number=num, diff=diff))
-        else:
-            diffs.append(
-                dict(
-                    label=label,
-                    old_number="new",
-                    new_number=num,
-                    diff="NEW STATEMENT\n" + s["text"],
-                )
-            )
-        row = {k: v for k, v in s.items() if k not in ["offset", "end_offset", "text"]}
-        row.update(
-            number=num,
-            old_number=onum,
-            sha256=hashlib.sha256(s["text"].encode()).hexdigest(),
-            proof={k: v for k, v in proof.items() if k != "text"},
-        )
-        rows.append(row)
-        mapping.append(
-            f"| {onum} | {s['kind'].capitalize()} {num} | `{label}` | `{s['file']}:{s['line']}`; `{proof['file']}:{proof['line']}` |"
-        )
-    dep = json.loads(
-        (ROOT / "history/turn06/checks/proof_dependencies.json").read_text(encoding="utf-8")
-    )["edges_statement_to_dependencies"]
-    dep.pop("summary:MainTheorem", None)
-    dep["thm:prob"] += ["lem:exact-prob"]
-    dep["thm:query-lower"] = [
-        "aux:entropy-ball",
-        "aux:cube-concentration",
-        "thm:caps",
-        "thm:proper",
-    ]
-    dep["aux:entropy-ball"] = []
-    # Counts and query claims in the new theorem are proved in one proof unit;
-    # its upper bound invokes existing implementations, never conversely.
-    order = list(graphlib.TopologicalSorter(dep).static_order())
-    require(set(by) <= set(dep), set(by) - set(dep))
-    result = dict(
-        status="PASS",
-        baseline_directory=baseline.relative_to(ROOT).as_posix(),
-        numbering_source="history/turn06/checks/statement_inventory.json",
-        numbered_statements=len(st),
-        baseline_statements=len(previous),
-        retained_baseline_labels=len(set(previous) & set(by)),
-        bound_proofs=len(proofs),
-        global_consecutive_numbers=True,
-        undefined_labels=missing,
-        dependency_nodes=len(dep),
-        acyclic=True,
-        statement_rows=rows,
-        statement_changes=diffs,
-        scope="Source consistency plus a reviewed proof-dependency graph; mathematical validity is assessed in the proof ledger.",
+    require(
+        len(defs) == len(defined),
+        sorted({d[0] for d in defs if [x[0] for x in defs].count(d[0]) > 1}),
     )
-    write_text(OUT / "statement_changes.diff", "\n".join(d["diff"] for d in diffs))
-    write_text(
-        OUT / "proof_dependencies.json",
-        json.dumps(
-            dict(edges_statement_to_dependencies=dep, topological_order=order, acyclic=True),
-            indent=2,
-        )
-        + "\n",
+    refs = {lab for text in texts.values() for m in REF.finditer(text) for lab in m[1].split(",")}
+    missing = sorted(refs - defined)
+    require(not missing, ("undefined references", missing))
+
+    # Shared statement counter: numbers must be 1..n in source order.
+    aux = (P / "paper.aux").read_text(encoding="utf-8")
+    numbers = {a: b for a, b in re.findall(r"\\newlabel\{([^}]+)\}\{\{([^}]+)\}", aux)}
+    statement_numbers = [int(numbers[s["label"]]) for s in st]
+    require(statement_numbers == list(range(1, len(st) + 1)), statement_numbers)
+
+    # The self-contained source must be exactly the modular source, expanded.
+    single = P / "paper_single.tex"
+    require(single.is_file(), "paper_single.tex is missing")
+    require(
+        nonblank_lines(expand_single(P)) == nonblank_lines(single.read_text(encoding="utf-8")),
+        "paper_single.tex differs from paper.tex with main, bibliography, and appendices inlined",
     )
-    write_text(
-        OUT / "proof_dependencies.dot",
-        "digraph ProofDependencies {\n"
-        + "".join(f'  "{k}" -> "{v}";\n' for k, vs in dep.items() for v in vs)
-        + "}\n",
-    )
-    write_text(OUT / "NUMBERING.md", "\n".join(mapping) + "\n")
-    # Ensure every bibliography record names a publication or an arXiv source.
+
+    # Every citation resolves; every bibliography record names a venue or an arXiv source.
     bib = (P / "references.bib").read_text(encoding="utf-8")
+    keys = set(re.findall(r"^@\w+\{([^,]+),", bib, re.M))
+    cited = {
+        k.strip() for text in texts.values() for m in CITE.finditer(text) for k in m[1].split(",")
+    }
+    require(not cited - keys, ("citations without bibliography record", sorted(cited - keys)))
     bad = []
     for m in re.finditer(r"@(\w+)\{([^,]+),(.*?)(?=\n@|\Z)", bib, re.S):
         if not re.search(
@@ -246,14 +140,42 @@ def check_sources(paper: Path, output: Path):
         ):
             bad.append(m[2])
     require(not bad, bad)
-    write_text(
-        OUT / "bibliography_structure.json",
-        json.dumps(
-            dict(records=len(re.findall(r"^@", bib, re.M)), records_without_venue_or_arxiv=bad),
-            indent=2,
+
+    # Lean comments cite results by label; every cited label must exist in the paper.
+    lean = lean_citations(formalization or ROOT / "formalization")
+    unknown = {label: files for label, files in lean.items() if label not in defined}
+    require(not unknown, ("Lean cites labels absent from the paper", unknown))
+
+    rows = []
+    mapping = [
+        "# Statement numbering",
+        "",
+        "| Number | Kind | Title | Label | Source |",
+        "|---|---|---|---|---|",
+    ]
+    for s in st:
+        num = numbers[s["label"]]
+        rows.append(
+            {k: v for k, v in s.items() if k != "text"}
+            | dict(number=int(num), sha256=hashlib.sha256(s["text"].encode()).hexdigest())
         )
-        + "\n",
+        mapping.append(
+            f"| {num} | {s['kind'].capitalize()} | {s['title'] or ''} | `{s['label']}` | `{s['file']}:{s['line']}` |"
+        )
+    result = dict(
+        status="PASS",
+        numbered_statements=len(st),
+        consecutive_numbers=True,
+        labels=len(defined),
+        undefined_references=missing,
+        single_source_matches_modular=True,
+        bibliography_records=len(keys),
+        cited_keys=len(cited),
+        lean_cited_labels=lean,
+        statement_rows=rows,
+        scope="Source and citation consistency; mathematical validity is not checked here.",
     )
+    write_text(OUT / "NUMBERING.md", "\n".join(mapping) + "\n")
     write_text(OUT / "source_consistency.json", json.dumps(result, indent=2) + "\n")
     return result
 
@@ -270,7 +192,7 @@ def main():
         "--output",
         type=Path,
         default=ROOT / "work/paper/sources",
-        help="Directory for source audit reports and extracts.",
+        help="Directory for source audit reports.",
     )
     args = parser.parse_args()
     output = args.output.resolve()
@@ -293,13 +215,13 @@ def main():
                 for k in [
                     "status",
                     "numbered_statements",
-                    "baseline_statements",
-                    "bound_proofs",
-                    "dependency_nodes",
-                    "acyclic",
-                    "undefined_labels",
+                    "labels",
+                    "bibliography_records",
+                    "undefined_references",
+                    "single_source_matches_modular",
                 ]
-            },
+            }
+            | {"lean_cited_labels": len(result["lean_cited_labels"])},
             indent=2,
         )
     )

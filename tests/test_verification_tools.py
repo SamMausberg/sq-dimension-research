@@ -94,34 +94,47 @@ class CheckRunnerTests(unittest.TestCase):
 
 
 class SourceAuditTests(unittest.TestCase):
-    def test_release_seven_recovered_layout_is_selected(self):
+    def test_single_source_is_the_expanded_modular_source(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            paper = root / "history/turn07/paper"
-            (paper / "sections").mkdir(parents=True)
-            (paper / "appendices").mkdir()
-            self.assertEqual(check_sources.baseline_directory(root), paper)
+            (root / "paper.tex").write_text(
+                "\\begin{document}\n\\input{main}\n\\bibliography{references}\n"
+                "\\appendix\n\\input{appendices}\n\\end{document}\n",
+                encoding="utf-8",
+            )
+            (root / "main.tex").write_text("Main text.\n", encoding="utf-8")
+            (root / "paper.bbl").write_text("Bibliography.\n", encoding="utf-8")
+            (root / "appendices.tex").write_text("Appendix.\n", encoding="utf-8")
+            expanded = check_sources.nonblank_lines(check_sources.expand_single(root))
+            self.assertEqual(expanded[1:4], ["Main text.", "Bibliography.", "\\appendix"])
+            edited = check_sources.expand_single(root).replace("Appendix.", "Changed.")
+            self.assertNotEqual(check_sources.nonblank_lines(edited), expanded)
 
-    def test_missing_release_seven_does_not_fall_back_to_six(self):
+    def test_lean_label_citations_are_collected(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            (root / "history/turn06/sections").mkdir(parents=True)
-            (root / "history/turn06/appendices").mkdir()
-            with self.assertRaisesRegex(FileNotFoundError, "Release-7"):
-                check_sources.baseline_directory(root)
+            (root / "SQDC").mkdir()
+            (root / "SQDC/Example.lean").write_text(
+                "/-- Proposition (`prop:geometry`), equation `eq:grid`. -/\n", encoding="utf-8"
+            )
+            ignored = root / ".lake/packages/mathlib/Other.lean"
+            ignored.parent.mkdir(parents=True)
+            ignored.write_text("-- `thm:ignored`\n", encoding="utf-8")
+            self.assertEqual(
+                check_sources.lean_citations(root),
+                {"eq:grid": ["SQDC/Example.lean"], "prop:geometry": ["SQDC/Example.lean"]},
+            )
 
     def test_utf8_sources_and_posix_paths_are_preserved(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            section = root / "sections/example.tex"
-            section.parent.mkdir()
-            section.write_text(
+            (root / "main.tex").write_text(
                 "\\begin{theorem}[Mausberg's café]\n\\label{thm:test}Test.\\end{theorem}\n",
                 encoding="utf-8",
             )
             records = check_sources.canonical(root)
             self.assertEqual(records[0]["title"], "Mausberg's café")
-            self.assertEqual(records[0]["file"], "sections/example.tex")
+            self.assertEqual(records[0]["file"], "main.tex")
 
     def test_failed_source_audit_overwrites_existing_pass_status(self):
         with tempfile.TemporaryDirectory() as temporary:

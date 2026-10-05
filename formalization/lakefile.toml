@@ -1,6 +1,6 @@
-name = "sq_dc_turn2"
+name = "sqdc"
 version = "0.1.0"
-defaultTargets = ["Turn2"]
+defaultTargets = ["SQDC"]
 moreLeanArgs = ["-DwarningAsError=true"]
 
 [[require]]
@@ -11,5 +11,3 @@ rev = "2631d1cc8c2ace6c6a900425d6e5d2b5963966e9"
 [[lean_lib]]
 name = "SQDC"
 
-[[lean_lib]]
-name = "Turn2"
